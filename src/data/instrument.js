@@ -417,10 +417,10 @@ export const ITEMS = [
     type: 'options_4',
     prompt: 'Thinking about international students at American colleges and universities, which comes closest to your view?',
     options: [
-      { value: 'A', label: 'International students and scholars make American universities more competitive, enrich campus life, and contribute to research and innovation that benefits the broader economy.' },
+      { value: 'A', label: 'American universities are stronger because they recruit globally — the best students, researchers, and collaborators come from everywhere, and restricting that would make us weaker, not stronger.' },
       { value: 'B', label: 'Universities have expanded international enrollment primarily to increase tuition revenue and improve their global rankings — at the cost of genuine access for domestic students, especially those from low-income and working-class families, and at the expense of their academic integrity.' },
       { value: 'C', label: 'American universities should put qualified domestic applicants first — students from abroad are taking seats that should go to Americans, and institutions that receive public support and tax exemptions owe their first obligation to the people who fund them.' },
-      { value: 'D', label: 'International enrollment can strengthen universities, but growth should be contingent on demonstrating that domestic low-income and first-generation students are not losing access to seats or financial aid as a result.' },
+      { value: 'D', label: 'Universities should freeze or reduce international enrollment until they can demonstrate with evidence that domestic low-income and first-generation students are gaining seats and financial aid — not losing them.' },
     ],
   },
   {
