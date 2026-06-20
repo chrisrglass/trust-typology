@@ -101,15 +101,8 @@ export default function DimensionsPage() {
 
         <footer className="profile-footer" style={{ marginTop: '3rem' }}>
           <p>
-            A research project by{' '}
-            <a href="https://www.bc.edu/bc-web/schools/lynch-school/faculty-research/faculty/Chris-Glass.html" target="_blank" rel="noopener noreferrer">
-              Chris R. Glass
-            </a>
-            , Director, Executive Doctor of Education in Higher Education,
-            Boston College Lynch School of Education and Human Development.
-          </p>
-          <p>
-            Results and analysis at{' '}
+            A research project by Chris R. Glass, Director, Executive Doctor of Education in Higher Education,
+            Boston College Lynch School of Education and Human Development. Results and analysis at{' '}
             <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
               chrisrglass.substack.com
             </a>.
