@@ -1108,6 +1108,19 @@ a:hover {
 }
 .profile-para:last-child { margin-bottom: 0; }
 
+.profile-main-concerns {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+.profile-main-concerns-item {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+}
+.profile-main-concerns-item:last-child { margin-bottom: 0; }
+
 /* Item bars */
 .profile-items {
   display: flex;

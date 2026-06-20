@@ -76,10 +76,16 @@ export default function ProfilePage({ classId, highlightedId }) {
           </p>
         </section>
 
-        {/* What They Fear */}
+        {/* Top Trust Issues */}
         <section className="profile-section">
-          <h2 className="profile-section-title">What They Fear</h2>
-          <p className="profile-para">{profile.whatTheyFear}</p>
+          <h2 className="profile-section-title">Top Trust Issues</h2>
+          <p className="profile-para">{profile.topTrustIssues.issues}</p>
+          <p className="profile-para"><strong>Main concerns:</strong></p>
+          <ol className="profile-main-concerns">
+            {profile.topTrustIssues.mainConcerns.map((concern, i) => (
+              <li key={i} className="profile-main-concerns-item">{concern}</li>
+            ))}
+          </ol>
         </section>
 
         {/* Reform Stance */}
