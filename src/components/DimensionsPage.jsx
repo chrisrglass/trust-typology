@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { CLASSES } from '../data/classes.js'
 import { DIMENSIONS } from '../data/dimensionsData.js'
 import TypeIcon from './TypeIcon.jsx'
@@ -25,9 +25,16 @@ const SORTED_CLASSES = [
   'populist-antagonists',
 ].map(id => CLASSES.find(c => c.id === id))
 
-export default function DimensionsPage() {
-  const [activeId, setActiveId] = useState(null)
+export default function DimensionsPage({ initialDimId = null }) {
+  const [activeId, setActiveId] = useState(initialDimId)
   const activeDim = DIMENSIONS.find(d => d.id === activeId)
+  const detailRef = useRef(null)
+
+  useEffect(() => {
+    if (initialDimId && detailRef.current) {
+      setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+    }
+  }, [])
 
   function toggle(id) {
     setActiveId(prev => prev === id ? null : id)
@@ -77,7 +84,7 @@ export default function DimensionsPage() {
         </div>
 
         {activeDim && (
-          <div className="dim-detail" key={activeDim.id}>
+          <div className="dim-detail" key={activeDim.id} ref={detailRef}>
             <h2 className="dim-detail-title">
               <TypeIcon iconName={activeDim.icon} color="#2a2a2a" size={22} strokeWidth={1.6} />
               {activeDim.title}

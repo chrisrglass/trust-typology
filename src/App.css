@@ -1203,6 +1203,16 @@ a:hover {
 }
 .profile-main-concerns-item:last-child { margin-bottom: 0; }
 
+.profile-concern-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--text-secondary);
+  text-underline-offset: 2px;
+}
+.profile-concern-link:hover {
+  text-decoration-color: var(--text-primary);
+}
+
 .profile-dimensions-link {
   font-family: var(--font-ui);
   font-size: 0.875rem;

@@ -83,7 +83,11 @@ export default function ProfilePage({ classId, highlightedId }) {
           <p className="profile-para"><strong>Main concerns:</strong></p>
           <ol className="profile-main-concerns">
             {profile.topTrustIssues.mainConcerns.map((concern, i) => (
-              <li key={i} className="profile-main-concerns-item">{concern}</li>
+              <li key={i} className="profile-main-concerns-item">
+                {concern.dimId
+                  ? <a href={`#/dimensions/${concern.dimId}`} className="profile-concern-link">{concern.text}</a>
+                  : concern.text ?? concern}
+              </li>
             ))}
           </ol>
           <p className="profile-para" style={{ marginTop: '0.75rem' }}>

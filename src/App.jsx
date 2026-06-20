@@ -22,7 +22,8 @@ function parseHash(hash) {
   if (hash === '#/profiles') return { type: 'profile-index' }
   if (hash === '#/demographics') return { type: 'demographics' }
   if (hash === '#/typology') return { type: 'typology-landing' }
-  if (hash === '#/dimensions') return { type: 'dimensions' }
+  if (hash === '#/dimensions') return { type: 'dimensions', dimId: null }
+  if (hash.startsWith('#/dimensions/')) return { type: 'dimensions', dimId: hash.replace('#/dimensions/', '') }
   return { type: 'quiz-flow' }
 }
 
@@ -91,7 +92,7 @@ export default function App() {
   if (view.type === 'dimensions') {
     return (
       <div className="app app--profile">
-        <DimensionsPage />
+        <DimensionsPage initialDimId={view.dimId} />
       </div>
     )
   }

@@ -122,9 +122,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `The Institutional Faithful's concerns are directed outward — at what is being done to institutions they trust, not at failures from within. Their specific worries include the Trump administration's cancellation of more than $11 billion in NIH and NSF research grants as a political lever, the use of Title VI enforcement and DEI executive orders to coerce institutional governance, the administration's intervention in Columbia University's internal operations as an announced template for broader federal control of campus policy, FIRE's 2025 finding that one in three undergraduates report fearing to express their political views on campus, the structural dependence of research universities on federal grants that makes academic freedom contingent rather than inherent, and the U.S. campus academic freedom ranking now falling below most peer democracies on the Academic Freedom Index published by Scholars at Risk.`,
       mainConcerns: [
-        'Governance, Reform, and Accountability — they support reform from within and strongly oppose government content control over curriculum and research',
-        'Community Benefit and Public Mission — research funding cuts threaten the civilizational public goods they believe the university uniquely produces',
-        'Learning Quality and Educational Purpose — they want universities to articulate and deliver a compelling non-instrumental account of what they are for',
+        { text: 'Governance, Reform, and Accountability — they support reform from within and strongly oppose government content control over curriculum and research', dimId: 'governance-accountability' },
+        { text: 'Community Benefit and Public Mission — research funding cuts threaten the civilizational public goods they believe the university uniquely produces', dimId: 'community-benefit' },
+        { text: 'Learning Quality and Educational Purpose — they want universities to articulate and deliver a compelling non-instrumental account of what they are for', dimId: 'learning-quality' },
       ],
     },
     reformStance: 'Reform from within — the institution has the capacity to self-correct.',
@@ -149,9 +149,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `Critical Believers carry a precise economic ledger of higher education's failures. Their specific worries include the structural projection that by 2034 college graduates will outnumber available college-level jobs by 7 to 11 million, Bureau of Labor Statistics data showing 38 to 48 percent of recent graduates are underemployed and three-quarters of those who begin underemployed remain so a decade later, an Indeed/Harris Poll finding that 45 percent of Gen Z graduates already question whether their degree was worth what they paid, AI systematically eliminating the entry-level positions where new graduates have historically begun careers faster than institutions can retrain for what remains, the $1.7 trillion in outstanding student debt held disproportionately by graduates from low- and middle-income families recruited with promises the labor market has not kept, and the Quinnipiac 2026 finding that 83 percent of Americans across the political spectrum worry AI will diminish students' capacity for independent thinking.`,
       mainConcerns: [
-        'Institutional Self-Interest and Fiduciary Failure — the gap between marketed promise and measurable labor market delivery for the students who most needed the degree to work',
-        'AI and the Integrity of Learning — AI eliminating the entry-level employment rung the credential was supposed to unlock',
-        'Financial Stakes and Honest Dealing — who bears the downside risk when the degree underdelivers on its economic promise',
+        { text: 'Institutional Self-Interest and Fiduciary Failure — the gap between marketed promise and measurable labor market delivery for the students who most needed the degree to work', dimId: 'institutional-self-interest' },
+        { text: 'AI and the Integrity of Learning — AI eliminating the entry-level employment rung the credential was supposed to unlock', dimId: 'ai-integrity' },
+        { text: 'Financial Stakes and Honest Dealing — who bears the downside risk when the degree underdelivers on its economic promise', dimId: 'financial-stakes' },
       ],
     },
     reformStance: 'Reform is both necessary and possible — the mission is real, even if the performance is not.',
@@ -176,9 +176,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `Populist Antagonists have a structural critique rooted in specific, documentable evidence. Their particular concerns include the Harvard legacy admissions data disclosed during SFFA litigation showing a 70 percent acceptance rate for legacies compared to a 5 percent rate for unconnected applicants — documenting that admissions "merit" is structurally determined by wealth before applications are reviewed, the Delta Cost Project finding that administrative and professional staff at universities grew 60 percent faster than instructional staff between 2010 and 2020, the Supreme Court's SFFA ruling eliminating race-conscious admissions without addressing legacy preference or donor advantage, the Trump administration's Title VI enforcement campaign against universities (a tactic they support in principle while doubting it will materially benefit working-class Americans), AI encoding the same secular elite assumptions they associate with the university itself, and the credentialing economy functioning as a positional arms race requiring more schooling to access positions previous generations reached with less.`,
       mainConcerns: [
-        'Governance, Reform, and Accountability — democratic accountability through elected officials rather than institutional self-governance or accreditation insiders',
-        'Cultural Belonging and Identity Welcome — working-class, rural, and traditionally oriented Americans made explicitly unwelcome by campus culture and DEI bureaucracies',
-        'Institutional Self-Interest and Fiduciary Failure — institutions absorbing public money and political deference while systematically serving those already advantaged',
+        { text: 'Governance, Reform, and Accountability — democratic accountability through elected officials rather than institutional self-governance or accreditation insiders', dimId: 'governance-accountability' },
+        { text: 'Cultural Belonging and Identity Welcome — working-class, rural, and traditionally oriented Americans made explicitly unwelcome by campus culture and DEI bureaucracies', dimId: 'cultural-belonging' },
+        { text: 'Institutional Self-Interest and Fiduciary Failure — institutions absorbing public money and political deference while systematically serving those already advantaged', dimId: 'institutional-self-interest' },
       ],
     },
     reformStance: 'Democratic accountability — elected officials should hold captured institutions to account.',
@@ -203,9 +203,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `Indifferent Skeptics have concluded that the debates about reform are not being conducted for people like them. Their specific concerns include the wave of college closures accelerating to roughly three per week in 2024 and 2025 (approximately 550 campuses have closed since 2015), the documented pattern of institutions recruiting students with marketing that overstates outcomes and underrepresents risk then leaving non-completers with debt and no credential, Federal Reserve and Census data showing the earnings premium for bachelor's degrees has become increasingly uneven across institutions, fields, and demographics in ways raw averages obscure, administrative spending growing faster than instruction at virtually every institutional type over the past fifteen years, the enrollment cliff projected to reduce the traditional-age college population by more than 700,000 by 2029 (threatening closures concentrated at institutions serving the most financially precarious students), and public debates about higher education's future conducted by insiders for insiders in ways that will not materially affect communities where the college world never worked well.`,
       mainConcerns: [
-        'Financial Stakes and Honest Dealing — whether the investment is worth the risk for families without a safety net if things go wrong',
-        'Institutional Self-Interest and Fiduciary Failure — what institutions actually owe the students who enroll and do not complete, given the debt they leave with',
-        'Governance, Reform, and Accountability — public accountability mechanisms that function independent of which political faction controls them',
+        { text: 'Financial Stakes and Honest Dealing — whether the investment is worth the risk for families without a safety net if things go wrong', dimId: 'financial-stakes' },
+        { text: 'Institutional Self-Interest and Fiduciary Failure — what institutions actually owe the students who enroll and do not complete, given the debt they leave with', dimId: 'institutional-self-interest' },
+        { text: 'Governance, Reform, and Accountability — public accountability mechanisms that function independent of which political faction controls them', dimId: 'governance-accountability' },
       ],
     },
     reformStance: 'Build alternatives — neither reform nor replacement of the current system seems viable.',
@@ -229,9 +229,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `Community Meritocrats worry specifically about threats to what makes the credential meaningful. Their particular concerns include the AI-accelerated academic integrity crisis documented by AAC&U and Elon University in 2026, whose survey found 95 percent of higher education leaders believe AI will significantly affect academic integrity, grade inflation so widespread that median grades at most four-year institutions cluster at A and transcripts can no longer distinguish levels of achievement, the Quinnipiac 2026 cross-partisan finding that 83 percent of Americans worry AI will erode students' capacity to think independently, widespread smartphone-related classroom distraction that has structurally degraded the instructional time families are paying for, rapid institutional adoption of AI tools without frameworks ensuring students are developing competency rather than outsourcing it, and Trump administration executive orders restricting what faculty can research and what programs institutions can offer.`,
       mainConcerns: [
-        'Learning Quality and Educational Purpose — protecting the genuine cognitive formation that makes the credential\'s signal meaningful',
-        'AI and the Integrity of Learning — ensuring AI does not substitute for the independent reasoning formation is supposed to produce',
-        'Governance, Reform, and Accountability — reform should come from within, not from government dictation of curriculum and program content',
+        { text: 'Learning Quality and Educational Purpose — protecting the genuine cognitive formation that makes the credential\'s signal meaningful', dimId: 'learning-quality' },
+        { text: 'AI and the Integrity of Learning — ensuring AI does not substitute for the independent reasoning formation is supposed to produce', dimId: 'ai-integrity' },
+        { text: 'Governance, Reform, and Accountability — reform should come from within, not from government dictation of curriculum and program content', dimId: 'governance-accountability' },
       ],
     },
     reformStance: 'Reform from within — the institution works when it functions as designed.',
@@ -256,9 +256,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `Faith-Rooted Skeptics are alarmed by a specific and compounding cluster of threats. Their particular concerns include the BYU multi-institution research finding that every major AI model being integrated into university coursework systematically ignores or marginalizes religious and faith-rooted frameworks, the Vatican's January 2025 instruction Antiqua et nova identifying AI as a risk to moral formation and human dignity, the OBBBA earnings-accountability metric that would effectively defund ministry, social work, and theological degree programs (53 percent of religion bachelor's programs and 89 percent of religion master's programs would fail the proposed income test), the pattern of federal funding leverage being applied to override institutional curricula, FIRE's 2025 ranking placing American campuses below most peer democracies on academic freedom indices, and documented campus climates in which students from faith communities report having to suppress or privatize their religious identity to be taken seriously as scholars.`,
       mainConcerns: [
-        'Cultural Belonging and Identity Welcome — whether faith identity is genuinely welcome at secular institutions or merely tolerated conditionally',
-        'Governance, Reform, and Accountability — opposing federal content control over curriculum and institutional mission, including from administrations that claim sympathy with religious communities',
-        'Learning Quality and Educational Purpose — genuine character and virtue formation versus secular credentialing that evacuates moral content from education',
+        { text: 'Cultural Belonging and Identity Welcome — whether faith identity is genuinely welcome at secular institutions or merely tolerated conditionally', dimId: 'cultural-belonging' },
+        { text: 'Governance, Reform, and Accountability — opposing federal content control over curriculum and institutional mission, including from administrations that claim sympathy with religious communities', dimId: 'governance-accountability' },
+        { text: 'Learning Quality and Educational Purpose — genuine character and virtue formation versus secular credentialing that evacuates moral content from education', dimId: 'learning-quality' },
       ],
     },
     reformStance: 'Protect the mission — defend faith-based and community-specific institutions from federal leverage.',
@@ -283,9 +283,9 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: `The Economically Dispossessed are living the structural failure of the credential economy's promise to working-class and low-income communities. Their specific concerns include the collapse of Pell Grant purchasing power from 76 percent of four-year public university costs in the 1980s to 24 percent today, cuts to TRIO, GEAR UP, and Title IV programs that provide first-generation and low-income students their primary institutional support infrastructure, AI specifically eliminating entry-level employment in the sectors where community college graduates have historically started their careers (removing the first rung of the professional ladder at the moment when new graduates are most vulnerable), the documented stickiness of underemployment (38 to 48 percent of recent graduates underemployed, with three-quarters remaining underemployed a decade later), the cultural bargain embedded in most four-year institutions requiring working-class and minority students to assimilate to elite professional norms rather than develop from the identities and communities they bring, and a structural pattern of institutional recruitment into programs where completion is underfunded and dropout with debt is predictable.`,
       mainConcerns: [
-        'Institutional Self-Interest and Fiduciary Failure — predatory enrollment patterns and inadequate completion support for the students institutions most aggressively recruit',
-        'Financial Stakes and Honest Dealing — personal debt burden set against a mobility promise the labor market has not delivered',
-        'Cultural Belonging and Identity Welcome — the class-cultural assimilation that most institutions require as a condition of being taken seriously',
+        { text: 'Institutional Self-Interest and Fiduciary Failure — predatory enrollment patterns and inadequate completion support for the students institutions most aggressively recruit', dimId: 'institutional-self-interest' },
+        { text: 'Financial Stakes and Honest Dealing — personal debt burden set against a mobility promise the labor market has not delivered', dimId: 'financial-stakes' },
+        { text: 'Cultural Belonging and Identity Welcome — the class-cultural assimilation that most institutions require as a condition of being taken seriously', dimId: 'cultural-belonging' },
       ],
     },
     reformStance: 'Build alternatives — the current system has not been reformable for the communities that most needed it.',
