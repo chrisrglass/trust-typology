@@ -6,7 +6,7 @@
   --class-community-meritocrats:          #16a34a;
   --class-faith-rooted-skeptics:          #b45309;
   --class-institutional-faithful:         #2563eb;
-  --class-economically-dispossessed-left: #b91c1c;
+  --class-economically-dispossessed: #b91c1c;
 }
 
 /* ─── Reset / Base ─────────────────────────────────────────────────────────── */
@@ -903,7 +903,7 @@ a:hover {
 }
 
 .results-explore {
-  background: var(--color-surface-alt, #F7F5F2);
+  background: var(--bg-raised);
   border-radius: 8px;
   padding: 1.5rem;
 }
@@ -945,11 +945,11 @@ a:hover {
   font-family: var(--font-ui);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-text-primary, #111);
+  color: var(--text-primary);
 }
 
 .results-explore-card .explore-card-desc {
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-size: 0.88rem;
   color: var(--color-text-secondary);
   line-height: 1.45;

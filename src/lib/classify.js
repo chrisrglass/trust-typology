@@ -41,7 +41,7 @@ export function classifyResponses(responses) {
         classId = 'populist-antagonists'        // C2: UR+NAR — AI as values threat, want accountability
       }
     } else {
-      classId = 'economically-dispossessed-left'  // C7: LOL+OOL — oppose government content control
+      classId = 'economically-dispossessed'  // C7: LOL+OOL — oppose government content control
     }
   }
 

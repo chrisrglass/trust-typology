@@ -18,7 +18,7 @@ function badgeTextColor(accentColor) {
 const SORTED_CLASSES = [
   'institutional-faithful',
   'critical-believers',
-  'economically-dispossessed-left',
+  'economically-dispossessed',
   'community-meritocrats',
   'indifferent-skeptics',
   'faith-rooted-skeptics',

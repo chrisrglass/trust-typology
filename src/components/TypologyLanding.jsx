@@ -133,7 +133,7 @@ export default function TypologyLanding() {
           <p className="profile-para">
             <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a>,{' '}
             <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a>, and the{' '}
-            <a href="#/profiles/economically-dispossessed-left" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed Left</a>{' '}
+            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed</a>{' '}
             share belief in higher education's mission — but they are separated by their verdict on performance and by what repair requires.
           </p>
 
@@ -141,7 +141,7 @@ export default function TypologyLanding() {
           <p className="profile-para">
             <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> believe reform from within is both possible and necessary. The institution has the capacity to correct itself; what it needs is internal pressure and honest self-examination, not external mandates.{' '}
             <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> hold the mission steady while criticizing the performance — reform is necessary, but uncertain. For the{' '}
-            <a href="#/profiles/economically-dispossessed-left" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed Left</a>, reform hasn't arrived for the communities they know. Alternatives to the four-year degree need to be built, not just promised.
+            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed</a>, reform hasn't arrived for the communities they know. Alternatives to the four-year degree need to be built, not just promised.
           </p>
 
           <p className="typo-divide-q">On who bears the risk</p>
@@ -151,14 +151,14 @@ export default function TypologyLanding() {
           </p>
 
           <PullQuote stat="76% → 24%">
-            Pell Grant purchasing power relative to four-year public university costs — the collapse since the 1980s that anchors the Economically Dispossessed Left's core experience of the institution.
+            Pell Grant purchasing power relative to four-year public university costs — the collapse since the 1980s that anchors the Economically Dispossessed's core experience of the institution.
           </PullQuote>
 
           <p className="typo-divide-q">On the nature of the crisis</p>
           <p className="profile-para">
             <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> identify the threat as external: government overreach eroding academic freedom, research funding cuts, and political interference in curricula that undermine the conditions of knowledge production.{' '}
             <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> locate it internally — structural failure to deliver on the economic promise for working-class and low-income graduates. The{' '}
-            <a href="#/profiles/economically-dispossessed-left" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed Left</a> name something more personal: a broken promise to specific communities that had the most to gain and the least margin for error, communities that believed in the institution and were not repaid for that belief.
+            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed</a> name something more personal: a broken promise to specific communities that had the most to gain and the least margin for error, communities that believed in the institution and were not repaid for that belief.
           </p>
         </section>
 

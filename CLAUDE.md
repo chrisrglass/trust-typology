@@ -4,47 +4,134 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A React + Vite survey site for the Trust Project — a research instrument mapping distinct forms of trust in American higher education. Deployed to GitHub Pages at `https://chrisrglass.github.io/trust-typology/`.
+A React + Vite survey site for the Trust Project — a research instrument mapping seven distinct forms of trust in American higher education. Deployed to GitHub Pages at `https://chrisrglass.github.io/trust-typology/` (canonical domain: `trusttypology.com`).
 
-Responses are stored in Supabase for LCA (latent class analysis) to derive a trust typology modeled on Pew's 2026 Political Typology.
+Responses are stored in Supabase for LCA (latent class analysis). Target N=400–600 for live analysis; all prevalence and demographic data currently marked **ILLUSTRATIVE**.
 
-## Development
+## Commands
 
 ```bash
-npm install           # install dependencies
-npm run dev           # local dev server at http://localhost:5173/trust-typology/
-npm run build         # production build to dist/
+npm run dev      # Vite dev server at http://localhost:5173/trust-typology/
+npm run build    # Production build to dist/
+npm run lint     # ESLint
+
+# Deploy to GitHub Pages (always build first)
+npm run build && npx gh-pages -d dist
+
+# Push source separately
+git push origin main
 ```
+
+No test suite. Two branches matter: `main` (source) and `gh-pages` (built dist — managed by gh-pages package, never edit directly).
 
 ## Architecture
 
+**Routing** is hash-based with no React Router. `App.jsx` parses `window.location.hash` via `parseHash()` and listens to `hashchange`.
+
+| Hash | Component |
+|------|-----------|
+| `#/` (default) | Quiz flow: Landing → Quiz → Results |
+| `#/profiles` | ProfileIndex |
+| `#/profiles/:id` | ProfilePage |
+| `#/typology` | TypologyLanding |
+| `#/dimensions` | DimensionsPage |
+| `#/demographics` | DemographicsPage |
+
+**Quiz state** lives in `App.jsx`: `stage` ('landing' | 'quiz' | 'results') and `classResult`. Navigating away via hash links does not reset state — the results screen reappears when hash returns to `#/`.
+
+**Data flow:**
+1. User completes quiz → `handleComplete(responses)` in `App.jsx`
+2. `classifyResponses(responses)` in `src/lib/classify.js` runs a 6-item decision tree → returns a class object
+3. `submitResponse(SESSION_ID, responses)` fires async to Supabase (fire-and-forget; errors are logged, not surfaced)
+4. `classResult` is passed to `Results.jsx`
+
+## Survey Instrument
+
+`src/data/instrument.js` is the single source of truth for all 33 items. Edit here; everything else flows automatically.
+
+**Structure:**
+- Part A (indices 0–22): 23 forced-choice LCA items (`section: 'PART1'`)
+- Part B (indices 23–27): 5 demographic items (`section: 'DM'`)
+- Part C (indices 28–32): 5 representativeness items (`section: 'REP'`)
+
+**Item types supported:** `forced_choice`, `scale_4`, `scale_4_plus`, `options_3`, `options_4`, `yes_no`, `yes_no_depends`, `multiselect`, `single_select`, `matrix`, `text_input`
+
+Auto-advance (300ms delay): forced_choice, yes_no, options, scales. Manual "Next" button: multiselect, matrix, text_input.
+
+## Classification Logic
+
+`src/lib/classify.js` exports `classifyResponses(responses)`. Uses exactly **6 items** from the LCA battery as a decision tree:
+
+| Item ID | What it measures |
+|---------|-----------------|
+| `D5-D` | Degree as reliable ladder (A) vs. reinforces class divisions (B) |
+| `D3-G` | Research as public good (A) vs. too little accountability (B) |
+| `D1-I` | Underemployment as temporary (A) vs. structural outcome (B) |
+| `D2-C` | College as genuine formation (A) vs. credential only (B) |
+| `R-G` | Government oversight as legitimate (A) vs. political control (B) |
+| `D2-H` | AI as ideologically neutral (A) vs. excludes non-secular traditions (B) |
+
+Only these 6 items determine the type. All 23 Part A items are stored to Supabase but only 6 drive classification.
+
+## Seven Trust Types
+
+Defined in `src/data/classes.js`. `getClass(id)` returns a class by ID.
+
+| ID | Name | Icon | Color | ~% |
+|----|------|------|-------|----|
+| `institutional-faithful` | Institutional Faithful | Shield | `#2457A6` | 15% |
+| `critical-believers` | Critical Believers | Eye | `#6E3B6E` | 12% |
+| `economically-dispossessed` | Economically Dispossessed | Users | `#A3171C` | 22% |
+| `community-meritocrats` | Community Meritocrats | Star | `#1F6B4F` | 12% |
+| `indifferent-skeptics` | Indifferent Skeptics | TrendingDown | `#DDD7CE` | 10% |
+| `faith-rooted-skeptics` | Faith-Rooted Skeptics | CircleDashed | `#B78A2A` | 11% |
+| `populist-antagonists` | Populist Antagonists | Megaphone | `#C46A2D` | 17% |
+
+All prevalence figures are illustrative pending live LCA.
+
+## Icons
+
+Icons are referenced as **string names** in all data files (e.g., `"Shield"`) and resolved to lucide components in `src/components/TypeIcon.jsx` via `ICON_MAP`. Add new icon imports to `ICON_MAP` before using them in data files. Dimension icons were added to `TypeIcon.jsx` alongside type icons.
+
+## Trust Project Logo
+
+Two overlapping circles: `viewBox="0 0 48 32"`, `<circle cx="17" cy="16" r="13"/>` and `<circle cx="31" cy="16" r="13"/>`. Used in `Landing.jsx` and as `#tp-logo` symbol in `social-cards/index.html`. Do not use the triangular 3-circle variant.
+
+## CSS Design System
+
+All styles in `src/App.css` (single file, no CSS modules). Use these custom properties — do not invent new names:
+
+```css
+--bg-page, --bg-card, --bg-raised          /* backgrounds */
+--text-primary, --text-secondary, --text-muted
+--border-default, --border-strong
+--font-display, --font-body, --font-ui, --font-data
+--color-border, --color-text-secondary, --color-accent
 ```
-src/
-  data/instrument.js  — All 47 survey items (single source of truth; edits here flow through)
-  lib/supabase.js     — Supabase client + submitResponse() helper
-  components/
-    Landing.jsx       — Landing page with project description and consent
-    Quiz.jsx          — Quiz controller: pagination, progress, navigation
-    Question.jsx      — Renders any item type (forced_choice, matrix, multiselect, etc.)
-    Results.jsx       — Thank-you page; shows loading/error states
-  App.jsx             — Stage machine: landing → quiz → results
-  App.css             — All styles (no CSS modules)
-```
 
-## Environment Variables
+**Variables that do NOT exist** (will silently fail): `--color-surface-alt` (use `--bg-raised`), `--color-text-primary` (use `--text-primary`), `--font-serif` (use `--font-body`).
 
-Copy `.env.example` → `.env.local` and fill in Supabase credentials before running locally.
+Fonts: Playfair Display (`--font-display`), Source Serif 4 (`--font-body`), Inter (`--font-ui`).
 
-```
-VITE_SUPABASE_URL=https://your-project-id.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-```
+## Data Files
 
-Both vars are required in GitHub repository secrets (Settings → Secrets → Actions) for the deploy workflow to inject them at build time.
+| File | Contents |
+|------|----------|
+| `src/data/classes.js` | 7 CLASSES array + `getClass(id)` |
+| `src/data/dimensionsData.js` | 9 trust dimensions with `typeViews` keyed by all 7 class IDs. `discriminantPower` retained in data but not shown in UI |
+| `src/data/demographicsData.js` | `DEMOGRAPHIC_VARIABLES` + `CLASS_DEMOGRAPHICS` conditional probabilities; DemographicsPage inverts via Bayes' theorem |
+| `src/data/profileData.js` | `NATIONAL_AVERAGES`, `ITEM_OPTIONS`, `ITEM_LABELS`, expanded per-type content for ProfilePage |
+| `src/data/stateData.js` | US state → type assignments (ILLUSTRATIVE; not from live data) |
 
-## Supabase Setup
+## Social Cards
 
-Create a table in your Supabase project:
+`social-cards/index.html` is a standalone HTML file, not part of the Vite build. Preview locally at `file:///Users/chrisglass/trust-typology/social-cards/index.html`. Contains 15 cards at 1080×1080 rendered in 480px containers via `transform:scale(0.444444)`. SVG icons and the trust project logo are defined as `<symbol>` elements in a hidden `<defs>` block at top of `<body>`, referenced with `<use href="#symbol-id"/>`. All links use `trusttypology.com`. No `@chrisrglass` handle. Type color appears as a 20px left border strip on spotlight cards.
+
+## Environment
+
+Copy `.env.example` → `.env.local` and add Supabase credentials. Required secrets for GitHub Actions: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`. App degrades gracefully if not configured (logs warning, skips submit).
+
+## Supabase Schema
 
 ```sql
 create table responses (
@@ -54,64 +141,6 @@ create table responses (
   completed_at timestamptz not null,
   created_at timestamptz default now()
 );
-
--- Read-only for anon; inserts only
 alter table responses enable row level security;
 create policy "anon insert" on responses for insert to anon with check (true);
 ```
-
-## GitHub Pages Setup
-
-1. Go to repo Settings → Pages → Source: GitHub Actions
-2. Add secrets: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
-3. Push to `main` — the deploy workflow triggers automatically
-
-## Survey Instrument
-
-The full 47-item instrument lives in `src/data/instrument.js`, sourced from `08-instrument-fielding-ready.md`. The quiz site shows all items; the **analysis battery** (which items enter LCA) is a subset.
-
-Item types: `forced_choice`, `scale_4`, `scale_4_plus`, `options_3`, `options_4`, `yes_no`, `yes_no_depends`, `multiselect`, `single_select`, `matrix`
-
-To add or edit items, edit `ITEMS` in `src/data/instrument.js`. The `section` field must match a `SECTIONS` entry's `id`.
-
-## Analysis Battery (Finalized — v3, 2026-06-18)
-
-**16 clustering items** drive the LCA and typology assignment. These were validated across three simulation pilots (see `pilot/`).
-
-| # | Item | Type | Dimension |
-|---|---|---|---|
-| 1 | D2-F | 3-option | Purpose of HE: civic / moral-spiritual / career |
-| 2 | D5-B | Binary | Mobility skepticism |
-| 3 | D1-E | 4-option | Behavioral advice to a young person about college |
-| 4 | D6-A | Binary | Local embeddedness |
-| 5 | D6-B | Binary | Research reach |
-| 6 | D6-C | Binary | Prestige investment |
-| 7 | D2-C | Binary | Intellectual formation |
-| 8 | D4-A | Binary | Religious inclusion |
-| 9 | G1 | Binary | Mission scope: global vs. domestic-first |
-| 10 | G2 | 4-option | International enrollment stance |
-| 11 | G3 | 4-option | Foreign government involvement |
-| 12 | R-A1 | Binary | Self-reform capacity |
-| 13 | R-B | 3-option | Reform / replace / varies widely |
-| 14 | R-A2 | 4-option | Reform pathway |
-| 15 | FA-A-faculty | Scale 1–4 | Faculty confidence |
-| 16 | FA-A-administrators | Scale 1–4 | Administrator confidence |
-
-Plus 6 demographic items and 4 EX covariates = **26 total questions** for the typology quiz.
-
-Full specification, item rationale, and dropped-item log: `pilot/quiz-battery-spec.md`
-
-## Provisional Typology (pre-LCA)
-
-Six classes from simulation pilots. Names and profiles are provisional pending LCA on live fielded data (target N=400–600).
-
-| Class | ~% | Core Signature |
-|---|---|---|
-| Credential Pragmatist | 42% | Career purpose + domestic mission + market disruption |
-| Institutional Trustee | 20% | Civic purpose + global mission + reformable |
-| Mission-Aligned Abolitionist | 14% | Civic purpose + wants replacement |
-| Critical Reformer | 10% | Civic purpose + cannot self-reform + external accountability |
-| Outcomes-Focused | 8% | Career purpose + global mission |
-| Faith Formation | 6% | Moral-spiritual purpose + domestic mission + replacement |
-
-Classification logic: D2-F (purpose) → G1 (mission) → R-A1 + R-B (reform stance).

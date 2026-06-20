@@ -90,8 +90,8 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'economically-dispossessed-left',
-    name: 'Economically Dispossessed Left',
+    id: 'economically-dispossessed',
+    name: 'Economically Dispossessed',
     icon: 'TrendingDown',
     accentColor: '#A3171C',
     tagline: "The system broke its promise to the communities that believed in it.",

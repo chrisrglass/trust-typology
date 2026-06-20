@@ -4,7 +4,7 @@ import { DEMOGRAPHIC_VARIABLES, CLASS_DEMOGRAPHICS } from '../data/demographicsD
 const CLASS_ORDER = [
   'institutional-faithful',
   'critical-believers',
-  'economically-dispossessed-left',
+  'economically-dispossessed',
   'community-meritocrats',
   'indifferent-skeptics',
   'faith-rooted-skeptics',

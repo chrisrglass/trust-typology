@@ -225,7 +225,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.17,
     },
   },
-  'economically-dispossessed-left': {
+  'economically-dispossessed': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.16,
       'Liberal / Mainstream Democrat': 0.22,
