@@ -42,22 +42,7 @@ export default function Landing({ onStart }) {
 
       <footer className="landing-footer">
         <p>
-          A research project by{' '}
-          <a
-            href="https://chrisrglass.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Chris R. Glass
-          </a>{' '}
-          (<a
-            href="https://linkedin.com/in/chrisrglass"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>)
-          , Director, Executive Doctor of Education in Higher Education,
+          A research project by Chris R. Glass, Director, Executive Doctor of Education in Higher Education,
           Boston College Lynch School of Education and Human Development.
         </p>
       </footer>

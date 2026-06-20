@@ -96,10 +96,6 @@ export default function DemographicsPage() {
           composition of people who chose that answer — hover a segment to see the type and its share.
         </p>
 
-        {DEMOGRAPHIC_VARIABLES.map(variable => (
-          <DemographicSection key={variable.id} variable={variable} />
-        ))}
-
         <div className="demo-legend">
           {SORTED_CLASSES.map(cls => (
             <a key={cls.id} href={`#/profiles/${cls.id}`} className="demo-legend-item">
@@ -108,6 +104,10 @@ export default function DemographicsPage() {
             </a>
           ))}
         </div>
+
+        {DEMOGRAPHIC_VARIABLES.map(variable => (
+          <DemographicSection key={variable.id} variable={variable} />
+        ))}
 
         <footer className="profile-footer" style={{ marginTop: '2rem' }}>
           <p>
