@@ -2,7 +2,7 @@ export const CLASSES = [
   {
     id: 'critical-believers',
     name: 'Critical Believers',
-    accentColor: '#7c3aed',
+    accentColor: '#6E3B6E',
     tagline: "The university's mission matters — even when its performance falls short.",
     prevalence: '~12%',
     description:
@@ -16,7 +16,7 @@ export const CLASSES = [
   {
     id: 'populist-antagonists',
     name: 'Populist Antagonists',
-    accentColor: '#dc2626',
+    accentColor: '#C46A2D',
     tagline: "The system was built for someone else — and it's time for a reckoning.",
     prevalence: '~17%',
     description:
@@ -30,7 +30,7 @@ export const CLASSES = [
   {
     id: 'indifferent-skeptics',
     name: 'Indifferent Skeptics',
-    accentColor: '#6b7280',
+    accentColor: '#DDD7CE',
     tagline: 'Something is broken — but the reform debate is not your debate.',
     prevalence: '~10%',
     description:
@@ -44,7 +44,7 @@ export const CLASSES = [
   {
     id: 'community-meritocrats',
     name: 'Community Meritocrats',
-    accentColor: '#16a34a',
+    accentColor: '#1F6B4F',
     tagline: 'The degree works for those who commit — and institutions are worth trusting.',
     prevalence: '~12%',
     description:
@@ -58,7 +58,7 @@ export const CLASSES = [
   {
     id: 'faith-rooted-skeptics',
     name: 'Faith-Rooted Skeptics',
-    accentColor: '#b45309',
+    accentColor: '#B78A2A',
     tagline: 'Formation of character matters — and most secular institutions cannot provide it.',
     prevalence: '~11%',
     description:
@@ -72,7 +72,7 @@ export const CLASSES = [
   {
     id: 'institutional-faithful',
     name: 'Institutional Faithful',
-    accentColor: '#2563eb',
+    accentColor: '#2457A6',
     tagline: 'The university works — and is worth defending from its critics.',
     prevalence: '~15%',
     description:
@@ -86,7 +86,7 @@ export const CLASSES = [
   {
     id: 'economically-dispossessed-left',
     name: 'Economically Dispossessed Left',
-    accentColor: '#b91c1c',
+    accentColor: '#A3171C',
     tagline: "The system broke its promise to the communities that believed in it.",
     prevalence: '~22%',
     description:
