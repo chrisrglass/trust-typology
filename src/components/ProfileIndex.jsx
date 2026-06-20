@@ -10,7 +10,6 @@ export default function ProfileIndex({ highlightedId }) {
       </nav>
 
       <div className="profile-index-header">
-        <p className="eyebrow">Boston College · Research Instrument</p>
         <h1>Seven Ways Americans Relate to Higher Education</h1>
         <p className="profile-index-intro">
           Trust in higher education is not one thing in decline. It is a set of distinct relationships —

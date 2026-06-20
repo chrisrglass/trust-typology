@@ -78,7 +78,6 @@ export default function DemographicsPage() {
 
       <div className="profile-header-band" style={{ background: '#3a3a3a' }}>
         <div className="profile-header-inner">
-          <p className="profile-header-eyebrow">Boston College · Research Instrument</p>
           <h1 className="profile-header-name">Who Holds Each View?</h1>
           <p className="profile-header-tagline">
             For each survey response, the trust-type composition of people who gave that answer.

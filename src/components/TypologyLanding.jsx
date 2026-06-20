@@ -21,7 +21,6 @@ export default function TypologyLanding() {
 
       <div className="profile-header-band" style={{ background: '#3a3a3a' }}>
         <div className="profile-header-inner">
-          <p className="profile-header-eyebrow">Boston College · Research Instrument</p>
           <h1 className="profile-header-name">The Trust Typology</h1>
           <p className="profile-header-tagline">
             Seven distinct relationships Americans have with higher education
