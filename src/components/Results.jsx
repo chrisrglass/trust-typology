@@ -39,14 +39,44 @@ export default function Results({ classResult }) {
         </p>
       </div>
 
-      {/* Block 3: Divider */}
+      {/* Block 3: Full profile CTA */}
+      <div className="results-profile-cta">
+        <a
+          href={`#/profiles/${classResult.id}`}
+          className="btn-primary results-profile-cta-btn"
+          style={{ background: classResult.accentColor }}
+        >
+          Read your full profile →
+        </a>
+      </div>
+
+      {/* Block 4: Explore further */}
+      <div className="results-explore">
+        <p className="results-explore-heading">Explore the typology</p>
+        <div className="results-explore-links">
+          <a href="#/typology" className="results-explore-card">
+            <strong className="explore-card-title">About this typology</strong>
+            <span className="explore-card-desc">What all seven types share, and where the sharpest divides fall — on the left, on the right, and across the political divide</span>
+          </a>
+          <a href="#/dimensions" className="results-explore-card">
+            <strong className="explore-card-title">Nine Dimensions of Trust</strong>
+            <span className="explore-card-desc">The nine questions that reveal how differently Americans relate to higher education — and how each type responds</span>
+          </a>
+          <a href="#/demographics" className="results-explore-card">
+            <strong className="explore-card-title">Who holds each view?</strong>
+            <span className="explore-card-desc">For each survey response, the trust-type composition of people who gave that answer — by age, education, politics, and more</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Block 5: Divider */}
       <div className="results-divider" aria-hidden="true">
         <hr />
-        <span>Explore all seven types</span>
+        <span>See all seven types</span>
         <hr />
       </div>
 
-      {/* Block 4: All seven class cards, each linking to its profile */}
+      {/* Block 6: All seven class cards, each linking to its profile */}
       <div className="results-grid" role="list" aria-label="All seven trust typology profiles">
         {CLASSES.map(cls => (
           <a
@@ -69,15 +99,15 @@ export default function Results({ classResult }) {
         ))}
       </div>
 
-      {/* Block 5: Research footer */}
+      {/* Block 7: Research footer */}
       <div className="results-footer">
         <p>Thank you for participating in this research.</p>
         <p>
-          Results and analysis will be published at{' '}
+          Analysis and writing on what the data reveals will be published at{' '}
           <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
             chrisrglass.substack.com
-          </a>{' '}
-          when the study is complete.
+          </a>.
+          {' '}Subscribe to follow the findings as they develop.
         </p>
         <p>
           Questions? Contact{' '}
