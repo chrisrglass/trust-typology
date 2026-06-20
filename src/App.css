@@ -1013,6 +1013,11 @@ a:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+.profile-nav-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
 
 /* Header band */
 .profile-header-band {
@@ -1963,6 +1968,57 @@ a:hover {
   text-transform: uppercase;
   color: var(--text-secondary);
   margin: 2rem 0 0.5rem;
+}
+
+/* Dimensions of Trust page */
+.dimension-discriminant {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.dimension-types {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.dimension-type-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.dimension-type-badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.2em 0.65em;
+  border-radius: 3px;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  width: 11rem;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 0.15em;
+}
+.dimension-type-badge:hover {
+  opacity: 0.85;
+}
+
+.dimension-type-view {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* Inline type name links */

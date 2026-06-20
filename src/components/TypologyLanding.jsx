@@ -16,7 +16,10 @@ export default function TypologyLanding() {
 
       <nav className="profile-nav">
         <a href="#/profiles" className="profile-nav-back">← All Profiles</a>
-        <a href="#/" className="profile-nav-link">Take the survey →</a>
+        <div className="profile-nav-links">
+          <a href="#/dimensions" className="profile-nav-link">Dimensions of Trust</a>
+          <a href="#/" className="profile-nav-link">Take the survey →</a>
+        </div>
       </nav>
 
       <div className="profile-header-band" style={{ background: '#3a3a3a' }}>

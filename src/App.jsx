@@ -6,6 +6,7 @@ import ProfilePage from './components/ProfilePage.jsx'
 import ProfileIndex from './components/ProfileIndex.jsx'
 import DemographicsPage from './components/DemographicsPage.jsx'
 import TypologyLanding from './components/TypologyLanding.jsx'
+import DimensionsPage from './components/DimensionsPage.jsx'
 import { submitResponse } from './lib/supabase.js'
 import { classifyResponses } from './lib/classify.js'
 import './App.css'
@@ -21,6 +22,7 @@ function parseHash(hash) {
   if (hash === '#/profiles') return { type: 'profile-index' }
   if (hash === '#/demographics') return { type: 'demographics' }
   if (hash === '#/typology') return { type: 'typology-landing' }
+  if (hash === '#/dimensions') return { type: 'dimensions' }
   return { type: 'quiz-flow' }
 }
 
@@ -82,6 +84,14 @@ export default function App() {
     return (
       <div className="app app--profile">
         <TypologyLanding />
+      </div>
+    )
+  }
+
+  if (view.type === 'dimensions') {
+    return (
+      <div className="app app--profile">
+        <DimensionsPage />
       </div>
     )
   }

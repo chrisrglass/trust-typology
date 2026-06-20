@@ -61,6 +61,10 @@ export default function ProfileIndex({ highlightedId }) {
             <strong className="explore-card-title">Demographics</strong>
             <span className="explore-card-desc">Who belongs to each type — by age, education, politics, and more</span>
           </a>
+          <a href="#/dimensions" className="profile-index-explore-card">
+            <strong className="explore-card-title">Dimensions of Trust</strong>
+            <span className="explore-card-desc">Nine questions that reveal how differently Americans relate to higher education — and how each type responds</span>
+          </a>
         </div>
       </div>
 
