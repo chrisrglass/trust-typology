@@ -50,6 +50,20 @@ export default function ProfileIndex({ highlightedId }) {
         ))}
       </div>
 
+      <div className="profile-index-explore">
+        <p className="profile-section-title" style={{ maxWidth: '720px', margin: '0 auto 1rem' }}>Explore further</p>
+        <div className="profile-index-explore-links">
+          <a href="#/demographics" className="profile-index-explore-card">
+            <strong className="explore-card-title">Demographics</strong>
+            <span className="explore-card-desc">Who belongs to each type — by age, education, politics, and more</span>
+          </a>
+          <a href="#/map" className="profile-index-explore-card">
+            <strong className="explore-card-title">Map</strong>
+            <span className="explore-card-desc">The dominant type in each state, shown geographically</span>
+          </a>
+        </div>
+      </div>
+
       <footer className="profile-footer" style={{ maxWidth: '720px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <p>
           A research project by{' '}
