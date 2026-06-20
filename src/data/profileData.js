@@ -144,12 +144,12 @@ export const PROFILE_DATA = {
     nearestNeighborId: 'institutional-faithful',
     nearestNeighborNote: `Both believe in research as a public good, genuine intellectual formation, and higher education's capacity to reform itself. They diverge on whether the degree delivers economically — the Institutional Faithful are optimists; Critical Believers are structural pessimists who believe the degree reinforces the class divisions it claims to dissolve.`,
     keyItems: [
-      { id: 'D2-B',  classProb: 0.90, avgProb: 0.49 },
+      { id: 'D2-B',  classProb: 0.68, avgProb: 0.49 },
       { id: 'D3-G',  classProb: 0.92, avgProb: 0.42 },
       { id: 'D2-C',  classProb: 0.93, avgProb: 0.50 },
-      { id: 'R-A',   classProb: 0.88, avgProb: 0.39 },
+      { id: 'R-A',   classProb: 0.78, avgProb: 0.39 },
       { id: 'D5-D',  classProb: 0.06, avgProb: 0.38 },
-      { id: 'D6-A',  classProb: 0.12, avgProb: 0.43 },
+      { id: 'D6-A',  classProb: 0.30, avgProb: 0.43 },
     ],
   },
 
@@ -177,7 +177,7 @@ export const PROFILE_DATA = {
     expandedDescription: [
       `Indifferent Skeptics are the most internally unusual group in the typology. They see the system's failures clearly — the degree reinforces class divisions, admissions rewards wealth, research doesn't serve their communities — but they haven't organized these observations into a political framework. They're not angry. They're not mobilized. They've noticed the problem and decided that neither side of the reform debate is addressing it.`,
       `What makes them distinctive is not what they believe but what they don't believe: they have the lowest confidence in higher education's capacity for self-reform of any group, and the lowest support for any of the reform alternatives. They're not waiting for the right politician or the right policy. They've essentially concluded that the debate happening in public — reform vs. replace, accountability vs. autonomy — isn't the debate they'd be having if they were in charge.`,
-      `One position they hold with unusual force: when students don't finish college, the institution bears real responsibility. They're unanimous on this in the pilot data — no other group comes close. The degree was marketed as achievable; the debt was real; and the institution collected it. Their demand for accountability on non-completion is live for them even when everything else in the reform debate feels distant. It's the one place their structural critique becomes concrete.`,
+      `One position they hold with unusual force: when students don't finish college, the institution bears real responsibility. They're near-unanimous on this in the pilot data — no other group comes close. The degree was marketed as achievable; the debt was real; and the institution collected it. Their demand for accountability on non-completion is live for them even when everything else in the reform debate feels distant. It's the one place their structural critique becomes concrete.`,
     ],
     whatTheyFear: `Indifferent Skeptics' deepest concern is the mismatch between the credential's marketing and its actual delivery — especially for students who don't complete. They don't organize this fear into a political program, but they hold the institution categorically responsible when students drop out. The marketed promise, the debt incurred, and the missing credential constitute a transaction they find clearly unjust, even when they've given up on the reform debates that might address it.`,
     reformStance: 'Build alternatives — neither reform nor replacement of the current system seems viable.',
@@ -186,7 +186,7 @@ export const PROFILE_DATA = {
     keyItems: [
       { id: 'D5-A',  classProb: 0.92, avgProb: 0.69 },
       { id: 'D3-G',  classProb: 0.18, avgProb: 0.42 },
-      { id: 'D3-F',  classProb: 0.00, avgProb: 0.38 },
+      { id: 'D3-F',  classProb: 0.06, avgProb: 0.38 },
       { id: 'R-A',   classProb: 0.06, avgProb: 0.39 },
       { id: 'D5-D',  classProb: 0.12, avgProb: 0.38 },
     ],
@@ -223,12 +223,12 @@ export const PROFILE_DATA = {
     nearestNeighborId: 'community-meritocrats',
     nearestNeighborNote: `Both groups are optimistic about the degree's economic payoff and believe local colleges genuinely serve their communities. They separate on five critical items: Faith-Rooted Skeptics support loans for callings (ministry, social work, the arts), believe in formation through a virtue lens, support targeted HBCU and MSI protection, and strongly oppose government oversight. They are their own class — not a variant of Community Meritocrats — driven by institutional self-interest in protecting faith-based higher education.`,
     keyItems: [
-      { id: 'D4-E',  classProb: 0.89, avgProb: 0.51 },
-      { id: 'D6-A',  classProb: 0.96, avgProb: 0.43 },
+      { id: 'D4-E',  classProb: 0.08, avgProb: 0.51 },
+      { id: 'D6-A',  classProb: 0.72, avgProb: 0.43 },
       { id: 'D5-D',  classProb: 0.85, avgProb: 0.38 },
       { id: 'D3-G',  classProb: 0.06, avgProb: 0.42 },
       { id: 'R-G',   classProb: 0.05, avgProb: 0.41 },
-      { id: 'R-A',   classProb: 0.04, avgProb: 0.39 },
+      { id: 'R-A',   classProb: 0.17, avgProb: 0.39 },
     ],
   },
 
