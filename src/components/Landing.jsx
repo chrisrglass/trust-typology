@@ -29,11 +29,11 @@ export default function Landing({ onStart }) {
 
         <div className="landing-details">
           <div className="detail-card">
-            <span className="detail-number">26</span>
+            <span className="detail-number">33</span>
             <span className="detail-label">questions</span>
           </div>
           <div className="detail-card">
-            <span className="detail-number">5–8</span>
+            <span className="detail-number">8–12</span>
             <span className="detail-label">minutes</span>
           </div>
           <div className="detail-card">
@@ -44,7 +44,7 @@ export default function Landing({ onStart }) {
 
         <div className="landing-consent">
           <p>
-            At the end, you'll see which of six trust typology profiles fits your views — and how each profile relates to the others.
+            At the end, you'll see which of seven trust typology profiles fits your views — and how each profile relates to the others.
           </p>
           <p>
             Your responses are collected anonymously for academic research on public

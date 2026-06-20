@@ -35,12 +35,12 @@ export default function Results({ classResult }) {
       {/* Block 3: Divider */}
       <div className="results-divider" aria-hidden="true">
         <hr />
-        <span>Explore all six types</span>
+        <span>Explore all seven types</span>
         <hr />
       </div>
 
       {/* Block 4: All six class cards */}
-      <div className="results-grid" role="list" aria-label="All six trust typology profiles">
+      <div className="results-grid" role="list" aria-label="All seven trust typology profiles">
         {CLASSES.map(cls => (
           <div key={cls.id} role="listitem">
             <ClassCard

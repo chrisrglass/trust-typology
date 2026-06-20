@@ -1,11 +1,12 @@
 /* ─── Class Accent Colors ───────────────────────────────────────────────────── */
 :root {
-  --class-credential:   #c17f24;
-  --class-trustee:      #2d7d46;
-  --class-abolitionist: #8b2fc9;
-  --class-reformer:     #c93838;
-  --class-outcomes:     #1a7fa8;
-  --class-faith:        #a0522d;
+  --class-critical-believers:             #7c3aed;
+  --class-populist-antagonists:           #dc2626;
+  --class-indifferent-skeptics:           #6b7280;
+  --class-community-meritocrats:          #16a34a;
+  --class-faith-rooted-skeptics:          #b45309;
+  --class-institutional-faithful:         #2563eb;
+  --class-economically-dispossessed-left: #b91c1c;
 }
 
 /* ─── Reset / Base ─────────────────────────────────────────────────────────── */
@@ -590,6 +591,24 @@ a {
 .option-card:focus-within {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* ─── Text Input ─────────────────────────────────────────────────────────────── */
+.text-input-wrapper {
+  margin-top: 1rem;
+}
+.text-input-field {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.text-input-field:focus {
+  border-color: var(--color-accent);
 }
 
 /* ─── Section Interstitial ───────────────────────────────────────────────────── */

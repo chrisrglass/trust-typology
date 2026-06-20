@@ -143,6 +143,26 @@ export default function Question({ item, value, onChange, onAutoAdvance, promptR
     )
   }
 
+  if (item.type === 'text_input') {
+    return (
+      <div className="question">
+        {promptEl}
+        <div className="text-input-wrapper">
+          <input
+            type="text"
+            className="text-input-field"
+            value={value || ''}
+            onChange={e => onChange(e.target.value)}
+            placeholder={item.placeholder || ''}
+            pattern={item.inputPattern}
+            maxLength={item.maxLength}
+            aria-label={item.prompt}
+          />
+        </div>
+      </div>
+    )
+  }
+
   if (item.type === 'matrix') {
     const matrixValues = value || {}
     return (

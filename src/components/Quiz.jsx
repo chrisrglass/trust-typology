@@ -2,28 +2,29 @@ import { useState, useEffect, useRef } from 'react'
 import { ITEMS } from '../data/instrument.js'
 import Question from './Question.jsx'
 
-const TOTAL = 26
-const INTERSTITIAL_1_AFTER = 15  // show interstitial after item at index 15 (FA-A-administrators)
-const INTERSTITIAL_2_AFTER = 21  // show interstitial after item at index 21 (DM-F)
+const TOTAL = 33
+const INTERSTITIAL_1_AFTER = 22  // show interstitial after item at index 22 (D7-A, last LCA item)
+const INTERSTITIAL_2_AFTER = 27  // show interstitial after item at index 27 (DM-E, last demographic item)
 
 const INTERSTITIALS = {
   'interstitial-1': {
     part: 'Part II of III',
     title: 'About You',
     context: 'These questions help us understand who holds each view. They are not used to determine your typology class.',
-    nextIndex: 16,
-    prevIndex: 15,
+    nextIndex: 23,
+    prevIndex: 22,
   },
   'interstitial-2': {
     part: 'Part III of III',
     title: 'A Few More Questions',
     context: 'These final questions help us understand the context behind your views.',
-    nextIndex: 22,
-    prevIndex: 21,
+    nextIndex: 28,
+    prevIndex: 27,
   },
 }
 
 function hasAnswer(item, value) {
+  if (item.type === 'text_input') return true  // optional field — always enabled
   if (value === undefined || value === null) return false
   if (item.type === 'multiselect') return Array.isArray(value) && value.length > 0
   if (item.type === 'matrix') {
@@ -68,7 +69,7 @@ export default function Quiz({ onComplete }) {
   const currentItem = ITEMS[currentIndex]
   const currentValue = responses[currentItem?.id]
   const answered = currentItem ? hasAnswer(currentItem, currentValue) : false
-  const needsNextButton = currentItem && (currentItem.type === 'multiselect' || currentItem.type === 'matrix')
+  const needsNextButton = currentItem && (currentItem.type === 'multiselect' || currentItem.type === 'matrix' || currentItem.type === 'text_input')
   const progress = Math.round((currentIndex / TOTAL) * 100)
 
   function handleChange(value) {
