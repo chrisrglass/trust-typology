@@ -2,6 +2,7 @@ import { CLASSES } from '../data/classes.js'
 import { PROFILE_DATA } from '../data/profileData.js'
 import ClassCard from './ClassCard.jsx'
 import ItemBar from './ItemBar.jsx'
+import TypeIcon from './TypeIcon.jsx'
 
 export default function ProfilePage({ classId, highlightedId }) {
   const cls = CLASSES.find(c => c.id === classId)
@@ -30,6 +31,11 @@ export default function ProfilePage({ classId, highlightedId }) {
       <div className="profile-header-band" style={{ background: cls.accentColor }}>
         <div className="profile-header-inner">
           <p className="profile-header-eyebrow">Trust Typology</p>
+          {cls.icon && (
+            <div className="profile-header-icon">
+              <TypeIcon iconName={cls.icon} color="rgba(255,255,255,0.85)" size={48} strokeWidth={1.5} />
+            </div>
+          )}
           <h1 className="profile-header-name">{cls.name}</h1>
           <p className="profile-header-tagline">{cls.tagline}</p>
           <span className="profile-header-prevalence">{cls.prevalence} of adults (simulated)</span>
@@ -52,7 +58,7 @@ export default function ProfilePage({ classId, highlightedId }) {
           <h2 className="profile-section-title">Key Positions</h2>
           <p className="profile-section-intro">
             How this group responded to survey items, compared to the average across all seven types.
-            Bars show the share choosing each item's first option (A).
+            Each bar shows the majority position this type took, with the exact wording from the quiz.
           </p>
           <div className="profile-items">
             {profile.keyItems.map(item => (
@@ -94,7 +100,10 @@ export default function ProfilePage({ classId, highlightedId }) {
               style={{ borderColor: neighbor.accentColor }}
             >
               <div className="profile-neighbor-header">
-                <div className="profile-neighbor-dot" style={{ background: neighbor.accentColor }} />
+                {neighbor.icon
+                  ? <TypeIcon iconName={neighbor.icon} color={neighbor.accentColor} size={18} />
+                  : <div className="profile-neighbor-dot" style={{ background: neighbor.accentColor }} />
+                }
                 <span className="profile-neighbor-name" style={{ color: neighbor.accentColor }}>
                   {neighbor.name}
                 </span>
@@ -121,6 +130,7 @@ export default function ProfilePage({ classId, highlightedId }) {
                   tagline={c.tagline}
                   prevalence={c.prevalence}
                   accentColor={c.accentColor}
+                  icon={c.icon}
                   isYours={c.id === highlightedId}
                   expanded={false}
                 />

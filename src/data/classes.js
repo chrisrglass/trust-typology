@@ -2,6 +2,7 @@ export const CLASSES = [
   {
     id: 'critical-believers',
     name: 'Critical Believers',
+    icon: 'Eye',
     accentColor: '#6E3B6E',
     tagline: "The university's mission matters — even when its performance falls short.",
     prevalence: '~12%',
@@ -16,6 +17,7 @@ export const CLASSES = [
   {
     id: 'populist-antagonists',
     name: 'Populist Antagonists',
+    icon: 'Megaphone',
     accentColor: '#C46A2D',
     tagline: "The system was built for someone else — and it's time for a reckoning.",
     prevalence: '~17%',
@@ -30,6 +32,7 @@ export const CLASSES = [
   {
     id: 'indifferent-skeptics',
     name: 'Indifferent Skeptics',
+    icon: 'CircleDashed',
     accentColor: '#DDD7CE',
     tagline: 'Something is broken — but the reform debate is not your debate.',
     prevalence: '~10%',
@@ -44,6 +47,7 @@ export const CLASSES = [
   {
     id: 'community-meritocrats',
     name: 'Community Meritocrats',
+    icon: 'Users',
     accentColor: '#1F6B4F',
     tagline: 'The degree works for those who commit — and institutions are worth trusting.',
     prevalence: '~12%',
@@ -58,6 +62,7 @@ export const CLASSES = [
   {
     id: 'faith-rooted-skeptics',
     name: 'Faith-Rooted Skeptics',
+    icon: 'Star',
     accentColor: '#B78A2A',
     tagline: 'Formation of character matters — and most secular institutions cannot provide it.',
     prevalence: '~11%',
@@ -72,6 +77,7 @@ export const CLASSES = [
   {
     id: 'institutional-faithful',
     name: 'Institutional Faithful',
+    icon: 'Shield',
     accentColor: '#2457A6',
     tagline: 'The university works — and is worth defending from its critics.',
     prevalence: '~15%',
@@ -86,6 +92,7 @@ export const CLASSES = [
   {
     id: 'economically-dispossessed-left',
     name: 'Economically Dispossessed Left',
+    icon: 'TrendingDown',
     accentColor: '#A3171C',
     tagline: "The system broke its promise to the communities that believed in it.",
     prevalence: '~22%',

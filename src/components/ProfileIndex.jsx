@@ -43,6 +43,7 @@ export default function ProfileIndex({ highlightedId }) {
               tagline={cls.tagline}
               prevalence={cls.prevalence}
               accentColor={cls.accentColor}
+              icon={cls.icon}
               isYours={cls.id === highlightedId}
               expanded={false}
             />

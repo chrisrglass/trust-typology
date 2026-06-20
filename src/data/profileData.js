@@ -23,7 +23,75 @@ export const NATIONAL_AVERAGES = {
   'D2-F':  0.50,  // general education: foundational texts (A) vs. transferable skills (B)
 }
 
-// Item label for the A pole (what the bar represents)
+// Verbatim option texts from the quiz instrument (both poles)
+export const ITEM_OPTIONS = {
+  'D5-D': {
+    a: 'A college degree remains the most reliable tool we have for helping people from disadvantaged backgrounds reach economic stability.',
+    b: 'Higher education has become so expensive and unequal that it now reinforces class divisions more than it overcomes them.',
+  },
+  'D3-G': {
+    a: 'The research that universities conduct — medical breakthroughs, scientific discovery, basic science — is a public investment that benefits all Americans, and cuts to university research funding hurt the country.',
+    b: "Universities receive too much federal research funding with too little accountability for how it's used and whether it serves national interests.",
+  },
+  'D2-C': {
+    a: 'College gives students genuine intellectual tools — the ability to think carefully, evaluate evidence, and hold complex questions — that they carry for the rest of their lives.',
+    b: "What most students actually get from college is a credential and some skills for a job. The deeper intellectual formation colleges claim to offer rarely happens in practice — and this was true long before AI; it is a structural failure, not a new problem that technology created.",
+  },
+  'D2-H': {
+    a: "AI systems being adopted by colleges are analytical and creative tools — they don't have a worldview and don't systematically favor or exclude any set of values or traditions.",
+    b: 'AI systems integrated into university coursework were developed without meaningful input from religious traditions, non-Western philosophical frameworks, or faith-rooted ways of knowing. Students whose intellectual formation is rooted in those traditions will find their frameworks increasingly absent from the tools their universities have made central to learning.',
+  },
+  'D1-D1': {
+    a: 'The rise of artificial intelligence is eliminating entry-level positions — the jobs that new graduates have historically used to begin careers — faster than higher education can adapt its training.',
+    b: 'While AI will change many jobs, college graduates will be well-positioned to adapt to AI-driven changes.',
+  },
+  'D2-G': {
+    a: "AI tools in coursework, used with clear guidelines, are helping students develop the analytical skills they need — learning to work with AI is itself a genuine competency for the careers they're entering.",
+    b: 'Students who use AI for coursework are producing outputs, not developing the capacity to produce them. The ability to reason through hard problems independently — without assistance — is being lost in programs where AI has replaced that effort.',
+  },
+  'D4-E': {
+    a: "Colleges and universities genuinely support students in developing new skills and perspectives while also honoring where they come from — working-class, rural, and faith-community students do not have to become different people to be taken seriously.",
+    b: 'To fully succeed at most colleges — not just to pass classes but to be taken seriously as a person and an intellect — students from working-class, rural, or faith-community backgrounds have to learn to present themselves in ways that are foreign to their home communities.',
+  },
+  'D3-F': {
+    a: "College is genuinely hard — academically, financially, and personally — and institutions cannot be expected to guarantee that every adult who enrolls will complete their degree. The decision to enroll is a personal one, and individual choices about commitment and effort shape outcomes in ways no institution can control.",
+    b: 'When a college recruits and enrolls a student — especially one from a first-generation or low-income background — and that student leaves with debt but no degree, the institution bears real responsibility. It marketed the relationship, accepted their money, and did not deliver.',
+  },
+  'D5-A': {
+    a: 'Selective colleges give wealthy and well-connected families so many structural advantages — through legacy preferences, donor relationships, private school preparation, and test coaching money can buy — that the admissions process is not genuinely merit-based, regardless of what it claims to be.',
+    b: 'Whatever advantages wealth provides before applications are submitted, once selective colleges review applications, they are making genuine judgments about intellectual capability and academic potential — the evaluation itself is more merit-based than critics acknowledge, even when access to preparation has not been equal.',
+  },
+  'D6-A': {
+    a: 'The college or university that serves my area is a genuine part of the community — it cares about what happens here and contributes to local life.',
+    b: "The college or university that serves my area is focused on its own priorities and doesn't make much difference to the lives of ordinary people in the community.",
+  },
+  'D7-A': {
+    a: 'News organizations that cover higher education — major newspapers, public radio, and education-specific publications — are doing real accountability journalism. Reporters investigate failures, hold institutions to the record, and produce coverage you can rely on for an honest picture of what colleges and universities are actually doing.',
+    b: "The journalists who cover higher education mostly attended selective universities, move in university circles, and live in places where higher education works well. Their coverage reflects that world. People whose experience — or the experience of family, friends, and neighbors they trust — doesn't match what those outlets report are not wrong to be skeptical.",
+  },
+  'R-A': {
+    a: 'Higher education has the capacity to identify what it has done wrong and make meaningful changes from within — faculty governance, accreditation, and shared leadership models exist precisely to enable this kind of institutional self-correction.',
+    b: "The evidence from the past decade is that higher education cannot reform itself without significant outside pressure — from employers demanding graduates who can actually do things, from students demanding better outcomes for the money they're spending, or from government requiring accountability for public investment.",
+  },
+  'R-G': {
+    a: 'Public accountability for publicly funded institutions is legitimate — when colleges and universities receive taxpayer money, elected representatives have a role in setting standards for what those institutions do and how they use public resources.',
+    b: 'Using government funding threats to determine what researchers can study or what instructors can teach is not accountability — it is using political power to shape the content of knowledge.',
+  },
+  'D1-H': {
+    a: "Federal student loans should be available for any accredited college program — including ministry, social work, teaching, and the arts — even when graduates typically earn less than average. People should be able to borrow to pursue a calling, not just a career.",
+    b: "Federal student loans should be restricted to programs where graduates are likely to earn enough to repay what they borrowed. Taxpayers shouldn't subsidize programs with poor financial outcomes, regardless of their other merits.",
+  },
+  'D2-B': {
+    a: 'Faculty at most colleges and universities retain meaningful freedom to pursue research questions that challenge prevailing assumptions — the independent inquiry that makes academic knowledge valuable is still protected at most institutions.',
+    b: 'At most colleges and universities, research directions that challenge prevailing assumptions face real institutional pressure — hiring, funding, and publication decisions push inquiry in directions that are safe rather than generative.',
+  },
+  'D2-F': {
+    a: 'General education should require every student to seriously engage with foundational works, whether from Western philosophy and literature, world religious traditions, or other intellectual canons, because there is no substitute for wrestling with the ideas that have shaped how humans live together.',
+    b: 'General education should focus on transferable skills, including writing clearly, reasoning quantitatively, and thinking critically across disciplines, rather than mandating any particular texts or traditions. Content should serve skill-building; prescribing specific works confuses reverence for rigorous education.',
+  },
+}
+
+// Item label for the A pole (fallback if ITEM_OPTIONS not found)
 export const ITEM_LABELS = {
   'D5-D':  '"The degree is a reliable path to a better life, even for students from low-income families."',
   'D3-G':  '"University research genuinely serves the public interest."',

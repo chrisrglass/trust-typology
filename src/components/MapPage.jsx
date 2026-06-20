@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
 import { CLASSES } from '../data/classes.js'
 import { STATES } from '../data/stateData.js'
+import TypeIcon from './TypeIcon.jsx'
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json'
 
@@ -142,7 +143,10 @@ export default function MapPage() {
               className="map-legend-item"
               aria-label={`View profile: ${cls.name}`}
             >
-              <span className="map-legend-swatch" style={{ background: cls.accentColor }} />
+              {cls.icon
+                ? <TypeIcon iconName={cls.icon} color={cls.accentColor} size={16} strokeWidth={1.75} />
+                : <span className="map-legend-swatch" style={{ background: cls.accentColor }} />
+              }
               <span className="map-legend-name">{cls.name}</span>
               <span className="map-legend-pct">{cls.prevalence}</span>
             </a>

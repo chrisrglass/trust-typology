@@ -752,13 +752,20 @@ a:hover {
   z-index: 1;
 }
 
+.class-card-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 80px; /* space for badge */
+}
+
 .class-card-name {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  padding-right: 80px; /* space for badge */
+  padding-right: 0; /* moved to name-row */
 }
 
 .class-card-tagline {
@@ -1110,6 +1117,15 @@ a:hover {
 
 .item-bar-group {
   /* accessible: role=img, aria-label set in component */
+}
+
+.item-bar-option-tag {
+  font-family: var(--font-data);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
 }
 
 .item-bar-label {
@@ -1679,4 +1695,15 @@ a:hover {
   .map-legend {
     gap: 0.5rem 0.75rem;
   }
+}
+
+/* ── Type icons ─────────────────────────────────────────────────────────────── */
+
+.profile-header-icon {
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+.results-type-icon {
+  margin-bottom: 0.75rem;
 }

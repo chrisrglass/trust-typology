@@ -1,5 +1,6 @@
 import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
+import TypeIcon from './TypeIcon.jsx'
 
 export default function Results({ classResult }) {
   if (!classResult) return null
@@ -9,6 +10,11 @@ export default function Results({ classResult }) {
       {/* Block 1: Your result */}
       <div className="results-your-result">
         <p className="results-eyebrow">Your Trust Typology</p>
+        {classResult.icon && (
+          <div className="results-type-icon">
+            <TypeIcon iconName={classResult.icon} color={classResult.accentColor} size={48} strokeWidth={1.5} />
+          </div>
+        )}
         <h1 className="results-class-name" style={{ color: classResult.accentColor }}>
           {classResult.name}
         </h1>
@@ -22,6 +28,7 @@ export default function Results({ classResult }) {
           tagline={classResult.tagline}
           prevalence={classResult.prevalence}
           accentColor={classResult.accentColor}
+          icon={classResult.icon}
           isYours={true}
           expanded={true}
           description={classResult.description}
@@ -54,6 +61,7 @@ export default function Results({ classResult }) {
               tagline={cls.tagline}
               prevalence={cls.prevalence}
               accentColor={cls.accentColor}
+              icon={cls.icon}
               isYours={cls.id === classResult.id}
               expanded={false}
             />
