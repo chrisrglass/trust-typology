@@ -1126,6 +1126,18 @@ a:hover {
 }
 .profile-main-concerns-item:last-child { margin-bottom: 0; }
 
+.profile-dimensions-link {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.profile-dimensions-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
 /* Item bars */
 .profile-items {
   display: flex;

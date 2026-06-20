@@ -86,6 +86,9 @@ export default function ProfilePage({ classId, highlightedId }) {
               <li key={i} className="profile-main-concerns-item">{concern}</li>
             ))}
           </ol>
+          <p className="profile-para" style={{ marginTop: '0.75rem' }}>
+            <a href="#/dimensions" className="profile-dimensions-link">See Nine Dimensions of Trust →</a>
+          </p>
         </section>
 
         {/* Reform Stance */}
