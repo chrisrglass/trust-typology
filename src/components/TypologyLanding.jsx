@@ -1,184 +1,11 @@
 import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 
-const SHARED_CONCERNS = [
-  {
-    stat: '83%',
-    headline: 'Worry AI will diminish students\' capacity for independent thinking',
-    detail: 'Quinnipiac 2026 — the highest cross-partisan consensus in the instrument',
-  },
-  {
-    stat: 'Cost',
-    headline: 'Near-universal agreement that the financial deal has become harder to defend',
-    detail: 'All seven types agree the cost burden has grown; they disagree on who bears the downside',
-  },
-  {
-    stat: 'Standards',
-    headline: 'Broad concern that grade inflation has made credentials less meaningful',
-    detail: 'Median grades cluster at A across departments; transcripts are losing their signal function',
-  },
-  {
-    stat: 'Accountability',
-    headline: 'Strong cross-partisan majorities want more institutional accountability',
-    detail: 'The mandate for transparency is cross-partisan; what accountability looks like divides the types sharply',
-  },
-]
-
-const RIGHT_DIVIDES = [
-  {
-    question: 'On government authority',
-    items: [
-      {
-        typeId: 'faith-rooted-skeptics',
-        label: 'Faith-Rooted Skeptics',
-        color: '#B78A2A',
-        position: 'Oppose federal intervention even from sympathetic Republican administrations. The OBBBA earnings test threatens 89% of religion master\'s programs — same political home, opposite conclusion on who fixes the problem.',
-      },
-      {
-        typeId: 'populist-antagonists',
-        label: 'Populist Antagonists',
-        color: '#C46A2D',
-        position: 'Support democratic accountability through elected officials. The institution won\'t reform without external pressure; government oversight is the only lever working people have.',
-      },
-    ],
-  },
-  {
-    question: 'On whether the degree delivers',
-    items: [
-      {
-        typeId: 'faith-rooted-skeptics',
-        label: 'Faith-Rooted Skeptics',
-        color: '#B78A2A',
-        position: 'The degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools built around genuine formation of character.',
-      },
-      {
-        typeId: 'populist-antagonists',
-        label: 'Populist Antagonists',
-        color: '#C46A2D',
-        position: 'The credential economy is a positional arms race. Working people were never the intended beneficiaries; the system absorbed their enrollment and debt and delivered returns to those already advantaged.',
-      },
-      {
-        typeId: 'indifferent-skeptics',
-        label: 'Indifferent Skeptics',
-        color: '#DDD7CE',
-        position: 'Have exited the debate about whether it works. They see the failures clearly enough but haven\'t organized that observation into a reform agenda — they\'ve simply moved on.',
-      },
-    ],
-  },
-  {
-    question: 'On AI risk',
-    items: [
-      {
-        typeId: 'faith-rooted-skeptics',
-        label: 'Faith-Rooted Skeptics',
-        color: '#B78A2A',
-        position: 'Most alarmed of any group. AI models trained without engagement from faith communities systematically exclude religious frameworks (BYU multi-institution research). The Vatican\'s January 2025 instruction names AI as a threat to moral formation.',
-      },
-      {
-        typeId: 'populist-antagonists',
-        label: 'Populist Antagonists',
-        color: '#C46A2D',
-        position: 'AI encodes elite secular values and destroys cognitive independence — a technological extension of the same institutional capture they already distrust.',
-      },
-      {
-        typeId: 'indifferent-skeptics',
-        label: 'Indifferent Skeptics',
-        color: '#DDD7CE',
-        position: 'Least alarmed of any group. 39% are unsure whether AI poses risks at all — the highest "unsure" rate in the instrument.',
-      },
-    ],
-  },
-]
-
-const LEFT_DIVIDES = [
-  {
-    question: 'On whether institutions can self-correct',
-    items: [
-      {
-        typeId: 'institutional-faithful',
-        label: 'Institutional Faithful',
-        color: '#2457A6',
-        position: 'Reform from within is both possible and necessary. The institution has the capacity to correct itself; what it needs is internal pressure and honest self-examination, not external mandates.',
-      },
-      {
-        typeId: 'critical-believers',
-        label: 'Critical Believers',
-        color: '#6E3B6E',
-        position: 'The mission is real but delivery has failed structurally for the students who most needed it to work. They hold the mission steady while criticizing the performance — reform is necessary but uncertain.',
-      },
-      {
-        typeId: 'economically-dispossessed-left',
-        label: 'Economically Dispossessed Left',
-        color: '#A3171C',
-        position: 'Reform hasn\'t arrived for the communities they know. Alternatives to the four-year degree need to be built, not just promised — institutions can\'t fix a system that was never designed for people like them.',
-      },
-    ],
-  },
-  {
-    question: 'On who bears the risk',
-    items: [
-      {
-        typeId: 'institutional-faithful',
-        label: 'Institutional Faithful',
-        color: '#2457A6',
-        position: 'Trust the degree delivers real mobility for those who commit to it. The credential has real value; the concern is external threats to the institution that produces it.',
-      },
-      {
-        typeId: 'critical-believers',
-        label: 'Critical Believers',
-        color: '#6E3B6E',
-        position: 'The credential reinforces class divisions for too many graduates. The gap between mission and performance isn\'t incidental — it\'s structural, and it falls hardest on those who had the most to gain.',
-      },
-      {
-        typeId: 'economically-dispossessed-left',
-        label: 'Economically Dispossessed Left',
-        color: '#A3171C',
-        position: 'Pell Grant purchasing power has collapsed from 76% to 24% of four-year public university costs since the 1980s. The institution collected the debt and didn\'t deliver the mobility it promised.',
-      },
-    ],
-  },
-  {
-    question: 'On the nature of the crisis',
-    items: [
-      {
-        typeId: 'institutional-faithful',
-        label: 'Institutional Faithful',
-        color: '#2457A6',
-        position: 'The threat is external — government overreach eroding academic freedom, research funding cuts, and political interference in curricula that undermine the very conditions of knowledge production.',
-      },
-      {
-        typeId: 'critical-believers',
-        label: 'Critical Believers',
-        color: '#6E3B6E',
-        position: 'The threat is internal — structural failure to deliver on the economic promise for working-class and low-income graduates. The institution claims to be the solution while contributing to the problem.',
-      },
-      {
-        typeId: 'economically-dispossessed-left',
-        label: 'Economically Dispossessed Left',
-        color: '#A3171C',
-        position: 'The crisis is personal. It is a broken promise to specific communities that had the most to gain and the least margin for error — communities that believed in the institution and were not repaid for that belief.',
-      },
-    ],
-  },
-]
-
-function DivideBlock({ question, items }) {
+function PullQuote({ stat, children }) {
   return (
-    <div className="divide-block">
-      <p className="divide-question">{question}</p>
-      <div className="divide-items">
-        {items.map(item => (
-          <div key={item.typeId} className="divide-item">
-            <span className="divide-type-dot" style={{ background: item.color }} />
-            <div className="divide-item-body">
-              <a href={`#/profiles/${item.typeId}`} className="divide-type-label" style={{ color: item.color }}>
-                {item.label}
-              </a>
-              {' '}<span className="divide-type-position">{item.position}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="typo-pull-quote">
+      {stat && <span className="typo-pull-stat">{stat}</span>}
+      <p className="typo-pull-text">{children}</p>
     </div>
   )
 }
@@ -192,7 +19,6 @@ export default function TypologyLanding() {
         <a href="#/" className="profile-nav-link">Take the survey →</a>
       </nav>
 
-      {/* Header */}
       <div className="profile-header-band" style={{ background: '#3a3a3a' }}>
         <div className="profile-header-inner">
           <p className="profile-header-eyebrow">Boston College · Research Instrument</p>
@@ -205,7 +31,6 @@ export default function TypologyLanding() {
 
       <div className="typo-body">
 
-        {/* Quiz callout */}
         <div className="quiz-callout">
           <p className="quiz-callout-heading">Quiz: Where do you fit in the trust typology?</p>
           <p className="quiz-callout-desc">
@@ -225,21 +50,27 @@ export default function TypologyLanding() {
           </p>
         </section>
 
-        {/* Shared concerns */}
+        {/* What all seven share — flowing prose with pull quotes */}
         <section className="typo-section">
           <h2 className="typo-section-h2">What all seven groups share</h2>
-          <p className="typo-section-lead">
-            Certain concerns cut across every type regardless of political orientation or relationship to the institution.
+          <p className="profile-para">
+            The partisan divide over higher education is real, but it obscures something equally important: a set of concerns that cut across every group, regardless of political orientation or relationship to the institution.
           </p>
-          <div className="shared-concerns-grid">
-            {SHARED_CONCERNS.map((c, i) => (
-              <div key={i} className="shared-concern-card">
-                <span className="shared-concern-stat">{c.stat}</span>
-                <strong className="shared-concern-headline">{c.headline}</strong>
-                <p className="shared-concern-detail">{c.detail}</p>
-              </div>
-            ))}
-          </div>
+
+          <PullQuote stat="83%">
+            of Americans across the political spectrum worry that AI will diminish students' capacity for independent thinking — the highest cross-partisan consensus in the instrument (Quinnipiac, 2026).
+          </PullQuote>
+
+          <p className="profile-para">
+            The financial reality of college has become nearly impossible to defend across the ideological spectrum. All seven types agree the cost burden has grown. They disagree sharply on who bears the downside — whether students are choosing the wrong schools, institutions are extracting too much, or governments have withdrawn too much support — but the shared premise is that the deal is harder to justify than it was a generation ago.
+          </p>
+          <p className="profile-para">
+            Grade inflation has made academic credentials less legible. Median grades now cluster at A across departments; transcripts are losing their ability to distinguish what students actually know and can do. The concern is not partisan — all seven types register it, though they assign different causes and different remedies.
+          </p>
+
+          <PullQuote>
+            Strong cross-partisan majorities want more institutional accountability. What accountability looks like divides the types as sharply as anything else in the instrument.
+          </PullQuote>
         </section>
 
         {/* Seven types */}
@@ -273,44 +104,70 @@ export default function TypologyLanding() {
         {/* Key divides — right */}
         <section className="typo-section">
           <h2 className="typo-section-h2">Key divides on the right</h2>
-          <p className="typo-section-lead">
-            Faith-Rooted Skeptics, Populist Antagonists, and Indifferent Skeptics share distrust of institutional performance — but they reach opposite conclusions on every question that follows from that shared skepticism.
+          <p className="profile-para">
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith-Rooted Skeptics</a>,{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a>, and{' '}
+            <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Indifferent Skeptics</a>{' '}
+            share distrust of institutional performance — but they reach opposite conclusions on every question that follows from that shared skepticism.
           </p>
-          {RIGHT_DIVIDES.map((d, i) => (
-            <DivideBlock key={i} question={d.question} items={d.items} />
-          ))}
+
+          <p className="typo-divide-q">On government authority</p>
+          <p className="profile-para">
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith-Rooted Skeptics</a> oppose federal intervention even from sympathetic Republican administrations. The OBBBA earnings test threatens 89% of religion master's programs — the same political home, the opposite conclusion on who fixes the problem.{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a> reach a different verdict: government oversight is the only lever working people have, and the institution will not reform without external pressure from elected officials.
+          </p>
+
+          <p className="typo-divide-q">On whether the degree delivers</p>
+          <p className="profile-para">
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith-Rooted Skeptics</a> believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools built around genuine formation of character.{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a> see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
+          </p>
+
+          <PullQuote>
+            Indifferent Skeptics have exited the debate entirely. They see the failures clearly enough — but haven't organized that observation into a reform agenda. They've simply moved on.
+          </PullQuote>
+
+          <p className="typo-divide-q">On AI risk</p>
+          <p className="profile-para">
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith-Rooted Skeptics</a> are the most alarmed of any group. AI models trained without engagement from faith communities systematically exclude religious and moral frameworks, according to BYU multi-institution research. The Vatican's January 2025 instruction <em>Antiqua et nova</em> named AI a risk to moral formation and human dignity.{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a> see AI encoding elite secular values and destroying cognitive independence — a technological extension of the same institutional capture they already distrust.{' '}
+            <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Indifferent Skeptics</a> are the least alarmed: 39% are unsure whether AI poses risks at all, the highest unsure rate of any group in the instrument.
+          </p>
         </section>
 
         {/* Key divides — left */}
         <section className="typo-section">
           <h2 className="typo-section-h2">Key divides on the left</h2>
-          <p className="typo-section-lead">
-            Institutional Faithful, Critical Believers, and the Economically Dispossessed Left share belief in higher education's mission — but they are separated by their verdict on performance and by what repair requires.
+          <p className="profile-para">
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a>,{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a>, and the{' '}
+            <a href="#/profiles/economically-dispossessed-left" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed Left</a>{' '}
+            share belief in higher education's mission — but they are separated by their verdict on performance and by what repair requires.
           </p>
-          {LEFT_DIVIDES.map((d, i) => (
-            <DivideBlock key={i} question={d.question} items={d.items} />
-          ))}
-        </section>
 
-        {/* AI findings */}
-        <section className="typo-section">
-          <h2 className="typo-section-h2">Intriguing findings on AI</h2>
-          <div className="ai-findings">
-            <ol>
-              <li>
-                <strong>Cross-partisan consensus is real but misleading.</strong> 83% of Americans across the political spectrum worry that AI will diminish students' capacity for independent thinking (Quinnipiac 2026) — but the reason differs sharply by type. The number suggests agreement; the reasoning reveals seven different diagnoses.
-              </li>
-              <li>
-                <strong>The Indifferent Skeptics paradox.</strong> The only group with majority agreement that "something is broken" is also the least alarmed about AI: 39% of Indifferent Skeptics are unsure whether AI poses risks at all — the highest "unsure" rate of any group. They have disengaged from the reform debate and from the AI debate in the same move.
-              </li>
-              <li>
-                <strong>Faith-Rooted Skeptics are the most alarmed — and their concern is specific.</strong> AI models trained without meaningful engagement from faith communities systematically ignore religious and moral frameworks (BYU multi-institution research). The Vatican's January 2025 instruction <em>Antiqua et nova</em> named AI as a risk to moral formation and human dignity. For this group, the AI concern is not about cognitive shortcuts — it is about whose formation model AI embeds.
-              </li>
-              <li>
-                <strong>AI is eliminating the entry-level rung the credential was supposed to unlock.</strong> This finding intersects with the Economically Dispossessed Left's core diagnosis — AI removes the first step of the career ladder precisely when new graduates are most vulnerable — but extends to every type's labor-market calculus. The credential's value depends on the jobs that exist when it matures. AI is restructuring those jobs faster than institutions can respond.
-              </li>
-            </ol>
-          </div>
+          <p className="typo-divide-q">On whether institutions can self-correct</p>
+          <p className="profile-para">
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> believe reform from within is both possible and necessary. The institution has the capacity to correct itself; what it needs is internal pressure and honest self-examination, not external mandates.{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> hold the mission steady while criticizing the performance — reform is necessary, but uncertain. For the{' '}
+            <a href="#/profiles/economically-dispossessed-left" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed Left</a>, reform hasn't arrived for the communities they know. Alternatives to the four-year degree need to be built, not just promised.
+          </p>
+
+          <p className="typo-divide-q">On who bears the risk</p>
+          <p className="profile-para">
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> trust the degree delivers real mobility for those who commit to it.{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> see the gap as structural: the credential reinforces class divisions for too many graduates, and the failure falls hardest on those who had the most to gain.
+          </p>
+
+          <PullQuote stat="76% → 24%">
+            Pell Grant purchasing power relative to four-year public university costs — the collapse since the 1980s that anchors the Economically Dispossessed Left's core experience of the institution.
+          </PullQuote>
+
+          <p className="typo-divide-q">On the nature of the crisis</p>
+          <p className="profile-para">
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> identify the threat as external: government overreach eroding academic freedom, research funding cuts, and political interference in curricula that undermine the conditions of knowledge production.{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> locate it internally — structural failure to deliver on the economic promise for working-class and low-income graduates. The{' '}
+            <a href="#/profiles/economically-dispossessed-left" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed Left</a> name something more personal: a broken promise to specific communities that had the most to gain and the least margin for error, communities that believed in the institution and were not repaid for that belief.
+          </p>
         </section>
 
         <footer className="profile-footer" style={{ marginTop: '3rem' }}>

@@ -1930,6 +1930,50 @@ a:hover {
   line-height: 1.65;
 }
 
+/* Pull quotes */
+.typo-pull-quote {
+  border-left: 3px solid var(--accent);
+  margin: 2rem 0;
+  padding: 0.75rem 0 0.75rem 1.5rem;
+}
+.typo-pull-stat {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.typo-pull-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Divide subheadings */
+.typo-divide-q {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 2rem 0 0.5rem;
+}
+
+/* Inline type name links */
+.typo-inline-type {
+  font-weight: 600;
+  text-decoration: none;
+}
+.typo-inline-type:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 560px) {
   .shared-concerns-grid {
     grid-template-columns: 1fr;
@@ -1942,5 +1986,8 @@ a:hover {
   }
   .quiz-callout-heading {
     font-size: 1.15rem;
+  }
+  .typo-pull-stat {
+    font-size: 2rem;
   }
 }
