@@ -1,21 +1,65 @@
-export default function Question({ item, value, onChange }) {
+import { useState, useEffect, useRef } from 'react'
+
+const AUTO_ADVANCE_TYPES = new Set([
+  'forced_choice', 'yes_no', 'yes_no_depends',
+  'options_3', 'options_4', 'single_select',
+  'scale_4', 'scale_4_plus',
+])
+
+export default function Question({ item, value, onChange, onAutoAdvance, promptRef }) {
+  const [confirmingValue, setConfirmingValue] = useState(null)
+  const timerRef = useRef(null)
+
+  // cancel any pending auto-advance when item changes
+  useEffect(() => {
+    setConfirmingValue(null)
+    clearTimeout(timerRef.current)
+  }, [item.id])
+
+  // cleanup on unmount
+  useEffect(() => () => clearTimeout(timerRef.current), [])
+
+  function handleSelect(optValue) {
+    onChange(optValue)
+    if (onAutoAdvance && AUTO_ADVANCE_TYPES.has(item.type)) {
+      clearTimeout(timerRef.current)
+      setConfirmingValue(optValue)
+      timerRef.current = setTimeout(() => {
+        setConfirmingValue(null)
+        onAutoAdvance()
+      }, 300)
+    }
+  }
+
+  const promptEl = (
+    <p
+      className="question-prompt"
+      ref={promptRef}
+      tabIndex={-1}
+      role="heading"
+      aria-level="2"
+    >
+      {item.prompt}
+    </p>
+  )
+
   if (item.type === 'forced_choice' || item.type === 'yes_no' || item.type === 'yes_no_depends') {
     return (
       <div className="question">
         {item.preface && <p className="question-preface">{item.preface}</p>}
-        <p className="question-prompt">{item.prompt}</p>
+        {promptEl}
         <div className="options options-stacked">
           {item.options.map(opt => (
             <label
               key={opt.value}
-              className={`option-card ${value === opt.value ? 'selected' : ''}`}
+              className={`option-card ${value === opt.value ? 'selected' : ''} ${confirmingValue === opt.value ? 'confirming' : ''}`}
             >
               <input
                 type="radio"
                 name={item.id}
                 value={opt.value}
                 checked={value === opt.value}
-                onChange={() => onChange(opt.value)}
+                onChange={() => handleSelect(opt.value)}
               />
               <span className="option-letter">{opt.value.toUpperCase()}</span>
               <span className="option-text">{opt.label}</span>
@@ -31,21 +75,21 @@ export default function Question({ item, value, onChange }) {
     return (
       <div className="question">
         {item.instruction && <p className="question-instruction">{item.instruction}</p>}
-        <p className="question-prompt">{item.prompt}</p>
+        {promptEl}
         <div className={`options ${isHorizontalScale ? 'options-scale' : 'options-stacked'}`}>
           {item.options.map((opt, i) => {
             const letter = String.fromCharCode(65 + i)
             return (
               <label
                 key={opt.value}
-                className={`option-card ${value === opt.value ? 'selected' : ''} ${isHorizontalScale ? 'option-scale-item' : ''}`}
+                className={`option-card ${value === opt.value ? 'selected' : ''} ${confirmingValue === opt.value ? 'confirming' : ''} ${isHorizontalScale ? 'option-scale-item' : ''}`}
               >
                 <input
                   type="radio"
                   name={item.id}
                   value={opt.value}
                   checked={value === opt.value}
-                  onChange={() => onChange(opt.value)}
+                  onChange={() => handleSelect(opt.value)}
                 />
                 {!isHorizontalScale && (
                   <span className="option-letter">{letter}</span>
@@ -74,7 +118,7 @@ export default function Question({ item, value, onChange }) {
     }
     return (
       <div className="question">
-        <p className="question-prompt">{item.prompt}</p>
+        {promptEl}
         <div className="options options-stacked">
           {item.options.map(opt => {
             const isChecked = selected.includes(opt.value)
@@ -103,7 +147,7 @@ export default function Question({ item, value, onChange }) {
     const matrixValues = value || {}
     return (
       <div className="question">
-        <p className="question-prompt">{item.prompt}</p>
+        {promptEl}
         <div className="matrix">
           <div className="matrix-header">
             <div className="matrix-row-label" />

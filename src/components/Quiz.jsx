@@ -1,6 +1,27 @@
-import { useState } from 'react'
-import { ITEMS, SECTIONS } from '../data/instrument.js'
+import { useState, useEffect, useRef } from 'react'
+import { ITEMS } from '../data/instrument.js'
 import Question from './Question.jsx'
+
+const TOTAL = 26
+const INTERSTITIAL_1_AFTER = 15  // show interstitial after item at index 15 (FA-A-administrators)
+const INTERSTITIAL_2_AFTER = 21  // show interstitial after item at index 21 (DM-F)
+
+const INTERSTITIALS = {
+  'interstitial-1': {
+    part: 'Part II of III',
+    title: 'About You',
+    context: 'These questions help us understand who holds each view. They are not used to determine your typology class.',
+    nextIndex: 16,
+    prevIndex: 15,
+  },
+  'interstitial-2': {
+    part: 'Part III of III',
+    title: 'A Few More Questions',
+    context: 'These final questions help us understand the context behind your views.',
+    nextIndex: 22,
+    prevIndex: 21,
+  },
+}
 
 function hasAnswer(item, value) {
   if (value === undefined || value === null) return false
@@ -14,86 +35,177 @@ function hasAnswer(item, value) {
   return value !== ''
 }
 
+const AUTO_ADVANCE_TYPES = new Set([
+  'forced_choice', 'yes_no', 'yes_no_depends',
+  'options_3', 'options_4', 'single_select',
+  'scale_4', 'scale_4_plus',
+])
+
 export default function Quiz({ onComplete }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [responses, setResponses] = useState({})
+  const [uiState, setUiState] = useState('question') // 'question' | 'interstitial-1' | 'interstitial-2'
+  const [leaving, setLeaving] = useState(false)
+  const promptRef = useRef(null)
+
+  // browser back / tab close warning
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault()
+      e.returnValue = ''
+    }
+    window.addEventListener('beforeunload', handler)
+    return () => window.removeEventListener('beforeunload', handler)
+  }, [])
+
+  // focus question prompt after each advance
+  useEffect(() => {
+    if (uiState === 'question') {
+      promptRef.current?.focus()
+    }
+  }, [currentIndex, uiState])
 
   const currentItem = ITEMS[currentIndex]
-  const currentValue = responses[currentItem.id]
-  const answered = hasAnswer(currentItem, currentValue)
-
-  const totalItems = ITEMS.length
-  const progress = Math.round((currentIndex / totalItems) * 100)
-
-  const currentSection = SECTIONS.find(s => s.id === currentItem.section)
-  const sectionItems = ITEMS.filter(i => i.section === currentItem.section)
-  const sectionIndex = sectionItems.indexOf(currentItem) + 1
+  const currentValue = responses[currentItem?.id]
+  const answered = currentItem ? hasAnswer(currentItem, currentValue) : false
+  const needsNextButton = currentItem && (currentItem.type === 'multiselect' || currentItem.type === 'matrix')
+  const progress = Math.round((currentIndex / TOTAL) * 100)
 
   function handleChange(value) {
     setResponses(prev => ({ ...prev, [currentItem.id]: value }))
   }
 
-  function handleNext() {
-    if (!answered) return
-    if (currentIndex === totalItems - 1) {
+  function advance(nextIndex) {
+    setLeaving(true)
+    setTimeout(() => {
+      setLeaving(false)
+      setCurrentIndex(nextIndex)
+      window.scrollTo(0, 0)
+    }, 100)
+  }
+
+  function handleAutoAdvance() {
+    if (currentIndex === INTERSTITIAL_1_AFTER) {
+      setLeaving(true)
+      setTimeout(() => { setLeaving(false); setUiState('interstitial-1'); window.scrollTo(0, 0) }, 100)
+    } else if (currentIndex === INTERSTITIAL_2_AFTER) {
+      setLeaving(true)
+      setTimeout(() => { setLeaving(false); setUiState('interstitial-2'); window.scrollTo(0, 0) }, 100)
+    } else if (currentIndex === TOTAL - 1) {
       onComplete(responses)
     } else {
-      setCurrentIndex(i => i + 1)
-      window.scrollTo(0, 0)
+      advance(currentIndex + 1)
     }
+  }
+
+  function handleNext() {
+    if (!answered) return
+    handleAutoAdvance()
   }
 
   function handleBack() {
-    if (currentIndex > 0) {
-      setCurrentIndex(i => i - 1)
+    if (uiState === 'interstitial-1') {
+      setUiState('question')
+      setCurrentIndex(INTERSTITIALS['interstitial-1'].prevIndex)
       window.scrollTo(0, 0)
+      return
+    }
+    if (uiState === 'interstitial-2') {
+      setUiState('question')
+      setCurrentIndex(INTERSTITIALS['interstitial-2'].prevIndex)
+      window.scrollTo(0, 0)
+      return
+    }
+    if (currentIndex === INTERSTITIALS['interstitial-2'].nextIndex) {
+      setUiState('interstitial-2')
+      window.scrollTo(0, 0)
+      return
+    }
+    if (currentIndex === INTERSTITIALS['interstitial-1'].nextIndex) {
+      setUiState('interstitial-1')
+      window.scrollTo(0, 0)
+      return
+    }
+    if (currentIndex > 0) {
+      advance(currentIndex - 1)
     }
   }
 
-  const isLast = currentIndex === totalItems - 1
+  function handleInterstitialContinue(key) {
+    const { nextIndex } = INTERSTITIALS[key]
+    setUiState('question')
+    setCurrentIndex(nextIndex)
+    window.scrollTo(0, 0)
+  }
+
+  // ── Interstitial screen ────────────────────────────────────────────────────
+  if (uiState === 'interstitial-1' || uiState === 'interstitial-2') {
+    const interstitial = INTERSTITIALS[uiState]
+    return (
+      <div className="section-interstitial">
+        <p className="interstitial-eyebrow">{interstitial.part}</p>
+        <h2 className="interstitial-title">{interstitial.title}</h2>
+        <p className="interstitial-context">{interstitial.context}</p>
+        <div className="interstitial-nav">
+          <button className="btn-secondary" onClick={handleBack}>Back</button>
+          <button className="btn-primary" onClick={() => handleInterstitialContinue(uiState)}>Continue</button>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Question screen ────────────────────────────────────────────────────────
+  const isLast = currentIndex === TOTAL - 1
+  const showBack = currentIndex > 0
 
   return (
     <div className="quiz">
       {/* Progress bar */}
       <div className="progress-bar-container">
-        <div className="progress-bar" style={{ width: `${progress}%` }} />
+        <div
+          className="progress-bar"
+          role="progressbar"
+          aria-valuenow={currentIndex + 1}
+          aria-valuemin={1}
+          aria-valuemax={TOTAL}
+          aria-label={`Question ${currentIndex + 1} of ${TOTAL}`}
+          style={{ width: `${progress}%` }}
+        />
       </div>
 
       <div className="quiz-meta">
-        <span className="quiz-section">
-          {currentSection.title}
-        </span>
-        <span className="quiz-count">
-          {currentIndex + 1} of {totalItems}
-        </span>
+        <span className="quiz-count">Question {currentIndex + 1} of {TOTAL}</span>
       </div>
 
-      <div className="quiz-body">
+      <div
+        className={`quiz-body question-container${leaving ? ' leaving' : ''}`}
+        aria-live="polite"
+        aria-atomic="true"
+      >
         <Question
           item={currentItem}
           value={currentValue}
           onChange={handleChange}
+          onAutoAdvance={AUTO_ADVANCE_TYPES.has(currentItem?.type) ? handleAutoAdvance : null}
+          promptRef={promptRef}
         />
       </div>
 
       <div className="quiz-nav">
-        {currentIndex > 0 && (
+        {showBack && (
           <button className="btn-secondary" onClick={handleBack}>
             Back
           </button>
         )}
-        <button
-          className={`btn-primary ${!answered ? 'btn-disabled' : ''}`}
-          onClick={handleNext}
-          disabled={!answered}
-        >
-          {isLast ? 'Submit' : 'Next'}
-        </button>
-      </div>
-
-      <div className="quiz-section-desc">
-        <p>{currentSection.description}</p>
-        <span>Question {sectionIndex} of {sectionItems.length} in this section</span>
+        {needsNextButton && (
+          <button
+            className={`btn-primary ${!answered ? 'btn-disabled' : ''}`}
+            onClick={handleNext}
+            disabled={!answered}
+          >
+            {isLast ? 'Submit' : 'Next'}
+          </button>
+        )}
       </div>
     </div>
   )

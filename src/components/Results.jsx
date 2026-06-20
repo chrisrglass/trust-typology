@@ -1,60 +1,78 @@
-export default function Results({ submitting, error }) {
+import { CLASSES } from '../data/classes.js'
+import ClassCard from './ClassCard.jsx'
+
+export default function Results({ classResult }) {
+  if (!classResult) return null
+
   return (
     <div className="results">
-      {submitting ? (
-        <div className="results-loading">
-          <div className="spinner" />
-          <p>Saving your responses...</p>
-        </div>
-      ) : error ? (
-        <div className="results-error">
-          <h2>Something went wrong</h2>
-          <p>Your responses could not be saved at this time. Please try again later or contact the research team.</p>
-          <p className="error-detail">{error}</p>
-        </div>
-      ) : (
-        <>
-          <div className="results-header">
-            <div className="results-check">&#10003;</div>
-            <h1>Thank you</h1>
-          </div>
+      {/* Block 1: Your result */}
+      <div className="results-your-result">
+        <p className="results-eyebrow">Your Trust Typology</p>
+        <h1 className="results-class-name" style={{ color: classResult.accentColor }}>
+          {classResult.name}
+        </h1>
+        <p className="results-tagline">{classResult.tagline}</p>
+      </div>
 
-          <div className="results-body">
-            <p>
-              Your responses have been recorded. This research will be used to develop
-              a typology of the distinct groups who relate to higher education with
-              distinct concerns and distinct conditions for repair.
-            </p>
-            <p>
-              Unlike a polling number, a typology names what each group actually
-              wants from the institution, what they believe has gone wrong, and what
-              kinds of action could plausibly rebuild their confidence. The goal is
-              to give university presidents and policymakers a map, not a number.
-            </p>
-            <p>
-              Results and analysis will be published at{' '}
-              <a
-                href="https://chrisglass.substack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                chrisglass.substack.com
-              </a>{' '}
-              when the study is complete.
-            </p>
-          </div>
+      {/* Block 2: Expanded class description card */}
+      <div className="results-expanded-card">
+        <ClassCard
+          name={classResult.name}
+          tagline={classResult.tagline}
+          prevalence={classResult.prevalence}
+          accentColor={classResult.accentColor}
+          isYours={true}
+          expanded={true}
+          description={classResult.description}
+          characteristics={classResult.characteristics}
+        />
+        <p className="results-disclaimer">
+          <em>These profiles are based on simulation pilots pending live latent class analysis on N=400–600 fielded responses. Class sizes and names are provisional.</em>
+        </p>
+      </div>
 
-          <div className="results-footer">
-            <p>
-              Questions about this research? Contact{' '}
-              <a href="mailto:crglass@bc.edu">crglass@bc.edu</a>.
-            </p>
-            <p className="results-attribution">
-              Chris R. Glass · Boston College Lynch School of Education and Human Development
-            </p>
+      {/* Block 3: Divider */}
+      <div className="results-divider" aria-hidden="true">
+        <hr />
+        <span>Explore all six types</span>
+        <hr />
+      </div>
+
+      {/* Block 4: All six class cards */}
+      <div className="results-grid" role="list" aria-label="All six trust typology profiles">
+        {CLASSES.map(cls => (
+          <div key={cls.id} role="listitem">
+            <ClassCard
+              name={cls.name}
+              tagline={cls.tagline}
+              prevalence={cls.prevalence}
+              accentColor={cls.accentColor}
+              isYours={cls.id === classResult.id}
+              expanded={false}
+            />
           </div>
-        </>
-      )}
+        ))}
+      </div>
+
+      {/* Block 5: Research footer */}
+      <div className="results-footer">
+        <p>Thank you for participating in this research.</p>
+        <p>
+          Results and analysis will be published at{' '}
+          <a href="https://chrisglass.substack.com" target="_blank" rel="noopener noreferrer">
+            chrisglass.substack.com
+          </a>{' '}
+          when the study is complete.
+        </p>
+        <p>
+          Questions? Contact{' '}
+          <a href="mailto:crglass@bc.edu">crglass@bc.edu</a>.
+        </p>
+        <p className="results-attribution">
+          Chris R. Glass · Boston College Lynch School of Education and Human Development
+        </p>
+      </div>
     </div>
   )
 }

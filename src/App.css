@@ -1,3 +1,13 @@
+/* ─── Class Accent Colors ───────────────────────────────────────────────────── */
+:root {
+  --class-credential:   #c17f24;
+  --class-trustee:      #2d7d46;
+  --class-abolitionist: #8b2fc9;
+  --class-reformer:     #c93838;
+  --class-outcomes:     #1a7fa8;
+  --class-faith:        #a0522d;
+}
+
 /* ─── Reset / Base ─────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -553,6 +563,251 @@ a {
   margin-top: 0.5rem;
 }
 
+/* ─── Question Container Fade Transition ────────────────────────────────────── */
+.question-container {
+  transition: opacity 150ms ease;
+}
+
+.question-container.leaving {
+  opacity: 0;
+  transition-duration: 100ms;
+}
+
+/* ─── Option Card Confirming Flash ──────────────────────────────────────────── */
+.option-card.selected.confirming {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: white;
+  transition: all 150ms ease;
+}
+
+.option-card.selected.confirming .option-letter,
+.option-card.selected.confirming .option-text {
+  color: white;
+}
+
+/* ─── Focus Ring ─────────────────────────────────────────────────────────────── */
+.option-card:focus-within {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ─── Section Interstitial ───────────────────────────────────────────────────── */
+.section-interstitial {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 560px;
+  margin: 0 auto;
+  gap: 1.25rem;
+}
+
+.interstitial-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.interstitial-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+
+.interstitial-context {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 400px;
+}
+
+.interstitial-nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ─── Class Cards ────────────────────────────────────────────────────────────── */
+.class-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.15s;
+}
+
+.class-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.class-card.is-yours {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.class-card-accent-band {
+  height: 8px;
+  width: 100%;
+}
+
+.class-card-body {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.class-card-badge {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  color: white;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.03em;
+  z-index: 1;
+}
+
+.class-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  padding-right: 80px; /* space for badge */
+}
+
+.class-card-tagline {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.class-card-prevalence {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  background: var(--color-border);
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 0.25rem;
+  align-self: flex-start;
+}
+
+.class-card-expanded {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.class-card-description {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.class-card-characteristics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.class-card-characteristics li {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.class-card-characteristics li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* ─── Results Page ───────────────────────────────────────────────────────────── */
+.results-your-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.results-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.results-class-name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.results-tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.results-expanded-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.results-disclaimer {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+.results-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+
+.results-divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 /* ─── Responsive ────────────────────────────────────────────────────────────── */
 @media (max-width: 560px) {
   .landing-details {
@@ -597,5 +852,18 @@ a {
   .btn-primary,
   .btn-secondary {
     text-align: center;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-class-name {
+    font-size: 1.75rem;
+  }
+
+  .interstitial-nav {
+    flex-direction: column;
+    width: 100%;
   }
 }
