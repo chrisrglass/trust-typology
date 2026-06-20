@@ -36,8 +36,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Higher education today is a reliable path to upward mobility for people from low-income families who work hard and make smart choices.' },
-      { value: 'B', label: 'For people from low-income families, the risks of higher education — debt, non-completion, uncertain job prospects — often outweigh the potential benefits.' },
+      { value: 'A', label: 'Higher education today is a reliable path to upward mobility for people from low-income families.' },
+      { value: 'B', label: 'For people from low-income families, the risks of higher education — debt, non-completion, uncertain job prospects — often outweigh the benefits.' },
     ],
   },
 
@@ -48,7 +48,7 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'A college degree remains the most reliable tool we have for helping people from disadvantaged backgrounds reach economic stability.' },
+      { value: 'A', label: 'A college degree is still the most reliable tool for helping people from disadvantaged backgrounds reach economic stability.' },
       { value: 'B', label: 'Higher education has become so expensive and unequal that it now reinforces class divisions more than it overcomes them.' },
     ],
   },
@@ -60,8 +60,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Underemployment after graduation is temporary for most graduates — persistence, relationship-building, and willingness to take on lateral moves create the path to better roles within a few years for those who keep at it.' },
-      { value: 'B', label: 'Underemployment after graduation is where most graduates stay. The ten-year data on employment trajectories shows this isn\'t a transition — it\'s the outcome. The doors the degree was supposed to open did not open for most graduates who start below their credential level.' },
+      { value: 'A', label: 'Underemployment after graduation is temporary for most — persistence and willingness to take on lateral moves create the path to better roles within a few years.' },
+      { value: 'B', label: 'Underemployment after graduation is where most graduates stay. It isn\'t a transition — it\'s the outcome, and the doors the degree was supposed to open don\'t open for most who start below their credential level.' },
     ],
   },
 
@@ -72,8 +72,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Whether college graduates find work that uses their degree comes down to preparation and choices — the right field, sufficient initiative, willingness to network and relocate. The labor market creates real opportunity; whether you find it depends on how you approach the search.' },
-      { value: 'B', label: 'There are now more college graduates seeking college-level employment than there are college-level jobs — by a significant margin. That gap is not about individual preparation or effort. It is a structural imbalance the system has created, and it cannot be fixed through better career counseling or individual hustle.' },
+      { value: 'A', label: 'Whether graduates find work that uses their degree comes down to preparation and choices — the right field, sufficient initiative, willingness to network and relocate. The labor market rewards those who approach the search well.' },
+      { value: 'B', label: 'There are now more college graduates seeking college-level work than there are college-level jobs — by a significant margin. That gap is a structural imbalance the system created, not an individual preparation problem.' },
     ],
   },
 
@@ -84,8 +84,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Federal student loans should be available for any accredited college program — including ministry, social work, teaching, and the arts — even when graduates typically earn less than average. People should be able to borrow to pursue a calling, not just a career.' },
-      { value: 'B', label: 'Federal student loans should be restricted to programs where graduates are likely to earn enough to repay what they borrowed. Taxpayers shouldn\'t subsidize programs with poor financial outcomes, regardless of their other merits.' },
+      { value: 'A', label: 'Federal student loans should be available for any accredited program — including ministry, social work, teaching, and the arts — even when graduates earn less than average. People should be able to borrow to pursue a calling, not just a career.' },
+      { value: 'B', label: 'Federal student loans should be restricted to programs where graduates are likely to earn enough to repay what they borrowed. Taxpayers shouldn\'t subsidize programs with poor financial outcomes.' },
     ],
   },
 
@@ -99,7 +99,7 @@ export const ITEMS = [
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
       { value: 'A', label: 'College gives students genuine intellectual tools — the ability to think carefully, evaluate evidence, and hold complex questions — that they carry for the rest of their lives.' },
-      { value: 'B', label: 'What most students actually get from college is a credential and some skills for a job. The deeper intellectual formation colleges claim to offer rarely happens in practice — and this was true long before AI; it is a structural failure, not a new problem that technology created.' },
+      { value: 'B', label: 'What most students actually get from college is a credential and some skills for a job. The deeper intellectual formation colleges claim to offer rarely happens in practice.' },
     ],
   },
 
@@ -110,8 +110,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'General education should require every student to seriously engage with foundational works, whether from Western philosophy and literature, world religious traditions, or other intellectual canons, because there is no substitute for wrestling with the ideas that have shaped how humans live together.' },
-      { value: 'B', label: 'General education should focus on transferable skills, including writing clearly, reasoning quantitatively, and thinking critically across disciplines, rather than mandating any particular texts or traditions. Content should serve skill-building; prescribing specific works confuses reverence for rigorous education.' },
+      { value: 'A', label: 'General education should require every student to seriously engage with foundational works — from Western philosophy, world religious traditions, or other intellectual canons. There is no substitute for wrestling with the ideas that have shaped how humans live together.' },
+      { value: 'B', label: 'General education should focus on transferable skills — writing clearly, reasoning quantitatively, thinking critically — rather than mandating any particular texts or traditions. Skill-building, not reverence for prescribed works, should drive the curriculum.' },
     ],
   },
 
@@ -136,8 +136,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'The rise of artificial intelligence is eliminating entry-level positions — the jobs that new graduates have historically used to begin careers — faster than higher education can adapt its training.' },
-      { value: 'B', label: 'While AI will change many jobs, college graduates will be well-positioned to adapt to AI-driven changes.' },
+      { value: 'A', label: 'The rise of AI is eliminating entry-level positions — the jobs new graduates have historically used to start careers — faster than higher education can adapt its training.' },
+      { value: 'B', label: 'While AI will change many jobs, college graduates have the adaptability and critical thinking skills to find new roles — higher education prepares people for exactly this kind of transition.' },
     ],
   },
 
@@ -148,8 +148,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'AI tools in coursework, used with clear guidelines, are helping students develop the analytical skills they need — learning to work with AI is itself a genuine competency for the careers they\'re entering.' },
-      { value: 'B', label: 'Students who use AI for coursework are producing outputs, not developing the capacity to produce them. The ability to reason through hard problems independently — without assistance — is being lost in programs where AI has replaced that effort.' },
+      { value: 'A', label: 'AI tools in coursework are helping students develop the analytical skills they need — learning to work with AI is itself a genuine competency for the careers they\'re entering.' },
+      { value: 'B', label: 'Students who use AI for coursework are producing outputs, not developing the capacity to produce them. The ability to reason through hard problems independently is being lost where AI has replaced that effort.' },
     ],
   },
 
@@ -161,7 +161,7 @@ export const ITEMS = [
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
       { value: 'A', label: 'AI systems being adopted by colleges are analytical and creative tools — they don\'t have a worldview and don\'t systematically favor or exclude any set of values or traditions.' },
-      { value: 'B', label: 'AI systems integrated into university coursework were developed without meaningful input from religious traditions, non-Western philosophical frameworks, or faith-rooted ways of knowing. Students whose intellectual formation is rooted in those traditions will find their frameworks increasingly absent from the tools their universities have made central to learning.' },
+      { value: 'B', label: 'AI systems adopted by colleges were built without meaningful input from religious traditions, non-Western philosophical frameworks, or faith-rooted ways of knowing — making them poor fits for students whose intellectual formation is rooted in those traditions.' },
     ],
   },
 
@@ -174,8 +174,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Colleges and universities genuinely support students in developing new skills and perspectives while also honoring where they come from — working-class, rural, and faith-community students do not have to become different people to be taken seriously.' },
-      { value: 'B', label: 'To fully succeed at most colleges — not just to pass classes but to be taken seriously as a person and an intellect — students from working-class, rural, or faith-community backgrounds have to learn to present themselves in ways that are foreign to their home communities.' },
+      { value: 'A', label: 'Colleges genuinely support students in developing new skills and perspectives while honoring where they come from — working-class, rural, and faith-community students don\'t have to become different people to be taken seriously.' },
+      { value: 'B', label: 'To be fully taken seriously at most colleges — as a person and an intellect, not just a passing student — those from working-class, rural, or faith-community backgrounds have to present themselves in ways foreign to their home communities.' },
     ],
   },
 
@@ -188,8 +188,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'College is genuinely hard — academically, financially, and personally — and institutions cannot be expected to guarantee that every adult who enrolls will complete their degree. The decision to enroll is a personal one, and individual choices about commitment and effort shape outcomes in ways no institution can control.' },
-      { value: 'B', label: 'When a college recruits and enrolls a student — especially one from a first-generation or low-income background — and that student leaves with debt but no degree, the institution bears real responsibility. It marketed the relationship, accepted their money, and did not deliver.' },
+      { value: 'A', label: 'College is genuinely hard — academically, financially, and personally — and institutions can\'t guarantee every enrolled adult will complete their degree. Individual choices about commitment and effort shape outcomes in ways no institution can control.' },
+      { value: 'B', label: 'When a college recruits and enrolls a student — especially first-generation or low-income — and that student leaves with debt but no degree, the institution bears real responsibility. It took their enrollment and their money and did not deliver the outcome it promised.' },
     ],
   },
 
@@ -202,8 +202,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Selective colleges give wealthy and well-connected families so many structural advantages — through legacy preferences, donor relationships, private school preparation, and test coaching money can buy — that the admissions process is not genuinely merit-based, regardless of what it claims to be.' },
-      { value: 'B', label: 'Whatever advantages wealth provides before applications are submitted, once selective colleges review applications, they are making genuine judgments about intellectual capability and academic potential — the evaluation itself is more merit-based than critics acknowledge, even when access to preparation has not been equal.' },
+      { value: 'A', label: 'Selective colleges give wealthy families so many advantages — legacy preferences, donor relationships, private school preparation, test coaching — that the admissions process is not genuinely merit-based.' },
+      { value: 'B', label: 'Whatever advantages wealth provides beforehand, selective colleges still make genuine judgments about intellectual capability and academic potential — the evaluation itself is more merit-based than critics acknowledge.' },
     ],
   },
 
@@ -214,7 +214,7 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Historically Black Colleges and Universities and other minority-serving institutions were founded to serve communities systematically excluded from mainstream higher education. They deserve targeted federal investment and protection because they play a community-specific role that other institutions cannot easily substitute.' },
+      { value: 'A', label: 'HBCUs and other minority-serving institutions deserve targeted federal investment because they serve communities historically excluded from mainstream higher education — a community-specific role that other institutions cannot easily substitute.' },
       { value: 'B', label: 'Federal higher education funding should be distributed based on student outcomes and institutional performance, not on the racial identity of the student population served.' },
     ],
   },
@@ -240,7 +240,7 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'The research that universities conduct — medical breakthroughs, scientific discovery, basic science — is a public investment that benefits all Americans, and cuts to university research funding hurt the country.' },
+      { value: 'A', label: 'University research — medical breakthroughs, scientific discovery, basic science — is a public investment that benefits all Americans. Cuts to research funding hurt the country.' },
       { value: 'B', label: 'Universities receive too much federal research funding with too little accountability for how it\'s used and whether it serves national interests.' },
     ],
   },
@@ -254,8 +254,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Higher education has the capacity to identify what it has done wrong and make meaningful changes from within — faculty governance, accreditation, and shared leadership models exist precisely to enable this kind of institutional self-correction.' },
-      { value: 'B', label: 'The evidence from the past decade is that higher education cannot reform itself without significant outside pressure — from employers demanding graduates who can actually do things, from students demanding better outcomes for the money they\'re spending, or from government requiring accountability for public investment.' },
+      { value: 'A', label: 'Higher education has the capacity to identify its failures and make meaningful changes from within — faculty governance, accreditation, and shared leadership exist precisely for this kind of institutional self-correction.' },
+      { value: 'B', label: 'The evidence from the past decade is that higher education cannot reform itself without significant outside pressure — from employers, students, and government demanding better outcomes and accountability for public investment.' },
     ],
   },
 
@@ -278,8 +278,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'The most important priority is making higher education more affordable and holding institutions accountable for graduate outcomes — the four-year degree, reformed and fairly priced, remains the most reliable path to economic security and social mobility for most Americans.' },
-      { value: 'B', label: 'The most important priority is building serious alternatives to the four-year degree — registered apprenticeships, two-year technical and healthcare credentials, and stackable community college pathways — and treating these routes as full equals to the four-year degree, not consolation options for people who couldn\'t make college work.' },
+      { value: 'A', label: 'The most important priority is making higher education more affordable and holding institutions accountable — the four-year degree, reformed and fairly priced, remains the most reliable path to economic security for most Americans.' },
+      { value: 'B', label: 'The most important priority is building serious alternatives to the four-year degree — apprenticeships, two-year credentials, stackable community college pathways — and treating these routes as equals, not consolation options for those who couldn\'t make college work.' },
     ],
   },
 
@@ -290,8 +290,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Public accountability for publicly funded institutions is legitimate — when colleges and universities receive taxpayer money, elected representatives have a role in setting standards for what those institutions do and how they use public resources.' },
-      { value: 'B', label: 'Using government funding threats to determine what researchers can study or what instructors can teach is not accountability — it is using political power to shape the content of knowledge.' },
+      { value: 'A', label: 'Public accountability for publicly funded institutions is legitimate — when colleges receive taxpayer money, elected representatives have a role in setting standards for how those resources are used.' },
+      { value: 'B', label: 'Using funding threats to determine what researchers can study or instructors can teach is not accountability — it is political control of knowledge.' },
     ],
   },
 
@@ -302,8 +302,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'The federal government should have no authority over what questions researchers are allowed to study or what subjects instructors are allowed to teach at colleges and universities that receive federal funding — that authority belongs to faculty and institutions, regardless of who is in power.' },
-      { value: 'B', label: 'If taxpayers are funding research and education, the public and its elected representatives have a legitimate role in determining what kinds of questions get priority and what subjects should or should not be taught at publicly funded institutions.' },
+      { value: 'A', label: 'The federal government should have no authority over what questions researchers can study or what subjects instructors can teach at federally funded institutions — that authority belongs to faculty and institutions, regardless of who is in power.' },
+      { value: 'B', label: 'If taxpayers fund research and education, their elected representatives have a legitimate role in setting priorities for what gets studied and taught at publicly funded institutions.' },
     ],
   },
 
@@ -316,8 +316,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'News organizations that cover higher education — major newspapers, public radio, and education-specific publications — are doing real accountability journalism. Reporters investigate failures, hold institutions to the record, and produce coverage you can rely on for an honest picture of what colleges and universities are actually doing.' },
-      { value: 'B', label: 'The journalists who cover higher education mostly attended selective universities, move in university circles, and live in places where higher education works well. Their coverage reflects that world. People whose experience — or the experience of family, friends, and neighbors they trust — doesn\'t match what those outlets report are not wrong to be skeptical.' },
+      { value: 'A', label: 'News organizations that cover higher education — major newspapers, public radio, education-specific publications — are doing real accountability journalism: investigating failures, holding institutions to the record, producing coverage you can rely on.' },
+      { value: 'B', label: 'The journalists who cover higher education mostly attended selective universities, move in university circles, and live in places where higher education works well. Their coverage reflects that world — skepticism from people whose experience doesn\'t match what those outlets report is entirely justified.' },
     ],
   },
 
