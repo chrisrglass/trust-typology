@@ -64,7 +64,7 @@ export const DEMOGRAPHIC_VARIABLES = [
   {
     id: 'DM-F',
     label: 'Trusted News and Information Sources',
-    question: 'Which best describes the sources you trust most for reliable news and information?',
+    question: 'Which of the following best describes the news and information sources you trust most? Choose the one that fits best.',
     options: [
       'National Public Radio, The New York Times, The Washington Post, or similar national newspapers',
       'CNN or national network TV news (for example, ABC, CBS, or NBC)',
