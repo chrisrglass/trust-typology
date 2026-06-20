@@ -164,7 +164,7 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'College is genuinely hard — academically, financially, and personally — and institutions can\'t guarantee every enrolled adult will complete their degree. Individual choices about commitment and effort shape outcomes in ways no institution can control.' },
+      { value: 'A', label: 'When an adult enrolls in college, they are accepting responsibility for seeing it through. Institutions provide the curriculum, the faculty, and the credential — but whether a student completes depends on choices no institution can make for them.' },
       { value: 'B', label: 'When a college recruits and enrolls a student — especially first-generation or low-income — and that student leaves with debt but no degree, the institution bears real responsibility. It took their enrollment and their money and did not deliver the outcome it promised.' },
     ],
   },
