@@ -1738,3 +1738,200 @@ a:hover {
 .results-type-icon {
   margin-bottom: 0.75rem;
 }
+
+/* ── Typology Landing (#/typology) ──────────────────────────────────────────── */
+
+.typo-body {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.typo-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-default);
+}
+
+.typo-section-h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.typo-section-lead {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Quiz callout */
+.quiz-callout {
+  border: 2px solid var(--accent);
+  background: var(--color-accent-light);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.quiz-callout-heading {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.quiz-callout-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+}
+
+/* Shared concerns grid */
+.shared-concerns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.shared-concern-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.shared-concern-stat {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+  line-height: 1.1;
+}
+
+.shared-concern-headline {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.shared-concern-detail {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.4rem 0 0;
+  line-height: 1.5;
+}
+
+/* Divides */
+.divide-block {
+  margin-bottom: 2.25rem;
+}
+
+.divide-block:last-child {
+  margin-bottom: 0;
+}
+
+.divide-question {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.875rem;
+}
+
+.divide-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.divide-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.divide-type-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.divide-item-body {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+.divide-type-label {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.divide-type-label:hover {
+  text-decoration: underline;
+}
+
+.divide-type-position {
+  color: var(--text-secondary);
+}
+
+/* AI findings */
+.ai-findings {
+  background: var(--bg-raised);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.ai-findings ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.ai-findings li {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+@media (max-width: 560px) {
+  .shared-concerns-grid {
+    grid-template-columns: 1fr;
+  }
+  .typo-section-h2 {
+    font-size: 1.4rem;
+  }
+  .quiz-callout {
+    padding: 1.5rem 1.25rem;
+  }
+  .quiz-callout-heading {
+    font-size: 1.15rem;
+  }
+}

@@ -54,6 +54,10 @@ export default function ProfileIndex({ highlightedId }) {
       <div className="profile-index-explore">
         <p className="profile-section-title" style={{ maxWidth: '720px', margin: '0 auto 1rem' }}>Explore further</p>
         <div className="profile-index-explore-links">
+          <a href="#/typology" className="profile-index-explore-card">
+            <strong className="explore-card-title">About this typology</strong>
+            <span className="explore-card-desc">Purpose, shared findings, key divides on the left and right, and AI findings</span>
+          </a>
           <a href="#/demographics" className="profile-index-explore-card">
             <strong className="explore-card-title">Demographics</strong>
             <span className="explore-card-desc">Who belongs to each type — by age, education, politics, and more</span>
