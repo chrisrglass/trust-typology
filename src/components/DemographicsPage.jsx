@@ -1,19 +1,31 @@
 import { CLASSES } from '../data/classes.js'
 import { DEMOGRAPHIC_VARIABLES, CLASS_DEMOGRAPHICS } from '../data/demographicsData.js'
 
+const CLASS_ORDER = [
+  'institutional-faithful',
+  'critical-believers',
+  'economically-dispossessed-left',
+  'community-meritocrats',
+  'indifferent-skeptics',
+  'faith-rooted-skeptics',
+  'populist-antagonists',
+]
+
+const SORTED_CLASSES = CLASS_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
+
 function parsePrevalence(str) {
   return parseFloat(str.replace(/[^0-9.]/g, '')) / 100
 }
 
 // Bayesian inversion: P(type | option) ∝ P(option | type) × P(type)
 function computeTypeWeights(varId, option) {
-  const weights = CLASSES.map(cls => {
+  const weights = SORTED_CLASSES.map(cls => {
     const prevalence = parsePrevalence(cls.prevalence)
     const prob = CLASS_DEMOGRAPHICS[cls.id]?.[varId]?.[option] ?? 0
     return prevalence * prob
   })
   const total = weights.reduce((a, b) => a + b, 0)
-  if (total === 0) return CLASSES.map(() => 0)
+  if (total === 0) return SORTED_CLASSES.map(() => 0)
   return weights.map(w => w / total)
 }
 
@@ -23,7 +35,7 @@ function OptionRow({ varId, option }) {
     <div className="demo-option-row">
       <div className="demo-option-label">{option}</div>
       <div className="demo-seg-bar" role="img" aria-label={`Type breakdown for: ${option}`}>
-        {CLASSES.map((cls, i) => {
+        {SORTED_CLASSES.map((cls, i) => {
           const pct = weights[i] * 100
           if (pct < 0.5) return null
           return (
@@ -85,18 +97,18 @@ export default function DemographicsPage() {
           composition of people who chose that answer — hover a segment to see the type and its share.
         </p>
 
+        {DEMOGRAPHIC_VARIABLES.map(variable => (
+          <DemographicSection key={variable.id} variable={variable} />
+        ))}
+
         <div className="demo-legend">
-          {CLASSES.map(cls => (
+          {SORTED_CLASSES.map(cls => (
             <a key={cls.id} href={`#/profiles/${cls.id}`} className="demo-legend-item">
               <span className="demo-legend-swatch" style={{ background: cls.accentColor }} />
               {cls.name}
             </a>
           ))}
         </div>
-
-        {DEMOGRAPHIC_VARIABLES.map(variable => (
-          <DemographicSection key={variable.id} variable={variable} />
-        ))}
 
         <footer className="profile-footer" style={{ marginTop: '2rem' }}>
           <p>
