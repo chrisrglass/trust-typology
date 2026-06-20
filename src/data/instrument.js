@@ -112,8 +112,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'AI is eliminating entry-level positions faster than higher education can adapt — leaving graduates without the runway they need to launch careers.' },
-      { value: 'B', label: 'College graduates have always had to adapt to changing labor markets, and AI is no different — critical thinking and adaptability are exactly the skills a college education builds.' },
+      { value: 'A', label: 'When AI transforms the jobs graduates were prepared for, that\'s a sign higher education needs to fundamentally change what it teaches and how — the current degree structure is falling behind reality.' },
+      { value: 'B', label: 'AI changes specific job descriptions, not the underlying value of a college education — graduates with strong problem-solving and analytical skills adapt as they always have.' },
     ],
   },
 
@@ -124,8 +124,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'Using AI for coursework develops the kind of thinking students need — working with AI to evaluate, refine, and build on ideas is real intellectual engagement, not a shortcut around it.' },
-      { value: 'B', label: 'Students who use AI for coursework are producing outputs, not developing the capacity to produce them. The ability to reason through hard problems independently is being lost where AI has replaced that effort.' },
+      { value: 'A', label: 'Whether students use AI or not matters less than the quality of their thinking. Employers need graduates who can work with AI tools intelligently — learning with AI develops exactly that skill for the world students are entering.' },
+      { value: 'B', label: 'Reasoning through hard problems without assistance — holding a complex question in mind, struggling with it, and arriving at your own understanding — is what college is supposed to build. AI doesn\'t develop that capacity; it substitutes for it.' },
     ],
   },
 
@@ -136,8 +136,8 @@ export const ITEMS = [
     type: 'forced_choice',
     prompt: 'Which comes closer to your view — even if neither is exactly right?',
     options: [
-      { value: 'A', label: 'AI systems are tools — whatever values are embedded in their training, students can learn to engage with them critically, the same way they engage with any text or method that carries assumptions. The tool doesn\'t determine the thinker.' },
-      { value: 'B', label: 'AI systems adopted by colleges were built without meaningful input from religious traditions, non-Western philosophical frameworks, or faith-rooted ways of knowing — making them poor fits for students whose intellectual formation is rooted in those traditions.' },
+      { value: 'A', label: 'AI tools, like any text or method, carry the assumptions of those who built them — but that is precisely what a liberal education teaches students to recognize and reason through. Critical engagement with AI\'s assumptions is not a reason to avoid it; it is what education looks like.' },
+      { value: 'B', label: 'AI systems adopted by colleges were built primarily within secular, Western, market-driven frameworks. For students whose intellectual formation is rooted in faith traditions, non-Western philosophies, or working-class community knowledge, these systems are not neutral — they represent a default that marginalizes their ways of knowing.' },
     ],
   },
 
