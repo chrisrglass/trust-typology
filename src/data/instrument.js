@@ -29,19 +29,7 @@ export const ITEMS = [
 
   // Dimension 1 — Financial Stakes and Honest Dealing
 
-  // Item 1
-  {
-    id: 'D5-B',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Higher education today is a reliable path to upward mobility for people from low-income families.' },
-      { value: 'B', label: 'For people from low-income families, the risks of higher education — debt, non-completion, uncertain job prospects — often outweigh the benefits.' },
-    ],
-  },
-
-  // Item 2
+  // Item 1 (formerly Item 2)
   {
     id: 'D5-D',
     section: 'PART1',
@@ -112,18 +100,6 @@ export const ITEMS = [
     options: [
       { value: 'A', label: 'General education should require every student to seriously engage with foundational works — from Western philosophy, world religious traditions, or other intellectual canons. There is no substitute for wrestling with the ideas that have shaped how humans live together.' },
       { value: 'B', label: 'General education should focus on transferable skills — writing clearly, reasoning quantitatively, thinking critically — rather than mandating any particular texts or traditions. Skill-building, not reverence for prescribed works, should drive the curriculum.' },
-    ],
-  },
-
-  // Item 8
-  {
-    id: 'D2-B',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Faculty at most colleges and universities retain meaningful freedom to pursue research questions that challenge prevailing assumptions — the independent inquiry that makes academic knowledge valuable is still protected at most institutions.' },
-      { value: 'B', label: 'At most colleges and universities, research directions that challenge prevailing assumptions face real institutional pressure — hiring, funding, and publication decisions push inquiry in directions that are safe rather than generative.' },
     ],
   },
 
