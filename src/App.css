@@ -19,7 +19,7 @@
 /* ─── WPDS Design Tokens ─────────────────────────────────────────────────────── */
 :root {
   /* Surface */
-  --bg-page:   #F4F1EB;
+  --bg-page:   #f5f5f5;
   --bg-card:   #FFFFFF;
   --bg-raised: #F1EEE8;
 

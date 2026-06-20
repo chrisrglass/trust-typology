@@ -57,10 +57,6 @@ export default function TypologyLanding() {
             The partisan divide over higher education is real, but it obscures something equally important: a set of concerns that cut across every group, regardless of political orientation or relationship to the institution.
           </p>
 
-          <PullQuote stat="83%">
-            of Americans across the political spectrum worry that AI will diminish students' capacity for independent thinking — the highest cross-partisan consensus in the instrument (Quinnipiac, 2026).
-          </PullQuote>
-
           <p className="profile-para">
             The financial reality of college has become nearly impossible to defend across the ideological spectrum. All seven types agree the cost burden has grown. They disagree sharply on who bears the downside — whether students are choosing the wrong schools, institutions are extracting too much, or governments have withdrawn too much support — but the shared premise is that the deal is harder to justify than it was a generation ago.
           </p>
@@ -127,12 +123,6 @@ export default function TypologyLanding() {
             Indifferent Skeptics have exited the debate entirely. They see the failures clearly enough — but haven't organized that observation into a reform agenda. They've simply moved on.
           </PullQuote>
 
-          <p className="typo-divide-q">On AI risk</p>
-          <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith-Rooted Skeptics</a> are the most alarmed of any group. AI models trained without engagement from faith communities systematically exclude religious and moral frameworks, according to BYU multi-institution research. The Vatican's January 2025 instruction <em>Antiqua et nova</em> named AI a risk to moral formation and human dignity.{' '}
-            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a> see AI encoding elite secular values and destroying cognitive independence — a technological extension of the same institutional capture they already distrust.{' '}
-            <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Indifferent Skeptics</a> are the least alarmed: 39% are unsure whether AI poses risks at all, the highest unsure rate of any group in the instrument.
-          </p>
         </section>
 
         {/* Key divides — left */}

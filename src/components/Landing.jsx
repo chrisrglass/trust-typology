@@ -2,7 +2,10 @@ export default function Landing({ onStart }) {
   return (
     <div className="landing">
       <header className="landing-header">
-        <p className="eyebrow">Boston College · Research Instrument</p>
+        <svg width="48" height="32" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginBottom: '0.75rem' }} aria-hidden="true">
+          <circle cx="17" cy="16" r="13" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.85" />
+          <circle cx="31" cy="16" r="13" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.85" />
+        </svg>
         <h1>The Trust Project</h1>
         <p className="subtitle">A Typology of Trust in American Higher Education</p>
       </header>
@@ -15,8 +18,7 @@ export default function Landing({ onStart }) {
             college president — or a state legislator — what has been lost, by whom, or why.
           </p>
           <p>
-            This survey is designed to find out. It draws on the approach used by
-            the Pew Research Center's 2026 Political Typology: instead of placing
+            This survey is designed to find out. Instead of placing
             people on a single scale, it identifies the distinct groups who relate to
             higher education with distinct concerns, distinct values, and distinct
             conditions for repair.
@@ -27,29 +29,9 @@ export default function Landing({ onStart }) {
           </p>
         </div>
 
-        <div className="landing-details">
-          <div className="detail-card">
-            <span className="detail-number">33</span>
-            <span className="detail-label">questions</span>
-          </div>
-          <div className="detail-card">
-            <span className="detail-number">8–12</span>
-            <span className="detail-label">minutes</span>
-          </div>
-          <div className="detail-card">
-            <span className="detail-number">Research</span>
-            <span className="detail-label">purpose only</span>
-          </div>
-        </div>
-
         <div className="landing-consent">
           <p>
-            At the end, you'll see which of seven trust typology profiles fits your views — and how each profile relates to the others.
-          </p>
-          <p>
-            Your responses are collected anonymously for academic research on public
-            attitudes toward higher education. No personally identifying information
-            is collected. By clicking below you consent to participate.
+            At the end, you'll see which of seven trust typology profiles fits your views — and how each profile relates to the others. Your responses are collected anonymously for research on public attitudes toward higher education. No personally identifying information is collected. By clicking below you consent to participate.
           </p>
         </div>
 
@@ -62,12 +44,19 @@ export default function Landing({ onStart }) {
         <p>
           A research project by{' '}
           <a
-            href="https://www.bc.edu/bc-web/schools/lynch-school/faculty-research/faculty/Chris-Glass.html"
+            href="https://chrisrglass.substack.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             Chris R. Glass
-          </a>
+          </a>{' '}
+          (<a
+            href="https://linkedin.com/in/chrisrglass"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>)
           , Director, Executive Doctor of Education in Higher Education,
           Boston College Lynch School of Education and Human Development.
         </p>
