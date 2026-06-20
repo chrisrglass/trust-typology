@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CLASSES } from '../data/classes.js'
 import { DIMENSIONS } from '../data/dimensionsData.js'
+import TypeIcon from './TypeIcon.jsx'
 
 function hexLuminance(hex) {
   const r = parseInt(hex.slice(1, 3), 16) / 255
@@ -23,14 +24,6 @@ const SORTED_CLASSES = [
   'faith-rooted-skeptics',
   'populist-antagonists',
 ].map(id => CLASSES.find(c => c.id === id))
-
-const DISCRIMINANT_COLORS = {
-  'Highest of all nine dimensions': '#1F6B4F',
-  'High': '#2457A6',
-  'Moderate-High': '#6E3B6E',
-  'Moderate': '#8a7a6a',
-  'Lower overall; item-level varies': '#999',
-}
 
 export default function DimensionsPage() {
   const [activeId, setActiveId] = useState(null)
@@ -60,26 +53,23 @@ export default function DimensionsPage() {
       <div className="typo-body">
 
         <p className="profile-para" style={{ marginTop: '2rem' }}>
-          Trust in higher education is not a single attitude — it is a cluster of nine distinct questions, each measuring a different aspect of the relationship between Americans and their institutions. These dimensions vary in how sharply they separate the seven trust types from one another. Select any dimension to see how each type responds.
+          Trust in higher education is not a single attitude — it is a cluster of nine distinct questions, each measuring a different aspect of the relationship between Americans and their institutions. Select any dimension to see how each type responds.
         </p>
 
         <div className="dim-grid">
           {DIMENSIONS.map(dim => {
             const isActive = activeId === dim.id
-            const color = DISCRIMINANT_COLORS[dim.discriminantPower] || '#8a7a6a'
             return (
               <button
                 key={dim.id}
                 className={`dim-card${isActive ? ' dim-card--active' : ''}`}
-                style={{ '--dim-color': color }}
                 onClick={() => toggle(dim.id)}
                 aria-expanded={isActive}
               >
-                <span className="dim-card-icon">{dim.icon}</span>
-                <span className="dim-card-title">{dim.title}</span>
-                <span className="dim-card-power" style={{ color }}>
-                  {dim.discriminantPower}
+                <span className="dim-card-icon">
+                  <TypeIcon iconName={dim.icon} color={isActive ? '#2a2a2a' : '#666'} size={20} strokeWidth={1.6} />
                 </span>
+                <span className="dim-card-title">{dim.title}</span>
                 <span className="dim-card-chevron">{isActive ? '▲' : '▼'}</span>
               </button>
             )
@@ -89,12 +79,9 @@ export default function DimensionsPage() {
         {activeDim && (
           <div className="dim-detail" key={activeDim.id}>
             <h2 className="dim-detail-title">
-              <span className="dim-detail-icon">{activeDim.icon}</span>
+              <TypeIcon iconName={activeDim.icon} color="#2a2a2a" size={22} strokeWidth={1.6} />
               {activeDim.title}
             </h2>
-            <p className="dim-detail-power" style={{ color: DISCRIMINANT_COLORS[activeDim.discriminantPower] || '#8a7a6a' }}>
-              Discriminant power: {activeDim.discriminantPower}
-            </p>
             <p className="profile-para">{activeDim.whatItMeasures}</p>
             <div className="dim-type-grid">
               {SORTED_CLASSES.map(cls => (

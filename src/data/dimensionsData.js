@@ -1,8 +1,8 @@
 export const DIMENSIONS = [
   {
     id: 'cultural-belonging',
-    icon: '🫂',
-    title: '1. Cultural Belonging and Identity Welcome',
+    icon: 'Users',
+    title: 'Cultural Belonging and Identity Welcome',
     discriminantPower: 'Highest of all nine dimensions',
     whatItMeasures: 'Whether higher education is genuinely open to people from different backgrounds, faith traditions, and class cultures — or whether belonging requires assimilation to elite norms. The left-right inversion is sharpest here: each side experiences itself as the excluded party, and they are describing different exclusions.',
     sharpestSplits: 'Maximum cross-group variance — every type experiences this dimension differently; sharpest left-right inversion in the instrument',
@@ -18,8 +18,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'free-inquiry',
-    icon: '🔍',
-    title: '2. Free Inquiry and Intellectual Climate',
+    icon: 'Search',
+    title: 'Free Inquiry and Intellectual Climate',
     discriminantPower: 'High',
     whatItMeasures: 'Whether the institutional climate genuinely permits following evidence wherever it leads — across faculty research, classroom discussion, and student expression — or whether ideological pressure (from any direction) narrows what can be thought, said, and studied.',
     sharpestSplits: 'Sharpest left-right contrast in the instrument — each side experiences this dimension through opposite frames; Faith-Rooted Skeptics have a distinct religious-expression angle',
@@ -35,8 +35,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'institutional-self-interest',
-    icon: '🏦',
-    title: '3. Institutional Self-Interest and Fiduciary Failure',
+    icon: 'Landmark',
+    title: 'Institutional Self-Interest and Fiduciary Failure',
     discriminantPower: 'High',
     whatItMeasures: 'Whether institutions act in the genuine interest of students and the public — or whether they protect their own reputation, revenue, and ideological commitments at students\' expense. Covers admin bloat, values-action gaps, predatory enrollment, and crisis opacity.',
     sharpestSplits: 'Economically Dispossessed Left (predatory enrollment as personal betrayal); Faith-Rooted Skeptics (mission corruption by market forces); Populist Antagonists (total institutional distrust)',
@@ -52,8 +52,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'structural-fairness',
-    icon: '⚖️',
-    title: '4. Structural Fairness and Access',
+    icon: 'Scale',
+    title: 'Structural Fairness and Access',
     discriminantPower: 'High',
     whatItMeasures: 'Whether the higher education system is organized to expand opportunity or to reproduce the advantages of those already privileged. Covers admissions fairness, support for first-generation and low-income students, DEI policy, HBCU and minority-serving institution support, and basic needs access.',
     sharpestSplits: 'DEI and HBCU items create maximum splits; affordability items produce more cross-partisan agreement',
@@ -69,8 +69,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'governance-accountability',
-    icon: '🗳️',
-    title: '5. Governance, Reform, and Accountability',
+    icon: 'FileText',
+    title: 'Governance, Reform, and Accountability',
     discriminantPower: 'High',
     whatItMeasures: 'Who should have authority over higher education and what kinds of change are legitimate — whether HE can reform itself from within, whether government should intervene and how, whether alternatives should be built rather than existing institutions reformed, and who gets to name the problems.',
     sharpestSplits: 'Government authority items create the sharpest splits; Faith-Rooted Skeptics occupy a uniquely anomalous position — threatened by a Republican administration\'s accountability framework',
@@ -86,8 +86,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'learning-quality',
-    icon: '🎓',
-    title: '6. Learning Quality and Educational Purpose',
+    icon: 'BookOpen',
+    title: 'Learning Quality and Educational Purpose',
     discriminantPower: 'Moderate-High',
     whatItMeasures: 'Whether higher education actually produces the intellectual development it claims — genuine formation, not just credentialing — and whether institutions can articulate a coherent account of what they are for beyond job placement and earnings.',
     sharpestSplits: 'Faith-Rooted Skeptics (formation of character as explicit purpose); Populist Antagonists (ideological capture vs. genuine learning)',
@@ -103,8 +103,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'community-benefit',
-    icon: '🌱',
-    title: '7. Community Benefit and Public Mission',
+    icon: 'Globe',
+    title: 'Community Benefit and Public Mission',
     discriminantPower: 'Moderate-High',
     whatItMeasures: 'Whether higher education serves ordinary people and communities — locally (is the institution embedded in and contributing to its community?), nationally (does research produce benefits that reach people like me?), and globally (is global openness an asset or a liability?).',
     sharpestSplits: 'Cosmopolitan-nationalist item creates sharpest splits; class and geographic splits on local embeddedness',
@@ -120,8 +120,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'financial-stakes',
-    icon: '💵',
-    title: '8. Financial Stakes and Honest Dealing',
+    icon: 'DollarSign',
+    title: 'Financial Stakes and Honest Dealing',
     discriminantPower: 'Moderate',
     whatItMeasures: 'Whether the investment in higher education is worth the cost — and whether institutions are honest about the terms. Covers cost-benefit verdict, debt as life constraint, underemployment after graduation, financial aid transparency, and who bears the risk when the deal goes wrong.',
     sharpestSplits: 'Faith-Rooted Skeptics (earnings test threatens religious programs); Economically Dispossessed Left (personal experience of the broken deal)',
@@ -137,8 +137,8 @@ export const DIMENSIONS = [
   },
   {
     id: 'ai-integrity',
-    icon: '🤖',
-    title: '9. AI and the Integrity of Learning',
+    icon: 'Bot',
+    title: 'AI and the Integrity of Learning',
     discriminantPower: 'Lower overall; item-level varies',
     whatItMeasures: 'What artificial intelligence does to credentials (entry-level job elimination, institutional adaptation lag), the authorship of student work (academic integrity), and the capacity for independent reasoning. Cross-partisan concern runs extremely high — 83% worry about AI and cognitive development — but why groups are concerned differs significantly.',
     sharpestSplits: 'Indifferent Skeptics (most disengaged); Faith-Rooted Skeptics (AI embeds secular assumptions); Economically Dispossessed Left (hardest hit by entry-level elimination)',
