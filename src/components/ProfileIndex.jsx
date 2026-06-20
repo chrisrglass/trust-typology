@@ -62,10 +62,6 @@ export default function ProfileIndex({ highlightedId }) {
             <strong className="explore-card-title">Demographics</strong>
             <span className="explore-card-desc">Who belongs to each type — by age, education, politics, and more</span>
           </a>
-          <a href="#/map" className="profile-index-explore-card">
-            <strong className="explore-card-title">Map</strong>
-            <span className="explore-card-desc">The dominant type in each state, shown geographically</span>
-          </a>
         </div>
       </div>
 
@@ -84,8 +80,8 @@ export default function ProfileIndex({ highlightedId }) {
         </p>
         <p>
           Results and analysis will be published at{' '}
-          <a href="https://chrisglass.substack.com" target="_blank" rel="noopener noreferrer">
-            chrisglass.substack.com
+          <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
+            chrisrglass.substack.com
           </a>.
         </p>
       </footer>

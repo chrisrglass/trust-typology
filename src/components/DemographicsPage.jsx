@@ -44,6 +44,9 @@ function DemographicSection({ variable }) {
   return (
     <div className="demo-section">
       <p className="profile-section-title">{variable.label}</p>
+      {variable.question && (
+        <p className="demo-question-text">{variable.question}</p>
+      )}
       <div className="demo-rows">
         {variable.options.map(opt => (
           <OptionRow key={opt} varId={variable.id} option={opt} />
@@ -59,7 +62,6 @@ export default function DemographicsPage() {
 
       <nav className="profile-nav">
         <a href="#/profiles" className="profile-nav-back">← All Profiles</a>
-        <a href="#/map" className="profile-nav-link">View Map →</a>
       </nav>
 
       <div className="profile-header-band" style={{ background: '#3a3a3a' }}>
@@ -107,8 +109,8 @@ export default function DemographicsPage() {
           </p>
           <p>
             Results and analysis at{' '}
-            <a href="https://chrisglass.substack.com" target="_blank" rel="noopener noreferrer">
-              chrisglass.substack.com
+            <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
+              chrisrglass.substack.com
             </a>.
           </p>
         </footer>

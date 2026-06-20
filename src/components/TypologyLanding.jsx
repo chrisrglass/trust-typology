@@ -324,8 +324,8 @@ export default function TypologyLanding() {
           </p>
           <p>
             Results and analysis at{' '}
-            <a href="https://chrisglass.substack.com" target="_blank" rel="noopener noreferrer">
-              chrisglass.substack.com
+            <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
+              chrisrglass.substack.com
             </a>.
           </p>
         </footer>

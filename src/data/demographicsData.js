@@ -5,50 +5,55 @@ export const DEMOGRAPHIC_VARIABLES = [
   {
     id: 'DM-A',
     label: 'Political Self-Identification',
+    question: 'Which of the following best describes how you think of yourself politically? Choose the one that fits best.',
     options: ['Progressive', 'Lean Left', 'Moderate', 'Lean Right', 'Conservative', 'Apolitical'],
   },
   {
     id: 'REP-A',
     label: 'Age',
+    question: 'What is your age?',
     options: ['18–29', '30–44', '45–59', '60–74', '75+'],
   },
   {
     id: 'REP-E',
     label: 'Educational Attainment',
+    question: 'What is the highest level of education you have completed?',
     options: ['Less than HS', 'HS diploma', 'Some college', "Bachelor's", 'Graduate degree'],
   },
   {
     id: 'REP-D',
     label: 'Race / Ethnicity',
+    question: 'Which of the following best describes your race or ethnicity?',
     options: ['White', 'Black', 'Hispanic', 'Asian', 'Native American', 'Multiracial', 'Other / Prefer not'],
   },
   {
     id: 'REP-B',
     label: 'Gender',
+    question: 'What is your gender?',
     options: ['Man', 'Woman', 'Non-binary / Other', 'Prefer not to say'],
   },
   {
     id: 'DM-B',
     label: 'Student Loan Debt Status',
-    // Options match quiz DM-B: never attended / no debt / paid off / under $25k / $25k–$75k / $75k+
+    question: 'Do you currently have student loan debt from your own college education?',
     options: ['Never attended', 'No debt incurred', 'Debt paid off', 'Under $25k remaining', '$25k–$75k remaining', '$75k+ remaining'],
   },
   {
     id: 'DM-C',
     label: 'First-Generation Status',
-    // Quiz asks "Did either parent complete a four-year degree?" A=yes(parent attended), B=no(first gen)
+    question: 'Did either of your parents or guardians complete a four-year college degree?',
     options: ['Parent(s) attended college', 'First in family'],
   },
   {
     id: 'DM-E',
     label: 'Observed Financial Outcomes (Personal Network)',
-    // Options match quiz DM-E: mostly better / mixed positive / mixed negative / mostly worse
+    question: 'Beyond your own experience, think about the people in your personal network who have pursued a college degree. How would you characterize the financial outcomes you have observed among them?',
     options: ['Mostly better', 'Mixed — mostly positive', 'Mixed — mostly negative', 'Mostly worse'],
   },
   {
     id: 'DM-F',
     label: 'Trusted News and Information Sources',
-    // Options match quiz DM-F 8 media-environment categories
+    question: 'Which of the following best describes the news and information sources you trust most?',
     options: [
       'Left-center establishment',
       'Rigorous + skeptical',
@@ -63,7 +68,7 @@ export const DEMOGRAPHIC_VARIABLES = [
   {
     id: 'REP-C',
     label: 'Region',
-    // Derived from quiz REP-C (ZIP code) collapsed to Census regions
+    question: 'In which U.S. Census region do you live? (derived from ZIP code)',
     options: ['Northeast', 'Midwest', 'South', 'West'],
   },
 ]

@@ -150,8 +150,8 @@ export default function ProfilePage({ classId, highlightedId }) {
           <p>Thank you for your interest in this research.</p>
           <p>
             Results and analysis will be published at{' '}
-            <a href="https://chrisglass.substack.com" target="_blank" rel="noopener noreferrer">
-              chrisglass.substack.com
+            <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
+              chrisrglass.substack.com
             </a>{' '}
             when the study is complete.
           </p>
