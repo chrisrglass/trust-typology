@@ -271,18 +271,6 @@ export const ITEMS = [
     ],
   },
 
-  // Item 22
-  {
-    id: 'R-H',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'The federal government should have no authority over what questions researchers can study or what subjects instructors can teach at federally funded institutions — that authority belongs to faculty and institutions, regardless of who is in power.' },
-      { value: 'B', label: 'If taxpayers fund research and education, their elected representatives have a legitimate role in setting priorities for what gets studied and taught at publicly funded institutions.' },
-    ],
-  },
-
   // Dimension 9 — Epistemic Authority
 
   // Item 23
