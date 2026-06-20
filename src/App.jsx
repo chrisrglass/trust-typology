@@ -1,7 +1,9 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Landing from './components/Landing.jsx'
 import Quiz from './components/Quiz.jsx'
 import Results from './components/Results.jsx'
+import ProfilePage from './components/ProfilePage.jsx'
+import ProfileIndex from './components/ProfileIndex.jsx'
 import { submitResponse } from './lib/supabase.js'
 import { classifyResponses } from './lib/classify.js'
 import './App.css'
@@ -12,11 +14,29 @@ function generateSessionId() {
 
 const SESSION_ID = generateSessionId()
 
+function parseHash(hash) {
+  if (hash.startsWith('#/profiles/')) return { type: 'profile', classId: hash.replace('#/profiles/', '') }
+  if (hash === '#/profiles') return { type: 'profile-index' }
+  return { type: 'quiz-flow' }
+}
+
 export default function App() {
   const [stage, setStage] = useState('landing') // 'landing' | 'quiz' | 'results'
   const [classResult, setClassResult] = useState(null)
+  const [view, setView] = useState(() => parseHash(window.location.hash))
+
+  useEffect(() => {
+    const check = () => {
+      setView(parseHash(window.location.hash))
+      window.scrollTo(0, 0)
+    }
+    window.addEventListener('hashchange', check)
+    return () => window.removeEventListener('hashchange', check)
+  }, [])
 
   const handleStart = useCallback(() => {
+    window.location.hash = ''
+    setView({ type: 'quiz-flow' })
     setStage('quiz')
     window.scrollTo(0, 0)
   }, [])
@@ -29,6 +49,22 @@ export default function App() {
     // background submit — fire and forget
     submitResponse(SESSION_ID, responses).catch(err => console.error('Submit failed:', err))
   }, [])
+
+  if (view.type === 'profile') {
+    return (
+      <div className="app app--profile">
+        <ProfilePage classId={view.classId} highlightedId={classResult?.id} />
+      </div>
+    )
+  }
+
+  if (view.type === 'profile-index') {
+    return (
+      <div className="app app--profile">
+        <ProfileIndex highlightedId={classResult?.id} />
+      </div>
+    )
+  }
 
   return (
     <div className="app">

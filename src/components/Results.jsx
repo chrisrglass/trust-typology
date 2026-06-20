@@ -39,10 +39,16 @@ export default function Results({ classResult }) {
         <hr />
       </div>
 
-      {/* Block 4: All six class cards */}
+      {/* Block 4: All seven class cards, each linking to its profile */}
       <div className="results-grid" role="list" aria-label="All seven trust typology profiles">
         {CLASSES.map(cls => (
-          <div key={cls.id} role="listitem">
+          <a
+            key={cls.id}
+            role="listitem"
+            href={`#/profiles/${cls.id}`}
+            className="results-profile-link"
+            aria-label={`View full profile: ${cls.name}${cls.id === classResult.id ? ' (your result)' : ''}`}
+          >
             <ClassCard
               name={cls.name}
               tagline={cls.tagline}
@@ -51,7 +57,7 @@ export default function Results({ classResult }) {
               isYours={cls.id === classResult.id}
               expanded={false}
             />
-          </div>
+          </a>
         ))}
       </div>
 
