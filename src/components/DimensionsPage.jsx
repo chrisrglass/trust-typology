@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { CLASSES } from '../data/classes.js'
 import { DIMENSIONS } from '../data/dimensionsData.js'
 
@@ -32,6 +33,13 @@ const DISCRIMINANT_COLORS = {
 }
 
 export default function DimensionsPage() {
+  const [activeId, setActiveId] = useState(null)
+  const activeDim = DIMENSIONS.find(d => d.id === activeId)
+
+  function toggle(id) {
+    setActiveId(prev => prev === id ? null : id)
+  }
+
   return (
     <div className="profile-page">
 
@@ -52,28 +60,57 @@ export default function DimensionsPage() {
       <div className="typo-body">
 
         <p className="profile-para" style={{ marginTop: '2rem' }}>
-          Trust in higher education is not a single attitude — it is a cluster of nine distinct questions, each measuring a different aspect of the relationship between Americans and their institutions. These dimensions were identified through analysis of more than 50 items measuring trust erosion across economic, cultural, and political lines. They vary in how sharply they separate the seven trust types from one another.
+          Trust in higher education is not a single attitude — it is a cluster of nine distinct questions, each measuring a different aspect of the relationship between Americans and their institutions. These dimensions vary in how sharply they separate the seven trust types from one another. Select any dimension to see how each type responds.
         </p>
 
-        {DIMENSIONS.map(dim => (
-          <section key={dim.id} className="typo-section">
-            <h2 className="typo-section-h2">{dim.title}</h2>
-            <p className="dimension-discriminant" style={{ color: DISCRIMINANT_COLORS[dim.discriminantPower] || '#8a7a6a' }}>
-              Discriminant power: {dim.discriminantPower}
+        <div className="dim-grid">
+          {DIMENSIONS.map(dim => {
+            const isActive = activeId === dim.id
+            const color = DISCRIMINANT_COLORS[dim.discriminantPower] || '#8a7a6a'
+            return (
+              <button
+                key={dim.id}
+                className={`dim-card${isActive ? ' dim-card--active' : ''}`}
+                style={{ '--dim-color': color }}
+                onClick={() => toggle(dim.id)}
+                aria-expanded={isActive}
+              >
+                <span className="dim-card-icon">{dim.icon}</span>
+                <span className="dim-card-title">{dim.title}</span>
+                <span className="dim-card-power" style={{ color }}>
+                  {dim.discriminantPower}
+                </span>
+                <span className="dim-card-chevron">{isActive ? '▲' : '▼'}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        {activeDim && (
+          <div className="dim-detail" key={activeDim.id}>
+            <h2 className="dim-detail-title">
+              <span className="dim-detail-icon">{activeDim.icon}</span>
+              {activeDim.title}
+            </h2>
+            <p className="dim-detail-power" style={{ color: DISCRIMINANT_COLORS[activeDim.discriminantPower] || '#8a7a6a' }}>
+              Discriminant power: {activeDim.discriminantPower}
             </p>
-            <p className="profile-para">{dim.whatItMeasures}</p>
-            <div className="dimension-types">
+            <p className="profile-para">{activeDim.whatItMeasures}</p>
+            <div className="dim-type-grid">
               {SORTED_CLASSES.map(cls => (
-                <div key={cls.id} className="dimension-type-row">
-                  <a href={`#/profiles/${cls.id}`} className="dimension-type-badge" style={{ background: cls.accentColor, color: badgeTextColor(cls.accentColor) }}>
+                <a key={cls.id} href={`#/profiles/${cls.id}`} className="dim-type-card">
+                  <span
+                    className="dim-type-badge"
+                    style={{ background: cls.accentColor, color: badgeTextColor(cls.accentColor) }}
+                  >
                     {cls.name}
-                  </a>
-                  <p className="dimension-type-view">{dim.typeViews[cls.id]}</p>
-                </div>
+                  </span>
+                  <p className="dim-type-text">{activeDim.typeViews[cls.id]}</p>
+                </a>
               ))}
             </div>
-          </section>
-        ))}
+          </div>
+        )}
 
         <footer className="profile-footer" style={{ marginTop: '3rem' }}>
           <p>
