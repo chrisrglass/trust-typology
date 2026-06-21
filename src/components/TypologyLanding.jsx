@@ -103,26 +103,26 @@ export default function TypologyLanding() {
         <section className="typo-section">
           <h2 className="typo-section-h2">Key divides on the right</h2>
           <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Formationists</a>,{' '}
-            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a>, and{' '}
-            <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Indifferent Skeptics</a>{' '}
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a>,{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
+            <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
             share distrust of institutional performance — but they reach opposite conclusions on every question that follows from that shared skepticism.
           </p>
 
           <p className="typo-divide-q">On government authority</p>
           <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Formationists</a> oppose federal intervention even from sympathetic Republican administrations. The OBBBA earnings test threatens 89% of religion master's programs — the same political home, the opposite conclusion on who fixes the problem.{' '}
-            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a> reach a different verdict: government oversight is the only lever working people have, and the institution will not reform without external pressure from elected officials.
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a> oppose federal intervention even from sympathetic Republican administrations. The OBBBA earnings test threatens 89% of religion master's programs — the same political home, the opposite conclusion on who fixes the problem.{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a> reach a different verdict: government oversight is the only lever working people have, and the institution will not reform without external pressure from elected officials.
           </p>
 
           <p className="typo-divide-q">On whether the degree delivers</p>
           <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Formationists</a> believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools built around genuine formation of character.{' '}
-            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Antagonists</a> see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a> believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools built around genuine formation of character.{' '}
+            <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a> see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
           </p>
 
           <PullQuote>
-            Indifferent Skeptics have exited the debate entirely. They see the failures clearly enough — but haven't organized that observation into a reform agenda. They've simply moved on.
+            Institutional Skeptics have exited the debate entirely. They see the failures clearly enough — but haven't organized that observation into a reform agenda. They've simply moved on.
           </PullQuote>
 
         </section>
@@ -131,34 +131,34 @@ export default function TypologyLanding() {
         <section className="typo-section">
           <h2 className="typo-section-h2">Key divides on the left</h2>
           <p className="profile-para">
-            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a>,{' '}
-            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a>, and the{' '}
-            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed</a>{' '}
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a>,{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a>, and the{' '}
+            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
             share belief in higher education's mission — but they are separated by their verdict on performance and by what repair requires.
           </p>
 
           <p className="typo-divide-q">On whether institutions can self-correct</p>
           <p className="profile-para">
-            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> believe reform from within is both possible and necessary. The institution has the capacity to correct itself; what it needs is internal pressure and honest self-examination, not external mandates.{' '}
-            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> hold the mission steady while criticizing the performance — reform is necessary, but uncertain. For the{' '}
-            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed</a>, reform hasn't arrived for the communities they know. Alternatives to the four-year degree need to be built, not just promised.
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a> believe reform from within is both possible and necessary. The institution has the capacity to correct itself; what it needs is internal pressure and honest self-examination, not external mandates.{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a> hold the mission steady while criticizing the performance — reform is necessary, but uncertain. For the{' '}
+            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>, reform hasn't arrived for the communities they know. Alternatives to the four-year degree need to be built, not just promised.
           </p>
 
           <p className="typo-divide-q">On who bears the risk</p>
           <p className="profile-para">
-            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> trust the degree delivers real mobility for those who commit to it.{' '}
-            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> see the gap as structural: the credential reinforces class divisions for too many graduates, and the failure falls hardest on those who had the most to gain.
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a> trust the degree delivers real mobility for those who commit to it.{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a> see the gap as structural: the credential reinforces class divisions for too many graduates, and the failure falls hardest on those who had the most to gain.
           </p>
 
           <PullQuote stat="76% → 24%">
-            Pell Grant purchasing power relative to four-year public university costs — the collapse since the 1980s that anchors the Economically Dispossessed's core experience of the institution.
+            Pell Grant purchasing power relative to four-year public university costs — the collapse since the 1980s that anchors the Economically Betrayed's core experience of the institution.
           </PullQuote>
 
           <p className="typo-divide-q">On the nature of the crisis</p>
           <p className="profile-para">
-            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>Institutional Faithful</a> identify the threat as external: government overreach eroding academic freedom, research funding cuts, and political interference in curricula that undermine the conditions of knowledge production.{' '}
-            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Believers</a> locate it internally — structural failure to deliver on the economic promise for working-class and low-income graduates. The{' '}
-            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Dispossessed</a> name something more personal: a broken promise to specific communities that had the most to gain and the least margin for error, communities that believed in the institution and were not repaid for that belief.
+            <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a> identify the threat as external: government overreach eroding academic freedom, research funding cuts, and political interference in curricula that undermine the conditions of knowledge production.{' '}
+            <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a> locate it internally — structural failure to deliver on the economic promise for working-class and low-income graduates. The{' '}
+            <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a> name something more personal: a broken promise to specific communities that had the most to gain and the least margin for error, communities that believed in the institution and were not repaid for that belief.
           </p>
         </section>
 
