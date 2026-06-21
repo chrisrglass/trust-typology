@@ -34,7 +34,7 @@ export const CLASSES = [
     name: 'Institutional Skeptics',
     icon: 'CircleDashed',
     accentColor: '#7A7068',
-    tagline: 'Every major institution has failed, and trust won\'t be restored by the same systems that lost it.',
+    tagline: 'Government, universities, religion, media — they\'ve all failed, and trust won\'t be restored by the same systems that lost it.',
     prevalence: '~10%',
     description:
       "You see higher education's failures clearly enough: the debt risk is not worth it for most people, admissions favors the wealthy, institutions do not serve ordinary communities. But you have not built an ideological framework around those observations. You want government accountability and are open to alternatives. You are not invested in the political argument about what replaces what's broken.",
