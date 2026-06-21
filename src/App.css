@@ -2064,8 +2064,13 @@ a:hover {
   gap: 0.25rem;
 }
 
-.demo-seg-bar {
+.demo-seg-bar-wrap {
   flex: 1;
+  position: relative;
+}
+
+.demo-seg-bar {
+  width: 100%;
   height: 24px;
   border-radius: 3px;
   overflow: hidden;
@@ -2074,11 +2079,6 @@ a:hover {
   cursor: pointer;
   border: none;
   padding: 0;
-  position: relative;
-}
-
-.demo-seg-bar:hover {
-  opacity: 0.9;
 }
 
 .demo-seg-bar--expanded {
@@ -2087,14 +2087,51 @@ a:hover {
 
 .demo-seg {
   height: 100%;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, opacity 0.15s ease;
   position: relative;
   overflow: hidden;
+}
+
+.demo-seg--bright {
+  opacity: 1;
+}
+
+.demo-seg--dim {
+  opacity: 0.28;
+  transition: width 0.3s ease, opacity 0.15s ease;
+}
+
+.demo-seg--dim:hover {
+  opacity: 1;
 }
 
 .demo-seg--dominant {
   display: flex;
   align-items: center;
+}
+
+.demo-seg-tooltip {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 26, 26, 0.92);
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.demo-seg-tooltip-name {
+  font-weight: 600;
+}
+
+.demo-seg-tooltip-pct {
+  opacity: 0.85;
 }
 
 .demo-seg-dominant-label {
