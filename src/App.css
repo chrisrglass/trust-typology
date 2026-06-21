@@ -2693,8 +2693,9 @@ a:hover {
   margin: 0 0 0.75rem;
 }
 
-.typo-divide-side--right { color: #C46A2D; }
-.typo-divide-side--left  { color: #2457A6; }
+.typo-divide-side--right  { color: #C46A2D; }
+.typo-divide-side--left   { color: #2457A6; }
+.typo-divide-side--middle { color: #1F6B4F; }
 
 .typo-divide-qs {
   display: grid;

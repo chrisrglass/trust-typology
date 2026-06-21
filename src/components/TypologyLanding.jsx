@@ -80,6 +80,9 @@ export default function TypologyLanding() {
         {/* Section 3: Where they divide */}
         <section className="typo-section">
           <h2 className="typo-section-h2">Where they divide</h2>
+          <p className="profile-para">
+            This typology cuts across traditional political lines. Each type includes people from across the political spectrum — and the sharpest divisions sometimes run not between parties but within them, between people who share a party label but hold deeply different diagnoses of what higher education is for and who it has failed.
+          </p>
 
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--right">On the right</p>
@@ -100,6 +103,29 @@ export default function TypologyLanding() {
                 <p className="typo-divide-q">On whether the degree delivers</p>
                 <p className="profile-para">
                   Countercultural Communitarians believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools. Populist Insurgents see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="typo-divide-block">
+            <p className="typo-divide-side typo-divide-side--middle">In the middle</p>
+            <p className="profile-para">
+              <a href="#/profiles/self-made-meritocrats" className="typo-inline-type" style={{ color: '#1F6B4F' }}>Self-Made Meritocrats</a> and the{' '}
+              <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
+              are among the most politically diverse and independent types — neither reliably partisan, each drawing from working and middle-class communities. They share the experience of navigating institutions on their own terms. They reach opposite verdicts.
+            </p>
+            <div className="typo-divide-qs">
+              <div className="typo-divide-q-block">
+                <p className="typo-divide-q">On whether the credential delivers</p>
+                <p className="profile-para">
+                  Self-Made Meritocrats say yes — the degree pays off for people who choose wisely, commit fully, and take responsibility for the outcome. The Economically Betrayed say the promise was broken before they arrived: the system recruited from working-class communities, accepted their enrollment and debt, and did not deliver the mobility it advertised.
+                </p>
+              </div>
+              <div className="typo-divide-q-block">
+                <p className="typo-divide-q">On who bears responsibility</p>
+                <p className="profile-para">
+                  For Self-Made Meritocrats, outcomes are largely a function of individual choices — the institution's role is to deliver what it offers, and most do. For the Economically Betrayed, the institution bears structural responsibility: it designed the terms of enrollment, set the price, and made the pitch to communities with the least margin for error.
                 </p>
               </div>
             </div>
