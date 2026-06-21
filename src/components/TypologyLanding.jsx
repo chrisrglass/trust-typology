@@ -103,7 +103,7 @@ export default function TypologyLanding() {
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On whether institutions can self-correct</p>
+                <p className="typo-divide-q">Whether institutions can self-correct</p>
                 <p className="profile-para">
                   University Defenders believe reform from within is both possible and necessary. Critical Reformers hold the mission steady while criticizing performance. For the Economically Betrayed, reform hasn't arrived for the communities they know — alternatives to the four-year degree need to be built, not just promised.
                 </p>
