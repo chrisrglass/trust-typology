@@ -61,7 +61,7 @@ export const CLASSES = [
   },
   {
     id: 'faith-rooted-skeptics',
-    name: 'Faith-Rooted Skeptics',
+    name: 'Countercultural Formationists',
     icon: 'Star',
     accentColor: '#B78A2A',
     tagline: 'Formation of character matters — and most secular institutions cannot provide it.',
