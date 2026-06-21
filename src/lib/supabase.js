@@ -15,7 +15,7 @@ export async function submitResponse(sessionId, responses) {
     return { error: null }
   }
 
-  const { error } = await supabase.from('responses').insert({
+  const { error } = await supabase.from('Responses').insert({
     session_id: sessionId,
     responses,
     completed_at: new Date().toISOString(),
