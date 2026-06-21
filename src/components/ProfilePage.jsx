@@ -183,7 +183,7 @@ export default function ProfilePage({ classId, highlightedId }) {
 
         {/* Reform Stance */}
         <section className="profile-section">
-          <h2 className="profile-section-title">What Would Change Their Minds?</h2>
+          <h2 className="profile-section-title">What Would Build Trust?</h2>
           <p className="profile-para">{profile.reformStance}</p>
         </section>
 
@@ -215,7 +215,7 @@ export default function ProfilePage({ classId, highlightedId }) {
         <section className="profile-section profile-section--explore">
           <h2 className="profile-section-title">All Seven Types</h2>
           <div className="profile-explore-grid">
-            {CLASSES.map(c => (
+            {TYPE_SWITCHER_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean).map(c => (
               <a
                 key={c.id}
                 href={`#/profiles/${c.id}`}
