@@ -33,7 +33,7 @@ export const CLASSES = [
     id: 'indifferent-skeptics',
     name: 'Indifferent Skeptics',
     icon: 'CircleDashed',
-    accentColor: '#DDD7CE',
+    accentColor: '#7A7068',
     tagline: 'Something is broken — but the reform debate is not your debate.',
     prevalence: '~10%',
     description:
