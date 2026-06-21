@@ -52,7 +52,7 @@ export default function DimensionsPage({ initialDimId = null }) {
         <div className="profile-header-inner">
           <h1 className="profile-header-name">Dimensions of Trust</h1>
           <p className="profile-header-tagline">
-            Nine questions that reveal how differently Americans relate to higher education
+            Nine dimensions that reveal how differently Americans relate to higher education
           </p>
         </div>
       </div>
