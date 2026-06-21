@@ -4,7 +4,6 @@ import Question from './Question.jsx'
 
 const TOTAL = 30
 const INTERSTITIAL_1_AFTER = 19  // show interstitial after item at index 19 (D7-A, last LCA item)
-const INTERSTITIAL_2_AFTER = 24  // show interstitial after item at index 24 (DM-E, last demographic item)
 
 const INTERSTITIALS = {
   'interstitial-1': {
@@ -13,13 +12,6 @@ const INTERSTITIALS = {
     context: 'These questions help us understand who holds each view. They are not used to determine your typology class.',
     nextIndex: 20,
     prevIndex: 19,
-  },
-  'interstitial-2': {
-    part: 'Part III of III',
-    title: 'A Few More Questions',
-    context: 'These final questions help us understand the context behind your views.',
-    nextIndex: 25,
-    prevIndex: 24,
   },
 }
 
@@ -45,7 +37,7 @@ const AUTO_ADVANCE_TYPES = new Set([
 export default function Quiz({ onComplete }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [responses, setResponses] = useState({})
-  const [uiState, setUiState] = useState('question') // 'question' | 'interstitial-1' | 'interstitial-2'
+  const [uiState, setUiState] = useState('question') // 'question' | 'interstitial-1'
   const [leaving, setLeaving] = useState(false)
   const promptRef = useRef(null)
 
@@ -89,9 +81,6 @@ export default function Quiz({ onComplete }) {
     if (currentIndex === INTERSTITIAL_1_AFTER) {
       setLeaving(true)
       setTimeout(() => { setLeaving(false); setUiState('interstitial-1'); window.scrollTo(0, 0) }, 100)
-    } else if (currentIndex === INTERSTITIAL_2_AFTER) {
-      setLeaving(true)
-      setTimeout(() => { setLeaving(false); setUiState('interstitial-2'); window.scrollTo(0, 0) }, 100)
     } else if (currentIndex === TOTAL - 1) {
       onComplete(responses)
     } else {
@@ -108,17 +97,6 @@ export default function Quiz({ onComplete }) {
     if (uiState === 'interstitial-1') {
       setUiState('question')
       setCurrentIndex(INTERSTITIALS['interstitial-1'].prevIndex)
-      window.scrollTo(0, 0)
-      return
-    }
-    if (uiState === 'interstitial-2') {
-      setUiState('question')
-      setCurrentIndex(INTERSTITIALS['interstitial-2'].prevIndex)
-      window.scrollTo(0, 0)
-      return
-    }
-    if (currentIndex === INTERSTITIALS['interstitial-2'].nextIndex) {
-      setUiState('interstitial-2')
       window.scrollTo(0, 0)
       return
     }
@@ -140,7 +118,7 @@ export default function Quiz({ onComplete }) {
   }
 
   // ── Interstitial screen ────────────────────────────────────────────────────
-  if (uiState === 'interstitial-1' || uiState === 'interstitial-2') {
+  if (uiState === 'interstitial-1') {
     const interstitial = INTERSTITIALS[uiState]
     return (
       <div className="section-interstitial">
