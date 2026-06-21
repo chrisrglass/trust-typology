@@ -24,7 +24,7 @@ const SHARED_FINDINGS = [
   },
   {
     heading: 'Reform is overdue',
-    body: 'Strong cross-partisan majorities want institutions held to account. What accountability looks like divides the types as sharply as anything else — but the demand itself is universal.',
+    body: 'Strong cross-partisan majorities want institutions held to account. What reform looks like divides the types as sharply as anything else — but the demand itself is universal.',
   },
 ]
 
