@@ -146,7 +146,7 @@ export const DIMENSIONS = [
       'university-defenders': 'Engages AI as a civilizational question; trusts thoughtful institutions to manage it well but wants serious responses on academic integrity and cognitive formation.',
       'critical-reformers': 'High AI risk perception; concerned specifically about equitable access to AI tools and about AI exacerbating disadvantages for already-struggling students.',
       'economically-betrayed': 'May be hardest hit by AI-eliminated entry-level work without institutional resources to adapt; watches employers pause hiring and wonders if the degree will pay off.',
-      'self-made-meritocrats': 'Strong concern that AI use in coursework is producing outputs without building the capacity to produce them; wants institutions to manage AI integrity thoughtfully.',
+      'self-made-meritocrats': 'Views AI as a tool of self-empowerment — one that should be used thoughtfully and ethically and integrated as a core part of college education; wants institutions to teach students how to use AI well, not just manage its risks.',
       'institutional-skeptics': 'Most disengaged on AI — not connecting AI disruption to their higher education calculus.',
       'countercultural-communitarians': 'Strongest concern about AI and character formation; specifically worried that AI systems embed secular assumptions and marginalize religious frameworks.',
       'populist-insurgents': 'AI reveals what was already true: if AI can do what graduates do, the degree was never worth what institutions charged; also sees AI as a potential tool of ideological indoctrination.',
