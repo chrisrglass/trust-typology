@@ -103,7 +103,7 @@ export default function TypologyLanding() {
         <section className="typo-section">
           <h2 className="typo-section-h2">Key divides on the right</h2>
           <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a>,{' '}
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Communitarians</a>,{' '}
             <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
             <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
             share distrust of institutional performance — but they reach opposite conclusions on every question that follows from that shared skepticism.
@@ -111,13 +111,13 @@ export default function TypologyLanding() {
 
           <p className="typo-divide-q">On government authority</p>
           <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a> oppose federal intervention even from sympathetic Republican administrations. The OBBBA earnings test threatens 89% of religion master's programs — the same political home, the opposite conclusion on who fixes the problem.{' '}
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Communitarians</a> oppose federal intervention even from sympathetic Republican administrations. The OBBBA earnings test threatens 89% of religion master's programs — the same political home, the opposite conclusion on who fixes the problem.{' '}
             <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a> reach a different verdict: government oversight is the only lever working people have, and the institution will not reform without external pressure from elected officials.
           </p>
 
           <p className="typo-divide-q">On whether the degree delivers</p>
           <p className="profile-para">
-            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a> believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools built around genuine formation of character.{' '}
+            <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Communitarians</a> believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools built around genuine formation of character.{' '}
             <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a> see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
           </p>
 

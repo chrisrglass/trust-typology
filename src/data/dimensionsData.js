@@ -22,7 +22,7 @@ export const DIMENSIONS = [
     title: 'Free Inquiry and Intellectual Climate',
     discriminantPower: 'High',
     whatItMeasures: 'Whether the institutional climate genuinely permits following evidence wherever it leads — across faculty research, classroom discussion, and student expression — or whether ideological pressure (from any direction) narrows what can be thought, said, and studied.',
-    sharpestSplits: 'Sharpest left-right contrast in the instrument — each side experiences this dimension through opposite frames; Countercultural Classicists have a distinct religious-expression angle',
+    sharpestSplits: 'Sharpest left-right contrast in the instrument — each side experiences this dimension through opposite frames; Countercultural Communitarians have a distinct religious-expression angle',
     typeViews: {
       'institutional-faithful': 'Genuinely concerned about campus speech climate affecting everyone; wants pluralism without coercion from any direction.',
       'critical-believers': 'Believes in free inquiry but is skeptical that free speech claims are advanced in good faith when they protect speech that marginalizes vulnerable students.',
@@ -39,7 +39,7 @@ export const DIMENSIONS = [
     title: 'Institutional Self-Interest and Fiduciary Failure',
     discriminantPower: 'High',
     whatItMeasures: 'Whether institutions act in the genuine interest of students and the public — or whether they protect their own reputation, revenue, and ideological commitments at students\' expense. Covers admin bloat, values-action gaps, predatory enrollment, and crisis opacity.',
-    sharpestSplits: 'Economically Betrayed (predatory enrollment as personal betrayal); Countercultural Classicists (mission corruption by market forces); Populist Insurgents (total institutional distrust)',
+    sharpestSplits: 'Economically Betrayed (predatory enrollment as personal betrayal); Countercultural Communitarians (mission corruption by market forces); Populist Insurgents (total institutional distrust)',
     typeViews: {
       'institutional-faithful': 'Aware of admin bloat but believes institutions can self-correct with sufficient pressure; supports transparency requirements over external mandates.',
       'critical-believers': 'Critical of how institutions close ranks during crises — reads as reputation management, not principle; wants institutions to lead with their professed values.',
@@ -73,7 +73,7 @@ export const DIMENSIONS = [
     title: 'Governance, Reform, and Accountability',
     discriminantPower: 'High',
     whatItMeasures: 'Who should have authority over higher education and what kinds of change are legitimate — whether HE can reform itself from within, whether government should intervene and how, whether alternatives should be built rather than existing institutions reformed, and who gets to name the problems.',
-    sharpestSplits: 'Government authority items create the sharpest splits; Countercultural Classicists occupy a uniquely anomalous position — threatened by a Republican administration\'s accountability framework',
+    sharpestSplits: 'Government authority items create the sharpest splits; Countercultural Communitarians occupy a uniquely anomalous position — threatened by a Republican administration\'s accountability framework',
     typeViews: {
       'institutional-faithful': 'Favors reform from within through accreditation and transparency requirements; hostile to executive branch weaponizing funding as policy leverage.',
       'critical-believers': 'Strongly opposes federal intervention — government control means the current administration\'s control, which is the source of the threat, not the remedy.',
@@ -90,7 +90,7 @@ export const DIMENSIONS = [
     title: 'Learning Quality and Educational Purpose',
     discriminantPower: 'Moderate-High',
     whatItMeasures: 'Whether higher education actually produces the intellectual development it claims — genuine formation, not just credentialing — and whether institutions can articulate a coherent account of what they are for beyond job placement and earnings.',
-    sharpestSplits: 'Countercultural Classicists (formation of character as explicit purpose); Populist Insurgents (ideological capture vs. genuine learning)',
+    sharpestSplits: 'Countercultural Communitarians (formation of character as explicit purpose); Populist Insurgents (ideological capture vs. genuine learning)',
     typeViews: {
       'institutional-faithful': 'Concerned about grade inflation and standards erosion; wants universities to articulate a compelling non-instrumental account of their purpose.',
       'critical-believers': 'Trusts academic quality at institutions they support but frames the purpose question through equity and access rather than formation philosophy.',
@@ -124,7 +124,7 @@ export const DIMENSIONS = [
     title: 'Financial Stakes and Honest Dealing',
     discriminantPower: 'Moderate',
     whatItMeasures: 'Whether the investment in higher education is worth the cost — and whether institutions are honest about the terms. Covers cost-benefit verdict, debt as life constraint, underemployment after graduation, financial aid transparency, and who bears the risk when the deal goes wrong.',
-    sharpestSplits: 'Countercultural Classicists (earnings test threatens religious programs); Economically Betrayed (personal experience of the broken deal)',
+    sharpestSplits: 'Countercultural Communitarians (earnings test threatens religious programs); Economically Betrayed (personal experience of the broken deal)',
     typeViews: {
       'institutional-faithful': 'Sees affordability as a structural problem requiring reformed funding, not a reason to abandon the system; wants honest pricing without dismantling what works.',
       'critical-believers': 'Frames cost and debt as equity issues — the financial risk falls disproportionately on students of color and low-income students; supports debt relief as a matter of fairness.',
@@ -141,7 +141,7 @@ export const DIMENSIONS = [
     title: 'AI and the Integrity of Learning',
     discriminantPower: 'Lower overall; item-level varies',
     whatItMeasures: 'What artificial intelligence does to credentials (entry-level job elimination, institutional adaptation lag), the authorship of student work (academic integrity), and the capacity for independent reasoning. Cross-partisan concern runs extremely high — 83% worry about AI and cognitive development — but why groups are concerned differs significantly.',
-    sharpestSplits: 'Institutional Skeptics (most disengaged); Countercultural Classicists (AI embeds secular assumptions); Economically Betrayed (hardest hit by entry-level elimination)',
+    sharpestSplits: 'Institutional Skeptics (most disengaged); Countercultural Communitarians (AI embeds secular assumptions); Economically Betrayed (hardest hit by entry-level elimination)',
     typeViews: {
       'institutional-faithful': 'Engages AI as a civilizational question; trusts thoughtful institutions to manage it well but wants serious responses on academic integrity and cognitive formation.',
       'critical-believers': 'High AI risk perception; concerned specifically about equitable access to AI tools and about AI exacerbating disadvantages for already-struggling students.',
