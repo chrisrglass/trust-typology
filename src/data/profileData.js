@@ -113,7 +113,7 @@ export const ITEM_LABELS = {
 
 export const PROFILE_DATA = {
 
-  'institutional-faithful': {
+  'university-defenders': {
     expandedDescription: [
       `The University Defenders hold the most comprehensive trust in higher education of any group. They believe the degree delivers — that it reliably lifts families across generations, that research serves the people who fund it, that colleges genuinely honor the students they admit, and that the press covers these institutions with reasonable honesty. This is not naivety: it is a coherent worldview in which institutional performance matches institutional promise.`,
       `What makes them distinctive is not enthusiasm but comprehensiveness. Where Critical Reformers separate mission from performance, the University Defenders hold both together. Where Self-Made Meritocrats focus on individual merit and outcomes, the University Defenders also defend the research enterprise, the news coverage, and the cultural welcome colleges extend to students from different backgrounds. They are the only group that simultaneously trusts what colleges do, how they're reported on, and whether they can fix what's broken.`,
@@ -128,7 +128,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Restore federal research funding immediately and reject the use of grant cancellations, Title VI enforcement, and accreditation threats as tools to coerce campus governance. Publish clear, enforceable academic freedom principles — modeled on the Woodward Report — and enforce them institutionally before external pressure makes them moot. Strengthen faculty governance so that presidents and boards have meaningful accountability to the scholarly community, not just to donors and legislatures. Articulate publicly, in specific terms, what research universities produce and what disappears when they are weakened: the vaccines, the engineers, the civic knowledge that no market generates on its own.',
-    nearestNeighborId: 'community-meritocrats',
+    nearestNeighborId: 'self-made-meritocrats',
     nearestNeighborNote: `Both trust the degree's economic payoff, believe local colleges serve their communities, and support internal reform over replacement. They diverge on admissions — the University Defenders largely defend the system's overall fairness, while Self-Made Meritocrats are its strongest defenders once applications are submitted — and on media credibility, where the University Defenders express the highest trust of any group.`,
     keyItems: [
       { id: 'D5-D',  classProb: 0.92, avgProb: 0.38 },
@@ -166,7 +166,7 @@ export const PROFILE_DATA = {
     ],
   },
 
-  'critical-believers': {
+  'critical-reformers': {
     expandedDescription: [
       `Critical Reformers are the group that holds the hardest-to-maintain position in the typology: they believe in higher education's mission while documenting its failures. The degree reinforces class divisions, they say — admissions is rigged, underemployment is not a temporary blip but a structural outcome, and local colleges rarely serve the communities around them. And yet: research is a genuine public good. Intellectual formation is real. The institution can reform itself. The mission is worth saving.`,
       `This separation of mission from performance is what makes Critical Reformers analytically distinct. They're not disillusioned — they hold the ideal steady while criticizing the delivery. In this they resemble a certain kind of faculty reformer or education policy advocate: someone who cares enough about what higher education is supposed to be that they can't accept what it often is. Their critique is internal, not external.`,
@@ -181,7 +181,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Require institutions to share financial risk when graduates cannot repay federal loans — ending the arrangement where colleges profit from enrollment regardless of outcomes. Mandate transparent, program-level earnings and debt data so students can evaluate the actual return before they sign. Eliminate legacy admissions preferences at every institution receiving federal research funding. Fund aggressive completion support for first-generation and low-income students, not just enrollment incentives. Enforce honest grading so the credential can once again signal what graduates actually know and can do. Expand access to apprenticeship and trade pathways as genuine alternatives — a four-year degree that delivers will survive that competition; one that doesn\'t should.',
-    nearestNeighborId: 'institutional-faithful',
+    nearestNeighborId: 'university-defenders',
     nearestNeighborNote: `Both believe in research as a public good, genuine intellectual formation, and higher education's capacity to reform itself. They diverge on whether the degree delivers economically — the University Defenders are optimists; Critical Reformers are structural pessimists who believe the degree reinforces the class divisions it claims to dissolve.`,
     keyItems: [
       { id: 'D2-B',  classProb: 0.68, avgProb: 0.49 },
@@ -219,7 +219,7 @@ export const PROFILE_DATA = {
     ],
   },
 
-  'populist-antagonists': {
+  'populist-insurgents': {
     expandedDescription: [
       `Populist Insurgents hold the most coherent critique of higher education as a system. The degree doesn't work for working people — it reinforces class divisions, the admissions process rewards wealth, research serves elite priorities, and the media that covers it is so embedded in the same world that it can't see the problem clearly. Their diagnosis isn't that the institution has failed; it's that the institution was never designed for the people it pretends to serve.`,
       `Their distrust runs deep and specific. They don't believe college provides genuine intellectual formation — the credential is the point, and even that credential doesn't reliably deliver. They don't believe research spending filters down to communities that need it. They're among the most skeptical groups about media coverage of higher education, holding that journalists who cover this beat live inside an institution they can no longer independently evaluate. This isn't cynicism; it's a structural critique rooted in accumulated observations about whose interests the system actually serves.`,
@@ -234,7 +234,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Remove bachelor\'s degree requirements from federal civil service positions where the work does not require them, and pressure major employers to follow. Fund trade schools, apprenticeship programs, and certification pathways at genuine parity with four-year colleges — not as consolation alternatives but as equally legitimate routes to a stable career and a middle-class life. Expand Pell Grant eligibility to cover high-quality short-term credentials. Require universities receiving public money to publish transparent ratios of administrative to instructional spending — and tie federal funding increases to demonstrable outcomes for first-generation and working-class students, not to research prestige rankings.',
-    nearestNeighborId: 'economically-dispossessed',
+    nearestNeighborId: 'economically-betrayed',
     nearestNeighborNote: `Both share deep structural skepticism about higher education's promise to working people and distrust of research serving elite priorities. They divide sharply on government: Populist Insurgents strongly support government accountability for higher education; the Economically Betrayed opposes it, fearing government control of knowledge as a threat to minority and progressive intellectual traditions.`,
     keyItems: [
       { id: 'D5-D',  classProb: 0.08, avgProb: 0.38 },
@@ -272,7 +272,7 @@ export const PROFILE_DATA = {
     ],
   },
 
-  'indifferent-skeptics': {
+  'institutional-skeptics': {
     expandedDescription: [
       `Institutional Skeptics are the most internally unusual group in the typology. They see the system's failures clearly — the degree reinforces class divisions, admissions rewards wealth, research doesn't serve their communities — but they haven't organized these observations into a political framework. They're not angry. They're not mobilized. They've noticed the problem and decided that neither side of the reform debate is addressing it.`,
       `What makes them distinctive is not what they believe but what they don't believe: they have the lowest confidence in higher education's capacity for self-reform of any group, and the lowest support for any of the reform alternatives. They're not waiting for the right politician or the right policy. They've essentially concluded that the debate happening in public — reform vs. replace, accountability vs. autonomy — isn't the debate they'd be having if they were in charge.`,
@@ -287,7 +287,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Require colleges to reimburse the federal loan program for a portion of debt held by students who enrolled but did not graduate — ending the practice of aggressive recruitment without accountability for completion. Mandate completion-rate disclosure in all enrollment marketing so students see the actual odds before they sign. Fund short-term, industry-recognized credentials, registered apprenticeships, and trade school infrastructure as proven pathways that deliver real skills and wages without the debt load of a four-year degree — and push major employers to recognize them for hiring decisions on the same terms as a bachelor\'s degree. Cancel federal student debt held by non-completers who attended institutions with graduation rates below 40%.',
-    nearestNeighborId: 'populist-antagonists',
+    nearestNeighborId: 'populist-insurgents',
     nearestNeighborNote: `Both are structural skeptics who see the degree as reinforcing class divisions, research as serving elite priorities, and media coverage as captured by the institutions it covers. They differ on government accountability: Institutional Skeptics moderately support it; Populist Insurgents are its strongest champions. They also differ on reform energy — Populist Insurgents are mobilized; Institutional Skeptics have disengaged from the debate entirely.`,
     keyItems: [
       { id: 'D5-A',  classProb: 0.92, avgProb: 0.69 },
@@ -324,7 +324,7 @@ export const PROFILE_DATA = {
     ],
   },
 
-  'community-meritocrats': {
+  'self-made-meritocrats': {
     expandedDescription: [
       `Self-Made Meritocrats hold a straightforward faith in the system: the degree works, merit is rewarded, local colleges serve their communities, and research benefits the public. This isn't idealism — it's a position grounded in observed outcomes and a coherent theory about how institutions function when they work as intended. Where others see a broken promise, Self-Made Meritocrats see a promise that's being kept for those who commit to it.`,
       `Their most striking position — and the one that most distinguishes them from every other group — is on admissions. Self-Made Meritocrats are the only group where a substantial majority believes college admissions evaluates applicants on merit. This isn't a claim that the system is perfect; it's a claim that the evaluation of applications, once submitted, is basically fair. They see meritocracy as operating at the institutional level even when social conditions are unequal.`,
@@ -339,7 +339,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Adopt and enforce clear, institution-specific policies on AI use in coursework — distinguishing tools that build competency from those that replace the effort of thinking. Audit grade distributions publicly and address inflation that has made transcripts unable to distinguish levels of achievement. Protect faculty freedom to challenge students\' assumptions without administrative or government interference. Reform accreditation to assess whether graduates actually developed analytical and practical capabilities — not just whether institutional processes were followed. Keep curriculum decisions in the hands of faculty, not legislatures.',
-    nearestNeighborId: 'institutional-faithful',
+    nearestNeighborId: 'university-defenders',
     nearestNeighborNote: `Both groups trust the degree's economic payoff, believe local colleges serve their communities, and support internal reform. They divide on admissions — Self-Made Meritocrats are its strongest defenders, holding that once applications are submitted the evaluation is basically fair — and on media credibility, where the University Defenders express the highest trust of any group while Self-Made Meritocrats are more moderate.`,
     keyItems: [
       { id: 'D5-A',  classProb: 0.08, avgProb: 0.69 },
@@ -377,7 +377,7 @@ export const PROFILE_DATA = {
     ],
   },
 
-  'faith-rooted-skeptics': {
+  'countercultural-communitarians': {
     expandedDescription: [
       `Countercultural Communitarians occupy the most analytically complex position in the typology. They can't be placed cleanly in the optimist or pessimist camp because their skepticism follows a distinct internal logic: they believe in formation, in community, and in the degree's value — but they don't believe secular research universities are the primary place where these goods are delivered. The institution they trust is the faith-based college, the HBCU, the regional community institution rooted in a particular tradition. The institution they distrust is the generic secular research university.`,
       `Their positions on several issues cross what seems like political lines. They support federal loan programs that cover ministry, teaching, and social work — not because they're liberals, but because earnings-test restrictions on loans would devastate the faith-based institutions they value. They believe HBCUs and minority-serving institutions deserve targeted federal protection — not because they're progressives, but because the same principle that protects faith-based colleges extends to any community-specific institution with a distinct educational mission. Their internal logic is consistent even when their policy positions look eclectic from the outside.`,
@@ -392,7 +392,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Exempt faith-based colleges and HBCUs from earnings-accountability metrics that would defund ministry, social work, and theological programs — measuring these institutions by market returns misreads their purpose entirely. Protect religious liberty exemptions that allow faith-rooted colleges to hire, govern, and teach according to their founding mission. Extend Pell Grant eligibility to cover seminary and theological degrees. Recognize alternative assessments — such as the Classic Learning Test (CLT), which tests rhetoric, poetry, and philosophical reasoning drawn from the Western and Christian canon — as valid admissions credentials alongside the SAT and ACT. Resist accreditation standards and compliance requirements that treat institutional distinctiveness as a defect to be standardized away. Fund community-specific institutions rather than consolidating them into generic regional universities that serve nobody\'s formation well.',
-    nearestNeighborId: 'community-meritocrats',
+    nearestNeighborId: 'self-made-meritocrats',
     nearestNeighborNote: `Both groups are optimistic about the degree's economic payoff and believe local colleges genuinely serve their communities. They separate on five critical items: Countercultural Communitarians support loans for callings (ministry, social work, the arts), believe in formation through a virtue lens, support targeted HBCU and MSI protection, and strongly oppose government oversight. They are their own class — not a variant of Self-Made Meritocrats — driven by institutional self-interest in protecting faith-based higher education.`,
     keyItems: [
       { id: 'D4-E',  classProb: 0.08, avgProb: 0.51 },
@@ -430,7 +430,7 @@ export const PROFILE_DATA = {
     ],
   },
 
-  'economically-dispossessed': {
+  'economically-betrayed': {
     expandedDescription: [
       `At 22%, the Economically Betrayed is the largest group in the typology, and the one whose story is told least often in mainstream coverage of higher education. Their diagnosis is economic and community-specific: the degree was marketed as a pathway to stability, they or people they know accepted that bargain and took on the debt, and the outcome was underemployment, community disinvestment, and a credential that didn't deliver what it promised. This is not a conservative critique of higher education. It is a betrayal narrative from the communities that most believed in it.`,
       `The specifics of their position matter. They don't believe local colleges serve the people around them. They don't believe research benefits their communities. They don't believe the media that covers higher education lives anywhere near the world they recognize. And they believe that students from working-class and minority backgrounds who attend college must, at some level, become different people — that the cultural bargain of the degree includes leaving something behind. These are not abstract concerns; they're observations about a specific transaction that didn't pay out.`,
@@ -445,7 +445,7 @@ export const PROFILE_DATA = {
       ],
     },
     reformStance: 'Restore Pell Grant purchasing power to cover at least half the cost of a four-year public college degree — it covered 76% in the 1980s and covers 24% today. Require institutions to enter income-sharing arrangements that tie their financial health to whether graduates can actually repay, not just whether they enrolled. Cancel federal student debt held by students of closed for-profit colleges and those whose institutions were found to have engaged in predatory recruitment. Protect and expand TRIO and GEAR UP as the primary support infrastructure for first-generation students. Invest in community-controlled trade schools, apprenticeship programs, and workforce pathways in the regions where the college credential has been demonstrably broken — treating these as first-choice routes for the communities who need them, not fallback options for those who couldn\'t afford four years.',
-    nearestNeighborId: 'populist-antagonists',
+    nearestNeighborId: 'populist-insurgents',
     nearestNeighborNote: `Both share structural skepticism about the degree's economic promise and distrust of research serving elite priorities. The sharpest divide is on government: the Economically Betrayed strongly opposes government authority over higher education, fearing federal control of curriculum as a threat to minority and progressive intellectual traditions. Populist Insurgents see government oversight as a legitimate democratic check. They read the same institutional failure through different political lenses.`,
     keyItems: [
       { id: 'D4-E',  classProb: 0.09, avgProb: 0.51 },

@@ -2,13 +2,13 @@ import { CLASSES } from '../data/classes.js'
 import TypeIcon from './TypeIcon.jsx'
 
 const TYPE_PREVIEW_ORDER = [
-  'economically-dispossessed',
-  'populist-antagonists',
-  'institutional-faithful',
-  'critical-believers',
-  'community-meritocrats',
-  'faith-rooted-skeptics',
-  'indifferent-skeptics',
+  'economically-betrayed',
+  'populist-insurgents',
+  'university-defenders',
+  'critical-reformers',
+  'self-made-meritocrats',
+  'countercultural-communitarians',
+  'institutional-skeptics',
 ]
 
 export default function Landing({ onStart }) {

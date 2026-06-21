@@ -2,13 +2,13 @@ import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 
 const PREVALENCE_ORDER = [
-  'economically-dispossessed',
-  'populist-antagonists',
-  'institutional-faithful',
-  'community-meritocrats',
-  'critical-believers',
-  'faith-rooted-skeptics',
-  'indifferent-skeptics',
+  'economically-betrayed',
+  'populist-insurgents',
+  'university-defenders',
+  'self-made-meritocrats',
+  'critical-reformers',
+  'countercultural-communitarians',
+  'institutional-skeptics',
 ]
 
 const SORTED_CLASSES = PREVALENCE_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
@@ -84,9 +84,9 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--right">On the right</p>
             <p className="profile-para">
-              <a href="#/profiles/faith-rooted-skeptics" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a>,{' '}
-              <a href="#/profiles/populist-antagonists" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
-              <a href="#/profiles/indifferent-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
+              <a href="#/profiles/countercultural-communitarians" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a>,{' '}
+              <a href="#/profiles/populist-insurgents" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
+              <a href="#/profiles/institutional-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
               share distrust of institutional performance — but they reach opposite conclusions on every question that follows.
             </p>
             <div className="typo-divide-qs">
@@ -108,9 +108,9 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--left">On the left</p>
             <p className="profile-para">
-              <a href="#/profiles/institutional-faithful" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a>,{' '}
-              <a href="#/profiles/critical-believers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a>, and the{' '}
-              <a href="#/profiles/economically-dispossessed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
+              <a href="#/profiles/university-defenders" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a>,{' '}
+              <a href="#/profiles/critical-reformers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a>, and the{' '}
+              <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
               share belief in higher education's mission — but are separated by their verdict on performance and by what repair requires.
             </p>
             <div className="typo-divide-qs">

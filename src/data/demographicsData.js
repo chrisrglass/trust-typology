@@ -109,7 +109,7 @@ export const NATIONAL_DEMOGRAPHIC_AVERAGES = {
 
 // P(response_option | type) for each class × each variable. Values sum to 1.0 per variable per class.
 export const CLASS_DEMOGRAPHICS = {
-  'institutional-faithful': {
+  'university-defenders': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.22,
       'Liberal / Mainstream Democrat': 0.28,
@@ -138,7 +138,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.12,
     },
   },
-  'critical-believers': {
+  'critical-reformers': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.18,
       'Liberal / Mainstream Democrat': 0.26,
@@ -167,7 +167,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.16,
     },
   },
-  'community-meritocrats': {
+  'self-made-meritocrats': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.05,
       'Liberal / Mainstream Democrat': 0.13,
@@ -196,7 +196,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.15,
     },
   },
-  'faith-rooted-skeptics': {
+  'countercultural-communitarians': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.02,
       'Liberal / Mainstream Democrat': 0.05,
@@ -225,7 +225,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.17,
     },
   },
-  'economically-dispossessed': {
+  'economically-betrayed': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.16,
       'Liberal / Mainstream Democrat': 0.22,
@@ -254,7 +254,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.22,
     },
   },
-  'populist-antagonists': {
+  'populist-insurgents': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.02,
       'Liberal / Mainstream Democrat': 0.04,
@@ -283,7 +283,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.14,
     },
   },
-  'indifferent-skeptics': {
+  'institutional-skeptics': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.06,
       'Liberal / Mainstream Democrat': 0.10,

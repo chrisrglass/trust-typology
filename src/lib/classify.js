@@ -23,25 +23,25 @@ export function classifyResponses(responses) {
   if (mobility === 'A') {
     // Optimists: believe the degree leads to real economic mobility
     if (publicGood === 'B') {
-      classId = 'faith-rooted-skeptics'        // C5: FFC — public research skeptics
+      classId = 'countercultural-communitarians'        // C5: FFC — public research skeptics
     } else if (underemploy === 'A') {
-      classId = 'community-meritocrats'         // C4: PPR — underemployment is temporary
+      classId = 'self-made-meritocrats'         // C4: PPR — underemployment is temporary
     } else {
-      classId = 'institutional-faithful'        // C6: LL — underemployment is structural
+      classId = 'university-defenders'        // C6: LL — underemployment is structural
     }
   } else {
     // Pessimists: believe the degree reinforces class divisions more than it overcomes them
     if (formation === 'A') {
-      classId = 'critical-believers'            // C1: LP — mission believers despite economic pessimism
+      classId = 'critical-reformers'            // C1: LP — mission believers despite economic pessimism
     } else if (govOversight === 'A') {
       // Want government accountability
       if (aiNeutral === 'A') {
-        classId = 'indifferent-skeptics'        // C3: TOM — AI is neutral, want accountability
+        classId = 'institutional-skeptics'        // C3: TOM — AI is neutral, want accountability
       } else {
-        classId = 'populist-antagonists'        // C2: UR+NAR — AI as values threat, want accountability
+        classId = 'populist-insurgents'        // C2: UR+NAR — AI as values threat, want accountability
       }
     } else {
-      classId = 'economically-dispossessed'  // C7: LOL+OOL — oppose government content control
+      classId = 'economically-betrayed'  // C7: LOL+OOL — oppose government content control
     }
   }
 

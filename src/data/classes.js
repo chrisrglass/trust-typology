@@ -1,6 +1,6 @@
 export const CLASSES = [
   {
-    id: 'critical-believers',
+    id: 'critical-reformers',
     name: 'Critical Reformers',
     icon: 'Eye',
     accentColor: '#6E3B6E',
@@ -17,7 +17,7 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'populist-antagonists',
+    id: 'populist-insurgents',
     name: 'Populist Insurgents',
     icon: 'Megaphone',
     accentColor: '#C46A2D',
@@ -34,7 +34,7 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'indifferent-skeptics',
+    id: 'institutional-skeptics',
     name: 'Institutional Skeptics',
     icon: 'CircleDashed',
     accentColor: '#7A7068',
@@ -51,7 +51,7 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'community-meritocrats',
+    id: 'self-made-meritocrats',
     name: 'Self-Made Meritocrats',
     icon: 'Users',
     accentColor: '#1F6B4F',
@@ -68,7 +68,7 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'faith-rooted-skeptics',
+    id: 'countercultural-communitarians',
     name: 'Countercultural Communitarians',
     icon: 'BookOpen',
     accentColor: '#B78A2A',
@@ -85,7 +85,7 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'institutional-faithful',
+    id: 'university-defenders',
     name: 'University Defenders',
     icon: 'Shield',
     accentColor: '#2457A6',
@@ -102,7 +102,7 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'economically-dispossessed',
+    id: 'economically-betrayed',
     name: 'Economically Betrayed',
     icon: 'TrendingDown',
     accentColor: '#A3171C',

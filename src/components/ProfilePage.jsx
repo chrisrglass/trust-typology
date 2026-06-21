@@ -25,13 +25,13 @@ export default function ProfilePage({ classId, highlightedId }) {
   const neighbor = CLASSES.find(c => c.id === profile.nearestNeighborId)
 
   const TYPE_SWITCHER_ORDER = [
-    'economically-dispossessed',
-    'populist-antagonists',
-    'institutional-faithful',
-    'critical-believers',
-    'community-meritocrats',
-    'faith-rooted-skeptics',
-    'indifferent-skeptics',
+    'economically-betrayed',
+    'populist-insurgents',
+    'university-defenders',
+    'critical-reformers',
+    'self-made-meritocrats',
+    'countercultural-communitarians',
+    'institutional-skeptics',
   ]
 
   return (

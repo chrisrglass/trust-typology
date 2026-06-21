@@ -2,13 +2,13 @@ import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 
 const PREVALENCE_ORDER = [
-  'economically-dispossessed',
-  'populist-antagonists',
-  'institutional-faithful',
-  'community-meritocrats',
-  'critical-believers',
-  'faith-rooted-skeptics',
-  'indifferent-skeptics',
+  'economically-betrayed',
+  'populist-insurgents',
+  'university-defenders',
+  'self-made-meritocrats',
+  'critical-reformers',
+  'countercultural-communitarians',
+  'institutional-skeptics',
 ]
 
 const SORTED_CLASSES = PREVALENCE_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
