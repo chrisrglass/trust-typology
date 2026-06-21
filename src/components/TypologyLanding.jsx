@@ -134,22 +134,21 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--left">On the left</p>
             <p className="profile-para">
-              <a href="#/profiles/university-defenders" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a>,{' '}
-              <a href="#/profiles/critical-reformers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a>, and the{' '}
-              <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
-              share belief in higher education's mission — but are separated by their verdict on performance and by what repair requires.
+              <a href="#/profiles/university-defenders" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a> and{' '}
+              <a href="#/profiles/critical-reformers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a>{' '}
+              share belief in higher education's mission — but are separated by their verdict on institutional performance and what repair requires.
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">Whether institutions can self-correct</p>
+                <p className="typo-divide-q">On whether institutions can self-correct</p>
                 <p className="profile-para">
-                  University Defenders believe reform from within is both possible and necessary. Critical Reformers hold the mission steady while criticizing performance. For the Economically Betrayed, reform hasn't arrived for the communities they know — alternatives to the four-year degree need to be built, not just promised.
+                  University Defenders believe reform from within is both possible and necessary — the institution is worth defending precisely because it works. Critical Reformers hold the mission steady while indicting the performance: the university's purpose is real, but too many students are bearing costs the institution was never designed to make visible.
                 </p>
               </div>
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On who bears the risk</p>
                 <p className="profile-para">
-                  University Defenders trust the degree delivers real mobility for those who commit to it. Critical Reformers see the gap as structural: the credential reinforces class divisions for too many graduates. The Economically Betrayed name something more personal — a broken promise to specific communities that had the most to gain and the least margin for error.
+                  University Defenders trust the degree delivers real mobility for those who commit to it. Critical Reformers see the gap as structural: the credential reinforces class divisions for too many graduates, and reform requires naming that plainly.
                 </p>
               </div>
             </div>
