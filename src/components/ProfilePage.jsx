@@ -85,7 +85,10 @@ export default function ProfilePage({ classId, highlightedId }) {
             {profile.topTrustIssues.mainConcerns.map((concern, i) => (
               <li key={i} className="profile-main-concerns-item">
                 {concern.dimId
-                  ? <a href={`#/dimensions/${concern.dimId}`} className="profile-concern-link">{concern.text}</a>
+                  ? (() => {
+                      const [cat, ...rest] = concern.text.split(' — ')
+                      return <><a href={`#/dimensions/${concern.dimId}`} className="profile-concern-link">{cat}</a>{rest.length ? ` — ${rest.join(' — ')}` : ''}</>
+                    })()
                   : concern.text ?? concern}
               </li>
             ))}
