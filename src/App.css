@@ -94,17 +94,99 @@ a:hover {
   color: var(--link-hover);
 }
 
+/* ─── Site Nav ──────────────────────────────────────────────────────────────── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-default);
+  box-shadow: 0 1px 4px rgba(17,17,17,0.06);
+}
+
+.site-nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.65rem 1.5rem;
+}
+
+.site-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.site-nav-logo:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.site-nav-links a {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav-links a:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.site-nav-cta {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-nav-cta:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .site-nav-links {
+    display: none;
+  }
+  .site-nav-inner {
+    justify-content: space-between;
+  }
+}
+
 /* ─── App Shell ─────────────────────────────────────────────────────────────── */
 .app {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  padding: 2rem 1rem 4rem;
+  flex-direction: column;
 }
 
 .app-inner {
   width: 100%;
   max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
 }
 
 /* ─── Landing Page ──────────────────────────────────────────────────────────── */
@@ -221,6 +303,77 @@ a:hover {
   font-family: var(--font-ui);
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+.landing-hook {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+/* ─── Landing Type Preview Strip ────────────────────────────────────────────── */
+.landing-type-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.landing-type-pip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 999px;
+}
+
+.landing-type-pip-label {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ─── Landing CTA Block ──────────────────────────────────────────────────────── */
+.landing-cta-block {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.landing-cta-primary {
+  font-size: 1.075rem;
+  padding: 0.85rem 2.25rem;
+}
+
+.landing-cta-secondary {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--link);
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius);
+  display: inline-block;
+  transition: border-color 0.12s, background 0.12s;
+  white-space: nowrap;
+}
+
+.landing-cta-secondary:hover {
+  border-color: var(--link);
+  background: var(--color-accent-light);
+  color: var(--link);
+  text-decoration: none;
 }
 
 /* ─── Quiz ──────────────────────────────────────────────────────────────────── */
@@ -878,9 +1031,89 @@ a:hover {
   padding: 0.5rem 0;
 }
 
+/* ─── Share Bar ──────────────────────────────────────────────────────────────── */
+.share-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+.share-bar-label {
+  font-family: var(--font-ui);
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.share-bar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.share-btn {
+  font-family: var(--font-ui);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--link);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.12s, background 0.12s;
+  display: inline-block;
+  line-height: 1.6;
+}
+
+.share-btn:hover {
+  border-color: var(--link);
+  background: var(--color-accent-light);
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* ─── In Brief box ───────────────────────────────────────────────────────────── */
+.profile-in-brief {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--bg-raised);
+  border-left: 4px solid currentColor;
+}
+
+.profile-in-brief-label {
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.profile-in-brief-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
 .results-profile-cta {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
   padding: 0.5rem 0 1rem;
 }
 
@@ -1065,6 +1298,56 @@ a:hover {
   min-height: 100vh;
 }
 
+/* ─── Profile Type Switcher ──────────────────────────────────────────────────── */
+.profile-type-switcher {
+  display: flex;
+  overflow-x: auto;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-default);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.profile-type-switcher::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-type-pip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.profile-type-pip:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.profile-type-pip--active {
+  font-weight: 600;
+}
+
+.profile-type-pip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.profile-type-pip-name {
+  /* name text; inherits from parent */
+}
+
 /* Profile nav bar */
 .profile-nav {
   display: flex;
@@ -1125,12 +1408,12 @@ a:hover {
 }
 .profile-header-tagline {
   font-family: var(--font-body);
-  font-size: 1.2rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.6;
   font-style: italic;
   opacity: 0.92;
   margin-bottom: 1.25rem;
-  max-width: 560px;
+  max-width: 680px;
 }
 .profile-header-prevalence {
   display: inline-block;
@@ -1317,6 +1600,50 @@ a:hover {
 .proof-point-source:hover {
   color: var(--text-primary);
   border-bottom-color: currentColor;
+}
+
+.proof-toggle-btn {
+  margin-top: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.proof-toggle-btn:hover {
+  color: var(--link-hover);
+}
+
+/* ─── Results shared concern callout ────────────────────────────────────────── */
+.results-shared-concern {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.results-shared-concern-label {
+  display: block;
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.results-shared-concern-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .profile-dimensions-link {
@@ -2173,6 +2500,121 @@ a:hover {
   text-transform: uppercase;
   color: var(--text-secondary);
   margin: 2rem 0 0.5rem;
+}
+
+/* ─── TypologyLanding Phase 3 styles ────────────────────────────────────────── */
+
+/* Inline quiz CTA within a section */
+.typo-quiz-callout {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-accent-light);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.typo-quiz-callout-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+/* Shared findings card grid */
+.typo-shared-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.typo-shared-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.typo-shared-heading {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0 0 0.5rem;
+}
+
+.typo-shared-body {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Divide blocks */
+.typo-divide-block {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+}
+
+.typo-divide-block + .typo-divide-block {
+  margin-top: 1rem;
+}
+
+.typo-divide-side {
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.typo-divide-side--right { color: #C46A2D; }
+.typo-divide-side--left  { color: #2457A6; }
+
+.typo-divide-qs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.typo-divide-q-block {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-default);
+}
+
+.typo-divide-q-block .typo-divide-q {
+  margin: 0 0 0.5rem;
+}
+
+.typo-divide-q-block .profile-para {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .typo-shared-grid {
+    grid-template-columns: 1fr;
+  }
+  .typo-divide-qs {
+    grid-template-columns: 1fr;
+  }
+  .typo-quiz-callout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Dimensions of Trust page — interactive card grid */
