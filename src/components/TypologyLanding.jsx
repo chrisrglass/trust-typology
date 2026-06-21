@@ -7,7 +7,7 @@ const SHARED_FINDINGS = [
     body: 'Across every type, the financial reality of college has become hard to justify. They disagree on who bears the blame — but the shared premise is that the deal is harder than a generation ago.',
   },
   {
-    heading: 'Credentials have lost their meaning',
+    heading: 'Credentials are losing their meaning',
     body: 'Grade inflation has made transcripts less legible. Median grades now cluster at A across departments. All seven types register this failure, though they assign different causes and different remedies.',
   },
   {
