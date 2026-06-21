@@ -62,7 +62,7 @@ export const CLASSES = [
   {
     id: 'faith-rooted-skeptics',
     name: 'Countercultural Classicists',
-    icon: 'Star',
+    icon: 'BookOpen',
     accentColor: '#B78A2A',
     tagline: 'Universities have abandoned intellectual formation for competing priorities and need to recover a clear sense of what higher education is actually for.',
     prevalence: '~11%',
