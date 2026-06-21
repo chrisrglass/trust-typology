@@ -2060,8 +2060,9 @@ a:hover {
 
 .demo-option-row {
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 .demo-seg-bar-wrap {
