@@ -1211,10 +1211,9 @@ a:hover {
 }
 
 .concern-card {
-  display: grid;
-  grid-template-columns: 1.75rem 1fr;
-  align-items: start;
-  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   padding: 0.85rem 1rem;
   background: var(--bg-card);
   border: 2px solid transparent;
@@ -1231,12 +1230,7 @@ a:hover {
 .concern-card-icon {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 0.15rem;
-}
-
-.concern-card-content {
-  min-width: 0;
+  margin-bottom: 0.1rem;
 }
 
 .concern-card-title {

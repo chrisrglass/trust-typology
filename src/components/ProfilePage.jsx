@@ -79,9 +79,8 @@ export default function ProfilePage({ classId, highlightedId }) {
 
         {/* Top Trust Issues */}
         <section className="profile-section">
-          <h2 className="profile-section-title">Top Trust Issues</h2>
           <p className="profile-para">{profile.topTrustIssues.issues}</p>
-          <p className="profile-para"><strong>Top Three Concerns</strong></p>
+          <h2 className="profile-section-title" style={{ marginTop: '1.5rem' }}>Top Three Concerns</h2>
           <div className="concern-card-grid">
             {profile.topTrustIssues.mainConcerns.map((concern, i) => {
               const dim = DIMENSIONS.find(d => d.id === concern.dimId)
@@ -90,12 +89,10 @@ export default function ProfilePage({ classId, highlightedId }) {
               return (
                 <a key={i} href={`#/dimensions/${concern.dimId}`} className="concern-card">
                   <span className="concern-card-icon">
-                    <TypeIcon iconName={dim?.icon} color="#666" size={18} strokeWidth={1.6} />
+                    <TypeIcon iconName={dim?.icon} color="#666" size={20} strokeWidth={1.6} />
                   </span>
-                  <div className="concern-card-content">
-                    <div className="concern-card-title">{cat}</div>
-                    {desc && <div className="concern-card-desc">{desc}</div>}
-                  </div>
+                  <div className="concern-card-title">{cat}</div>
+                  {desc && <div className="concern-card-desc">{desc}</div>}
                 </a>
               )
             })}
