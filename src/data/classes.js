@@ -74,7 +74,7 @@ export const CLASSES = [
     accentColor: '#B78A2A',
     tagline: "Universities have turned away from forming character and serving their communities, and need to recover a clear sense of what they're really for.",
     prevalence: '~11%',
-    shareText: "I'm a Countercultural Classicist — I think universities have abandoned real intellectual formation rooted in faith, virtue, and character. What's your trust type?",
+    shareText: "I'm a Countercultural Communitarian — I think universities have turned away from forming character and serving their communities, and need to recover a clear sense of what they're really for. What's your trust type?",
     sharedConcern: "All seven types agree that higher education has lost clarity about what genuine formation requires. They divide sharply on what should fill that gap.",
     description:
       'You hold a thick account of what education is for — formation of character, virtue, and faith — that most secular research universities neither understand nor provide. You believe in real intellectual formation; you simply mean something different by it than most. You support protecting institutions built around specific communities, including HBCUs and faith-based colleges. And you see AI as systematically excluding the frameworks that matter most to you.',
