@@ -84,7 +84,7 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--right">On the right</p>
             <p className="profile-para">
-              <a href="#/profiles/countercultural-communitarians" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Classicists</a>,{' '}
+              <a href="#/profiles/countercultural-communitarians" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Communitarians</a>,{' '}
               <a href="#/profiles/populist-insurgents" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
               <a href="#/profiles/institutional-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
               share distrust of institutional performance — but they reach opposite conclusions on every question that follows.
@@ -93,13 +93,13 @@ export default function TypologyLanding() {
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On government authority</p>
                 <p className="profile-para">
-                  Countercultural Classicists oppose federal intervention even from sympathetic Republican administrations. Populist Insurgents reach the opposite verdict: government oversight is the only lever working people have. Institutional Skeptics have simply moved on — they see the failures but haven't organized them into a reform agenda.
+                  Countercultural Communitarians oppose federal intervention even from sympathetic Republican administrations. Populist Insurgents reach the opposite verdict: government oversight is the only lever working people have. Institutional Skeptics have simply moved on — they see the failures but haven't organized them into a reform agenda.
                 </p>
               </div>
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On whether the degree delivers</p>
                 <p className="profile-para">
-                  Countercultural Classicists believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools. Populist Insurgents see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
+                  Countercultural Communitarians believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools. Populist Insurgents see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
                 </p>
               </div>
             </div>
