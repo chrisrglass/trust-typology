@@ -23,7 +23,7 @@ const SHARED_FINDINGS = [
     body: 'Grade inflation has made transcripts less legible. Median grades now cluster at A across departments. All seven types register this failure, though they assign different causes and different remedies.',
   },
   {
-    heading: 'Accountability is overdue',
+    heading: 'Reform is overdue',
     body: 'Strong cross-partisan majorities want institutions held to account. What accountability looks like divides the types as sharply as anything else — but the demand itself is universal.',
   },
 ]
