@@ -127,7 +127,7 @@ export const PROFILE_DATA = {
         { text: 'Learning Quality and Educational Purpose — they want universities to articulate and deliver a compelling non-instrumental account of what they are for', dimId: 'learning-quality' },
       ],
     },
-    reformStance: 'Defend the institution from political overreach and market capture — and trust internal governance to correct what can be corrected from within.',
+    reformStance: 'Restore federal research funding immediately and reject the use of grant cancellations, Title VI enforcement, and accreditation threats as tools to coerce campus governance. Publish clear, enforceable academic freedom principles — modeled on the Woodward Report — and enforce them institutionally before external pressure makes them moot. Strengthen faculty governance so that presidents and boards have meaningful accountability to the scholarly community, not just to donors and legislatures. Articulate publicly, in specific terms, what research universities produce and what disappears when they are weakened: the vaccines, the engineers, the civic knowledge that no market generates on its own.',
     nearestNeighborId: 'community-meritocrats',
     nearestNeighborNote: `Both trust the degree's economic payoff, believe local colleges serve their communities, and support internal reform over replacement. They diverge on admissions — the University Defenders largely defend the system's overall fairness, while Self-Made Meritocrats are its strongest defenders once applications are submitted — and on media credibility, where the University Defenders express the highest trust of any group.`,
     keyItems: [
@@ -180,7 +180,7 @@ export const PROFILE_DATA = {
         { text: 'Financial Stakes and Honest Dealing — who bears the downside risk when the degree underdelivers on its economic promise', dimId: 'financial-stakes' },
       ],
     },
-    reformStance: 'Hold institutions to their stated mission — the credential should deliver what it promises, especially for the students who most needed it to work.',
+    reformStance: 'Require institutions to share financial risk when graduates cannot repay federal loans — ending the arrangement where colleges profit from enrollment regardless of outcomes. Mandate transparent, program-level earnings and debt data so students can evaluate the actual return before they sign. Eliminate legacy admissions preferences at every institution receiving federal research funding. Fund aggressive completion support for first-generation and low-income students, not just enrollment incentives. Enforce honest grading so the credential can once again signal what graduates actually know and can do.',
     nearestNeighborId: 'institutional-faithful',
     nearestNeighborNote: `Both believe in research as a public good, genuine intellectual formation, and higher education's capacity to reform itself. They diverge on whether the degree delivers economically — the University Defenders are optimists; Critical Reformers are structural pessimists who believe the degree reinforces the class divisions it claims to dissolve.`,
     keyItems: [
@@ -233,7 +233,7 @@ export const PROFILE_DATA = {
         { text: 'Institutional Self-Interest and Fiduciary Failure — institutions absorbing public money and political deference while systematically serving those already advantaged', dimId: 'institutional-self-interest' },
       ],
     },
-    reformStance: 'Democratic accountability through elected government — and real alternatives to the four-year degree for people the system was never designed to serve.',
+    reformStance: 'Remove bachelor\'s degree requirements from federal civil service positions where the work does not require them, and pressure major employers to follow. Fund apprenticeship and certification pathways at genuine parity with four-year colleges, not as consolation alternatives. Expand Pell Grant eligibility to cover high-quality short-term credentials. Require universities receiving public money to publish transparent ratios of administrative to instructional spending — and tie federal funding increases to demonstrable outcomes for first-generation and working-class students, not to research prestige rankings.',
     nearestNeighborId: 'economically-dispossessed',
     nearestNeighborNote: `Both share deep structural skepticism about higher education's promise to working people and distrust of research serving elite priorities. They divide sharply on government: Populist Insurgents strongly support government accountability for higher education; the Economically Betrayed opposes it, fearing government control of knowledge as a threat to minority and progressive intellectual traditions.`,
     keyItems: [
@@ -286,7 +286,7 @@ export const PROFILE_DATA = {
         { text: 'Governance, Reform, and Accountability — public accountability mechanisms that function independent of which political faction controls them', dimId: 'governance-accountability' },
       ],
     },
-    reformStance: 'Demand that institutions bear responsibility for students they recruit and do not graduate — and build alternatives for communities where the college world never worked.',
+    reformStance: 'Require colleges to reimburse the federal loan program for a portion of debt held by students who enrolled but did not graduate — ending the practice of aggressive recruitment without accountability for completion. Mandate completion-rate disclosure in all enrollment marketing so students see the actual odds before they sign. Fund short-term, industry-recognized credentials as a genuine alternative pathway, and push major employers to recognize them for hiring decisions. Cancel federal student debt held by non-completers who attended institutions with graduation rates below 40%.',
     nearestNeighborId: 'populist-antagonists',
     nearestNeighborNote: `Both are structural skeptics who see the degree as reinforcing class divisions, research as serving elite priorities, and media coverage as captured by the institutions it covers. They differ on government accountability: Institutional Skeptics moderately support it; Populist Insurgents are its strongest champions. They also differ on reform energy — Populist Insurgents are mobilized; Institutional Skeptics have disengaged from the debate entirely.`,
     keyItems: [
@@ -338,7 +338,7 @@ export const PROFILE_DATA = {
         { text: 'Governance, Reform, and Accountability — reform should come from within, not from government dictation of curriculum and program content', dimId: 'governance-accountability' },
       ],
     },
-    reformStance: 'Protect the integrity of the credential — defend academic standards, resist AI shortcuts, and keep government out of curriculum decisions.',
+    reformStance: 'Adopt and enforce clear, institution-specific policies on AI use in coursework — distinguishing tools that build competency from those that replace the effort of thinking. Audit grade distributions publicly and address inflation that has made transcripts unable to distinguish levels of achievement. Protect faculty freedom to challenge students\' assumptions without administrative or government interference. Reform accreditation to assess whether graduates actually developed analytical and practical capabilities — not just whether institutional processes were followed. Keep curriculum decisions in the hands of faculty, not legislatures.',
     nearestNeighborId: 'institutional-faithful',
     nearestNeighborNote: `Both groups trust the degree's economic payoff, believe local colleges serve their communities, and support internal reform. They divide on admissions — Self-Made Meritocrats are its strongest defenders, holding that once applications are submitted the evaluation is basically fair — and on media credibility, where the University Defenders express the highest trust of any group while Self-Made Meritocrats are more moderate.`,
     keyItems: [
@@ -391,7 +391,7 @@ export const PROFILE_DATA = {
         { text: 'Learning Quality and Educational Purpose — genuine character and virtue formation versus secular credentialing that evacuates moral content from education', dimId: 'learning-quality' },
       ],
     },
-    reformStance: 'Protect faith-based and community-specific institutions from federal leverage — accountability for outcomes is acceptable; government control over curriculum and mission is not.',
+    reformStance: 'Exempt faith-based colleges and HBCUs from earnings-accountability metrics that would defund ministry, social work, and theological programs — measuring these institutions by market returns misreads their purpose entirely. Protect religious liberty exemptions that allow faith-rooted colleges to hire, govern, and teach according to their founding mission. Extend Pell Grant eligibility to cover seminary and theological degrees. Resist accreditation standards and compliance requirements that treat institutional distinctiveness as a defect to be standardized away. Fund community-specific institutions rather than consolidating them into generic regional universities that serve nobody\'s formation well.',
     nearestNeighborId: 'community-meritocrats',
     nearestNeighborNote: `Both groups are optimistic about the degree's economic payoff and believe local colleges genuinely serve their communities. They separate on five critical items: Countercultural Classicists support loans for callings (ministry, social work, the arts), believe in formation through a virtue lens, support targeted HBCU and MSI protection, and strongly oppose government oversight. They are their own class — not a variant of Self-Made Meritocrats — driven by institutional self-interest in protecting faith-based higher education.`,
     keyItems: [
@@ -444,7 +444,7 @@ export const PROFILE_DATA = {
         { text: 'Cultural Belonging and Identity Welcome — the class-cultural assimilation that most institutions require as a condition of being taken seriously', dimId: 'cultural-belonging' },
       ],
     },
-    reformStance: 'Redistribute the risk — make institutions share the downside when graduates cannot repay — and build pathways that actually serve the communities the current system left behind.',
+    reformStance: 'Restore Pell Grant purchasing power to cover at least half the cost of a four-year public college degree — it covered 76% in the 1980s and covers 24% today. Require institutions to enter income-sharing arrangements that tie their financial health to whether graduates can actually repay, not just whether they enrolled. Cancel federal student debt held by students of closed for-profit colleges and those whose institutions were found to have engaged in predatory recruitment. Protect and expand TRIO and GEAR UP as the primary support infrastructure for first-generation students. Invest in community-controlled workforce and apprenticeship programs in the regions where the college pathway has been demonstrably broken.',
     nearestNeighborId: 'populist-antagonists',
     nearestNeighborNote: `Both share structural skepticism about the degree's economic promise and distrust of research serving elite priorities. The sharpest divide is on government: the Economically Betrayed strongly opposes government authority over higher education, fearing federal control of curriculum as a threat to minority and progressive intellectual traditions. Populist Insurgents see government oversight as a legitimate democratic check. They read the same institutional failure through different political lenses.`,
     keyItems: [

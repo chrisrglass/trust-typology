@@ -130,10 +130,8 @@ export default function ProfilePage({ classId, highlightedId }) {
 
         {/* Reform Stance */}
         <section className="profile-section">
-          <div className="profile-reform-callout" style={{ borderColor: cls.accentColor }}>
-            <p className="profile-reform-label">Their answer to "what should change?"</p>
-            <p className="profile-reform-text">{profile.reformStance}</p>
-          </div>
+          <h2 className="profile-section-title">What Begins to Rebuild Trust?</h2>
+          <p className="profile-para">{profile.reformStance}</p>
         </section>
 
         {/* Nearest Neighbor */}
