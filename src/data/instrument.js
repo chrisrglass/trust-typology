@@ -411,8 +411,8 @@ export const ITEMS = [
   {
     id: 'REP-D',
     section: 'REP',
-    type: 'multiselect',
-    prompt: 'Which of the following best describes your race or ethnicity? Select all that apply.',
+    type: 'single_select',
+    prompt: 'Which of the following best describes your race or ethnicity?',
     options: [
       { value: 'white', label: 'White or European American' },
       { value: 'black', label: 'Black or African American' },

@@ -2,24 +2,24 @@ import { useState, useEffect, useRef } from 'react'
 import { ITEMS } from '../data/instrument.js'
 import Question from './Question.jsx'
 
-const TOTAL = 33
-const INTERSTITIAL_1_AFTER = 22  // show interstitial after item at index 22 (D7-A, last LCA item)
-const INTERSTITIAL_2_AFTER = 27  // show interstitial after item at index 27 (DM-E, last demographic item)
+const TOTAL = 30
+const INTERSTITIAL_1_AFTER = 19  // show interstitial after item at index 19 (D7-A, last LCA item)
+const INTERSTITIAL_2_AFTER = 24  // show interstitial after item at index 24 (DM-E, last demographic item)
 
 const INTERSTITIALS = {
   'interstitial-1': {
     part: 'Part II of III',
     title: 'About You',
     context: 'These questions help us understand who holds each view. They are not used to determine your typology class.',
-    nextIndex: 23,
-    prevIndex: 22,
+    nextIndex: 20,
+    prevIndex: 19,
   },
   'interstitial-2': {
     part: 'Part III of III',
     title: 'A Few More Questions',
     context: 'These final questions help us understand the context behind your views.',
-    nextIndex: 28,
-    prevIndex: 27,
+    nextIndex: 25,
+    prevIndex: 24,
   },
 }
 
