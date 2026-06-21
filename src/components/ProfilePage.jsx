@@ -1,5 +1,6 @@
 import { CLASSES } from '../data/classes.js'
 import { PROFILE_DATA } from '../data/profileData.js'
+import { DIMENSIONS } from '../data/dimensionsData.js'
 import ClassCard from './ClassCard.jsx'
 import ItemBar from './ItemBar.jsx'
 import TypeIcon from './TypeIcon.jsx'
@@ -80,19 +81,25 @@ export default function ProfilePage({ classId, highlightedId }) {
         <section className="profile-section">
           <h2 className="profile-section-title">Top Trust Issues</h2>
           <p className="profile-para">{profile.topTrustIssues.issues}</p>
-          <p className="profile-para"><strong>Main concerns:</strong></p>
-          <ol className="profile-main-concerns">
-            {profile.topTrustIssues.mainConcerns.map((concern, i) => (
-              <li key={i} className="profile-main-concerns-item">
-                {concern.dimId
-                  ? (() => {
-                      const [cat, ...rest] = concern.text.split(' — ')
-                      return <><a href={`#/dimensions/${concern.dimId}`} className="profile-concern-link">{cat}</a>{rest.length ? ` — ${rest.join(' — ')}` : ''}</>
-                    })()
-                  : concern.text ?? concern}
-              </li>
-            ))}
-          </ol>
+          <p className="profile-para"><strong>Top Three Concerns</strong></p>
+          <div className="concern-card-grid">
+            {profile.topTrustIssues.mainConcerns.map((concern, i) => {
+              const dim = DIMENSIONS.find(d => d.id === concern.dimId)
+              const [cat, ...rest] = (concern.text ?? concern).split(' — ')
+              const desc = rest.join(' — ')
+              return (
+                <a key={i} href={`#/dimensions/${concern.dimId}`} className="concern-card">
+                  <span className="concern-card-icon">
+                    <TypeIcon iconName={dim?.icon} color="#666" size={18} strokeWidth={1.6} />
+                  </span>
+                  <div className="concern-card-content">
+                    <div className="concern-card-title">{cat}</div>
+                    {desc && <div className="concern-card-desc">{desc}</div>}
+                  </div>
+                </a>
+              )
+            })}
+          </div>
           <p className="profile-para" style={{ marginTop: '0.75rem' }}>
             <a href="#/dimensions" className="profile-dimensions-link">See Nine Dimensions of Trust →</a>
           </p>

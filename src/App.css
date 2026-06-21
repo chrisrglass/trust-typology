@@ -1203,14 +1203,56 @@ a:hover {
 }
 .profile-main-concerns-item:last-child { margin-bottom: 0; }
 
-.profile-concern-link {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--text-secondary);
-  text-underline-offset: 2px;
+.concern-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0 0;
 }
-.profile-concern-link:hover {
-  text-decoration-color: var(--text-primary);
+
+.concern-card {
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  align-items: start;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-card);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.concern-card:hover {
+  border-color: #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.concern-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.15rem;
+}
+
+.concern-card-content {
+  min-width: 0;
+}
+
+.concern-card-title {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.concern-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.35rem;
 }
 
 .profile-dimensions-link {
@@ -2188,6 +2230,9 @@ a:hover {
 
 @media (max-width: 700px) {
   .dim-grid {
+    grid-template-columns: 1fr;
+  }
+  .concern-card-grid {
     grid-template-columns: 1fr;
   }
   .dim-type-grid {
