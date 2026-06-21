@@ -1,6 +1,18 @@
 import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 
+const PREVALENCE_ORDER = [
+  'economically-dispossessed',
+  'populist-antagonists',
+  'institutional-faithful',
+  'community-meritocrats',
+  'critical-believers',
+  'faith-rooted-skeptics',
+  'indifferent-skeptics',
+]
+
+const SORTED_CLASSES = PREVALENCE_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
+
 const SHARED_FINDINGS = [
   {
     heading: 'The cost burden is indefensible',
@@ -125,7 +137,7 @@ export default function TypologyLanding() {
             Each group holds a coherent internal logic — not positions on a single scale, but distinct ways of relating to higher education, each with its own diagnosis and conditions for repair.
           </p>
           <div className="results-grid">
-            {CLASSES.map(cls => (
+            {SORTED_CLASSES.map(cls => (
               <a
                 key={cls.id}
                 href={`#/profiles/${cls.id}`}
