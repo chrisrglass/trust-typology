@@ -41,6 +41,7 @@ function OptionRow({ varId, option }) {
   const ranked = [...segments].sort((a, b) => b.pct - a.pct)
   const topIds = new Set(ranked.slice(0, 2).map(s => s.cls.id))
   const dominantId = ranked[0]?.cls.id
+  const secondId = ranked[1]?.cls.id
 
   return (
     <div className="demo-option-row">
@@ -59,14 +60,15 @@ function OptionRow({ varId, option }) {
           {segments.map(s => {
             const isBright = topIds.has(s.cls.id)
             const isDominant = s.cls.id === dominantId
+            const isSecond = s.cls.id === secondId
             return (
               <div
                 key={s.cls.id}
-                className={`demo-seg${isBright ? ' demo-seg--bright' : ' demo-seg--dim'}${isDominant ? ' demo-seg--dominant' : ''}`}
+                className={`demo-seg${isBright ? ' demo-seg--bright' : ' demo-seg--dim'}${isDominant || isSecond ? ' demo-seg--dominant' : ''}`}
                 style={{ width: `${s.pct}%`, background: s.cls.accentColor }}
                 onMouseEnter={() => setHovered({ name: s.cls.name, pct: s.pct })}
               >
-                {isDominant && (
+                {(isDominant || isSecond) && (
                   <span className="demo-seg-dominant-label">{s.cls.name}</span>
                 )}
               </div>
