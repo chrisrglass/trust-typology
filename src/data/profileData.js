@@ -127,7 +127,7 @@ export const PROFILE_DATA = {
         { text: 'Learning Quality and Educational Purpose — they want universities to articulate and deliver a compelling non-instrumental account of what they are for', dimId: 'learning-quality' },
       ],
     },
-    reformStance: 'Reform from within — the institution has the capacity to self-correct.',
+    reformStance: 'Defend the institution from political overreach and market capture — and trust internal governance to correct what can be corrected from within.',
     nearestNeighborId: 'community-meritocrats',
     nearestNeighborNote: `Both trust the degree's economic payoff, believe local colleges serve their communities, and support internal reform over replacement. They diverge on admissions — the University Defenders largely defend the system's overall fairness, while Self-Made Meritocrats are its strongest defenders once applications are submitted — and on media credibility, where the University Defenders express the highest trust of any group.`,
     keyItems: [
@@ -180,7 +180,7 @@ export const PROFILE_DATA = {
         { text: 'Financial Stakes and Honest Dealing — who bears the downside risk when the degree underdelivers on its economic promise', dimId: 'financial-stakes' },
       ],
     },
-    reformStance: 'Reform is both necessary and possible — the mission is real, even if the performance is not.',
+    reformStance: 'Hold institutions to their stated mission — the credential should deliver what it promises, especially for the students who most needed it to work.',
     nearestNeighborId: 'institutional-faithful',
     nearestNeighborNote: `Both believe in research as a public good, genuine intellectual formation, and higher education's capacity to reform itself. They diverge on whether the degree delivers economically — the University Defenders are optimists; Critical Reformers are structural pessimists who believe the degree reinforces the class divisions it claims to dissolve.`,
     keyItems: [
@@ -233,7 +233,7 @@ export const PROFILE_DATA = {
         { text: 'Institutional Self-Interest and Fiduciary Failure — institutions absorbing public money and political deference while systematically serving those already advantaged', dimId: 'institutional-self-interest' },
       ],
     },
-    reformStance: 'Democratic accountability — elected officials should hold captured institutions to account.',
+    reformStance: 'Democratic accountability through elected government — and real alternatives to the four-year degree for people the system was never designed to serve.',
     nearestNeighborId: 'economically-dispossessed',
     nearestNeighborNote: `Both share deep structural skepticism about higher education's promise to working people and distrust of research serving elite priorities. They divide sharply on government: Populist Insurgents strongly support government accountability for higher education; the Economically Betrayed opposes it, fearing government control of knowledge as a threat to minority and progressive intellectual traditions.`,
     keyItems: [
@@ -286,7 +286,7 @@ export const PROFILE_DATA = {
         { text: 'Governance, Reform, and Accountability — public accountability mechanisms that function independent of which political faction controls them', dimId: 'governance-accountability' },
       ],
     },
-    reformStance: 'Build alternatives — neither reform nor replacement of the current system seems viable.',
+    reformStance: 'Demand that institutions bear responsibility for students they recruit and do not graduate — and build alternatives for communities where the college world never worked.',
     nearestNeighborId: 'populist-antagonists',
     nearestNeighborNote: `Both are structural skeptics who see the degree as reinforcing class divisions, research as serving elite priorities, and media coverage as captured by the institutions it covers. They differ on government accountability: Institutional Skeptics moderately support it; Populist Insurgents are its strongest champions. They also differ on reform energy — Populist Insurgents are mobilized; Institutional Skeptics have disengaged from the debate entirely.`,
     keyItems: [
@@ -338,7 +338,7 @@ export const PROFILE_DATA = {
         { text: 'Governance, Reform, and Accountability — reform should come from within, not from government dictation of curriculum and program content', dimId: 'governance-accountability' },
       ],
     },
-    reformStance: 'Reform from within — the institution works when it functions as designed.',
+    reformStance: 'Protect the integrity of the credential — defend academic standards, resist AI shortcuts, and keep government out of curriculum decisions.',
     nearestNeighborId: 'institutional-faithful',
     nearestNeighborNote: `Both groups trust the degree's economic payoff, believe local colleges serve their communities, and support internal reform. They divide on admissions — Self-Made Meritocrats are its strongest defenders, holding that once applications are submitted the evaluation is basically fair — and on media credibility, where the University Defenders express the highest trust of any group while Self-Made Meritocrats are more moderate.`,
     keyItems: [
@@ -391,7 +391,7 @@ export const PROFILE_DATA = {
         { text: 'Learning Quality and Educational Purpose — genuine character and virtue formation versus secular credentialing that evacuates moral content from education', dimId: 'learning-quality' },
       ],
     },
-    reformStance: 'Protect the mission — defend faith-based and community-specific institutions from federal leverage.',
+    reformStance: 'Protect faith-based and community-specific institutions from federal leverage — accountability for outcomes is acceptable; government control over curriculum and mission is not.',
     nearestNeighborId: 'community-meritocrats',
     nearestNeighborNote: `Both groups are optimistic about the degree's economic payoff and believe local colleges genuinely serve their communities. They separate on five critical items: Countercultural Classicists support loans for callings (ministry, social work, the arts), believe in formation through a virtue lens, support targeted HBCU and MSI protection, and strongly oppose government oversight. They are their own class — not a variant of Self-Made Meritocrats — driven by institutional self-interest in protecting faith-based higher education.`,
     keyItems: [
@@ -444,7 +444,7 @@ export const PROFILE_DATA = {
         { text: 'Cultural Belonging and Identity Welcome — the class-cultural assimilation that most institutions require as a condition of being taken seriously', dimId: 'cultural-belonging' },
       ],
     },
-    reformStance: 'Build alternatives — the current system has not been reformable for the communities that most needed it.',
+    reformStance: 'Redistribute the risk — make institutions share the downside when graduates cannot repay — and build pathways that actually serve the communities the current system left behind.',
     nearestNeighborId: 'populist-antagonists',
     nearestNeighborNote: `Both share structural skepticism about the degree's economic promise and distrust of research serving elite priorities. The sharpest divide is on government: the Economically Betrayed strongly opposes government authority over higher education, fearing federal control of curriculum as a threat to minority and progressive intellectual traditions. Populist Insurgents see government oversight as a legitimate democratic check. They read the same institutional failure through different political lenses.`,
     keyItems: [

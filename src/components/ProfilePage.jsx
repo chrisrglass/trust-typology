@@ -54,32 +54,6 @@ export default function ProfilePage({ classId, highlightedId }) {
           ))}
         </section>
 
-        {/* Proof Points */}
-        {profile.proofPoints && profile.proofPoints.length > 0 && (
-          <section className="profile-section">
-            <h2 className="profile-section-title">Proof Points</h2>
-            <p className="profile-section-intro">
-              The strongest empirical evidence supporting this perspective. These are shared facts, not talking points — the same data looks different depending on which questions you bring to it.
-            </p>
-            <ol className="proof-point-list">
-              {profile.proofPoints.map((pp, i) => (
-                <li key={i} className="proof-point-item">
-                  <p className="proof-point-claim">{pp.claim}</p>
-                  <p className="proof-point-context">{pp.context}</p>
-                  <a
-                    href={pp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="proof-point-source"
-                  >
-                    {pp.source} ↗
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </section>
-        )}
-
         {/* Key Positions */}
         <section className="profile-section">
           <h2 className="profile-section-title">Key Positions</h2>
@@ -127,6 +101,32 @@ export default function ProfilePage({ classId, highlightedId }) {
             <a href="#/dimensions" className="profile-dimensions-link">See Nine Dimensions of Trust →</a>
           </p>
         </section>
+
+        {/* Proof Points */}
+        {profile.proofPoints && profile.proofPoints.length > 0 && (
+          <section className="profile-section">
+            <h2 className="profile-section-title">Proof Points</h2>
+            <p className="profile-section-intro">
+              The strongest empirical evidence supporting this perspective. These are shared facts, not talking points — the same data looks different depending on which questions you bring to it.
+            </p>
+            <ol className="proof-point-list">
+              {profile.proofPoints.map((pp, i) => (
+                <li key={i} className="proof-point-item">
+                  <p className="proof-point-claim">{pp.claim}</p>
+                  <p className="proof-point-context">{pp.context}</p>
+                  <a
+                    href={pp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="proof-point-source"
+                  >
+                    {pp.source} ↗
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
 
         {/* Reform Stance */}
         <section className="profile-section">
