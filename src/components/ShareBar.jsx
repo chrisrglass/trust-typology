@@ -9,7 +9,7 @@ export default function ShareBar({ shareText, label = 'Share your result' }) {
 
   const handleNativeShare = async () => {
     try {
-      await navigator.share({ title: 'The Trust Project', text: shareText, url: SHARE_URL })
+      await navigator.share({ title: 'The Trust Typology', text: shareText, url: SHARE_URL })
     } catch (_) {
       // user cancelled or error — silent
     }

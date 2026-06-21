@@ -19,7 +19,7 @@ function generateSessionId() {
 
 const SESSION_ID = generateSessionId()
 
-const DEFAULT_TITLE = 'The Trust Project — A Typology of Trust in American Higher Education'
+const DEFAULT_TITLE = 'The Trust Typology — Seven Ways Americans Relate to Higher Education'
 const DEFAULT_DESC = 'Trust in higher education isn\'t just high or low — it takes seven distinct shapes. Find your type.'
 
 function setMeta(property, content) {
@@ -57,7 +57,7 @@ export default function App() {
     if (view.type === 'profile') {
       const cls = CLASSES.find(c => c.id === view.classId)
       if (cls) {
-        const title = `${cls.name} | The Trust Project`
+        const title = `${cls.name} | The Trust Typology`
         document.title = title
         setMeta('og:title', title)
         setMeta('twitter:title', title)

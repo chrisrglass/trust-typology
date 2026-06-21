@@ -21,8 +21,8 @@ export default function Landing({ onStart }) {
           <circle cx="17" cy="16" r="13" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.85" />
           <circle cx="31" cy="16" r="13" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.85" />
         </svg>
-        <h1>The Trust Project</h1>
-        <p className="subtitle">A Typology of Trust in American Higher Education</p>
+        <h1>The Trust Typology</h1>
+        <p className="subtitle">Seven Ways Americans Relate to Higher Education</p>
       </header>
 
       <div className="landing-body">
