@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 40px; }
+  .label { color: rgba(255,255,255,0.3); font-family: sans-serif; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+</style>
+<title>Trust Typology — Data Humanism</title>
+</head>
+<body>
+<div class="wrap">
+  <div class="label">Trust Typology · Data Humanism · 1200×1200</div>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    DATA HUMANISM VERSION
+
+    Seven circles sized by prevalence. Positioned to reflect intellectual
+    proximity — two clusters emerge from the data without being labeled:
+    one centered on institutional trust (upper area), one on economic
+    critique (lower area), with Critical Reformers bridging them.
+
+    Connection lines follow the nearest-neighbor graph from profileData.js:
+      MUTUAL (thicker):
+        · University Defenders ↔ Self-Made Meritocrats
+        · Populist Insurgents   ↔ Economically Betrayed
+      ONE-WAY (thinner / dashed):
+        · Critical Reformers  → University Defenders
+        · Institutional Skeptics → Populist Insurgents
+        · Countercultural Classicists → Self-Made Meritocrats (long diagonal)
+
+    Radii are proportional to prevalence:
+      Economically Betrayed  22% → r=130
+      Populist Insurgents    17% → r=109
+      University Defenders   15% → r=100
+      Critical Reformers     12% → r=91
+      Self-Made Meritocrats  12% → r=91
+      Countercultural Classicists 11% → r=88
+      Institutional Skeptics 10% → r=85
+    ═══════════════════════════════════════════════════════════════════════════
+  -->
+
+  <svg
+    width="720" height="720"
+    viewBox="0 0 1200 1200"
+    xmlns="http://www.w3.org/2000/svg"
+    style="display:block;"
+  >
+    <defs>
+      <!-- Subtle dot grid — the "graph paper" ground of data humanism -->
+      <pattern id="dots" width="50" height="50" patternUnits="userSpaceOnUse">
+        <circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.04)"/>
+      </pattern>
+
+      <!--
+        Glow filter — each circle casts a very soft ambient halo,
+        making the composition read as luminous rather than flat
+      -->
+      <filter id="halo" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- ── Ground ──────────────────────────────────────────────────────────── -->
+    <rect width="1200" height="1200" fill="#07101f"/>
+    <rect width="1200" height="1200" fill="url(#dots)"/>
+
+    <!-- ── Title ───────────────────────────────────────────────────────────── -->
+    <!--
+      Mixed case, italic, large — in keeping with data humanism's
+      preference for the humanist over the bureaucratic.
+      No subtitle, no data legend, no labels. Just the name.
+    -->
+    <text
+      x="600" y="100"
+      text-anchor="middle"
+      font-family="'Playfair Display', Georgia, serif"
+      font-size="74"
+      font-weight="900"
+      font-style="italic"
+      letter-spacing="1"
+      fill="rgba(255,255,255,0.90)"
+    >Trust Typology</text>
+
+    <!-- thin rule under title — Lupi-style annotation line -->
+    <line x1="380" y1="118" x2="820" y2="118"
+          stroke="rgba(255,255,255,0.12)" stroke-width="0.75"/>
+
+    <!-- ── Outer influence rings (behind connections, behind circles) ─────── -->
+    <!--
+      Each ring sits at 1.42× the circle radius — a "field of influence"
+      borrowed from Lupi's practice of concentric annotations.
+      Color matches the type; opacity is very low.
+    -->
+    <circle cx="750" cy="290" r="142" fill="none" stroke="#2457A6" stroke-width="1" opacity="0.20"/>
+    <circle cx="940" cy="510" r="129" fill="none" stroke="#1F6B4F" stroke-width="1" opacity="0.20"/>
+    <circle cx="445" cy="215" r="125" fill="none" stroke="#B78A2A" stroke-width="1" opacity="0.20"/>
+    <circle cx="590" cy="530" r="129" fill="none" stroke="#6E3B6E" stroke-width="1" opacity="0.20"/>
+    <circle cx="250" cy="735" r="121" fill="none" stroke="#7A7068" stroke-width="1" opacity="0.20"/>
+    <circle cx="310" cy="970" r="155" fill="none" stroke="#C46A2D" stroke-width="1" opacity="0.20"/>
+    <!-- Economically Betrayed gets a second outer ring — largest type, most weight -->
+    <circle cx="650" cy="1040" r="185" fill="none" stroke="#A3171C" stroke-width="1" opacity="0.20"/>
+    <circle cx="650" cy="1040" r="215" fill="none" stroke="#A3171C" stroke-width="0.5" opacity="0.09"/>
+
+    <!-- ── Connection lines ────────────────────────────────────────────────── -->
+    <!--
+      Lines connect at circle perimeters (not centers), so they appear
+      to grow from one type toward another — directionality without arrows.
+
+      Mutual nearest neighbors: solid, 1.5px, slightly brighter
+      One-way: thinner (1px), the long diagonal is dashed
+    -->
+
+    <!--
+      MUTUAL: University Defenders (750,290,r=100) ↔ Self-Made Meritocrats (940,510,r=91)
+      dist=268.8  unit=(0.708, 0.706)
+      Start: (750+70.8, 290+70.6) = (820.8, 360.6)
+      End:   (940-64.4, 510-64.2) = (875.6, 445.8)
+    -->
+    <line x1="821" y1="361" x2="876" y2="446"
+          stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+
+    <!--
+      ONE-WAY: Critical Reformers (590,530,r=91) → University Defenders (750,290,r=100)
+      dist=284.4  unit=(0.563, -0.827)
+      Start (from CR): (590+51.2, 530-75.3) = (641.2, 454.7)
+      End   (at UD):   (750-56.3, 290+82.7) = (693.7, 372.7)
+    -->
+    <line x1="641" y1="455" x2="694" y2="373"
+          stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+
+    <!--
+      ONE-WAY DASHED: Countercultural Classicists (445,215,r=88) → Self-Made Meritocrats (940,510,r=91)
+      dist=577.5  unit=(0.858, 0.514)
+      Start (from CC): (445+75.5, 215+45.2) = (520.5, 260.2)
+      End   (at SMM):  (940-78.1, 510-46.8) = (861.9, 463.2)
+      — longest edge in the graph; drawn dashed to read as "distant kinship"
+    -->
+    <line x1="521" y1="260" x2="862" y2="463"
+          stroke="rgba(255,255,255,0.12)" stroke-width="0.75"
+          stroke-dasharray="7 5"/>
+
+    <!--
+      ONE-WAY: Institutional Skeptics (250,735,r=85) → Populist Insurgents (310,970,r=109)
+      dist=242.7  unit=(0.247, 0.969)
+      Start (from IS): (250+21.0, 735+82.4) = (271.0, 817.4)
+      End   (at PI):   (310-26.9, 970-105.6) = (283.1, 864.4)
+    -->
+    <line x1="271" y1="817" x2="283" y2="864"
+          stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+
+    <!--
+      MUTUAL: Populist Insurgents (310,970,r=109) ↔ Economically Betrayed (650,1040,r=130)
+      dist=352.7  unit=(0.965, 0.262)
+      Start (from PI): (310+105.2, 970+28.6) = (415.2, 998.6)
+      End   (at EB):   (650-125.4, 1040-34.1) = (524.6, 1005.9)
+    -->
+    <line x1="415" y1="999" x2="525" y2="1006"
+          stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+
+    <!-- ── Circles (luminous layer — rendered with halo filter) ───────────── -->
+
+    <!-- 1. University Defenders · #2457A6 · Shield · (750, 290, r=100) -->
+    <g filter="url(#halo)">
+      <circle cx="750" cy="290" r="100" fill="#2457A6"/>
+    </g>
+    <svg x="714" y="254" width="72" height="72"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+
+    <!-- 2. Self-Made Meritocrats · #1F6B4F · Users · (940, 510, r=91) -->
+    <g filter="url(#halo)">
+      <circle cx="940" cy="510" r="91" fill="#1F6B4F"/>
+    </g>
+    <svg x="907" y="477" width="66" height="66"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>
+
+    <!-- 3. Countercultural Classicists · #B78A2A · Star · (445, 215, r=88) -->
+    <g filter="url(#halo)">
+      <circle cx="445" cy="215" r="88" fill="#B78A2A"/>
+    </g>
+    <svg x="413" y="183" width="64" height="64"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+
+    <!-- 4. Critical Reformers · #6E3B6E · Eye · (590, 530, r=91) -->
+    <g filter="url(#halo)">
+      <circle cx="590" cy="530" r="91" fill="#6E3B6E"/>
+    </g>
+    <svg x="557" y="497" width="66" height="66"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+
+    <!-- 5. Institutional Skeptics · #7A7068 · CircleDashed · (250, 735, r=85) -->
+    <g filter="url(#halo)">
+      <circle cx="250" cy="735" r="85" fill="#7A7068"/>
+    </g>
+    <svg x="219" y="704" width="62" height="62"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10" stroke-dasharray="4.5 2.5"/>
+    </svg>
+
+    <!-- 6. Populist Insurgents · #C46A2D · Megaphone · (310, 970, r=109) -->
+    <g filter="url(#halo)">
+      <circle cx="310" cy="970" r="109" fill="#C46A2D"/>
+    </g>
+    <svg x="270" y="930" width="80" height="80"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 11 18-5v12L3 13v-2z"/>
+      <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+    </svg>
+
+    <!-- 7. Economically Betrayed · #A3171C · TrendingDown · (650, 1040, r=130) -->
+    <g filter="url(#halo)">
+      <circle cx="650" cy="1040" r="130" fill="#A3171C"/>
+    </g>
+    <svg x="602" y="992" width="96" height="96"
+         viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
+      <polyline points="17 18 23 18 23 12"/>
+    </svg>
+
+    <!-- ── Endpoint dots on connections ───────────────────────────────────── -->
+    <!--
+      Colored dots mark where each connection exits a circle.
+      The color identifies which type the connection "belongs to."
+      Mutual endpoints get slightly larger dots (5px vs 4px).
+    -->
+
+    <!-- Edge 1: UD ↔ SMM (mutual — 5px dots) -->
+    <circle cx="821" cy="361" r="5" fill="#2457A6"/>
+    <circle cx="876" cy="446" r="5" fill="#1F6B4F"/>
+
+    <!-- Edge 2: CR → UD (one-way — 4px dots) -->
+    <circle cx="641" cy="455" r="4" fill="#6E3B6E"/>
+    <circle cx="694" cy="373" r="4" fill="#2457A6"/>
+
+    <!-- Edge 3: CC → SMM (dashed — 3px dots, slightly faint) -->
+    <circle cx="521" cy="260" r="3" fill="#B78A2A" opacity="0.7"/>
+    <circle cx="862" cy="463" r="3" fill="#1F6B4F" opacity="0.7"/>
+
+    <!-- Edge 4: IS → PI (one-way — 4px dots) -->
+    <circle cx="271" cy="817" r="4" fill="#7A7068"/>
+    <circle cx="283" cy="864" r="4" fill="#C46A2D"/>
+
+    <!-- Edge 5: PI ↔ EB (mutual — 5px dots) -->
+    <circle cx="415" cy="999" r="5" fill="#C46A2D"/>
+    <circle cx="525" cy="1006" r="5" fill="#A3171C"/>
+
+    <!-- ── Outer frame ──────────────────────────────────────────────────────── -->
+    <rect x="1" y="1" width="1198" height="1198"
+          fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+
+  </svg>
+
+  <div class="label">Nearest-neighbor connections from profileData · Radii proportional to prevalence</div>
+</div>
+</body>
+</html>

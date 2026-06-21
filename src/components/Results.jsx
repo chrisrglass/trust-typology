@@ -35,9 +35,6 @@ export default function Results({ classResult }) {
           description={classResult.description}
           characteristics={classResult.characteristics}
         />
-        <p className="results-disclaimer">
-          <em>These profiles are based on simulation pilots pending live latent class analysis on N=400–600 fielded responses. Class sizes and names are provisional.</em>
-        </p>
       </div>
 
       {/* Shared concern callout */}

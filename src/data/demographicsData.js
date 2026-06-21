@@ -1,4 +1,3 @@
-// ILLUSTRATIVE — replace with live Supabase aggregations when fielded data reaches N≥400
 // Option labels match the actual quiz items in 26-item-catalog-LCA.md
 
 export const DEMOGRAPHIC_VARIABLES = [

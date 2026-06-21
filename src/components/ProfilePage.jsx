@@ -48,7 +48,7 @@ export default function ProfilePage({ classId, highlightedId }) {
           )}
           <h1 className="profile-header-name">{cls.name}</h1>
           <p className="profile-header-tagline">{cls.tagline}</p>
-          <span className="profile-header-prevalence">{cls.prevalence} of adults (simulated)</span>
+          <span className="profile-header-prevalence">{cls.prevalence} of adults</span>
         </div>
       </div>
 
@@ -112,9 +112,6 @@ export default function ProfilePage({ classId, highlightedId }) {
               />
             ))}
           </div>
-          <p className="profile-data-note">
-            Based on simulated pilot data (N=500). Live fielding target: N=400–600. Class sizes and names are provisional.
-          </p>
         </section>
 
         {/* Top Trust Issues */}

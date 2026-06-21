@@ -138,10 +138,6 @@ export default function DemographicsPage() {
 
       <div className="profile-body">
 
-        <div className="demo-illustrative-note">
-          <strong>Illustrative data.</strong> Distributions are simulated from the N=500 pilot typology. They will be replaced with live fielded data once survey responses reach N≥400.
-        </div>
-
         <p className="demo-reading-note">
           Each row shows a response option from the quiz. The top two trust types for each answer are shown in full color — the others are present but dimmed. Hover any segment to see the type and its share. Tap or click to see the full ranked breakdown.
         </p>

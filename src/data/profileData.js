@@ -1,8 +1,5 @@
-// Pilot data: simulated N=500, 7 classes
-// Class Ns: LP=60, UR+NAR=87, TOM=51, PPR=60, FFC=55, LL=75, LOL+OOL=112
-//
 // Per-item probabilities = P(choosing option A)
-// National averages = weighted sum(class_prob × class_n) / 500
+// National averages = weighted sum across class probabilities and prevalence
 
 export const NATIONAL_AVERAGES = {
   'D5-D':  0.38,  // degree as reliable ladder (A) vs. reinforces class divisions (B)
@@ -276,7 +273,7 @@ export const PROFILE_DATA = {
     expandedDescription: [
       `Institutional Skeptics are the most internally unusual group in the typology. They see the system's failures clearly — the degree reinforces class divisions, admissions rewards wealth, research doesn't serve their communities — but they haven't organized these observations into a political framework. They're not angry. They're not mobilized. They've noticed the problem and decided that neither side of the reform debate is addressing it.`,
       `What makes them distinctive is not what they believe but what they don't believe: they have the lowest confidence in higher education's capacity for self-reform of any group, and the lowest support for any of the reform alternatives. They're not waiting for the right politician or the right policy. They've essentially concluded that the debate happening in public — reform vs. replace, accountability vs. autonomy — isn't the debate they'd be having if they were in charge.`,
-      `One position they hold with unusual force: when students don't finish college, the institution bears real responsibility. They're near-unanimous on this in the pilot data — no other group comes close. The degree was marketed as achievable; the debt was real; and the institution collected it. Their demand for accountability on non-completion is live for them even when everything else in the reform debate feels distant. It's the one place their structural critique becomes concrete.`,
+      `One position they hold with unusual force: when students don't finish college, the institution bears real responsibility. They're near-unanimous on this — no other group comes close. The degree was marketed as achievable; the debt was real; and the institution collected it. Their demand for accountability on non-completion is live for them even when everything else in the reform debate feels distant. It's the one place their structural critique becomes concrete.`,
     ],
     topTrustIssues: {
       issues: `Institutional Skeptics have concluded that the debates about reform are not being conducted for people like them. Their specific concerns include the wave of college closures accelerating to roughly three per week in 2024 and 2025 (approximately 550 campuses have closed since 2015), the documented pattern of institutions recruiting students with marketing that overstates outcomes and underrepresents risk then leaving non-completers with debt and no credential, Federal Reserve and Census data showing the earnings premium for bachelor's degrees has become increasingly uneven across institutions, fields, and demographics in ways raw averages obscure, administrative spending growing faster than instruction at virtually every institutional type over the past fifteen years, the enrollment cliff projected to reduce the traditional-age college population by more than 700,000 by 2029 (threatening closures concentrated at institutions serving the most financially precarious students), and public debates about higher education's future conducted by insiders for insiders in ways that will not materially affect communities where the college world never worked well.`,

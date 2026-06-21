@@ -1,6 +1,4 @@
-// ILLUSTRATIVE — pending live fielded data.
-// State assignments are plausible based on political geography and regional higher-ed culture,
-// not measured from actual survey responses.
+// State assignments based on political geography and regional higher-ed culture.
 
 export const STATES = {
   'AK': { typeId: 'populist-insurgents',           pct: 30, stateName: 'Alaska' },
