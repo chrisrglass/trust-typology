@@ -5,7 +5,6 @@ import { DIMENSIONS } from '../data/dimensionsData.js'
 import ClassCard from './ClassCard.jsx'
 import ItemBar from './ItemBar.jsx'
 import TypeIcon from './TypeIcon.jsx'
-import ShareBar from './ShareBar.jsx'
 
 const PROOF_PREVIEW_COUNT = 2
 
@@ -75,16 +74,6 @@ export default function ProfilePage({ classId, highlightedId }) {
 
       {/* Body */}
       <div className="profile-body">
-
-        {/* In Brief */}
-        <div className="profile-in-brief" style={{ color: cls.accentColor }}>
-          <span className="profile-in-brief-label">In Brief</span>
-          <p className="profile-in-brief-text">{cls.description}</p>
-          <ShareBar
-            shareText={`Explore the ${cls.name} type — one of seven distinct ways Americans relate to higher education. What's your trust type?`}
-            label="Share this profile"
-          />
-        </div>
 
         {/* Overview */}
         <section className="profile-section">
