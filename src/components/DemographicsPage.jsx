@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { CLASSES } from '../data/classes.js'
 import { DEMOGRAPHIC_VARIABLES, CLASS_DEMOGRAPHICS } from '../data/demographicsData.js'
 
@@ -30,24 +31,55 @@ function computeTypeWeights(varId, option) {
 }
 
 function OptionRow({ varId, option }) {
+  const [expanded, setExpanded] = useState(false)
   const weights = computeTypeWeights(varId, option)
+
+  const segments = SORTED_CLASSES.map((cls, i) => ({ cls, pct: weights[i] * 100 }))
+    .filter(s => s.pct >= 0.5)
+
+  const dominantIdx = segments.reduce((best, s, i) => s.pct > segments[best].pct ? i : best, 0)
+
+  const sorted = [...segments].sort((a, b) => b.pct - a.pct)
+
   return (
     <div className="demo-option-row">
       <div className="demo-option-label">{option}</div>
-      <div className="demo-seg-bar" role="img" aria-label={`Type breakdown for: ${option}`}>
-        {SORTED_CLASSES.map((cls, i) => {
-          const pct = weights[i] * 100
-          if (pct < 0.5) return null
-          return (
-            <div
-              key={cls.id}
-              className="demo-seg"
-              style={{ width: `${pct}%`, background: cls.accentColor }}
-              title={`${cls.name}: ${Math.round(pct)}%`}
-            />
-          )
-        })}
-      </div>
+      <button
+        className={`demo-seg-bar${expanded ? ' demo-seg-bar--expanded' : ''}`}
+        onClick={() => setExpanded(v => !v)}
+        aria-expanded={expanded}
+        aria-label={`${option}: tap to see type breakdown`}
+        type="button"
+      >
+        {segments.map((s, i) => (
+          <div
+            key={s.cls.id}
+            className={`demo-seg${i === dominantIdx ? ' demo-seg--dominant' : ''}`}
+            style={{ width: `${s.pct}%`, background: s.cls.accentColor }}
+            title={`${s.cls.name}: ${Math.round(s.pct)}%`}
+          >
+            {i === dominantIdx && (
+              <span className="demo-seg-dominant-label">{s.cls.name}</span>
+            )}
+          </div>
+        ))}
+      </button>
+      {expanded && (
+        <div className="demo-breakdown">
+          {sorted.map(s => (
+            <a
+              key={s.cls.id}
+              href={`#/profiles/${s.cls.id}`}
+              className="demo-breakdown-row"
+              onClick={e => e.stopPropagation()}
+            >
+              <span className="demo-breakdown-swatch" style={{ background: s.cls.accentColor }} />
+              <span className="demo-breakdown-name">{s.cls.name}</span>
+              <span className="demo-breakdown-pct">{Math.round(s.pct)}%</span>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -93,7 +125,7 @@ export default function DemographicsPage() {
 
         <p className="demo-reading-note">
           Each row shows a response option from the quiz. The segmented bar reveals the trust-type
-          composition of people who chose that answer — hover a segment to see the type and its share.
+          composition of people who chose that answer. Tap or click any bar to see the full breakdown — or hover a segment on desktop.
         </p>
 
         <div className="demo-legend">

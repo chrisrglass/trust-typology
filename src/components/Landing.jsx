@@ -1,4 +1,19 @@
+import { CLASSES } from '../data/classes.js'
+import TypeIcon from './TypeIcon.jsx'
+
+const TYPE_PREVIEW_ORDER = [
+  'economically-dispossessed',
+  'populist-antagonists',
+  'institutional-faithful',
+  'critical-believers',
+  'community-meritocrats',
+  'faith-rooted-skeptics',
+  'indifferent-skeptics',
+]
+
 export default function Landing({ onStart }) {
+  const previewTypes = TYPE_PREVIEW_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
+
   return (
     <div className="landing">
       <header className="landing-header">
@@ -12,32 +27,37 @@ export default function Landing({ onStart }) {
 
       <div className="landing-body">
         <div className="landing-description">
-          <p>
-            What does it mean to say Americans have "lost trust" in higher education?
-            The annual surveys show a declining number. But a number doesn't tell a
-            college president — or a state legislator — what has been lost, by whom, or why.
+          <p className="landing-hook">
+            Trust in higher education isn't just high or low — it takes seven distinct shapes. The debate usually ends at "trust is declining." This project goes further.
           </p>
           <p>
-            This survey is designed to find out. Instead of placing
-            people on a single scale, it identifies the distinct groups who relate to
-            higher education with distinct concerns, distinct values, and distinct
-            conditions for repair.
+            Instead of placing people on a single scale, this typology identifies the distinct groups who relate to higher education with distinct concerns, distinct values, and distinct conditions for repair. A number doesn't tell a college president or a state legislator what has been lost, by whom, or why. This survey maps those relationships.
           </p>
-          <p>
-            Trust in higher education is not one thing in decline. It is a set of
-            relationships, each with its own history. This survey maps them.
-          </p>
+        </div>
+
+        <div className="landing-type-strip" aria-hidden="true">
+          {previewTypes.map(cls => (
+            <div key={cls.id} className="landing-type-pip">
+              <TypeIcon iconName={cls.icon} color={cls.accentColor} size={20} strokeWidth={1.6} />
+              <span className="landing-type-pip-label">{cls.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="landing-cta-block">
+          <button className="btn-primary landing-cta-primary" onClick={onStart}>
+            Find Your Type →
+          </button>
+          <a href="#/profiles" className="landing-cta-secondary">
+            Explore Type Profiles →
+          </a>
         </div>
 
         <div className="landing-consent">
           <p>
-            At the end, you'll see which of seven trust typology profiles fits your views — and how each profile relates to the others. Your responses are collected anonymously for research on public attitudes toward higher education. No personally identifying information is collected. By clicking below you consent to participate.
+            The survey takes about 5 minutes. Your responses are collected anonymously for research on public attitudes toward higher education. No personally identifying information is collected. By clicking "Find Your Type" you consent to participate.
           </p>
         </div>
-
-        <button className="btn-primary" onClick={onStart}>
-          Begin the Survey
-        </button>
       </div>
 
       <footer className="landing-footer">

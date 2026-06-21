@@ -1,6 +1,7 @@
 import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 import TypeIcon from './TypeIcon.jsx'
+import ShareBar from './ShareBar.jsx'
 
 export default function Results({ classResult }) {
   if (!classResult) return null
@@ -39,7 +40,15 @@ export default function Results({ classResult }) {
         </p>
       </div>
 
-      {/* Block 3: Full profile CTA */}
+      {/* Shared concern callout */}
+      {classResult.sharedConcern && (
+        <div className="results-shared-concern">
+          <span className="results-shared-concern-label">You share this with all 7 types</span>
+          <p className="results-shared-concern-text">{classResult.sharedConcern}</p>
+        </div>
+      )}
+
+      {/* Block 3: Full profile CTA + share */}
       <div className="results-profile-cta">
         <a
           href={`#/profiles/${classResult.id}`}
@@ -48,6 +57,7 @@ export default function Results({ classResult }) {
         >
           Read your full profile →
         </a>
+        <ShareBar shareText={classResult.shareText} />
       </div>
 
       {/* Block 4: Explore further */}

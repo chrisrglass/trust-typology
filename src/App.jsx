@@ -7,6 +7,8 @@ import ProfileIndex from './components/ProfileIndex.jsx'
 import DemographicsPage from './components/DemographicsPage.jsx'
 import TypologyLanding from './components/TypologyLanding.jsx'
 import DimensionsPage from './components/DimensionsPage.jsx'
+import NavBar from './components/NavBar.jsx'
+import { CLASSES } from './data/classes.js'
 import { submitResponse } from './lib/supabase.js'
 import { classifyResponses } from './lib/classify.js'
 import './App.css'
@@ -16,6 +18,15 @@ function generateSessionId() {
 }
 
 const SESSION_ID = generateSessionId()
+
+const DEFAULT_TITLE = 'The Trust Project — A Typology of Trust in American Higher Education'
+const DEFAULT_DESC = 'Trust in higher education isn\'t just high or low — it takes seven distinct shapes. Find your type.'
+
+function setMeta(property, content) {
+  let el = document.querySelector(`meta[property="${property}"]`) ||
+           document.querySelector(`meta[name="${property}"]`)
+  if (el) el.setAttribute('content', content)
+}
 
 function parseHash(hash) {
   if (hash.startsWith('#/profiles/')) return { type: 'profile', classId: hash.replace('#/profiles/', '') }
@@ -41,6 +52,31 @@ export default function App() {
     return () => window.removeEventListener('hashchange', check)
   }, [])
 
+  // Update page title + OG tags when view changes
+  useEffect(() => {
+    if (view.type === 'profile') {
+      const cls = CLASSES.find(c => c.id === view.classId)
+      if (cls) {
+        const title = `${cls.name} | The Trust Project`
+        document.title = title
+        setMeta('og:title', title)
+        setMeta('twitter:title', title)
+        setMeta('og:description', cls.tagline)
+        setMeta('twitter:description', cls.tagline)
+        setMeta('og:image', `/social-cards/${cls.id}.svg`)
+        setMeta('twitter:image', `/social-cards/${cls.id}.svg`)
+        return
+      }
+    }
+    document.title = DEFAULT_TITLE
+    setMeta('og:title', DEFAULT_TITLE)
+    setMeta('twitter:title', DEFAULT_TITLE)
+    setMeta('og:description', DEFAULT_DESC)
+    setMeta('twitter:description', DEFAULT_DESC)
+    setMeta('og:image', '/social-cards/hero.svg')
+    setMeta('twitter:image', '/social-cards/hero.svg')
+  }, [view])
+
   const handleStart = useCallback(() => {
     window.location.hash = ''
     setView({ type: 'quiz-flow' })
@@ -60,6 +96,7 @@ export default function App() {
   if (view.type === 'profile') {
     return (
       <div className="app app--profile">
+        <NavBar />
         <ProfilePage classId={view.classId} highlightedId={classResult?.id} />
       </div>
     )
@@ -68,6 +105,7 @@ export default function App() {
   if (view.type === 'profile-index') {
     return (
       <div className="app app--profile">
+        <NavBar />
         <ProfileIndex highlightedId={classResult?.id} />
       </div>
     )
@@ -76,6 +114,7 @@ export default function App() {
   if (view.type === 'demographics') {
     return (
       <div className="app app--profile">
+        <NavBar />
         <DemographicsPage />
       </div>
     )
@@ -84,6 +123,7 @@ export default function App() {
   if (view.type === 'typology-landing') {
     return (
       <div className="app app--profile">
+        <NavBar />
         <TypologyLanding />
       </div>
     )
@@ -92,6 +132,7 @@ export default function App() {
   if (view.type === 'dimensions') {
     return (
       <div className="app app--profile">
+        <NavBar />
         <DimensionsPage initialDimId={view.dimId} />
       </div>
     )
@@ -99,6 +140,7 @@ export default function App() {
 
   return (
     <div className="app">
+      {stage !== 'quiz' && <NavBar />}
       <div className="app-inner">
         {stage === 'landing' && <Landing onStart={handleStart} />}
         {stage === 'quiz' && <Quiz onComplete={handleComplete} />}

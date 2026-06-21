@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import { CLASSES } from '../data/classes.js'
 import { PROFILE_DATA } from '../data/profileData.js'
 import { DIMENSIONS } from '../data/dimensionsData.js'
 import ClassCard from './ClassCard.jsx'
 import ItemBar from './ItemBar.jsx'
 import TypeIcon from './TypeIcon.jsx'
+import ShareBar from './ShareBar.jsx'
+
+const PROOF_PREVIEW_COUNT = 2
 
 export default function ProfilePage({ classId, highlightedId }) {
+  const [showAllProof, setShowAllProof] = useState(false)
   const cls = CLASSES.find(c => c.id === classId)
   const profile = PROFILE_DATA[classId]
 
@@ -19,14 +24,18 @@ export default function ProfilePage({ classId, highlightedId }) {
 
   const neighbor = CLASSES.find(c => c.id === profile.nearestNeighborId)
 
+  const TYPE_SWITCHER_ORDER = [
+    'economically-dispossessed',
+    'populist-antagonists',
+    'institutional-faithful',
+    'critical-believers',
+    'community-meritocrats',
+    'faith-rooted-skeptics',
+    'indifferent-skeptics',
+  ]
+
   return (
     <div className="profile-page">
-
-      {/* Nav */}
-      <nav className="profile-nav">
-        <a href="#/profiles" className="profile-nav-back">← All Profiles</a>
-        <a href="#/" className="profile-nav-quiz">Take the quiz →</a>
-      </nav>
 
       {/* Header band */}
       <div className="profile-header-band" style={{ background: cls.accentColor }}>
@@ -43,8 +52,39 @@ export default function ProfilePage({ classId, highlightedId }) {
         </div>
       </div>
 
+      {/* Type switcher strip */}
+      <div className="profile-type-switcher" role="navigation" aria-label="Switch between trust types">
+        {TYPE_SWITCHER_ORDER.map(id => {
+          const t = CLASSES.find(c => c.id === id)
+          if (!t) return null
+          const isCurrent = id === classId
+          return (
+            <a
+              key={id}
+              href={`#/profiles/${id}`}
+              className={`profile-type-pip${isCurrent ? ' profile-type-pip--active' : ''}`}
+              aria-current={isCurrent ? 'page' : undefined}
+              style={isCurrent ? { borderBottomColor: t.accentColor, color: t.accentColor } : {}}
+            >
+              <span className="profile-type-pip-dot" style={{ background: t.accentColor }} />
+              <span className="profile-type-pip-name">{t.name}</span>
+            </a>
+          )
+        })}
+      </div>
+
       {/* Body */}
       <div className="profile-body">
+
+        {/* In Brief */}
+        <div className="profile-in-brief" style={{ color: cls.accentColor }}>
+          <span className="profile-in-brief-label">In Brief</span>
+          <p className="profile-in-brief-text">{cls.description}</p>
+          <ShareBar
+            shareText={`Explore the ${cls.name} type — one of seven distinct ways Americans relate to higher education. What's your trust type?`}
+            label="Share this profile"
+          />
+        </div>
 
         {/* Overview */}
         <section className="profile-section">
@@ -56,7 +96,7 @@ export default function ProfilePage({ classId, highlightedId }) {
 
         {/* Key Positions */}
         <section className="profile-section">
-          <h2 className="profile-section-title">Key Positions</h2>
+          <h2 className="profile-section-title">What They Believe</h2>
           <p className="profile-section-intro">
             How this group responded to survey items, compared to the average across all seven types.
             Each bar shows the majority position this type took, with the exact wording from the quiz.
@@ -80,7 +120,7 @@ export default function ProfilePage({ classId, highlightedId }) {
         {/* Top Trust Issues */}
         <section className="profile-section">
           <p className="profile-para">{profile.topTrustIssues.issues}</p>
-          <h2 className="profile-section-title" style={{ marginTop: '1.5rem' }}>Top Three Concerns</h2>
+          <h2 className="profile-section-title" style={{ marginTop: '1.5rem' }}>What Worries Them</h2>
           <div className="concern-card-grid">
             {profile.topTrustIssues.mainConcerns.map((concern, i) => {
               const dim = DIMENSIONS.find(d => d.id === concern.dimId)
@@ -105,39 +145,52 @@ export default function ProfilePage({ classId, highlightedId }) {
         {/* Proof Points */}
         {profile.proofPoints && profile.proofPoints.length > 0 && (
           <section className="profile-section">
-            <h2 className="profile-section-title">Proof Points</h2>
+            <h2 className="profile-section-title">What the Research Shows</h2>
             <p className="profile-section-intro">
               The strongest empirical evidence supporting this perspective. These are shared facts, not talking points — the same data looks different depending on which questions you bring to it.
             </p>
             <ol className="proof-point-list">
-              {profile.proofPoints.map((pp, i) => (
-                <li key={i} className="proof-point-item">
-                  <p className="proof-point-claim">{pp.claim}</p>
-                  <p className="proof-point-context">{pp.context}</p>
-                  <a
-                    href={pp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="proof-point-source"
-                  >
-                    {pp.source} ↗
-                  </a>
-                </li>
-              ))}
+              {profile.proofPoints
+                .slice(0, showAllProof ? undefined : PROOF_PREVIEW_COUNT)
+                .map((pp, i) => (
+                  <li key={i} className="proof-point-item">
+                    <p className="proof-point-claim">{pp.claim}</p>
+                    <p className="proof-point-context">{pp.context}</p>
+                    <a
+                      href={pp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="proof-point-source"
+                    >
+                      {pp.source} ↗
+                    </a>
+                  </li>
+                ))}
             </ol>
+            {profile.proofPoints.length > PROOF_PREVIEW_COUNT && (
+              <button
+                className="proof-toggle-btn"
+                onClick={() => setShowAllProof(v => !v)}
+                type="button"
+              >
+                {showAllProof
+                  ? 'Show less ↑'
+                  : `Show all ${profile.proofPoints.length} findings ↓`}
+              </button>
+            )}
           </section>
         )}
 
         {/* Reform Stance */}
         <section className="profile-section">
-          <h2 className="profile-section-title">What Begins to Rebuild Trust?</h2>
+          <h2 className="profile-section-title">What Would Change Their Minds?</h2>
           <p className="profile-para">{profile.reformStance}</p>
         </section>
 
         {/* Nearest Neighbor */}
         {neighbor && (
           <section className="profile-section">
-            <h2 className="profile-section-title">Nearest Neighbor</h2>
+            <h2 className="profile-section-title">Most Similar Type</h2>
             <a
               href={`#/profiles/${neighbor.id}`}
               className="profile-neighbor-card"
@@ -160,7 +213,7 @@ export default function ProfilePage({ classId, highlightedId }) {
 
         {/* Explore All Types */}
         <section className="profile-section profile-section--explore">
-          <h2 className="profile-section-title">Explore All Seven Types</h2>
+          <h2 className="profile-section-title">All Seven Types</h2>
           <div className="profile-explore-grid">
             {CLASSES.map(c => (
               <a

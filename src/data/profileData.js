@@ -405,27 +405,27 @@ export const PROFILE_DATA = {
     proofPoints: [
       {
         claim: 'Faculty self-censorship has reached levels exceeding those documented during the McCarthy era.',
-        context: "FIRE's 2024 survey of 6,900 faculty found 35% had toned down their academic writing due to concerns about controversy — compared to just 9% during the McCarthy era. The chilling effect on intellectual risk-taking is not historical paranoia; it is a documented condition that compromises what universities claim to offer.",
+        context: "FIRE's 2024 survey of 6,900 faculty found 35% had toned down their academic writing due to controversy concerns — compared to just 9% during the McCarthy era. When intellectual risk-taking is this constrained, the conditions for genuine character formation cannot be reliably sustained.",
         source: 'FIRE 2024 Faculty Survey (N=6,900)',
         url: 'https://www.fire.org/facultyreport',
       },
       {
-        claim: 'Faculty political homogeneity is most severe in the disciplines responsible for humanistic formation.',
-        context: 'Research reviewed by Heterodox Academy found left-to-right faculty ratios ranging from 2:1 to 82:1 across studies, with the greatest imbalance concentrated in humanities and social sciences — precisely the disciplines where formation in language, history, ethics, and meaning is the stated mission.',
-        source: 'Heterodox Academy — How Politically Diverse Are University Faculty?',
-        url: 'https://heterodoxacademy.org/reports/how-politically-diverse-are-university-faculty/',
-      },
-      {
-        claim: '42% of faculty report they would self-censor in their own classrooms.',
-        context: "Beyond formal writing, FIRE's 2024 faculty survey found 42% of faculty likely to censor themselves in classroom discussion — the primary site of formation. When teachers cannot bring their full thinking to the encounter with students, the intellectual formation education is supposed to enact is compromised at its source.",
-        source: 'FIRE 2024 Faculty Survey (N=6,900)',
-        url: 'https://www.fire.org/facultyreport',
-      },
-      {
-        claim: "The share of bachelor's degrees awarded in the humanities has declined from 17% to roughly 5% since 1967.",
-        context: "American Academy of Arts and Sciences Humanities Indicators data shows this sustained reallocation of the curriculum. If higher education's purpose includes formation in virtue, language, and human meaning, this structural shift represents a departure from that mission — not a temporary fluctuation.",
+        claim: "The share of bachelor's degrees awarded in the humanities has fallen from 17% to roughly 5% since 1967.",
+        context: "American Academy of Arts and Sciences Humanities Indicators data tracks this sustained reallocation away from the curriculum where formation in language, virtue, and moral reasoning actually happens. It is not a fluctuation — it is a structural decision about what universities are for.",
         source: 'American Academy of Arts and Sciences — Humanities Indicators (2023)',
         url: 'https://www.amacad.org/humanities-indicators',
+      },
+      {
+        claim: 'A proposed federal earnings test would effectively defund ministry, social work, and theological degree programs.',
+        context: "The OBBBA earnings-accountability metric would cause 53% of religion bachelor's programs and 89% of religion master's programs to fail — penalizing exactly the callings through which graduates serve their communities rather than their own economic advancement. The metric measures market return; it cannot see community formation.",
+        source: 'National Association of Independent Colleges and Universities — OBBBA Program Analysis',
+        url: 'https://www.naicu.edu',
+      },
+      {
+        claim: 'Every major AI model integrated into university coursework systematically marginalizes religious and faith-rooted frameworks.',
+        context: "BYU multi-institution research found that AI tools now embedded in course design and feedback consistently exclude or underweight religious, theological, and faith-rooted ways of knowing — a finding confirmed by the Vatican's January 2025 instruction Antiqua et nova, which identified AI as a specific risk to moral formation and human dignity. The communities these institutions claim to serve are not legible to the tools they are adopting.",
+        source: 'BYU AI in Higher Education Research; Vatican Dicastery for Culture — Antiqua et nova (January 2025)',
+        url: 'https://www.vatican.va/roman_curia/pontifical_councils/cultr/documents/antiqua-et-nova.html',
       },
     ],
   },
