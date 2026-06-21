@@ -19,9 +19,9 @@
   <text x="96" y="148" font-family="Arial,'Helvetica Neue',sans-serif" font-size="20" letter-spacing="3" fill="#A3171C" font-weight="700">THE TRUST TYPOLOGY  ·  A Research Instrument</text>
 
   <!-- Title line 1 -->
-  <text x="96" y="270" font-family="Georgia,'Times New Roman',serif" font-size="96" fill="#111" font-weight="700">Seven Ways</text>
+  <text x="96" y="270" font-family="Georgia,'Times New Roman',serif" font-size="88" fill="#111" font-weight="700">Seven Ways Americans</text>
   <!-- Title line 2 -->
-  <text x="96" y="368" font-family="Georgia,'Times New Roman',serif" font-size="96" fill="#111" font-weight="700">to Trust College</text>
+  <text x="96" y="368" font-family="Georgia,'Times New Roman',serif" font-size="88" fill="#111" font-weight="700">Relate to Higher Education</text>
 
   <!-- Divider -->
   <rect x="80" y="400" width="120" height="3" fill="#A3171C"/>
