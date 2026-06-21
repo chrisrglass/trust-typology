@@ -72,7 +72,7 @@ export const CLASSES = [
     name: 'Countercultural Communitarians',
     icon: 'BookOpen',
     accentColor: '#B78A2A',
-    tagline: 'Universities have abandoned intellectual formation for competing priorities and need to recover a clear sense of what higher education is actually for.',
+    tagline: "Universities have turned away from forming character and serving their communities, and need to recover a clear sense of what they're really for.",
     prevalence: '~11%',
     shareText: "I'm a Countercultural Classicist — I think universities have abandoned real intellectual formation rooted in faith, virtue, and character. What's your trust type?",
     sharedConcern: "All seven types agree that higher education has lost clarity about what genuine formation requires. They divide sharply on what should fill that gap.",
@@ -92,6 +92,7 @@ export const CLASSES = [
     tagline: 'The university as it exists must evolve and defend itself against government intrusion and market capture.',
     prevalence: '~15%',
     shareText: "I'm a University Defender — I trust higher education's mission and believe the alternatives on offer are worse than reform from within. What's your trust type?",
+    sharedConcern: "All seven types agree that higher education must account for the communities it serves. They divide on who should do the accounting — institutions themselves, or external authorities.",
     description:
       'You trust the institution. The degree leads to real mobility. College produces genuine intellectual formation. Research universities are public goods. Local institutions serve their communities. Faculty governance works. The news media covers higher education honestly. You are not naive about institutional failure, but you believe the alternatives on offer — government accountability, replacement, market pressure — are worse than reform from within.',
     characteristics: [
@@ -108,6 +109,7 @@ export const CLASSES = [
     tagline: "The system broke its promise, and the cost was borne by the people who believed in it, not the institutions that recruited them.",
     prevalence: '~22%',
     shareText: "I'm an Economically Betrayed type — higher education recruited from working-class communities, took their tuition and debt, and didn't deliver. What's your trust type?",
+    sharedConcern: "All seven types agree that the cost of higher education has become difficult to justify for many families. They divide on who bears the risk and who owes the repair.",
     description:
       'You hold a structural economic diagnosis of higher education\'s failure: the institution recruited from working-class and low-income communities, accepted their enrollment and debt, and delivered neither stable employment nor local economic benefit. You are not disengaged — you know exactly what was promised and what was not delivered. You support protecting academic freedom, are alarmed by AI\'s effect on entry-level employment, and want alternatives to the four-year degree that actually serve the communities the system left behind.',
     characteristics: [
