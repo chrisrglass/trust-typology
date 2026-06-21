@@ -1249,6 +1249,76 @@ a:hover {
   margin-top: 0.35rem;
 }
 
+.proof-point-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  counter-reset: proof-counter;
+}
+
+.proof-point-item {
+  counter-increment: proof-counter;
+  position: relative;
+  padding: 1rem 1rem 0.85rem 3rem;
+  background: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+.proof-point-item::before {
+  content: counter(proof-counter);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--bg-page);
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle, rgba(0,0,0,0.1));
+}
+
+.proof-point-claim {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0 0 0.4rem;
+}
+
+.proof-point-context {
+  font-family: var(--font-body);
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 0.6rem;
+}
+
+.proof-point-source {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.proof-point-source:hover {
+  color: var(--text-primary);
+  border-bottom-color: currentColor;
+}
+
 .profile-dimensions-link {
   font-family: var(--font-ui);
   font-size: 0.875rem;

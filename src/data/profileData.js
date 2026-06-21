@@ -138,6 +138,32 @@ export const PROFILE_DATA = {
       { id: 'D4-E',  classProb: 0.95, avgProb: 0.51 },
       { id: 'D7-A',  classProb: 0.95, avgProb: 0.51 },
     ],
+    proofPoints: [
+      {
+        claim: 'More than half of Americans recognize universities as producers of life-saving research.',
+        context: '56% of Americans are confident that colleges and universities conduct life-saving research — a net confidence score of +46 points, the highest of any institutional function surveyed, even among respondents skeptical of the credential itself.',
+        source: 'Vanderbilt Unity Poll (N=1,030, September 2025)',
+        url: 'https://news.vanderbilt.edu/2025/09/24/vanderbilt-unity-poll-confidence-in-higher-education-rebounds-though-affordability-and-political-bias-are-still-concerns/',
+      },
+      {
+        claim: 'Nearly all top-ranked universities now have formally strong campus speech policies.',
+        context: "FIRE's 2025 College Free Speech Rankings found that 24 of the top 25 institutions received 'Green Light' speech policy ratings, meaning their official policies do not restrict protected expression. Where speech climate fails, the problem is enforcement and culture — which points toward institutional reform, not replacement.",
+        source: 'FIRE — 2025 College Free Speech Rankings',
+        url: 'https://www.fire.org/research-learn/2025-college-free-speech-rankings',
+      },
+      {
+        claim: 'Only 27% of faculty believe academic freedom is currently secure — the strongest argument for institutional defense.',
+        context: "FIRE's 2024 faculty survey found fewer than one in three faculty feel their academic freedom is secure. For University Defenders, this is not a case for ceding control to external authorities; it is the argument for institutions to more actively defend the conditions under which genuine inquiry is possible.",
+        source: 'FIRE 2024 Faculty Survey (N=6,900)',
+        url: 'https://www.fire.org/facultyreport',
+      },
+      {
+        claim: 'Yale convened an independent committee in 2026 specifically to rebuild the institutional foundations of trust.',
+        context: "Yale's president accepted all recommendations of the Committee on Trust in Higher Education (April 2026), committing to new academic freedom principles built on the 50-year-old Woodward Report and a new faculty committee to establish forward-looking protections. Institutions are diagnosing and responding — not waiting to be regulated.",
+        source: 'Yale Committee on Trust in Higher Education (April 2026)',
+        url: 'https://president.yale.edu/posts/2026-04-15-report-of-the-committee-on-trust-in-higher-education',
+      },
+    ],
   },
 
   'critical-believers': {
@@ -164,6 +190,32 @@ export const PROFILE_DATA = {
       { id: 'R-A',   classProb: 0.78, avgProb: 0.39 },
       { id: 'D5-D',  classProb: 0.06, avgProb: 0.38 },
       { id: 'D6-A',  classProb: 0.30, avgProb: 0.43 },
+    ],
+    proofPoints: [
+      {
+        claim: 'Top-1% families gain a twofold admissions advantage at elite colleges that does not trace to merit.',
+        context: "Children from top-1% income families are twice as likely to attend Ivy-Plus colleges as comparably qualified middle-class applicants. Opportunity Insights researchers found two-thirds of this advantage stems from differential acceptance rates for legacy students, recruited athletes, and applicants receiving higher non-academic ratings — not from preparation.",
+        source: "Chetty, Deming, Friedman — Diversifying Society's Leaders? (Opportunity Insights, 2023)",
+        url: 'https://opportunityinsights.org/paper/collegeadmissions/',
+      },
+      {
+        claim: 'Less than two-thirds of students who start a four-year degree finish within six years.',
+        context: 'The national six-year graduation rate at four-year institutions is approximately 63% (NCES). At for-profit four-year colleges it falls below 30%. Institutions collect tuition and incur student debt on enrollment — and for a substantial fraction, deliver neither the credential nor a path out of that debt.',
+        source: 'NCES Digest of Education Statistics 2023, Table 326.10',
+        url: 'https://nces.ed.gov/programs/digest/d23/tables/dt23_326.10.asp',
+      },
+      {
+        claim: 'Public confidence in college affordability has nearly collapsed.',
+        context: 'Only 14% of Americans are confident that colleges charge what students can actually afford — a net score of -48 points. By contrast, confidence in colleges conducting life-saving research is +46 net. The mission has not failed; the delivery mechanism has.',
+        source: 'Vanderbilt Unity Poll (N=1,030, September 2025)',
+        url: 'https://news.vanderbilt.edu/2025/09/24/vanderbilt-unity-poll-confidence-in-higher-education-rebounds-though-affordability-and-political-bias-are-still-concerns/',
+      },
+      {
+        claim: "Yale's own Trust Committee named grade inflation as a specific institutional credibility threat.",
+        context: "Yale's Committee on Trust in Higher Education (April 2026) — formed precisely because trust has eroded — identified grade inflation as an integrity issue requiring institutional attention. When the institution's own leadership diagnoses this, the accountability argument is no longer external criticism: it is internal.",
+        source: 'Yale Committee on Trust in Higher Education (April 2026)',
+        url: 'https://president.yale.edu/posts/2026-04-15-report-of-the-committee-on-trust-in-higher-education',
+      },
     ],
   },
 
@@ -192,6 +244,32 @@ export const PROFILE_DATA = {
       { id: 'R-G',   classProb: 0.90, avgProb: 0.41 },
       { id: 'D5-A',  classProb: 0.93, avgProb: 0.69 },
     ],
+    proofPoints: [
+      {
+        claim: 'Millions of job postings require degrees for roles where most workers in those jobs do not hold one.',
+        context: "A Harvard Business School study identified approximately 6 million job openings requiring a bachelor's degree where the majority of current workers in those roles held no degree. This degree inflation uses credentials as a low-cost screening filter that systematically excludes qualified working-class applicants — not on merit, but on access.",
+        source: "Sigelman, Fuller, Raman — Dismissed by Degrees (Harvard Business School, 2017)",
+        url: 'https://www.hbs.edu/managing-the-future-of-work/research/pages/dismissed-by-degrees.aspx',
+      },
+      {
+        claim: 'MAGA-identifying Americans have net negative confidence in higher education.',
+        context: 'The Vanderbilt Unity Poll (2025) found that among MAGA supporters, more respondents lacked confidence in higher education than had it (net: -7 points), compared to a net +48 among Democrats. The partisan confidence gap reflects a lived experience of political and cultural exclusion, not just economic disappointment.',
+        source: 'Vanderbilt Unity Poll (N=1,030, September 2025)',
+        url: 'https://news.vanderbilt.edu/2025/09/24/vanderbilt-unity-poll-confidence-in-higher-education-rebounds-though-affordability-and-political-bias-are-still-concerns/',
+      },
+      {
+        claim: 'Seven in ten Americans believe universities should not take official positions on political controversies.',
+        context: '71% of Americans — including 59% of Democrats — say universities should not issue official positions on contentious political issues. The perception that institutions have overstepped their role is not a partisan fringe: it is a broad consensus.',
+        source: 'Vanderbilt Unity Poll (N=1,030, September 2025)',
+        url: 'https://news.vanderbilt.edu/2025/09/24/vanderbilt-unity-poll-confidence-in-higher-education-rebounds-though-affordability-and-political-bias-are-still-concerns/',
+      },
+      {
+        claim: 'More than half of conservative faculty hide their political views to keep their jobs.',
+        context: "FIRE's 2024 survey of 6,900 faculty found 55% of conservative faculty conceal political beliefs to protect their employment, compared to 17% of liberal faculty. Only 20% of faculty believe a conservative colleague would fit well in their department (vs. 74% for liberal colleagues). This is the faculty's own account, not an outside accusation.",
+        source: 'FIRE 2024 Faculty Survey (N=6,900)',
+        url: 'https://www.fire.org/facultyreport',
+      },
+    ],
   },
 
   'indifferent-skeptics': {
@@ -217,6 +295,32 @@ export const PROFILE_DATA = {
       { id: 'D3-F',  classProb: 0.06, avgProb: 0.38 },
       { id: 'R-A',   classProb: 0.06, avgProb: 0.39 },
       { id: 'D5-D',  classProb: 0.12, avgProb: 0.38 },
+    ],
+    proofPoints: [
+      {
+        claim: 'Confidence in higher education mirrors a broad collapse of trust across all major U.S. institutions.',
+        context: "Gallup's 2023 annual survey found confidence in higher education had fallen to 36%, down from 57% in 2015. Congress (8%), TV news (14%), newspapers (21%), big business, and the criminal justice system have followed a similar arc. Higher education is not an exceptional failure; it is one institution in a systemic pattern.",
+        source: 'Gallup — Confidence in Institutions (annual survey, 2023)',
+        url: 'https://news.gallup.com/poll/508352/americans-confidence-institutions-stays-low.aspx',
+      },
+      {
+        claim: 'Outstanding student debt exceeds $1.7 trillion — carried by a system with limited accountability.',
+        context: "Federal Student Aid's 2024 data shows more than 43 million borrowers carrying over $1.77 trillion in federal student loans. The debt instrument transfers risk to individuals while institutions face limited consequences when graduates underperform economically.",
+        source: 'Federal Student Aid — Direct Loan Portfolio Summary (2024)',
+        url: 'https://studentaid.gov/data-center/student/portfolio',
+      },
+      {
+        claim: "Returns on a college degree vary by more than $3 million across programs — making 'go to college' a bet, not a plan.",
+        context: 'Georgetown Center on Education and the Workforce found lifetime earnings differences exceeding $3 million between the highest- and lowest-return degree programs. For students without information to navigate this variation, the generic recommendation to attend college is a gamble with enormous downside and no clear guidance on how to win it.',
+        source: "Georgetown CEW — The College Payoff (2021, updated)",
+        url: 'https://cew.georgetown.edu/cew-reports/collegepayoff2021/',
+      },
+      {
+        claim: 'Nearly 40 million Americans have some college credit but no credential to show for it.',
+        context: 'The National Student Clearinghouse Research Center tracks approximately 40 million adults with some college experience but no degree — many carrying debt from enrollment without the credential that would have generated returns to justify that debt. The system is better at starting enrollment than completing it.',
+        source: 'National Student Clearinghouse Research Center — Some College, No Credential (annual)',
+        url: 'https://nscresearchcenter.org/some-college-no-credential/',
+      },
     ],
   },
 
@@ -245,6 +349,32 @@ export const PROFILE_DATA = {
       { id: 'D6-A',  classProb: 0.92, avgProb: 0.43 },
       { id: 'D3-G',  classProb: 0.88, avgProb: 0.42 },
     ],
+    proofPoints: [
+      {
+        claim: "Bachelor's degree holders earn roughly 65% more annually than workers with only a high school diploma.",
+        context: 'Federal Reserve Bank of New York data shows median annual earnings for BA holders at approximately $65,000 versus $40,000 for high school graduates — a sustained earnings premium that compounds across a career and remains positive across most fields and institution types.',
+        source: 'Federal Reserve Bank of New York — The Labor Market for Recent College Graduates (2024)',
+        url: 'https://www.newyorkfed.org/research/college-labor-market',
+      },
+      {
+        claim: 'College graduates have roughly half the unemployment rate of workers without degrees.',
+        context: "Bureau of Labor Statistics data consistently shows bachelor's degree holders experiencing unemployment rates approximately half those of high school-only workers — around 2% versus 4% in recent years. The credential provides labor market insurance, not just an earnings premium.",
+        source: 'Bureau of Labor Statistics — Education Pays (2024 edition)',
+        url: 'https://www.bls.gov/emp/chart-unemployment-earnings-education.htm',
+      },
+      {
+        claim: "The lifetime earnings premium for a bachelor's degree exceeds $800,000 after subtracting costs.",
+        context: "Georgetown CEW estimates lifetime earnings for bachelor's degree holders at approximately $2.8 million compared to $1.6 million for high school graduates. Even after subtracting tuition, fees, and foregone earnings during enrollment, the net return remains substantially positive for most programs.",
+        source: "Georgetown CEW — The College Payoff (2021, updated)",
+        url: 'https://cew.georgetown.edu/cew-reports/collegepayoff2021/',
+      },
+      {
+        claim: 'More than 85% of four-year college graduates say their degree was worth the cost.',
+        context: 'Federal Reserve Bank research on recent college graduates consistently finds more than 85% reporting their degree was worth the cost — a figure that has remained stable even as tuition has increased. Among graduates who chose their field with attention to outcomes, satisfaction rates are even higher.',
+        source: 'Federal Reserve Bank of New York — The Labor Market for Recent College Graduates (2024)',
+        url: 'https://www.newyorkfed.org/research/college-labor-market',
+      },
+    ],
   },
 
   'faith-rooted-skeptics': {
@@ -272,6 +402,32 @@ export const PROFILE_DATA = {
       { id: 'R-G',   classProb: 0.05, avgProb: 0.41 },
       { id: 'R-A',   classProb: 0.17, avgProb: 0.39 },
     ],
+    proofPoints: [
+      {
+        claim: 'Faculty self-censorship has reached levels exceeding those documented during the McCarthy era.',
+        context: "FIRE's 2024 survey of 6,900 faculty found 35% had toned down their academic writing due to concerns about controversy — compared to just 9% during the McCarthy era. The chilling effect on intellectual risk-taking is not historical paranoia; it is a documented condition that compromises what universities claim to offer.",
+        source: 'FIRE 2024 Faculty Survey (N=6,900)',
+        url: 'https://www.fire.org/facultyreport',
+      },
+      {
+        claim: 'Faculty political homogeneity is most severe in the disciplines responsible for humanistic formation.',
+        context: 'Research reviewed by Heterodox Academy found left-to-right faculty ratios ranging from 2:1 to 82:1 across studies, with the greatest imbalance concentrated in humanities and social sciences — precisely the disciplines where formation in language, history, ethics, and meaning is the stated mission.',
+        source: 'Heterodox Academy — How Politically Diverse Are University Faculty?',
+        url: 'https://heterodoxacademy.org/reports/how-politically-diverse-are-university-faculty/',
+      },
+      {
+        claim: '42% of faculty report they would self-censor in their own classrooms.',
+        context: "Beyond formal writing, FIRE's 2024 faculty survey found 42% of faculty likely to censor themselves in classroom discussion — the primary site of formation. When teachers cannot bring their full thinking to the encounter with students, the intellectual formation education is supposed to enact is compromised at its source.",
+        source: 'FIRE 2024 Faculty Survey (N=6,900)',
+        url: 'https://www.fire.org/facultyreport',
+      },
+      {
+        claim: "The share of bachelor's degrees awarded in the humanities has declined from 17% to roughly 5% since 1967.",
+        context: "American Academy of Arts and Sciences Humanities Indicators data shows this sustained reallocation of the curriculum. If higher education's purpose includes formation in virtue, language, and human meaning, this structural shift represents a departure from that mission — not a temporary fluctuation.",
+        source: 'American Academy of Arts and Sciences — Humanities Indicators (2023)',
+        url: 'https://www.amacad.org/humanities-indicators',
+      },
+    ],
   },
 
   'economically-dispossessed': {
@@ -298,6 +454,32 @@ export const PROFILE_DATA = {
       { id: 'D6-A',  classProb: 0.07, avgProb: 0.43 },
       { id: 'D1-H',  classProb: 0.86, avgProb: 0.57 },
       { id: 'D3-F',  classProb: 0.08, avgProb: 0.38 },
+    ],
+    proofPoints: [
+      {
+        claim: 'Federal student debt exceeds $1.77 trillion, concentrated among borrowers least able to repay.',
+        context: "Federal Student Aid's 2024 data shows more than 43 million borrowers carrying over $1.77 trillion in outstanding federal loans. The burden falls disproportionately on students from low-income families, first-generation students, and those who attended lower-return institutions — precisely the communities the enrollment pitch targeted.",
+        source: 'Federal Student Aid — Direct Loan Portfolio Summary (2024)',
+        url: 'https://studentaid.gov/data-center/student/portfolio',
+      },
+      {
+        claim: 'For-profit colleges have federal loan default rates roughly twice those of public institutions.',
+        context: 'Department of Education cohort default rate data shows students at for-profit colleges defaulting on federal loans at approximately twice the rate of those at public and nonprofit institutions. These schools specifically recruited working-class and low-income students, collected their enrollment and debt, and delivered the highest failure rates in the system.',
+        source: 'Department of Education — Official Cohort Default Rate Data (2023)',
+        url: 'https://studentaid.gov/data-center/student/default',
+      },
+      {
+        claim: 'Four in ten recent college graduates work in jobs that do not require a degree.',
+        context: "Federal Reserve Bank of New York data shows approximately 40% of recent college graduates are underemployed — working in positions that don't require a bachelor's degree. For graduates who took on debt to access a credential that promised upward mobility, chronic underemployment is not an acceptable systemic outcome.",
+        source: 'Federal Reserve Bank of New York — The Labor Market for Recent College Graduates (2024)',
+        url: 'https://www.newyorkfed.org/research/college-labor-market',
+      },
+      {
+        claim: 'AI is eliminating the entry-level professional pathways the college credential was supposed to open.',
+        context: 'Goldman Sachs (2023) estimated that generative AI could expose approximately 300 million jobs to partial automation, with entry-level white-collar work — administrative, analytical, and clerical — among the most affected. For students who borrowed to access those entry-level positions, the ladder the credential was supposed to reach has moved.',
+        source: "Goldman Sachs — The Potentially Large Effects of Artificial Intelligence on Economic Growth (2023)",
+        url: 'https://www.goldmansachs.com/intelligence/pages/generative-ai-could-raise-global-gdp-by-7-percent.html',
+      },
     ],
   },
 

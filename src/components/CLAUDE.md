@@ -8,4 +8,11 @@
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
 | #10135 | 10:43 AM | 🟣 | React survey question component implements multi-format instrument interface | ~836 |
+
+### Jun 20, 2026
+
+| ID | Time | T | Title | Read |
+|----|------|---|-------|------|
+| #10885 | 5:32 PM | 🔵 | Documented routing architecture and page component patterns for adding new pages | ~442 |
+| #10828 | 11:01 AM | ✅ | Committed and deployed UI cleanup changes to trust-typology repository | ~378 |
 </claude-mem-context>
