@@ -636,6 +636,7 @@ a:hover {
   letter-spacing: 0.01em;
   transition: filter 0.12s;
   display: inline-block;
+  text-decoration: none;
 }
 
 .btn-primary:hover:not(.btn-disabled) {
