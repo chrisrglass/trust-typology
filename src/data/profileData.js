@@ -181,7 +181,6 @@ export const PROFILE_DATA = {
     nearestNeighborId: 'university-defenders',
     nearestNeighborNote: `Both believe in research as a public good, genuine intellectual formation, and higher education's capacity to reform itself. They diverge on whether the degree delivers economically — the University Defenders are optimists; Critical Reformers are structural pessimists who believe the degree reinforces the class divisions it claims to dissolve.`,
     keyItems: [
-      { id: 'D2-B',  classProb: 0.68, avgProb: 0.49 },
       { id: 'D3-G',  classProb: 0.92, avgProb: 0.42 },
       { id: 'D2-C',  classProb: 0.93, avgProb: 0.50 },
       { id: 'R-A',   classProb: 0.78, avgProb: 0.39 },
