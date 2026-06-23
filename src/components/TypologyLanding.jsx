@@ -51,7 +51,7 @@ export default function TypologyLanding() {
             Annual surveys show a declining number. But a number doesn't tell a college president — or a state legislator — what has been lost, by whom, or why. This typology finds out.
           </p>
           <p className="profile-para">
-            Drawing on the approach used by the Pew Research Center's Political Typology, it identifies seven distinct groups relating to higher education with distinct concerns, values, and conditions for repair. Trust in higher education is not one thing in decline. It is a set of relationships, each with its own history. These seven types map that landscape.
+            Drawing on the approach used by the Pew Research Center's Political Typology, it identifies seven distinct groups — each responding to a different failure. Some see moral and cultural drift. Some see a broken value proposition. Some see class exclusion. Some see institutional hypocrisy. Some believe the organizations that produced these failures cannot be trusted to repair them. What looks like a single declining number is, underneath, a layered argument about who higher education is for and who has earned the right to define its future.
           </p>
           <div className="typo-quiz-callout">
             <p className="typo-quiz-callout-text">
@@ -81,22 +81,21 @@ export default function TypologyLanding() {
         <section className="typo-section">
           <h2 className="typo-section-h2">Where they divide</h2>
           <p className="profile-para">
-            This typology cuts across traditional political lines. Each type includes people from across the political spectrum — and the sharpest divisions sometimes run not between parties but within them, between people who share a party label but hold deeply different diagnoses of what higher education is for and who it has failed.
+            This typology cuts across traditional political lines. The sharpest divisions run not between parties but between two distinct crises: a broken-promise crisis about cost, debt, and what the degree actually delivers — and a cultural-political conflict about institutional mission, legitimacy, and control. Every type feels both to some degree. But they feel them at different intensities, and that shapes their diagnosis, their evidence, and what repair would have to look like.
           </p>
 
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--right">On the right</p>
             <p className="profile-para">
-              <a href="#/profiles/faith-and-freedom-families" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith & Freedom Families</a>,{' '}
-              <a href="#/profiles/populist-insurgents" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
-              <a href="#/profiles/institutional-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
+              <a href="#/profiles/faith-and-freedom-families" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith & Freedom Families</a> and{' '}
+              <a href="#/profiles/populist-insurgents" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>{' '}
               share distrust of institutional performance — but they reach opposite conclusions on every question that follows.
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On government authority</p>
+                <p className="typo-divide-q">On what went wrong</p>
                 <p className="profile-para">
-                  Faith & Freedom Families oppose federal intervention even from sympathetic Republican administrations. Populist Insurgents reach the opposite verdict: government oversight is the only lever working people have. Institutional Skeptics have simply moved on — they see the failures but haven't organized them into a reform agenda.
+                  Faith & Freedom Families want a seat at the existing table — real viewpoint diversity, religious frameworks treated as legitimate, ideological monoculture reduced. Populist Insurgents don't want a better seat at the same table. They want different institutions, rooted in different places: community colleges, technical education, schools that stay tied to the workforce and communities that paid for them.
                 </p>
               </div>
               <div className="typo-divide-q-block">
@@ -111,21 +110,22 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--middle">In the middle</p>
             <p className="profile-para">
-              <a href="#/profiles/market-oriented-pragmatists" className="typo-inline-type" style={{ color: '#1F6B4F' }}>Market-Oriented Pragmatists</a> and the{' '}
-              <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
-              are among the most politically diverse and independent types — neither reliably partisan, each drawing from working and middle-class communities. They share the experience of navigating institutions on their own terms. They reach opposite verdicts.
+              <a href="#/profiles/market-oriented-pragmatists" className="typo-inline-type" style={{ color: '#1F6B4F' }}>Market-Oriented Pragmatists</a>,{' '}
+              the <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>, and{' '}
+              <a href="#/profiles/institutional-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
+              share the center — none reliably partisan, none instinctively anti-college. They agree the system has failed to deliver on its promises. They divide on whether that failure is correctable, who is responsible for correcting it, and whether the institutions that produced the failure can be trusted to repair it.
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On whether the credential delivers</p>
                 <p className="profile-para">
-                  Market-Oriented Pragmatists say yes — the degree pays off for people who choose wisely, commit fully, and take responsibility for the outcome. The Economically Betrayed say the promise was broken before they arrived: the system recruited from working-class communities, accepted their enrollment and debt, and did not deliver the mobility it advertised.
+                  Market-Oriented Pragmatists say yes — the degree pays off for people who choose wisely, commit fully, and take responsibility for the outcome. The Economically Betrayed say the promise was broken before they arrived: the system recruited from working-class communities, accepted their enrollment and debt, and did not deliver the mobility it advertised. Institutional Skeptics don't dispute what the data shows — they dispute whether institutions will ever surface it honestly, and whether any reform will change that.
                 </p>
               </div>
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On who bears responsibility</p>
                 <p className="profile-para">
-                  For Market-Oriented Pragmatists, outcomes are largely a function of individual choices — the institution's role is to deliver what it offers, and most do. For the Economically Betrayed, the institution bears structural responsibility: it designed the terms of enrollment, set the price, and made the pitch to communities with the least margin for error.
+                  For Market-Oriented Pragmatists, outcomes are largely a function of individual choices — the institution's role is to deliver what it offers, and most do. For the Economically Betrayed, the institution bears structural responsibility: it designed the terms of enrollment, set the price, and made the pitch to communities with the least margin for error. Institutional Skeptics agree the institution is responsible — but conclude that the mechanisms for holding it accountable are controlled by the same people who benefit from the current arrangement.
                 </p>
               </div>
             </div>
