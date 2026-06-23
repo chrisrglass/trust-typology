@@ -55,7 +55,7 @@ export default function TypologyLanding() {
           </p>
           <div className="typo-quiz-callout">
             <p className="typo-quiz-callout-text">
-              Answer 33 questions to see which of seven trust profiles fits your views.
+              Answer a short survey to see which type fits your view of higher education.
             </p>
             <a href="#/" className="btn-primary">Find Your Type →</a>
           </div>
