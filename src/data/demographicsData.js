@@ -166,7 +166,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.16,
     },
   },
-  'self-made-meritocrats': {
+  'market-oriented-pragmatists': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.05,
       'Liberal / Mainstream Democrat': 0.13,
@@ -195,7 +195,7 @@ export const CLASS_DEMOGRAPHICS = {
       'Social media and people I know (for example, friends, family, or online communities)': 0.15,
     },
   },
-  'countercultural-communitarians': {
+  'faith-and-freedom-families': {
     'DM-A': {
       'Progressive / Democratic Socialist': 0.02,
       'Liberal / Mainstream Democrat': 0.05,

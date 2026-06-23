@@ -2,13 +2,13 @@ import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 
 const PREVALENCE_ORDER = [
+  'market-oriented-pragmatists',
   'economically-betrayed',
-  'populist-insurgents',
-  'university-defenders',
-  'self-made-meritocrats',
-  'critical-reformers',
-  'countercultural-communitarians',
   'institutional-skeptics',
+  'faith-and-freedom-families',
+  'university-defenders',
+  'populist-insurgents',
+  'critical-reformers',
 ]
 
 const SORTED_CLASSES = PREVALENCE_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
@@ -87,7 +87,7 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--right">On the right</p>
             <p className="profile-para">
-              <a href="#/profiles/countercultural-communitarians" className="typo-inline-type" style={{ color: '#B78A2A' }}>Countercultural Communitarians</a>,{' '}
+              <a href="#/profiles/faith-and-freedom-families" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith & Freedom Families</a>,{' '}
               <a href="#/profiles/populist-insurgents" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>, and{' '}
               <a href="#/profiles/institutional-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
               share distrust of institutional performance — but they reach opposite conclusions on every question that follows.
@@ -96,13 +96,13 @@ export default function TypologyLanding() {
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On government authority</p>
                 <p className="profile-para">
-                  Countercultural Communitarians oppose federal intervention even from sympathetic Republican administrations. Populist Insurgents reach the opposite verdict: government oversight is the only lever working people have. Institutional Skeptics have simply moved on — they see the failures but haven't organized them into a reform agenda.
+                  Faith & Freedom Families oppose federal intervention even from sympathetic Republican administrations. Populist Insurgents reach the opposite verdict: government oversight is the only lever working people have. Institutional Skeptics have simply moved on — they see the failures but haven't organized them into a reform agenda.
                 </p>
               </div>
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On whether the degree delivers</p>
                 <p className="profile-para">
-                  Countercultural Communitarians believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools. Populist Insurgents see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
+                  Faith & Freedom Families believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools. Populist Insurgents see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function TypologyLanding() {
           <div className="typo-divide-block">
             <p className="typo-divide-side typo-divide-side--middle">In the middle</p>
             <p className="profile-para">
-              <a href="#/profiles/self-made-meritocrats" className="typo-inline-type" style={{ color: '#1F6B4F' }}>Self-Made Meritocrats</a> and the{' '}
+              <a href="#/profiles/market-oriented-pragmatists" className="typo-inline-type" style={{ color: '#1F6B4F' }}>Market-Oriented Pragmatists</a> and the{' '}
               <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>{' '}
               are among the most politically diverse and independent types — neither reliably partisan, each drawing from working and middle-class communities. They share the experience of navigating institutions on their own terms. They reach opposite verdicts.
             </p>
@@ -119,13 +119,13 @@ export default function TypologyLanding() {
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On whether the credential delivers</p>
                 <p className="profile-para">
-                  Self-Made Meritocrats say yes — the degree pays off for people who choose wisely, commit fully, and take responsibility for the outcome. The Economically Betrayed say the promise was broken before they arrived: the system recruited from working-class communities, accepted their enrollment and debt, and did not deliver the mobility it advertised.
+                  Market-Oriented Pragmatists say yes — the degree pays off for people who choose wisely, commit fully, and take responsibility for the outcome. The Economically Betrayed say the promise was broken before they arrived: the system recruited from working-class communities, accepted their enrollment and debt, and did not deliver the mobility it advertised.
                 </p>
               </div>
               <div className="typo-divide-q-block">
                 <p className="typo-divide-q">On who bears responsibility</p>
                 <p className="profile-para">
-                  For Self-Made Meritocrats, outcomes are largely a function of individual choices — the institution's role is to deliver what it offers, and most do. For the Economically Betrayed, the institution bears structural responsibility: it designed the terms of enrollment, set the price, and made the pitch to communities with the least margin for error.
+                  For Market-Oriented Pragmatists, outcomes are largely a function of individual choices — the institution's role is to deliver what it offers, and most do. For the Economically Betrayed, the institution bears structural responsibility: it designed the terms of enrollment, set the price, and made the pitch to communities with the least margin for error.
                 </p>
               </div>
             </div>

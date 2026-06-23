@@ -16,13 +16,13 @@ function badgeTextColor(accentColor) {
 }
 
 const SORTED_CLASSES = [
+  'market-oriented-pragmatists',
   'economically-betrayed',
-  'populist-insurgents',
-  'university-defenders',
-  'self-made-meritocrats',
-  'critical-reformers',
-  'countercultural-communitarians',
   'institutional-skeptics',
+  'faith-and-freedom-families',
+  'university-defenders',
+  'populist-insurgents',
+  'critical-reformers',
 ].map(id => CLASSES.find(c => c.id === id))
 
 export default function DimensionsPage({ initialDimId = null }) {

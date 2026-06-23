@@ -5,7 +5,7 @@ export const CLASSES = [
     icon: 'Eye',
     accentColor: '#6E3B6E',
     tagline: "Higher education loses trust when it speaks the language of justice and inclusion while reproducing the same inequalities inside its own walls.",
-    prevalence: '~12%',
+    prevalence: '9%',
     shareText: "I'm a Critical Reformer — I believe in higher education's mission and think institutions need structural reform, not better messaging. What's your trust type?",
     sharedConcern: "All seven types agree that institutions must be held accountable for the people they claim to serve. They divide sharply on who does the holding.",
     description:
@@ -22,7 +22,7 @@ export const CLASSES = [
     icon: 'Megaphone',
     accentColor: '#C46A2D',
     tagline: "Higher education lost trust when it became a badge of status for elites instead of a source of service to ordinary communities.",
-    prevalence: '~17%',
+    prevalence: '11%',
     shareText: "I'm a Populist Insurgent — I think higher education became a class enclosure for elites and stopped serving ordinary communities. What's your trust type?",
     sharedConcern: "All seven types agree that the cost burden of college has become hard to defend. They divide sharply on who broke the deal and who owes the repair.",
     description:
@@ -39,7 +39,7 @@ export const CLASSES = [
     icon: 'CircleDashed',
     accentColor: '#7A7068',
     tagline: 'The people and structures most responsible for the problem are not the ones most likely to fix it.',
-    prevalence: '~10%',
+    prevalence: '16%',
     shareText: "I'm an Institutional Skeptic — I've watched higher education diagnose itself and promise reform enough times to stop believing insider-led repair is real. What's your trust type?",
     sharedConcern: "All seven types agree that grade inflation has made credentials less meaningful — transcripts no longer distinguish what students actually know. They divide on what to do about it.",
     description:
@@ -51,12 +51,12 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'self-made-meritocrats',
+    id: 'market-oriented-pragmatists',
     name: 'Market-Oriented Pragmatists',
     icon: 'Users',
     accentColor: '#1F6B4F',
     tagline: "Higher education becomes trustworthy when it can show, clearly and honestly, what students pay, what they learn, and what those outcomes actually lead to.",
-    prevalence: '~12%',
+    prevalence: '20%',
     shareText: "I'm a Market-Oriented Pragmatist — I think higher education can still deliver, but institutions need to be honest about what students pay, learn, and earn. What's your trust type?",
     sharedConcern: "All seven types agree that the financial burden of higher education has grown beyond what many families can easily justify. They divide on whether individuals or institutions bear responsibility for the outcome.",
     description:
@@ -68,12 +68,12 @@ export const CLASSES = [
     ],
   },
   {
-    id: 'countercultural-communitarians',
+    id: 'faith-and-freedom-families',
     name: 'Faith & Freedom Families',
     icon: 'BookOpen',
     accentColor: '#B78A2A',
     tagline: "Higher education stopped being trustworthy when it began treating moral tradition and religious conviction as problems to be managed rather than voices to be heard.",
-    prevalence: '~11%',
+    prevalence: '13%',
     shareText: "I'm a Faith & Freedom Family — I think higher education has drifted away from genuine formation and stopped making room for faith and moral tradition. What's your trust type?",
     sharedConcern: "All seven types agree that higher education has lost clarity about what genuine formation requires. They divide sharply on what should fill that gap.",
     description:
@@ -90,7 +90,7 @@ export const CLASSES = [
     icon: 'Shield',
     accentColor: '#2457A6',
     tagline: "Higher education can only rebuild trust if it reforms what deserves reform while resisting efforts to break the independence that makes it worth having.",
-    prevalence: '~15%',
+    prevalence: '11%',
     shareText: "I'm a University Defender — I trust higher education's mission and believe reform from within is far better than the alternatives on offer. What's your trust type?",
     sharedConcern: "All seven types agree that higher education must account for the communities it serves. They divide on who should do the accounting — institutions themselves, or external authorities.",
     description:
@@ -107,7 +107,7 @@ export const CLASSES = [
     icon: 'TrendingDown',
     accentColor: '#A3171C',
     tagline: "Higher education asked too much, cost too much, and delivered too little security in return.",
-    prevalence: '~22%',
+    prevalence: '20%',
     shareText: "I'm Economically Betrayed — higher education promised mobility and stability, but the sacrifice outran the return. What's your trust type?",
     sharedConcern: "All seven types agree that the cost of higher education has become difficult to justify for many families. They divide on who bears the risk and who owes the repair.",
     description:

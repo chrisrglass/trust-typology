@@ -3,13 +3,13 @@ import { CLASSES } from '../data/classes.js'
 import { DEMOGRAPHIC_VARIABLES, CLASS_DEMOGRAPHICS } from '../data/demographicsData.js'
 
 const CLASS_ORDER = [
-  'university-defenders',
-  'critical-reformers',
+  'market-oriented-pragmatists',
   'economically-betrayed',
-  'self-made-meritocrats',
   'institutional-skeptics',
-  'countercultural-communitarians',
+  'faith-and-freedom-families',
+  'university-defenders',
   'populist-insurgents',
+  'critical-reformers',
 ]
 
 const SORTED_CLASSES = CLASS_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)

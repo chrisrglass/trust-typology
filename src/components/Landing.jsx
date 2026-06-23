@@ -6,8 +6,8 @@ const TYPE_PREVIEW_ORDER = [
   'populist-insurgents',
   'university-defenders',
   'critical-reformers',
-  'self-made-meritocrats',
-  'countercultural-communitarians',
+  'market-oriented-pragmatists',
+  'faith-and-freedom-families',
   'institutional-skeptics',
 ]
 

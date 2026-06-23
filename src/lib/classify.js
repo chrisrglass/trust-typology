@@ -23,9 +23,9 @@ export function classifyResponses(responses) {
   if (mobility === 'A') {
     // Optimists: believe the degree leads to real economic mobility
     if (publicGood === 'B') {
-      classId = 'countercultural-communitarians'        // C5: FFC — public research skeptics
+      classId = 'faith-and-freedom-families'        // C5: FFC — public research skeptics
     } else if (underemploy === 'A') {
-      classId = 'self-made-meritocrats'         // C4: PPR — underemployment is temporary
+      classId = 'market-oriented-pragmatists'         // C4: PPR — underemployment is temporary
     } else {
       classId = 'university-defenders'        // C6: LL — underemployment is structural
     }
