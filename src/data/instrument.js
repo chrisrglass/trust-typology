@@ -1,7 +1,9 @@
-// Trust Typology Survey — 33-item public instrument (v26-item-catalog-LCA.md)
+// Trust Typology Survey — 35-item public instrument (v26-item-catalog-LCA.md + 29-edelman-module.md)
 // Part A (LCA):   23 forced-choice binary items (items 1–23, indices 0–22)
-// Part B (Demo):  5 demographic items (items 24–28, indices 23–27)
-// Part C (REP):   5 representativeness items (items 29–33, indices 28–32)
+// Part B (Demo):  7 demographic items (items 24–30, indices 23–29)
+//                 DM-G / DM-H are external-benchmark covariates (Fed SHED; Edelman flash poll)
+//                 — never used for classification
+// Part C (REP):   5 representativeness items (items 31–35, indices 30–34)
 
 export const SECTIONS = [
   {
@@ -365,9 +367,37 @@ export const ITEMS = [
     ],
   },
 
-  // ─── Part C: Representativeness Items (items 29–33, indices 28–32) ───────────
+  // Item 29 — Economic security (Fed SHED benchmark wording; covariate, not used for classification)
+  {
+    id: 'DM-G',
+    section: 'DM',
+    type: 'single_select',
+    prompt: 'Which best describes how you and your family are managing financially these days?',
+    options: [
+      { value: 'A', label: 'Living comfortably' },
+      { value: 'B', label: 'Doing okay' },
+      { value: 'C', label: 'Just getting by' },
+      { value: 'D', label: 'Finding it difficult to get by' },
+    ],
+  },
 
-  // Item 29
+  // Item 30 — General AI displacement worry (Edelman benchmark; covariate, not used for classification)
+  {
+    id: 'DM-H',
+    section: 'DM',
+    type: 'single_select',
+    prompt: 'How worried are you, if at all, about being left behind by generative AI (tools like ChatGPT)?',
+    options: [
+      { value: 'A', label: 'Very worried' },
+      { value: 'B', label: 'Somewhat worried' },
+      { value: 'C', label: 'Not too worried' },
+      { value: 'D', label: 'Not at all worried' },
+    ],
+  },
+
+  // ─── Part C: Representativeness Items (items 31–35, indices 30–34) ───────────
+
+  // Item 31
   {
     id: 'REP-A',
     section: 'REP',
@@ -382,7 +412,7 @@ export const ITEMS = [
     ],
   },
 
-  // Item 30
+  // Item 32
   {
     id: 'REP-B',
     section: 'REP',
@@ -396,7 +426,7 @@ export const ITEMS = [
     ],
   },
 
-  // Item 31
+  // Item 33
   {
     id: 'REP-C',
     section: 'REP',
@@ -407,7 +437,7 @@ export const ITEMS = [
     maxLength: 5,
   },
 
-  // Item 32
+  // Item 34
   {
     id: 'REP-D',
     section: 'REP',
@@ -424,7 +454,7 @@ export const ITEMS = [
     ],
   },
 
-  // Item 33
+  // Item 35
   {
     id: 'REP-E',
     section: 'REP',
