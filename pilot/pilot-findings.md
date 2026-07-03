@@ -1,5 +1,7 @@
 # Trust Project: Pilot Study Findings
 
+> **Historical document (pre-canonical).** This pilot predates the final seven-community typology and uses earlier group names and a 47-item draft instrument. The canonical seven types and the fielded 35-item instrument live in `src/data/classes.js` and `src/data/instrument.js`. Kept unedited as a record of instrument development.
+
 **Pilot N:** 100 simulated respondents across 9 Pew Political Typology groups  
 **Method:** Agent-based simulation; each agent assigned a detailed demographic and attitudinal persona drawn from the 2026 Pew typology, completed all 47 items independently  
 **Purpose:** Discriminant validity — identify items that separate groups, items that fail, and the likely structure of trust classes before fielding
