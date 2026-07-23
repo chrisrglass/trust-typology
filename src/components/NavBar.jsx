@@ -11,11 +11,11 @@ export default function NavBar() {
         </a>
         <div className="site-nav-links">
           <a href="#/typology">About</a>
-          <a href="#/profiles">Explore Types</a>
+          <a href="#/profiles">The Five Types</a>
           <a href="#/dimensions">Dimensions</a>
         </div>
         <a href="#/" className="btn-primary site-nav-cta">
-          Find Your Type →
+          See Where You Stand →
         </a>
       </div>
     </nav>

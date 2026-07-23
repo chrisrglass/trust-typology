@@ -1,10 +1,25 @@
 import { CLASSES } from '../data/classes.js'
+import { ITEMS } from '../data/instrument.js'
+import { G01_CLASS_DISTRIBUTIONS } from '../data/classifierParams.js'
 import ClassCard from './ClassCard.jsx'
 import TypeIcon from './TypeIcon.jsx'
 import ShareBar from './ShareBar.jsx'
+import TrustProfile from './TrustProfile.jsx'
 
-export default function Results({ classResult }) {
+// Short names for the five G01 reform approaches (first sentence of each option).
+const G01_ITEM = ITEMS.find(i => i.id === 'G01')
+const REFORM_SHORT = Object.fromEntries(
+  G01_ITEM.options.map(o => [o.value, o.label.split('. ')[0]])
+)
+
+export default function Results({ classResult, g01Choice, answers }) {
   if (!classResult) return null
+
+  const dist = G01_CLASS_DISTRIBUTIONS[classResult.id]
+  const modalOption = dist
+    ? Object.entries(dist).sort((a, b) => b[1] - a[1])[0][0]
+    : null
+  const chosePlurality = g01Choice && modalOption && g01Choice === modalOption
 
   return (
     <div className="results">
@@ -37,10 +52,26 @@ export default function Results({ classResult }) {
         />
       </div>
 
+      {/* Your theory of reform (from G01 — never used to determine the type) */}
+      {g01Choice && REFORM_SHORT[g01Choice] && (
+        <div className="results-reform" style={{ borderColor: classResult.accentColor }}>
+          <span className="results-reform-label">Your theory of reform</span>
+          <p className="results-reform-choice">{REFORM_SHORT[g01Choice]}</p>
+          <p className="results-reform-note">
+            {chosePlurality
+              ? `That is also the most common choice among ${classResult.name} — your diagnosis and your remedy point the same way.`
+              : `The most common choice among ${classResult.name} is “${REFORM_SHORT[modalOption]}.” Your type was determined only by your judgments of how institutions conduct themselves — people who share a diagnosis often differ on the repair.`}
+          </p>
+        </div>
+      )}
+
+      {/* The Living Letter: your profile across the eleven measured dimensions */}
+      {answers && <TrustProfile responses={answers} classId={classResult?.id} />}
+
       {/* Shared concern callout */}
       {classResult.sharedConcern && (
         <div className="results-shared-concern">
-          <span className="results-shared-concern-label">You share this with all 7 types</span>
+          <span className="results-shared-concern-label">You share this with all 5 types</span>
           <p className="results-shared-concern-text">{classResult.sharedConcern}</p>
         </div>
       )}
@@ -63,15 +94,11 @@ export default function Results({ classResult }) {
         <div className="results-explore-links">
           <a href="#/typology" className="results-explore-card">
             <strong className="explore-card-title">About this typology</strong>
-            <span className="explore-card-desc">What all seven types share, and where the sharpest divides fall — on the left, on the right, and across the political divide</span>
+            <span className="explore-card-desc">Five types, twelve dimensions in two registers, and a theory of reform for each — what all five share, and where they divide</span>
           </a>
           <a href="#/dimensions" className="results-explore-card">
-            <strong className="explore-card-title">Nine Dimensions of Trust</strong>
-            <span className="explore-card-desc">The nine questions that reveal how differently Americans relate to higher education — and how each type responds</span>
-          </a>
-          <a href="#/demographics" className="results-explore-card">
-            <strong className="explore-card-title">Who holds each view?</strong>
-            <span className="explore-card-desc">For each survey response, the trust-type composition of people who gave that answer — by age, education, politics, and more</span>
+            <strong className="explore-card-title">Twelve Dimensions of Trust</strong>
+            <span className="explore-card-desc">The twelve questions, across economic, cultural, and institutional trust, that reveal how differently Americans relate to higher education</span>
           </a>
         </div>
       </div>
@@ -79,12 +106,12 @@ export default function Results({ classResult }) {
       {/* Block 5: Divider */}
       <div className="results-divider" aria-hidden="true">
         <hr />
-        <span>See all seven types</span>
+        <span>See all five types</span>
         <hr />
       </div>
 
-      {/* Block 6: All seven class cards, each linking to its profile */}
-      <div className="results-grid" role="list" aria-label="All seven trust typology profiles">
+      {/* Block 6: All five class cards */}
+      <div className="results-grid" role="list" aria-label="All five trust typology profiles">
         {CLASSES.map(cls => (
           <a
             key={cls.id}
@@ -108,13 +135,13 @@ export default function Results({ classResult }) {
 
       {/* Block 7: Research footer */}
       <div className="results-footer">
-        <p>Thank you for participating in this research.</p>
+        <p>Thank you for exploring this research prototype.</p>
         <p>
-          Analysis and writing on what the data reveals will be published at{' '}
+          Your result is provisional: this typology comes from a synthetic design study and has not yet
+          been fielded with survey respondents. Analysis and writing will be published at{' '}
           <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
             chrisrglass.substack.com
           </a>.
-          {' '}Subscribe to follow the findings as they develop.
         </p>
         <p>
           Questions? Contact{' '}

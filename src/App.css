@@ -933,6 +933,13 @@ a:hover {
   overflow: hidden;
 }
 
+.class-card-concerns {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0.5rem 0 0.65rem;
+}
+
 .class-card-prevalence {
   font-family: var(--font-data);
   font-size: 0.72rem;
@@ -2735,7 +2742,7 @@ a:hover {
 /* Dimensions of Trust page — interactive card grid */
 .dim-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
   margin: 2rem 0 0;
 }
@@ -2888,5 +2895,395 @@ a:hover {
   }
   .typo-pull-stat {
     font-size: 2rem;
+  }
+}
+
+/* ═══════════════════ v2 additions: prototype notice ═══════════════════ */
+
+.prototype-notice {
+  background: #2a2a2a;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0.4rem 1rem;
+  line-height: 1.4;
+}
+
+/* ═══════════════════ v2 additions: dimension layers ═══════════════════ */
+
+.dim-group-intro {
+  max-width: 46rem;
+  margin-bottom: 1.5rem;
+}
+
+.dim-layer {
+  margin-top: 2.25rem;
+}
+
+.dim-layer-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.dim-layer-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.dim-layer-question {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.dim-detail-splits {
+  color: var(--text-secondary, #666);
+  font-size: 0.92rem;
+}
+
+/* ═══════════════════ v2 additions: theory-of-reform result block ═══════ */
+
+.results-reform {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem auto 0;
+  max-width: 640px;
+  text-align: left;
+}
+
+.results-reform-label {
+  display: block;
+  font-family: var(--font-data);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #666);
+  margin-bottom: 0.35rem;
+}
+
+.results-reform-choice {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--text-primary);
+}
+
+.results-reform-note {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--text-secondary, #555);
+}
+
+.dim-detail-formal {
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #888);
+  margin: -0.35rem 0 0.75rem;
+}
+
+/* ═══════════════════ v2 additions: dimension super-groups ═══════════════ */
+
+.dim-group { margin-top: 3rem; }
+.dim-group:first-of-type { margin-top: 2.25rem; }
+
+.dim-group-heading {
+  border-bottom: 3px solid #2a2a2a;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.dim-group-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 0.2rem;
+  color: var(--text-primary);
+}
+
+.dim-group-gloss {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+
+/* ── TrustProfile: the Living Letter ─────────────────────────── */
+.tp {
+  background: #fdfcfa;
+  border: 1px solid #e7e1d8;
+  border-radius: 12px;
+  padding: 2.2rem clamp(1.1rem, 3.5vw, 2.4rem) 1.8rem;
+  margin: 2rem 0;
+}
+.tp-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  text-align: center;
+  margin: 0 0 0.3rem;
+  color: #2a2724;
+}
+.tp-sub {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8a837d;
+  margin: 0 auto 1.2rem;
+  max-width: 34rem;
+}
+.tp-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-bottom: 1.4rem; }
+.tp-chip {
+  border: 1.5px solid;
+  border-radius: 99px;
+  background: transparent;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+.tp-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
+.tp-radar { max-width: 26rem; margin: 0 auto; }
+.tp-letter { font-family: 'Source Serif 4', Charter, Georgia, serif; font-size: 1rem; color: #3a342c; line-height: 1.65; max-width: 38rem; margin: 0 auto; }
+.tp-letter p { margin: 0 0 0.9rem; }
+.tp-bridgehead {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a08347;
+  font-weight: 700;
+  margin: 1.2rem 0 0.55rem;
+}
+.tp-bridge { border-left: 3px solid #e5ddcf; padding-left: 1rem; min-height: 8rem; transition: border-color 0.2s; }
+.tp-whisper { font-size: 0.87rem; color: #75695c; font-style: italic; }
+.tp-note {
+  font-size: 0.72rem;
+  color: #a29a8f;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  max-width: 44rem;
+}
+
+.tp-typelink { text-decoration: none; border-bottom: 1px dotted currentColor; }
+.tp-typelink:hover { border-bottom-style: solid; }
+
+/* ─── Landing Redesign (2026-07-20) ─────────────────────────────────────────── */
+.landing {
+  gap: 2rem;
+}
+
+.landing-header .landing-hook {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  max-width: 34em;
+}
+
+.landing-hero-meta {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+.landing-kicker {
+  font-family: var(--font-data);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.landing-qcards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.landing-qcard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 1.1rem 1.15rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-qcard-icon {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  border-radius: 999px;
+  margin-bottom: 0.7rem;
+}
+
+.landing-qcard-title {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.landing-qcard-question {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.landing-qcard-gloss {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.landing-thesis {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.landing-surprise {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.5rem;
+}
+
+.landing-surprise-lead {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.landing-surprise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.landing-surprise-heading {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.landing-surprise-body {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.landing-surprise-close {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: 1.1rem;
+}
+
+a.landing-type-pip {
+  text-decoration: none;
+  transition: border-color 0.12s, background 0.12s;
+}
+
+a.landing-type-pip:hover {
+  border-color: var(--border-strong);
+  background: var(--color-accent-light);
+  text-decoration: none;
+}
+
+/* Trust-group icons (Dimensions + About pages) */
+.trust-group-icon {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.dim-group-heading--iconed {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.typo-trust-para {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.typo-trust-para .trust-group-icon {
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 640px) {
+  .landing-header {
+    padding-top: 1rem;
+    padding-bottom: 1.25rem;
+  }
+  .landing-qcards {
+    grid-template-columns: 1fr;
+  }
+  .landing-surprise-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .landing-cta-block {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .landing-cta-primary,
+  .landing-cta-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .landing-surprise {
+    padding: 1.1rem 1.1rem;
   }
 }

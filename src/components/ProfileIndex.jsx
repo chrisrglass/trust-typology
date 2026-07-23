@@ -2,13 +2,11 @@ import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
 
 const PREVALENCE_ORDER = [
-  'market-oriented-pragmatists',
-  'economically-betrayed',
-  'institutional-skeptics',
-  'faith-and-freedom-families',
-  'university-defenders',
+  'institutional-reformers',
   'populist-insurgents',
-  'critical-reformers',
+  'results-oriented-pragmatists',
+  'grassroots-communitarians',
+  'fair-deal-skeptics',
 ]
 
 const SORTED_CLASSES = PREVALENCE_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
@@ -22,15 +20,15 @@ export default function ProfileIndex({ highlightedId }) {
       </nav>
 
       <div className="profile-index-header">
-        <h1>Seven Ways Americans Relate to Higher Education</h1>
+        <h1>Five Ways Americans Relate to Higher Education</h1>
         <p className="profile-index-intro">
           Trust in higher education is not one thing in decline. It is a set of distinct relationships —
-          each with its own diagnosis, its own fears, and its own conditions for repair.
-          These seven types map that landscape.
+          each with its own diagnosis, its own worries, and its own theory of reform.
+          These five types map that landscape.
         </p>
         {!highlightedId && (
           <a href="#/" className="btn-primary profile-index-cta">
-            Find your type →
+            See where you stand →
           </a>
         )}
         {highlightedId && (
@@ -51,7 +49,7 @@ export default function ProfileIndex({ highlightedId }) {
           >
             <ClassCard
               name={cls.name}
-              tagline={cls.tagline}
+              concerns={cls.salientConcerns}
               prevalence={cls.prevalence}
               accentColor={cls.accentColor}
               icon={cls.icon}
@@ -67,15 +65,11 @@ export default function ProfileIndex({ highlightedId }) {
         <div className="profile-index-explore-links">
           <a href="#/typology" className="profile-index-explore-card">
             <strong className="explore-card-title">About this typology</strong>
-            <span className="explore-card-desc">Purpose, shared findings, key divides on the left and right, and AI findings</span>
-          </a>
-          <a href="#/demographics" className="profile-index-explore-card">
-            <strong className="explore-card-title">Demographics</strong>
-            <span className="explore-card-desc">Who belongs to each type — by age, education, politics, and more</span>
+            <span className="explore-card-desc">Five types, twelve dimensions in two registers, and a theory of reform for each</span>
           </a>
           <a href="#/dimensions" className="profile-index-explore-card">
             <strong className="explore-card-title">Dimensions of Trust</strong>
-            <span className="explore-card-desc">Nine questions that reveal how differently Americans relate to higher education — and how each type responds</span>
+            <span className="explore-card-desc">Twelve questions in three registers (economic, cultural, and institutional trust) and how each type responds to every one</span>
           </a>
         </div>
       </div>
@@ -83,7 +77,8 @@ export default function ProfileIndex({ highlightedId }) {
       <footer className="profile-footer" style={{ maxWidth: '720px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <p>
           A research project by Chris R. Glass, Director, Executive Doctor of Education in Higher Education,
-          Boston College Lynch School of Education and Human Development. Results and analysis at{' '}
+          Boston College Lynch School of Education and Human Development. Research prototype —
+          provisional typology, pre-fielding. Results and analysis at{' '}
           <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
             chrisrglass.substack.com
           </a>.

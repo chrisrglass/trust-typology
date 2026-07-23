@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust Distance — Four Visualization Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-page: #f5f5f5; --bg-card: #fff; --bg-raised: #F1EEE8;
+    --ink: #111; --ink-2: #3a3a3a; --muted: #6a675f;
+    --border: #DDD7CE; --border-strong: #C8C1B7;
+    --accent: #2457A6;
+    --econ: #2457A6; --cult: #B78A2A; --inst: #15803D;
+    --radius: 6px; --shadow: 0 1px 3px rgba(17,17,17,.09);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-ui: 'Inter', system-ui, sans-serif;
+    --font-data: 'Roboto Condensed', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg-page); color: var(--ink); font-family: var(--font-body); line-height: 1.65; padding: 2rem 1rem 5rem; }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; margin-bottom: .5rem; }
+  .lede { color: var(--ink-2); font-size: 1.02rem; max-width: 40em; margin-bottom: .75rem; }
+  .meta { font-family: var(--font-ui); font-size: .8rem; color: var(--muted); margin-bottom: 2.5rem; }
+  .option { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem 1.5rem 1.75rem; margin-bottom: 2.25rem; }
+  .kicker { font-family: var(--font-data); font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+  .option h2 { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: .4rem; }
+  .concept { color: var(--ink-2); font-size: .98rem; margin-bottom: 1.1rem; max-width: 44em; }
+  .viz { margin: 0 0 1rem; }
+  .note { font-family: var(--font-ui); font-size: .84rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: .8rem; }
+  .note strong { color: var(--ink-2); font-weight: 600; }
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font-family: var(--font-ui); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .85rem; }
+  .chip { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--font-ui); font-size: .82rem; font-weight: 500; color: var(--ink-2); background: var(--bg-card); border: 1px solid var(--border); border-radius: 999px; padding: .3rem .8rem; cursor: pointer; user-select: none; transition: border-color .12s, opacity .12s; }
+  .chip .swatch { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+  .chip.off { opacity: .38; }
+  .chip:hover { border-color: var(--border-strong); }
+  .chip.sel { border-color: var(--ink-2); background: var(--bg-raised); }
+
+  .tabs { display: flex; gap: .35rem; margin-bottom: .7rem; }
+  .tab { font-family: var(--font-ui); font-size: .82rem; font-weight: 600; padding: .35rem .9rem; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-card); color: var(--ink-2); cursor: pointer; }
+  .tab.sel { background: var(--ink-2); color: #fff; border-color: var(--ink-2); }
+
+  #tooltip { position: fixed; pointer-events: none; background: var(--ink); color: #fff; font-family: var(--font-ui); font-size: .78rem; line-height: 1.45; padding: .5rem .65rem; border-radius: 5px; box-shadow: 0 8px 24px rgba(17,17,17,.25); opacity: 0; transition: opacity .1s; z-index: 50; max-width: 240px; }
+  #tooltip .tt-title { font-weight: 700; margin-bottom: .15rem; }
+
+  /* Ladder */
+  .ladder { display: flex; flex-direction: column; gap: 6px; }
+  .rung { display: grid; grid-template-columns: minmax(150px, 1fr) auto; align-items: center; gap: .75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: .65rem .9rem; cursor: pointer; transition: border-color .12s; }
+  .rung:hover { border-color: var(--border-strong); }
+  .rung.open { border-color: var(--ink-2); }
+  .rung-label { font-family: var(--font-ui); font-size: .88rem; font-weight: 600; color: var(--ink-2); }
+  .rung-sub { font-family: var(--font-ui); font-size: .74rem; font-weight: 400; color: var(--muted); display: block; }
+  .rung-marks { display: flex; gap: 6px; }
+  .mark { width: 26px; height: 26px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); font-size: .78rem; font-weight: 700; }
+  .rung-note { grid-column: 1 / -1; font-family: var(--font-ui); font-size: .82rem; color: var(--ink-2); background: var(--bg-raised); border-radius: 5px; padding: .6rem .75rem; display: none; }
+  .rung.open .rung-note { display: block; }
+  .ladder-axis { font-family: var(--font-data); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: .3rem 0; }
+
+  details.table-view { margin-top: 2rem; font-family: var(--font-ui); font-size: .85rem; color: var(--ink-2); }
+  details.table-view summary { cursor: pointer; color: var(--muted); }
+  details.table-view table { border-collapse: collapse; margin-top: .75rem; width: 100%; }
+  details.table-view th, details.table-view td { border: 1px solid var(--border); padding: .35rem .6rem; text-align: left; font-size: .8rem; }
+  details.table-view th { background: var(--bg-raised); font-weight: 600; }
+</style>
+</head>
+<body data-palette="#2457A6,#B78A2A,#15803D">
+<div class="wrap">
+  <h1>Visualizing Trust Distance</h1>
+  <p class="lede">Four ways the results page could show how a person&rsquo;s trust changes with distance, across the three questions. Same illustrative respondent in all four; every element is interactive. React to the <em>shape</em> of each idea, not the polish.</p>
+  <p class="meta">Illustrative data (no fielded respondents) &middot; Palette validated for color-vision safety &middot; Site design tokens</p>
+
+  <!-- ═══════════════ OPTION A ═══════════════ -->
+  <section class="option">
+    <p class="kicker">Option A</p>
+    <h2>Your Trust Horizon</h2>
+    <p class="concept">Three lines, one per question, from what you know firsthand to what you only know from a distance. The <em>shape</em> of each line is the finding: where your trust holds, and where it lets go. Hover for values; click the chips to isolate a line.</p>
+    <div class="viz">
+      <div class="legend" id="a-legend"></div>
+      <div id="a-chart"></div>
+    </div>
+    <p class="note"><strong>Emphasizes:</strong> the decay curve itself — the purest expression of the framework. <strong>Open question:</strong> is a line chart too analytic for a general audience?</p>
+  </section>
+
+  <!-- ═══════════════ OPTION B ═══════════════ -->
+  <section class="option">
+    <p class="kicker">Option B</p>
+    <h2>The Ladder</h2>
+    <p class="concept">Five rungs, from your own experience at the bottom to &ldquo;colleges in general&rdquo; at the top. Each rung shows your verdict on the three questions: trust (&#10003;), unsure (&ndash;), or doubt (&#10005;). Tap a rung to read what it means.</p>
+    <div class="viz">
+      <div class="legend" id="b-legend"></div>
+      <p class="ladder-axis">Far &mdash; judged from what you read and hear</p>
+      <div class="ladder" id="b-ladder"></div>
+      <p class="ladder-axis">Near &mdash; judged from your own life</p>
+    </div>
+    <p class="note"><strong>Emphasizes:</strong> the concrete institutions at each distance; maps directly onto a future survey item. <strong>Open question:</strong> verdict symbols flatten nuance — is trust/unsure/doubt too blunt?</p>
+  </section>
+
+  <!-- ═══════════════ OPTION C ═══════════════ -->
+  <section class="option">
+    <p class="kicker">Option C</p>
+    <h2>Your Trust Map</h2>
+    <p class="concept">You at the center. Each ring is one step farther away; each wedge is one of the three questions. Darker means more trust. One glance shows whether your trust lives close to home, travels all the way out, or never leaves the house. Hover any cell.</p>
+    <div class="viz"><div id="c-chart"></div></div>
+    <p class="note"><strong>Emphasizes:</strong> the &ldquo;map&rdquo; language the site already uses; the most shareable single image. <strong>Open question:</strong> polar charts are read impressionistically — fine for a portrait, weak for exact comparison.</p>
+  </section>
+
+  <!-- ═══════════════ OPTION D ═══════════════ -->
+  <section class="option">
+    <p class="kicker">Option D</p>
+    <h2>Unexpected Company</h2>
+    <p class="concept">Your line against each type&rsquo;s typical shape, one question at a time. The marked bands are where you and that type <em>agree</em> — including types you would never expect. This is the &ldquo;who you agree with might surprise you&rdquo; promise, drawn.</p>
+    <div class="viz">
+      <div class="tabs" id="d-tabs"></div>
+      <div class="legend" id="d-types"></div>
+      <div id="d-chart"></div>
+    </div>
+    <p class="note"><strong>Emphasizes:</strong> the empathy goal — agreement across division, independence within your own type. <strong>Open question:</strong> needs the most explanation; likely strongest as a second view after A or C, not the first thing seen.</p>
+  </section>
+
+  <details class="table-view">
+    <summary>Data table (the illustrative respondent used in all four)</summary>
+    <table id="data-table"></table>
+  </details>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+const RANGES = ['Your own experience', 'People you know', 'Colleges nearby', 'Colleges in the news', 'Colleges in general'];
+const VECTORS = [
+  { id: 'econ', name: 'Economic',      q: 'Does the deal work for people like me?',            color: '#2457A6' },
+  { id: 'cult', name: 'Cultural',      q: 'Do people like me belong here?',                    color: '#B78A2A' },
+  { id: 'inst', name: 'Institutional', q: 'Does this institution answer to people like me?',   color: '#15803D' },
+];
+const YOU = {
+  econ: [7.5, 7, 6.5, 5, 4.5],
+  cult: [8, 7.5, 6, 3.5, 3],
+  inst: [6, 5.5, 5, 3.5, 3],
+};
+const TYPES = [
+  { id: 'reformers',      name: 'Institutional Reformers',      color: '#2457A6',
+    econ: [7,7,7,6.5,6.5],      cult: [6.5,6.5,6,6,5.5],   inst: [8,7.5,7.5,7,7] },
+  { id: 'pragmatists',    name: 'Results-Oriented Pragmatists', color: '#1F6B4F',
+    econ: [7.5,7,7,6.5,6.5],    cult: [5,5,4.5,4,4],       inst: [5.5,5.5,5,5,5] },
+  { id: 'insurgents',     name: 'Populist Insurgents',          color: '#C46A2D',
+    econ: [3,3,2.5,2.5,2],      cult: [3,3,2.5,2,2],       inst: [2,2,2,1.5,1.5] },
+  { id: 'skeptics',       name: 'Fair-Deal Skeptics',           color: '#A3171C',
+    econ: [4,3.5,3,2.5,2],      cult: [5,4.5,4,3.5,3],     inst: [4.5,4.5,4,3.5,3.5] },
+  { id: 'communitarians', name: 'Grassroots Communitarians',    color: '#B78A2A',
+    econ: [7.5,7,6,3.5,3],      cult: [8.5,8,7,3,2.5],     inst: [7,6.5,5.5,3,2.5] },
+];
+
+/* ── tooltip ── */
+const tip = document.getElementById('tooltip');
+function showTip(evt, html) {
+  tip.innerHTML = html;
+  tip.style.opacity = 1;
+  moveTip(evt);
+}
+function moveTip(evt) {
+  const pad = 14;
+  let x = evt.clientX + pad, y = evt.clientY + pad;
+  const r = tip.getBoundingClientRect();
+  if (x + r.width > window.innerWidth - 8) x = evt.clientX - r.width - pad;
+  if (y + r.height > window.innerHeight - 8) y = evt.clientY - r.height - pad;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
+function hideTip() { tip.style.opacity = 0; }
+
+/* ── shared line-chart geometry ── */
+const CW = 680, CH = 300, M = { t: 16, r: 118, b: 46, l: 30 };
+const PW = CW - M.l - M.r, PH = CH - M.t - M.b;
+const xPos = i => M.l + (i / (RANGES.length - 1)) * PW;
+const yPos = v => M.t + PH - (v / 10) * PH;
+const SHORT = ['Own experience', 'People you know', 'Nearby', 'In the news', 'In general'];
+
+function gridAndAxes() {
+  let s = '';
+  [0, 2.5, 5, 7.5, 10].forEach(v => {
+    s += `<line x1="${M.l}" y1="${yPos(v)}" x2="${M.l + PW}" y2="${yPos(v)}" stroke="#ECE8E1" stroke-width="1"/>`;
+    s += `<text x="${M.l - 7}" y="${yPos(v) + 3.5}" text-anchor="end" font-size="10" fill="#8a867d">${v === 0 || v === 5 || v === 10 ? v : ''}</text>`;
+  });
+  RANGES.forEach((r, i) => {
+    const anchor = i === 0 ? 'start' : (i === RANGES.length - 1 ? 'end' : 'middle');
+    s += `<text x="${xPos(i)}" y="${M.t + PH + 18}" text-anchor="${anchor}" font-size="10.5" fill="#6a675f">${SHORT[i]}</text>`;
+  });
+  s += `<text x="${M.l}" y="${M.t + PH + 36}" font-size="9.5" fill="#8a867d" letter-spacing="1.5">NEAR &#8594;&#160;&#160;FAR</text>`;
+  return s;
+}
+function linePath(vals) {
+  return vals.map((v, i) => `${i ? 'L' : 'M'}${xPos(i)},${yPos(v)}`).join(' ');
+}
+
+/* ═══ OPTION A ═══ */
+const aState = { econ: true, cult: true, inst: true };
+function renderA() {
+  const legend = document.getElementById('a-legend');
+  legend.innerHTML = VECTORS.map(v =>
+    `<span class="chip${aState[v.id] ? '' : ' off'}" data-v="${v.id}"><span class="swatch" style="background:${v.color}"></span>${v.name}</span>`
+  ).join('');
+  legend.querySelectorAll('.chip').forEach(ch => ch.onclick = () => {
+    const on = Object.values(aState).filter(Boolean).length;
+    const id = ch.dataset.v;
+    if (aState[id] && on === 1) return;
+    aState[id] = !aState[id];
+    renderA();
+  });
+
+  let s = gridAndAxes();
+  const endLabels = [];
+  VECTORS.forEach(v => {
+    if (!aState[v.id]) return;
+    s += `<path d="${linePath(YOU[v.id])}" fill="none" stroke="${v.color}" stroke-width="2" stroke-linecap="round"/>`;
+    YOU[v.id].forEach((val, i) => {
+      s += `<circle cx="${xPos(i)}" cy="${yPos(val)}" r="4.5" fill="${v.color}" stroke="#fff" stroke-width="2"/>`;
+    });
+    endLabels.push({ name: v.name, y: yPos(YOU[v.id][YOU[v.id].length - 1]) + 3.5 });
+  });
+  endLabels.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < endLabels.length; i++) {
+    if (endLabels[i].y - endLabels[i - 1].y < 14) endLabels[i].y = endLabels[i - 1].y + 14;
+  }
+  endLabels.forEach(l => {
+    s += `<text x="${M.l + PW + 10}" y="${l.y}" font-size="11" font-weight="600" fill="#3a3a3a">${l.name}</text>`;
+  });
+  // hover columns
+  RANGES.forEach((r, i) => {
+    const x0 = i === 0 ? M.l : (xPos(i - 1) + xPos(i)) / 2;
+    const x1 = i === RANGES.length - 1 ? M.l + PW : (xPos(i) + xPos(i + 1)) / 2;
+    s += `<rect data-i="${i}" x="${x0}" y="${M.t}" width="${x1 - x0}" height="${PH}" fill="transparent"/>`;
+  });
+  s += `<line id="a-cross" x1="0" y1="${M.t}" x2="0" y2="${M.t + PH}" stroke="#C8C1B7" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`;
+
+  const el = document.getElementById('a-chart');
+  el.innerHTML = `<svg viewBox="0 0 ${CW} ${CH}" role="img" aria-label="Your trust across five distances, three lines">${s}</svg>`;
+  const cross = el.querySelector('#a-cross');
+  el.querySelectorAll('rect[data-i]').forEach(rc => {
+    const i = +rc.dataset.i;
+    rc.addEventListener('mousemove', evt => {
+      cross.setAttribute('x1', xPos(i)); cross.setAttribute('x2', xPos(i));
+      cross.setAttribute('opacity', 1);
+      const rows = VECTORS.filter(v => aState[v.id]).map(v =>
+        `<div><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${v.color};margin-right:5px"></span>${v.name}: <b>${YOU[v.id][i]}</b> / 10</div>`).join('');
+      showTip(evt, `<div class="tt-title">${RANGES[i]}</div>${rows}`);
+    });
+    rc.addEventListener('mouseleave', () => { cross.setAttribute('opacity', 0); hideTip(); });
+  });
+}
+
+/* ═══ OPTION B ═══ */
+function verdict(v) { return v >= 6 ? 1 : (v >= 4 ? 0 : -1); }
+const RUNG_NOTES = [
+  'From your own time on a campus: the deal held up, you felt at home, and the place answered when it mattered.',
+  'The people you trust mostly report the same: degrees that paid off, communities that made room.',
+  'The campuses near you still earn your trust on the deal and on belonging, though you are less sure they answer for themselves.',
+  'The colleges you know only from coverage: here your trust thins on every question at once.',
+  'Higher education in the abstract: at this distance you are answering from the story, not the life, and the verdicts show it.',
+];
+function renderB() {
+  document.getElementById('b-legend').innerHTML = VECTORS.map(v =>
+    `<span class="chip" style="cursor:default"><span class="swatch" style="background:${v.color}"></span>${v.name}</span>`).join('');
+  const order = [4, 3, 2, 1, 0]; // far at top
+  const wrap = document.getElementById('b-ladder');
+  wrap.innerHTML = order.map(i => {
+    const marks = VECTORS.map(v => {
+      const val = YOU[v.id][i], vd = verdict(val);
+      const sym = vd === 1 ? '&#10003;' : (vd === 0 ? '&ndash;' : '&#10005;');
+      const bg = vd === 1 ? v.color : (vd === 0 ? '#fff' : '#fff');
+      const fg = vd === 1 ? '#fff' : (vd === 0 ? '#6a675f' : '#A3171C');
+      const bd = vd === 1 ? v.color : (vd === 0 ? '#C8C1B7' : '#A3171C');
+      return `<span class="mark" data-v="${v.id}" data-i="${i}" style="background:${bg};color:${fg};border:1.5px solid ${bd}">${sym}</span>`;
+    }).join('');
+    return `<div class="rung" data-i="${i}">
+      <span class="rung-label">${RANGES[i]}<span class="rung-sub">${i >= 3 ? 'known through media and reputation' : i === 2 ? 'known through your community' : 'known firsthand'}</span></span>
+      <span class="rung-marks">${marks}</span>
+      <span class="rung-note">${RUNG_NOTES[i]}</span>
+    </div>`;
+  }).join('');
+  wrap.querySelectorAll('.rung').forEach(r => r.onclick = () => r.classList.toggle('open'));
+  wrap.querySelectorAll('.mark').forEach(m => {
+    m.addEventListener('mousemove', evt => {
+      evt.stopPropagation();
+      const v = VECTORS.find(x => x.id === m.dataset.v), i = +m.dataset.i, val = YOU[v.id][i];
+      const word = val >= 6 ? 'Trust' : (val >= 4 ? 'Unsure' : 'Doubt');
+      showTip(evt, `<div class="tt-title">${v.name} &middot; ${RANGES[i]}</div>${word} (${val} / 10)<br><span style="opacity:.75">${v.q}</span>`);
+    });
+    m.addEventListener('mouseleave', hideTip);
+  });
+}
+
+/* ═══ OPTION C ═══ */
+function polarCell(cx, cy, r0, r1, a0, a1) {
+  const p = (r, a) => [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  const [x0, y0] = p(r0, a0), [x1, y1] = p(r1, a0), [x2, y2] = p(r1, a1), [x3, y3] = p(r0, a1);
+  const large = (a1 - a0) > Math.PI ? 1 : 0;
+  return `M${x0},${y0} L${x1},${y1} A${r1},${r1} 0 ${large} 1 ${x2},${y2} L${x3},${y3} A${r0},${r0} 0 ${large} 0 ${x0},${y0} Z`;
+}
+function hexToRgb(h) { return [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)]; }
+function tint(hex, t) { // t in 0..1 → mix white→hue
+  const [r, g, b] = hexToRgb(hex);
+  const mix = c => Math.round(255 + (c - 255) * t);
+  return `rgb(${mix(r)},${mix(g)},${mix(b)})`;
+}
+function renderC() {
+  const S = 460, W = 600, cx = W / 2, cy = S / 2 + 6;
+  const RING_IDX = [0, 1, 2, 4]; // experience, people, nearby, in general
+  const RING_LABEL = ['Own experience', 'People you know', 'Colleges nearby', 'In general'];
+  const r0 = 34, rw = 40, gapA = 0.10;
+  let s = '';
+  VECTORS.forEach((v, vi) => {
+    const a0 = -Math.PI / 2 + vi * (2 * Math.PI / 3) + gapA / 2;
+    const a1 = -Math.PI / 2 + (vi + 1) * (2 * Math.PI / 3) - gapA / 2;
+    RING_IDX.forEach((ri, k) => {
+      const val = YOU[v.id][ri];
+      const rr0 = r0 + k * rw + 2, rr1 = r0 + (k + 1) * rw - 2;
+      s += `<path d="${polarCell(cx, cy, rr0, rr1, a0, a1)}" fill="${tint(v.color, 0.12 + (val / 10) * 0.85)}" stroke="#fff" stroke-width="2" data-v="${v.id}" data-r="${k}" data-ri="${ri}" style="cursor:default"/>`;
+    });
+    const mid = (a0 + a1) / 2, lr = r0 + 4 * rw + 22;
+    const lx = cx + lr * Math.cos(mid), ly = cy + lr * Math.sin(mid);
+    const anchor = Math.abs(Math.cos(mid)) < 0.3 ? 'middle' : (Math.cos(mid) > 0 ? 'start' : 'end');
+    s += `<text x="${lx}" y="${ly + 4}" text-anchor="${anchor}" font-size="12.5" font-weight="600" fill="#3a3a3a">${v.name}</text>`;
+  });
+  s += `<circle cx="${cx}" cy="${cy}" r="${r0 - 8}" fill="#F1EEE8" stroke="#DDD7CE"/>`;
+  s += `<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#3a3a3a">You</text>`;
+  // ring scale legend (bottom-left)
+  let lx0 = 8, ly0 = S - 14;  // legend anchors to bottom-left of widened canvas
+  s += `<text x="${lx0}" y="${ly0 - 14}" font-size="9.5" fill="#8a867d">Less trust</text>`;
+  [0.2, 0.45, 0.7, 0.95].forEach((t, i) => {
+    s += `<rect x="${lx0 + 62 + i * 20}" y="${ly0 - 22}" width="18" height="10" rx="2" fill="${tint('#3a3a3a', t)}"/>`;
+  });
+  s += `<text x="${lx0 + 62 + 4 * 20 + 6}" y="${ly0 - 14}" font-size="9.5" fill="#8a867d">More trust</text>`;
+
+  const el = document.getElementById('c-chart');
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${S}" style="max-width:560px;margin:0 auto" role="img" aria-label="Polar map of trust by distance and question">${s}</svg>`;
+  el.querySelectorAll('path[data-v]').forEach(c => {
+    c.addEventListener('mousemove', evt => {
+      const v = VECTORS.find(x => x.id === c.dataset.v);
+      const ri = +c.dataset.ri, k = +c.dataset.r;
+      showTip(evt, `<div class="tt-title">${v.name} &middot; ${RING_LABEL[k]}</div>Trust: <b>${YOU[v.id][ri]}</b> / 10<br><span style="opacity:.75">${v.q}</span>`);
+      c.setAttribute('stroke', '#3a3a3a');
+    });
+    c.addEventListener('mouseleave', () => { hideTip(); c.setAttribute('stroke', '#fff'); });
+  });
+}
+
+/* ═══ OPTION D ═══ */
+const dState = { vector: 'cult', type: 'insurgents' };
+function renderD() {
+  document.getElementById('d-tabs').innerHTML = VECTORS.map(v =>
+    `<button class="tab${dState.vector === v.id ? ' sel' : ''}" data-v="${v.id}">${v.name}</button>`).join('');
+  document.querySelectorAll('#d-tabs .tab').forEach(t => t.onclick = () => { dState.vector = t.dataset.v; renderD(); });
+
+  document.getElementById('d-types').innerHTML = TYPES.map(t =>
+    `<span class="chip${dState.type === t.id ? ' sel' : ''}" data-t="${t.id}"><span class="swatch" style="background:${t.color}"></span>${t.name}</span>`).join('');
+  document.querySelectorAll('#d-types .chip').forEach(ch => ch.onclick = () => { dState.type = ch.dataset.t; renderD(); });
+
+  const v = VECTORS.find(x => x.id === dState.vector);
+  const t = TYPES.find(x => x.id === dState.type);
+  const you = YOU[v.id], typ = t[v.id];
+
+  let s = gridAndAxes();
+  // agreement bands first (under lines)
+  const agreeIdx = [];
+  you.forEach((yv, i) => { if (Math.abs(yv - typ[i]) <= 1) agreeIdx.push(i); });
+  agreeIdx.forEach(i => {
+    const x0 = i === 0 ? M.l : (xPos(i - 1) + xPos(i)) / 2 + 8;
+    const x1 = i === RANGES.length - 1 ? M.l + PW : (xPos(i) + xPos(i + 1)) / 2 - 8;
+    s += `<rect x="${x0}" y="${M.t}" width="${x1 - x0}" height="${PH}" fill="#B78A2A" opacity="0.10" rx="4"/>`;
+    s += `<text x="${xPos(i)}" y="${M.t + 12}" text-anchor="middle" font-size="9" font-weight="700" fill="#8a6414" letter-spacing="1">AGREE</text>`;
+  });
+  s += `<path d="${linePath(typ)}" fill="none" stroke="${t.color}" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>`;
+  typ.forEach((val, i) => { s += `<circle cx="${xPos(i)}" cy="${yPos(val)}" r="4" fill="#fff" stroke="${t.color}" stroke-width="2"/>`; });
+  s += `<path d="${linePath(you)}" fill="none" stroke="#111" stroke-width="2.25" stroke-linecap="round"/>`;
+  you.forEach((val, i) => { s += `<circle cx="${xPos(i)}" cy="${yPos(val)}" r="4.5" fill="#111" stroke="#fff" stroke-width="2"/>`; });
+  s += `<text x="${M.l + PW + 10}" y="${yPos(you[you.length - 1]) + 3.5}" font-size="11" font-weight="700" fill="#111">You</text>`;
+  const tyLast = yPos(typ[typ.length - 1]);
+  const youLast = yPos(you[you.length - 1]);
+  const tyY = Math.abs(tyLast - youLast) < 14 ? (tyLast > youLast ? tyLast + 14 : tyLast - 10) : tyLast;
+  s += `<text x="${M.l + PW + 10}" y="${tyY + 3.5}" font-size="11" font-weight="600" fill="#3a3a3a">${t.name.split(' ').pop()}</text>`;
+  // hover
+  RANGES.forEach((r, i) => {
+    const x0 = i === 0 ? M.l : (xPos(i - 1) + xPos(i)) / 2;
+    const x1 = i === RANGES.length - 1 ? M.l + PW : (xPos(i) + xPos(i + 1)) / 2;
+    s += `<rect data-i="${i}" x="${x0}" y="${M.t}" width="${x1 - x0}" height="${PH}" fill="transparent"/>`;
+  });
+
+  const el = document.getElementById('d-chart');
+  el.innerHTML = `<svg viewBox="0 0 ${CW} ${CH}" role="img" aria-label="Your line versus a type's typical line">${s}</svg>`;
+  el.querySelectorAll('rect[data-i]').forEach(rc => {
+    const i = +rc.dataset.i;
+    rc.addEventListener('mousemove', evt => {
+      const agree = Math.abs(you[i] - typ[i]) <= 1;
+      showTip(evt, `<div class="tt-title">${RANGES[i]}</div>You: <b>${you[i]}</b> &middot; ${t.name.split(' ').pop()}: <b>${typ[i]}</b>${agree ? '<br><span style="color:#e8c268;font-weight:600">You agree here.</span>' : ''}`);
+    });
+    rc.addEventListener('mouseleave', hideTip);
+  });
+
+  const q = document.querySelector('#d-chart-caption');
+  if (q) q.remove();
+  const cap = document.createElement('p');
+  cap.id = 'd-chart-caption';
+  cap.style.cssText = 'font-family:Inter,system-ui,sans-serif;font-size:.82rem;color:#6a675f;margin-top:.4rem';
+  cap.innerHTML = agreeIdx.length
+    ? `On <em>${v.q}</em> you and the ${t.name} agree at: ${agreeIdx.map(i => RANGES[i].toLowerCase()).join(', ')}.`
+    : `On <em>${v.q}</em> you and the ${t.name} see it differently at every distance.`;
+  el.after(cap);
+}
+
+/* ═══ data table (a11y) ═══ */
+document.getElementById('data-table').innerHTML =
+  `<tr><th>Question</th>${RANGES.map(r => `<th>${r}</th>`).join('')}</tr>` +
+  VECTORS.map(v => `<tr><td>${v.name}</td>${YOU[v.id].map(x => `<td>${x}</td>`).join('')}</tr>`).join('');
+
+renderA(); renderB(); renderC(); renderD();
+</script>
+</body>
+</html>

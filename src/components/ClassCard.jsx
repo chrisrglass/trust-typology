@@ -1,6 +1,6 @@
 import TypeIcon from './TypeIcon.jsx'
 
-export default function ClassCard({ name, tagline, prevalence, accentColor, icon, isYours, expanded, description, characteristics }) {
+export default function ClassCard({ name, tagline, prevalence, accentColor, icon, isYours, expanded, description, characteristics, concerns }) {
   return (
     <article
       className={`class-card${isYours ? ' is-yours' : ''}`}
@@ -17,8 +17,8 @@ export default function ClassCard({ name, tagline, prevalence, accentColor, icon
           {icon && <TypeIcon iconName={icon} color={accentColor} size={22} strokeWidth={1.75} />}
           <h3 className="class-card-name" style={{ color: accentColor }}>{name}</h3>
         </div>
-        <p className="class-card-tagline">{tagline}</p>
-        <span className="class-card-prevalence">{prevalence} of respondents</span>
+        {tagline && <p className="class-card-tagline">{tagline}</p>}
+        {concerns && <p className="class-card-concerns">{concerns}</p>}
 
         {expanded && description && (
           <div className="class-card-expanded">

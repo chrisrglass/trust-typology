@@ -1,155 +1,279 @@
-export const DIMENSIONS = [
+// Twelve dimensions of institutional trust, displayed in seven blocks across two registers.
+// Framework source: "The Final Dimensional Framework of Trust in Higher Education" (2026-07).
+//
+// Two registers, deliberately: `title` is the EMIC display name — concrete,
+// direct, the language of everyday Americans. `formalName` is the framework's
+// technical name, shown as a small research line in the detail view and used
+// in all analysis documents. Do not collapse the two.
+//
+// Type views are grounded in the synthetic design study's class signatures —
+// PROVISIONAL, PRE-FIELDING.
+
+// Display grouping ratified 2026-07-20: three trust groups organized by the
+// trust-distance framework's content vectors (X economic / Y cultural / Z
+// institutional), each carrying a first-person question. This supersedes the
+// two-register / seven-moral-value-block display (ratified 2026-07-18) ON THE
+// SITE ONLY: the empirical co-variation blocks (N=2,500 design study,
+// scratch/trust-v21-robustness/dimension_covariation_robustness.md) and the
+// framework's technical four-layer structure remain canonical in the research
+// documents. Moral-value crosswalk retained for reference: Fidelity = burden +
+// outcomes; Honesty = candor + procedure; Fairness = opportunity; Respect =
+// recognizability; Openness = hospitality + overreach; Accountability =
+// correctability + answerability + governance; Contribution = public purpose.
+//
+// Placement notes (2026-07-20): Chris's grouping assigned 11 dimensions;
+// Institutional Overreach was unassigned and is placed in Institutional Trust
+// (authority content) pending his review. Information Transparency sits in
+// Economic Trust (its subject is the deal) and Equal Protection in Cultural
+// Trust (rules bending by status/politics) per Chris's assignment, diverging
+// from the analytical crosswalk in the trust-distance stress test Section 8,
+// which reads both as epistemic (Z) content — display and analysis may
+// legitimately differ here.
+// Label note (2026-07-20): the site group "Institutional Trust" is a
+// public-register label. In the research literature and the why-trust-declines
+// brief, "institutional trust" names the competence/delivery construct (X);
+// analysis documents must not inherit the site's grouping vocabulary.
+// Display renames (2026-07-20): Financial Stakes → Burden Sharing ("Risk
+// Sharing" was the alternative); Community Belonging → Moral Recognizability
+// and Intellectual Freedom → Intellectual Hospitality (formal names promoted
+// to display names at Chris's direction, reversing the 2026-07-18 emic-label
+// decisions for these two).
+export const GROUPS = [
   {
-    id: 'cultural-belonging',
-    icon: 'Users',
-    title: 'Cultural Belonging and Identity Welcome',
-    discriminantPower: 'Highest of all nine dimensions',
-    whatItMeasures: 'Whether higher education is genuinely open to people from different backgrounds, faith traditions, and class cultures — or whether belonging requires assimilation to elite norms. The left-right inversion is sharpest here: each side experiences itself as the excluded party, and they are describing different exclusions.',
-    sharpestSplits: 'Maximum cross-group variance — every type experiences this dimension differently; sharpest left-right inversion in the instrument',
-    typeViews: {
-      'university-defenders': 'Supports DEI as compatible with intellectual pluralism and is open to reform while maintaining core commitments to inclusive excellence.',
-      'critical-reformers': 'Deeply invested in belonging for marginalized students — experiences the DEI rollback as a direct attack on the institutional welcome those students depend on.',
-      'economically-betrayed': 'Experiences belonging barriers through economic precarity and racial climate — campus feels designed for people with more resources.',
-      'market-oriented-pragmatists': 'Wants genuine pluralism for all students including conservatives, but is skeptical of how DEI programs are currently administered.',
-      'institutional-skeptics': 'Has largely withdrawn from the belonging debate — the conclusion that higher education was not designed for people like them preceded the factional fight over DEI; the argument between insiders feels like a spectator sport among constituencies they\'ve already concluded have failed them.',
-      'faith-and-freedom-families': 'Religious belonging is specifically at stake — faith commitment is treated as incompatible with serious academic work at most secular institutions.',
-      'populist-insurgents': 'Experiences DEI offices and mandatory training as the mechanism by which conservatives and working-class Americans are explicitly made unwelcome.',
-    },
-  },
-  {
-    id: 'free-inquiry',
-    icon: 'Search',
-    title: 'Free Inquiry and Intellectual Climate',
-    discriminantPower: 'High',
-    whatItMeasures: 'Whether the institutional climate genuinely permits following evidence wherever it leads — across faculty research, classroom discussion, and student expression — or whether ideological pressure (from any direction) narrows what can be thought, said, and studied.',
-    sharpestSplits: 'Sharpest left-right contrast in the instrument — each side experiences this dimension through opposite frames; Faith & Freedom Families have a distinct religious-expression angle',
-    typeViews: {
-      'university-defenders': 'Genuinely concerned about campus speech climate affecting everyone; wants pluralism without coercion from any direction.',
-      'critical-reformers': 'Believes in free inquiry but is skeptical that free speech claims are advanced in good faith when they protect speech that marginalizes vulnerable students.',
-      'economically-betrayed': 'Self-censorship is real but rooted in economic vulnerability and racial climate, not political viewpoint — the campus speech debate is a proxy war among people with more security.',
-      'market-oriented-pragmatists': 'Strongly concerned that campus climate is more welcoming to liberal views; prefers institutional neutrality and genuine intellectual pluralism over confrontation.',
-      'institutional-skeptics': 'Campus speech debates feel like a factional dispute among insiders — neither side\'s account of free inquiry addresses the more fundamental question of whether self-policing by any of these factions produces real accountability.',
-      'faith-and-freedom-families': 'Religious expression is specifically suppressed — faith commitment is treated as incompatible with serious academic work, which runs deeper than political self-censorship.',
-      'populist-insurgents': 'Free inquiry is the core grievance; DEI enforcement is the mechanism of suppression; universities are designed to silence traditional, working-class, and religious Americans.',
-    },
-  },
-  {
-    id: 'institutional-self-interest',
-    icon: 'Landmark',
-    title: 'Institutional Self-Interest and Fiduciary Failure',
-    discriminantPower: 'High',
-    whatItMeasures: 'Whether institutions act in the genuine interest of students and the public — or whether they protect their own reputation, revenue, and ideological commitments at students\' expense. Covers admin bloat, values-action gaps, predatory enrollment, and crisis opacity.',
-    sharpestSplits: 'Economically Betrayed (predatory enrollment as personal betrayal); Faith & Freedom Families (mission corruption by market forces); Populist Insurgents (total institutional distrust)',
-    typeViews: {
-      'university-defenders': 'Aware of admin bloat but believes institutions can self-correct with sufficient pressure; supports transparency requirements over external mandates.',
-      'critical-reformers': 'Critical of how institutions close ranks during crises — reads as reputation management, not principle; wants institutions to lead with their professed values.',
-      'economically-betrayed': 'Experienced predatory enrollment directly — recruited, enrolled, and left with debt but no degree; deeply concerned about institutional exploitation.',
-      'market-oriented-pragmatists': 'Sees admin bloat and values-action gaps as real problems; wants accountability without destroying what\'s working.',
-      'institutional-skeptics': 'Has accumulated enough evidence — reform task forces that diagnose failures, leaders who acknowledge problems while keeping authority intact — to conclude institutional self-protection is a structural feature, not an aberration.',
-      'faith-and-freedom-families': 'Specifically worried that institutional decisions increasingly prioritize revenue and prestige over faith mission.',
-      'populist-insurgents': 'Institutions are self-serving oligarchies; admin bloat is the deliberate expansion of the values-enforcement apparatus.',
-    },
-  },
-  {
-    id: 'structural-fairness',
-    icon: 'Scale',
-    title: 'Structural Fairness and Access',
-    discriminantPower: 'High',
-    whatItMeasures: 'Whether the higher education system is organized to expand opportunity or to reproduce the advantages of those already privileged. Covers admissions fairness, support for first-generation and low-income students, DEI policy, HBCU and minority-serving institution support, and basic needs access.',
-    sharpestSplits: 'DEI and HBCU items create maximum splits; affordability items produce more cross-partisan agreement',
-    typeViews: {
-      'university-defenders': 'Strongly supports access through need-based aid; more nuanced since SFFA on race-conscious admissions but committed to pluralistic access.',
-      'critical-reformers': 'Equitable access, HBCU support, and basic needs funding are structural mechanisms of fairness — the current rollback is a defining injustice, not a policy debate.',
-      'economically-betrayed': 'This dimension describes their structural reality — Pell Grant erosion, TRIO cuts, and HBCU defunding are direct threats to the communities they represent.',
-      'market-oriented-pragmatists': 'Supports affordability and need-based approaches; skeptical of race-conscious admissions; wants a meritocracy that actually functions, including on legacy preferences.',
-      'institutional-skeptics': 'Has concluded the system isn\'t structured for them; skeptical of both the DEI frame and the meritocracy frame.',
-      'faith-and-freedom-families': 'Supports access for religious vocations but deeply threatened by earnings-based restrictions that treat faith callings as financially unworthy.',
-      'populist-insurgents': 'DEI programs undermine meritocracy and institute race-based preferences; equal treatment is the only legitimate basis for access.',
-    },
-  },
-  {
-    id: 'governance-accountability',
-    icon: 'FileText',
-    title: 'Governance, Reform, and Accountability',
-    discriminantPower: 'High',
-    whatItMeasures: 'Who should have authority over higher education and what kinds of change are legitimate — whether HE can reform itself from within, whether government should intervene and how, whether alternatives should be built rather than existing institutions reformed, and who gets to name the problems.',
-    sharpestSplits: 'Government authority items create the sharpest splits; Faith & Freedom Families occupy a uniquely anomalous position — threatened by a Republican administration\'s accountability framework',
-    typeViews: {
-      'university-defenders': 'Favors reform from within through accreditation and transparency requirements; hostile to executive branch weaponizing funding as policy leverage.',
-      'critical-reformers': 'Strongly opposes federal intervention — government control means the current administration\'s control, which is the source of the threat, not the remedy.',
-      'economically-betrayed': 'Skeptical that insiders can fix a system that failed their communities; asks whose outcomes are being counted and who is doing the defining.',
-      'market-oriented-pragmatists': 'Wants accountability but worries about government overreach; prefers transparency and market signals over direct mandates.',
-      'institutional-skeptics': 'Has watched enough governance cycles to conclude that both political change and internal reform produce reports that diagnose real problems while leaving incentive structures largely intact; outside accountability is the only path they find credible.',
-      'faith-and-freedom-families': 'Uniquely opposed to federal authority because the earnings-based framework threatens religious higher education even under a nominally sympathetic Republican administration.',
-      'populist-insurgents': 'Wants federal intervention to defund and restructure ideologically captured universities; most enthusiastic about institutional dismantlement over incremental reform.',
-    },
-  },
-  {
-    id: 'learning-quality',
-    icon: 'BookOpen',
-    title: 'Learning Quality and Educational Purpose',
-    discriminantPower: 'Moderate-High',
-    whatItMeasures: 'Whether higher education actually produces the intellectual development it claims — genuine formation, not just credentialing — and whether institutions can articulate a coherent account of what they are for beyond job placement and earnings.',
-    sharpestSplits: 'Faith & Freedom Families (formation of character as explicit purpose); Populist Insurgents (ideological capture vs. genuine learning)',
-    typeViews: {
-      'university-defenders': 'Concerned about grade inflation and standards erosion; wants universities to articulate a compelling non-instrumental account of their purpose.',
-      'critical-reformers': 'Trusts academic quality at institutions they support but frames the purpose question through equity and access rather than formation philosophy.',
-      'economically-betrayed': 'Experienced education that delivered neither formation nor credentials that paid off; the philosophical debate about purpose feels abstract compared to the practical question of career connection.',
-      'market-oriented-pragmatists': 'Concerned that declining standards are eroding credential value; wants institutions to say what they\'re for and mean it.',
-      'institutional-skeptics': 'Not engaged with the formation-versus-credential debate; the only question that matters is whether this leads to a job.',
-      'faith-and-freedom-families': 'Most distinctively positioned — the explicit goal is formation of character, moral virtue, and faith; credential-only education fails entirely on those terms.',
-      'populist-insurgents': 'Universities produce graduates ideologically captured, not intellectually formed; academic standards declined because rigor was sacrificed to ideology.',
-    },
-  },
-  {
-    id: 'community-benefit',
-    icon: 'Globe',
-    title: 'Community Benefit and Public Mission',
-    discriminantPower: 'Moderate-High',
-    whatItMeasures: 'Whether higher education serves ordinary people and communities — locally (is the institution embedded in and contributing to its community?), nationally (does research produce benefits that reach people like me?), and globally (is global openness an asset or a liability?).',
-    sharpestSplits: 'Cosmopolitan-nationalist item creates sharpest splits; class and geographic splits on local embeddedness',
-    typeViews: {
-      'university-defenders': 'Views research funding as civilizational infrastructure and strongly supports global academic collaboration.',
-      'critical-reformers': 'Sees community benefit as inseparable from diversity and international collaboration — global openness strengthens rather than weakens American institutions.',
-      'economically-betrayed': 'Deep skepticism that HE benefits their communities — community colleges and HBCUs are more trusted than research universities built to serve others.',
-      'market-oriented-pragmatists': 'Supports research as a public good but worried about cosmopolitan orientation that distances HE from American communities; more skeptical of foreign partnerships.',
-      'institutional-skeptics': 'High skepticism that HE benefits communities like theirs; community colleges and vocational schools are more present and more relevant.',
-      'faith-and-freedom-families': 'Local community benefit matters where faith institutions anchor community life; foreign partnerships viewed with suspicion on national security and cultural-capture grounds.',
-      'populist-insurgents': 'Research benefits travel upward and outward, not back to the communities that paid for institutions through taxes and enrollment; global openness accelerates the extraction of the best local students from the places that need them most.',
-    },
-  },
-  {
-    id: 'financial-stakes',
+    id: 'economic-trust',
     icon: 'DollarSign',
-    title: 'Financial Stakes and Honest Dealing',
-    discriminantPower: 'Moderate',
-    whatItMeasures: 'Whether the investment in higher education is worth the cost — and whether institutions are honest about the terms. Covers cost-benefit verdict, debt as life constraint, underemployment after graduation, financial aid transparency, and who bears the risk when the deal goes wrong.',
-    sharpestSplits: 'Faith & Freedom Families (earnings test threatens religious programs); Economically Betrayed (personal experience of the broken deal)',
+    title: 'Economic Trust',
+    question: 'Does the deal work?',
+    intro: 'Economic trust is the trust of the exchange: whether what college asks in money, debt, and years is fairly shared and honestly described, and whether what comes back can be counted on by people from every background. It holds the fairness of the burden (Burden Sharing), the dependability of the results (Reliable Results), the honesty of the institution’s self-description (Information Transparency), and who actually gets through the open door and who carries the risk when things go wrong (Equal Access). Most of these judgments can be checked against a life: your own, or the lives of people you know.',
+  },
+  {
+    id: 'cultural-trust',
+    icon: 'HeartHandshake',
+    title: 'Cultural Trust',
+    question: 'Does my community belong?',
+    intro: 'Cultural trust is the trust of membership: whether you, and the people you come from, can be part of this world as who you are. It holds whether a community and its way of life count as legitimate members rather than problems to manage (Moral Recognizability), whether ideas can be spoken and followed without penalty (Intellectual Hospitality), and whether the rules hold steady no matter whose status, politics, or connections are involved (Equal Protection), and whether the institution’s public-service language is backed by real service to communities like yours (Community Benefit). These judgments are lived directly by people close to a campus, and reach everyone else as story.',
+  },
+  {
+    id: 'institutional-trust',
+    icon: 'Landmark',
+    title: 'Institutional Trust',
+    question: 'Does the institution answer?',
+    intro: 'Institutional trust is the trust extended to the institution itself: whether what it says about itself can be believed, and whether it can be left to govern its own affairs. Almost none of this can be checked from a person’s own life; it is judged at a distance, from what institutions do when things go wrong. It holds the capacity to notice and fix failure (Self-Correction), the obligation to answer the people it affects (Public Accountability), the question of who has standing to put it right when it cannot (Reform Authority), and whether its authority stays within what earned it (Institutional Overreach).',
+  },
+]
+
+// One layer per ordering slot; the component flatMaps group layers in order,
+// so these ids control display order without reordering the DIMENSIONS array.
+export const LAYERS = [
+  { id: 'value', group: 'economic-trust' },
+  { id: 'econ-candor', group: 'economic-trust' },
+  { id: 'opportunity', group: 'economic-trust' },
+  { id: 'membership', group: 'cultural-trust' },
+  { id: 'cult-inquiry', group: 'cultural-trust' },
+  { id: 'cult-protection', group: 'cultural-trust' },
+  { id: 'public-purpose', group: 'cultural-trust' },
+  { id: 'accountability', group: 'institutional-trust' },
+  { id: 'inst-overreach', group: 'institutional-trust' },
+]
+
+export const DIMENSIONS = [
+  // ── Layer I: The Exchange ──────────────────────────────────────────────────
+  {
+    id: 'burden-proportionality',
+    layer: 'value',
+    icon: 'DollarSign',
+    title: 'Burden Sharing',
+    formalName: 'Burden Proportionality',
+    whatItMeasures: 'Add up everything college asks a family to give — tuition, debt, years, lost income, time away from work and each other. Is that a fair trade for what comes back? The question is the size of the sacrifice against the size of the benefit, not whether the benefit reliably shows up: a program can deliver exactly what it promised and still cost too much. And the judgment is the felt trade, which can drift from the documented one — the conviction that college keeps getting more expensive has outlived a decade in which average net prices fell.',
+    sharpestSplits: 'The sharpest divide in the exchange layer: Skeptics judge the price flatly out of proportion; Pragmatists judge the deal sound.',
     typeViews: {
-      'university-defenders': 'Sees affordability as a structural problem requiring reformed funding, not a reason to abandon the system; wants honest pricing without dismantling what works.',
-      'critical-reformers': 'Frames cost and debt as equity issues — the financial risk falls disproportionately on students of color and low-income students; supports debt relief as a matter of fairness.',
-      'economically-betrayed': 'Experiences this dimension as a broken promise — the sacrifice was real, the institutional assurances were confident, and the mismatch between them is the trust problem; wants institutions to lower risk, not explain more persuasively why risk is still worth taking.',
-      'market-oriented-pragmatists': 'Affordability is the highest concern but still believes the degree delivers for those who make smart choices about institution and field.',
-      'institutional-skeptics': 'Has largely concluded the credential is not worth the cost — moving on; trade and vocational paths feel more honest about their terms.',
-      'faith-and-freedom-families': 'Uniquely threatened by earnings-based accountability metrics — religion and ministry degrees fail those tests, but vocation shouldn\'t require passing an income test.',
-      'populist-insurgents': 'The deal was never honestly represented — what you\'re paying for is ideological formation you didn\'t want, delivered by institutions that favor the credential class.',
+      'institutional-reformers': 'Accepting, with reservations: for most students, what college asks is roughly matched by what it gives back, even if prices deserve scrutiny.',
+      'results-oriented-pragmatists': 'The deal is working, by their lights: Pragmatists judge the degree worth its cost for students who choose programs well.',
+      'grassroots-communitarians': 'Genuinely mixed. Communitarians neither defend the price of college nor treat cost as its defining failure; their concerns live elsewhere, in honesty and answerability.',
+      'fair-deal-skeptics': 'The defining grievance. Skeptics judge that college asks for more money, debt, time, and family sacrifice than the education is worth — the promise was priced beyond the reach of the people it was made to.',
+      'populist-insurgents': 'Skeptical. Insurgents lean toward judging the cost excessive, though for them the deeper problem is not the price — it is how institutions behave when the deal goes wrong.',
     },
   },
   {
-    id: 'ai-integrity',
-    icon: 'Bot',
-    title: 'AI and the Integrity of Learning',
-    discriminantPower: 'Lower overall; item-level varies',
-    whatItMeasures: 'What artificial intelligence does to credentials (entry-level job elimination, institutional adaptation lag), the authorship of student work (academic integrity), and the capacity for independent reasoning. Concern runs high across groups, but why they are concerned differs significantly.',
-    sharpestSplits: 'Faith & Freedom Families (character formation; AI embeds secular assumptions); Economically Betrayed (entry-level vulnerability; may use AI but fears skill erosion); Institutional Skeptics (governance skepticism — who sets the rules, who benefits)',
+    id: 'outcome-dependability',
+    layer: 'value',
+    icon: 'Target',
+    title: 'Reliable Results',
+    formalName: 'Outcome Dependability',
+    whatItMeasures: 'If you start a program, can you count on finishing it, learning what it promised, and ending up somewhere real? Not the average across all graduates — whether a particular person, choosing a particular program, can form a reasonable expectation about what will happen. A dependable outcome can still be overpriced; an undependable one can still be honestly described. This question is about reliability alone. It now carries a newer worry: when most grades are already A\u2019s and AI can do much of the work a degree once certified, does finishing still mean what colleges say it means?',
+    sharpestSplits: 'Skeptics call the results a gamble colleges refuse to admit; Pragmatists and Reformers count on them.',
     typeViews: {
-      'university-defenders': 'Engages AI as a civilizational question; trusts thoughtful institutions to manage it well but wants serious responses on academic integrity, assessment, and cognitive formation. Sees the task as redesigning learning so AI supports deeper education rather than replacing it.',
-      'critical-reformers': 'High AI risk perception; concerned specifically about unequal access to AI tools, surveillance, and institutions using AI to cheapen education for already-struggling students. Wants AI governance centered on equity, privacy, and support rather than cost-cutting.',
-      'economically-betrayed': 'May be hit hardest if AI erodes entry-level work before institutions can adapt; watches employers slow hiring and wonders whether the degree will still pay off. May use AI to get by, but worries that dependence on it will leave students with weaker skills and shakier returns.',
-      'market-oriented-pragmatists': 'Views AI as a tool of self-empowerment that should be used thoughtfully, ethically, and as a core part of college education. Wants institutions to teach students how to use AI well, not just manage its risks, while preserving the degree\'s value as a signal of real competence.',
-      'institutional-skeptics': 'Sees AI as another arena where institutions will move fast, protect themselves, and ask the public to trust promises that may not hold. Less interested in AI hype than in who sets the rules, who benefits, and whether institutions can be trusted to govern the technology responsibly.',
-      'faith-and-freedom-families': 'Strongest concern about AI and character formation; worried that outsourcing thought to machines weakens conscience, discipline, and moral development. Also concerned that AI systems embed secular assumptions and marginalize religious frameworks while being treated as neutral.',
-      'populist-insurgents': 'AI confirms what was already suspected: if AI can do what graduates do, the degree was never worth what institutions charged. Also sees AI as another elite tool that can automate jobs, weaken ordinary workers, and carry the same ideological assumptions already distrusted in higher education.',
+      'institutional-reformers': 'Counting on it: Reformers expect programs to deliver what they promise, and generally believe students who do the work can count on finishing.',
+      'results-oriented-pragmatists': 'The core of their trust: programs deliver the learning and completion they advertise for students who commit to them.',
+      'grassroots-communitarians': 'Split down the middle. Communitarians extend no strong confidence that results can be counted on, without making unreliability their central complaint.',
+      'fair-deal-skeptics': 'A gamble, in their eyes: whether a student finishes, learns, and lands somewhere feels like a gamble whose odds colleges obscure — the second half of the broken promise.',
+      'populist-insurgents': 'Skeptical. Insurgents doubt that completing a program reliably means what institutions say it means — one instance of a wider pattern of claims nobody checks.',
+    },
+  },
+  {
+    id: 'institutional-candor',
+    layer: 'econ-candor',
+    icon: 'FileSearch',
+    title: 'Information Transparency',
+    formalName: 'Institutional Candor',
+    whatItMeasures: 'When colleges describe themselves — the real price of finishing, the odds of a good job, the risks — do they tell it straight, or do they market certainty the evidence can’t support? This is about what institutions say, not how they perform. A college with weak results that levels with people is being candid; a college with strong results described selectively is not. Complexity counts too: a pricing system where few families pay the sticker price, but most Americans assume everyone does, leaves the public misinformed even when nobody lies.',
+    sharpestSplits: 'Reformers are the only type that finds colleges straight with people; Insurgents judge the self-presentation systematically misleading.',
+    typeViews: {
+      'institutional-reformers': 'Taken at their word: colleges generally disclose full costs and describe career outcomes with honest calibration.',
+      'results-oriented-pragmatists': 'Watchful: Pragmatists tolerate marketing as long as results arrive, while preferring plain disclosure of price and odds.',
+      'grassroots-communitarians': 'Skeptical. Communitarians doubt that the sector’s official self-presentation matches the full evidence — a distrust of the distant institutional voice that coexists with their warmth toward the campuses they actually know.',
+      'fair-deal-skeptics': 'Skeptical, with a personal edge: the certainty colleges projected about careers and a better future is precisely what the broken promise was made of.',
+      'populist-insurgents': 'The sharpest verdict of any type. Colleges highlight favorable numbers, obscure full costs, and market certainty the evidence cannot support.',
+    },
+  },
+
+  // ── Layer II: The Terms of Membership ─────────────────────────────────────
+  {
+    id: 'opportunity-fairness',
+    layer: 'opportunity',
+    icon: 'DoorOpen',
+    title: 'Equal Access',
+    formalName: 'Opportunity Fairness',
+    whatItMeasures: 'Colleges promise to open doors. Who actually gets through them — and who carries the risk when things don’t work out? This question covers admission, aid, support to finish, access to the best programs, and whether debt and failure land hardest on the families with the least room for error. A process can follow its rules perfectly and still deal opportunity unevenly; that unevenness is what this measures. For some Americans the question now includes international enrollment: whether international students expand what colleges can offer, or crowd out qualified domestic applicants.',
+    sharpestSplits: 'Pragmatists alone lean favorable; every skeptical type sees advantage flowing to the already-advantaged, for different reasons.',
+    typeViews: {
+      'institutional-reformers': 'Divided. Reformers trust institutional intentions here more than institutional results — one of the places their confidence thins.',
+      'results-oriented-pragmatists': 'Open, by their reckoning: strong opportunities are broadly available to qualified students who seek them, whatever their starting point.',
+      'grassroots-communitarians': 'Leaning skeptical. Opportunity feels less fairly shared than the campus’s welcome — a gap between belonging and benefiting.',
+      'fair-deal-skeptics': 'Skeptical: the students with the least financial room for error carry the most risk away — debt without the full benefit of the degree.',
+      'populist-insurgents': 'Skeptical: the strongest opportunities still flow toward those who began with the greatest advantages, and the risk flows the other way.',
+    },
+  },
+  {
+    id: 'procedural-evenhandedness',
+    layer: 'cult-protection',
+    icon: 'Scale',
+    title: 'Equal Protection',
+    formalName: 'Procedural Evenhandedness',
+    whatItMeasures: 'Does a college apply the same stated rule to similar cases — or do the rules bend depending on a student’s status, politics, connections, or how much pressure a donor or activist group applies? This is about the steadiness of the rules themselves: whether standards hold when powerful people push, whether decisions come with reasons, and whether there is a real way to appeal.',
+    sharpestSplits: 'One of the typology’s widest gulfs: Reformers judge the rules steady and fair; Insurgents judge them bent by whoever pushes hardest.',
+    typeViews: {
+      'institutional-reformers': 'A defining trust. Colleges apply the same stated rules to similar cases, and leaders hold their standards even when powerful groups push back.',
+      'results-oriented-pragmatists': 'Split. Pragmatists neither rely on institutional procedure nor indict it; process matters to them mainly when it affects results.',
+      'grassroots-communitarians': 'Mixed, tilting doubtful — the procedures feel less dependable than the community they govern.',
+      'fair-deal-skeptics': 'Split. Skeptics spread across this question; their grievance is the deal itself more than the evenhandedness of campus rules.',
+      'populist-insurgents': 'A defining distrust. Rules change with a student’s status, politics, or connections, and standards move when donors, politicians, or activists apply pressure.',
+    },
+  },
+  {
+    id: 'intellectual-hospitality',
+    layer: 'cult-inquiry',
+    icon: 'MessageCircle',
+    title: 'Intellectual Hospitality',
+    formalName: 'Intellectual Hospitality',
+    whatItMeasures: 'Can a student voice an unpopular opinion in class without paying for it? Can a professor follow the evidence somewhere inconvenient? Are controversial speakers judged by one standard, whichever side they come from? The question extends to the knowledge the institution produces: whether research follows the evidence independently, or bends toward conclusions decided in advance — the concern at the center of the sector\u2019s own 2026 self-examinations. What this measures is the openness and independence of inquiry itself, separate from whether the people holding ideas feel they belong.',
+    sharpestSplits: 'Half of the pair that defines the Communitarians (with Moral Recognizability): they judge campus genuinely open; Pragmatists and Skeptics doubt it.',
+    typeViews: {
+      'institutional-reformers': 'Workable, in their experience — inquiry functions, with room at the edges for the pressures every institution faces.',
+      'results-oriented-pragmatists': 'A defining reservation. For a type otherwise satisfied with the deal, the intellectual climate is where their confidence stops.',
+      'grassroots-communitarians': 'The typology’s warmest verdict: students can speak, professors can follow evidence, and controversial ideas are judged by consistent standards — a verdict carried by the campuses they know best, where the relationship is felt.',
+      'fair-deal-skeptics': 'Doubtful, at a distance — campus speech is not their fight, but they extend little confidence that unpopular views travel safely.',
+      'populist-insurgents': 'Doubtful: what gets said, studied, and platformed bends to the same pressures that bend the rules.',
+    },
+  },
+  {
+    id: 'moral-recognizability',
+    layer: 'membership',
+    icon: 'HeartHandshake',
+    title: 'Moral Recognizability',
+    formalName: 'Moral Recognizability',
+    whatItMeasures: 'Can you go to college as who you are — religious, working-class, rural, from a minority community — and have your people treated as a real part of the place rather than a problem to manage or a symbol to display? This is different from being allowed to speak: it is about whether your community and its way of life count as legitimate members of the institution’s world, and whether success there requires leaving them behind.',
+    sharpestSplits: 'The other half of the Communitarian pair (with Intellectual Hospitality) — and the widest belonging gap: Communitarians feel counted in; Skeptics and Pragmatists do not.',
+    typeViews: {
+      'institutional-reformers': 'Largely at home: the institution’s welcome is broad and mostly genuine, even if imperfect.',
+      'results-oriented-pragmatists': 'A defining reservation, paired with their doubts about open debate: the campus’s moral world feels narrower than its admissions brochure. For part of this type that narrowness is a manageable reservation; for another part it is the wound that outweighs a working deal.',
+      'grassroots-communitarians': 'An unambiguous yes: religious and traditional groups, minority communities, and non-college families register as real members, not managed constituencies — belonging as it is lived at mission- and faith-based campuses, community colleges, and regional publics.',
+      'fair-deal-skeptics': 'Skeptical — college success too often seems to require leaving a working-class, rural, or non-college way of life behind.',
+      'populist-insurgents': 'Mixed. Insurgents divide here; belonging is not their core grievance — conduct after failure is.',
+    },
+  },
+
+  // ── Layer III: The Institutional Claim ────────────────────────────────────
+  {
+    id: 'public-purpose-fidelity',
+    layer: 'public-purpose',
+    icon: 'Globe',
+    title: 'Community Benefit',
+    formalName: 'Public-Purpose Fidelity',
+    whatItMeasures: 'Colleges receive a lot from the public — funding, tax breaks, the power to grant degrees, freedom from political control — all justified by the claim that they serve society. Does their conduct back up the claim? Or does the public-service language mostly protect the institution’s own budgets, prestige, and people? This is about whether the mission talk matches what the institution actually does when service gets expensive.',
+    sharpestSplits: 'Reformers and Pragmatists see the public genuinely served; Skeptics and Insurgents see public language protecting private advantage.',
+    typeViews: {
+      'institutional-reformers': 'Privileges earned, in their reading: benefits flow well beyond campus, and service language is backed by conduct.',
+      'results-oriented-pragmatists': 'Value returned: whatever their cultural reservations, Pragmatists judge that society gets real value back for what it grants higher education.',
+      'grassroots-communitarians': 'Leaning skeptical — the community-serving language rings truer at the local campus than in the sector’s decisions when service becomes costly.',
+      'fair-deal-skeptics': 'Skeptical: public privileges now protect institutions and the already-advantaged more than the wider public that pays for them.',
+      'populist-insurgents': 'Skeptical, and consistently so: the public-service claim is exactly the kind of institutional self-description they no longer take on faith.',
+    },
+  },
+  {
+    id: 'authority-warrant',
+    layer: 'inst-overreach',
+    icon: 'Landmark',
+    title: 'Institutional Overreach',
+    formalName: 'Authority Warrant and Boundedness',
+    whatItMeasures: 'Two linked questions about authority. Does a degree actually prove what a graduate knows and can do — or does it mostly trade on the institution’s name? And when university leaders speak for the whole institution on public disputes, have they earned that standing, or are they reaching past it? Expertise earns authority; this asks whether the authority is backed up, and whether it stays inside what earned it — including whether an institution that promises to be all things to all people has stayed inside any warrant at all.',
+    sharpestSplits: 'No type is fully comfortable here; the divide runs between the Reformers’ qualified confidence and everyone else’s qualified doubt.',
+    typeViews: {
+      'institutional-reformers': 'Within bounds, mostly: degrees rest on defensible standards and institutional voice generally stays within its warrant — the softest of the Reformers’ trusts.',
+      'results-oriented-pragmatists': 'Split: the credential mostly works as evidence, but institutional pronouncements beyond that competence get little deference.',
+      'grassroots-communitarians': 'Mixed — a community they recognize, wielding an authority they are not sure it has earned.',
+      'fair-deal-skeptics': 'Doubtful: a degree that relies on the institution’s name rather than proof of learning is part of how the promise broke.',
+      'populist-insurgents': 'Doubtful: authority that cannot demonstrate its standards, and speaks beyond them, is authority extended on credit they will no longer advance.',
+    },
+  },
+
+  // ── Layer IV: The Conditions of Repair ────────────────────────────────────
+  {
+    id: 'institutional-correctability',
+    layer: 'accountability',
+    icon: 'RefreshCw',
+    title: 'Self-Correction',
+    formalName: 'Institutional Correctability',
+    whatItMeasures: 'When something at a college is failing — a program, a policy, a promise — can the institution see it and fix it on its own? Or does it protect the failure until outside pressure makes protecting it too expensive, comply while the spotlight is on, and drift back when attention fades? This is about the capacity to learn: noticing, changing, and keeping the change.',
+    sharpestSplits: 'The single widest gap in the typology: Reformers believe institutions learn; Insurgents believe they comply and revert.',
+    typeViews: {
+      'institutional-reformers': 'The heart of their theory of reform: colleges can identify failure, make hard changes, and sustain them — renewal from within is a real capacity, not a hope.',
+      'results-oriented-pragmatists': 'Conditionally convinced: institutions can correct course, especially when results and public rules make failure visible.',
+      'grassroots-communitarians': 'Split — communities renew themselves; whether administrations do is another question.',
+      'fair-deal-skeptics': 'Guardedly open. Alone among the skeptical types, Skeptics retain real belief that institutions can learn — which is why their remedy is better paths, not punishment.',
+      'populist-insurgents': 'The typology’s bleakest judgment: colleges protect failing programs until pressure makes protection costly, then revert when attention fades. This is why nothing short of compulsion persuades them.',
+    },
+  },
+  {
+    id: 'institutional-answerability',
+    layer: 'accountability',
+    icon: 'Megaphone',
+    title: 'Public Accountability',
+    formalName: 'Institutional Answerability',
+    whatItMeasures: 'When a college harms someone — a student, a family, a community — do they get more than a meeting? Can they get real reasons, a review independent enough to overturn a bad decision, a complaint process that actually triggers investigation and consequences? This is about whether the institution must answer to the people it affects, not whether it is capable of improving on its own.',
+    sharpestSplits: 'Reformers trust the channels of account; Insurgents and Communitarians — for different reasons — judge that harmed people cannot get a review with teeth.',
+    typeViews: {
+      'institutional-reformers': 'Answerable, in their experience: people harmed by a college can get reasons, review, and remedy — real answerability is what makes internal renewal trustworthy. Even here, though, a current within the type holds its trust more conditionally, wanting answerability with more teeth than internal channels provide.',
+      'results-oriented-pragmatists': 'Split: recourse works unevenly — a gap public rules on results could close without touching the classroom.',
+      'grassroots-communitarians': 'A defining doubt, and the root of their remedy: affected people lack real standing — which is exactly what shared formal decision power would repair.',
+      'fair-deal-skeptics': 'Comparatively hopeful for a distrusting type: accountability can work, if demand and resources flow to institutions that answer for their results.',
+      'populist-insurgents': 'A defining distrust: complaints rarely trigger investigation, remedy, or consequence — the reason their trust now requires enforcement.',
+    },
+  },
+  {
+    id: 'governance-of-repair',
+    layer: 'accountability',
+    icon: 'Compass',
+    title: 'Reform Authority',
+    formalName: 'Authorized Governance of Repair',
+    whatItMeasures: 'Picture a college that keeps breaking its promises. Who should have the power to put it right — its own board and faculty, checked by independent reviewers? Government, setting rules or taking charge? Students and employers, taking their money and trust elsewhere? The people it affects, with real votes? There is no “trusting” answer here: this question locates each person’s theory of reform, and it is where people who agree on the diagnosis part ways.',
+    sharpestSplits: 'This is the question that separates people who share a diagnosis: every type authorizes a different repair.',
+    typeViews: {
+      'institutional-reformers': 'College-led reform, independently reviewed (their most common choice, by a wide margin): boards, leaders, and faculty make the plan; independent reviewers verify the results. Renewal from within, verified from without. A smaller current leans toward formal power for affected people — stewards for whom internal review, even verified, no longer feels like enough.',
+      'results-oriented-pragmatists': 'Public rules with local academic control (their most common choice): government may set conditions on cost, safety, and results — but teaching and research stay in academic hands.',
+      'grassroots-communitarians': 'Shared formal decision power (their most common choice): students, faculty, staff, and community members help decide major reforms. Membership with authority, not consultation.',
+      'fair-deal-skeptics': 'Fund better paths (their most common choice): put resources into alternatives — community colleges, apprenticeships — and let institutions that cannot deliver shrink or close. Keep the promise, wherever it can be kept. No type spreads more widely on this question: verified internal reform and public rules also draw real shares here — a plurality worth watching when real data arrives.',
+      'populist-insurgents': 'Government takes charge (their most common choice): require changes, replace leaders, attach consequences to public money. When institutions cannot correct themselves, someone with authority must. A substantial wing, though, would sooner fund the alternatives and let failing incumbents shrink — the argument between commanding repair and exiting to it runs inside this type.',
     },
   },
 ]

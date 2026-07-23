@@ -1,299 +1,220 @@
-// Trust Typology Survey — 35-item public instrument (v26-item-catalog-LCA.md + 29-edelman-module.md)
-// Part A (LCA):   23 forced-choice binary items (items 1–23, indices 0–22)
-// Part B (Demo):  7 demographic items (items 24–30, indices 23–29)
-//                 DM-G / DM-H are external-benchmark covariates (Fed SHED; Edelman flash poll)
-//                 — never used for classification
-// Part C (REP):   5 representativeness items (items 31–35, indices 30–34)
+// The v22 fielding form, verbatim — 30 respondent items.
+// Source: twelve-dimension-lca-questionnaire-v22-30-item-exploratory-fielding-form-2026-07.md
+//
+// Items Q01–Q35 (24 paired items): the LCA indicator core. Classification uses
+// these 24 ONLY (v22 coding rule 2).
+// G01: authorized governance of reform — asked, reflected back as "your theory
+// of reform," never used for classification (external validator by design).
+// C07, C01–C03, C05, DEM05: contextual covariates — asked, not used for anything
+// in this prototype (no backend). C07 (evidence source) added 2026-07-18 per the
+// design simulation (scratch/trust-v21-robustness/evidence_source_item_sim.py).
+
+const PAIRED_PROMPT = 'Which statement comes closer to your view — even if neither is exactly right?'
 
 export const SECTIONS = [
-  {
-    id: 'PART1',
-    title: 'Your Views on Higher Education',
-    description: 'These questions help us understand how you think about higher education in America. There are no right or wrong answers.',
-  },
-  {
-    id: 'DM',
-    title: 'About You',
-    description: 'These questions help us understand who holds each view. They are not used to determine your typology class.',
-  },
-  {
-    id: 'REP',
-    title: 'A Few More Questions',
-    description: 'These final questions help us understand the context behind your views.',
-  },
+  { id: 'PART1', label: 'Your judgments of colleges and universities' },
+  { id: 'G', label: 'Reform' },
+  { id: 'DM', label: 'About you' },
 ]
 
 export const ITEMS = [
-
-  // ─── Part A: LCA Items (items 1–23, indices 0–22) ────────────────────────────
-  // All items are forced-choice binary: 'A' = Pole A, 'B' = Pole B
-  // Prompt for all: "Which comes closer to your view — even if neither is exactly right?"
-
-  // Dimension 1 — Financial Stakes and Honest Dealing
-
-  // Item 1 (formerly Item 2)
+  // ── 24 paired judgment items (indices 0–23) ────────────────────────────────
   {
-    id: 'D5-D',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
+    id: 'Q01', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
     options: [
-      { value: 'A', label: 'A college degree remains the most reliable route to economic stability for people from disadvantaged backgrounds — the returns are real, even if access is unequal.' },
-      { value: 'B', label: 'Higher education has become so expensive and unequal that it reinforces class divisions more than it overcomes them — the system benefits those who are already advantaged.' },
+      { value: 'A', label: 'For many students today, college asks for more money and debt than the education is worth.' },
+      { value: 'B', label: 'For most students today, what college provides is worth the money and debt it requires.' },
+    ],
+  },
+  {
+    id: 'Q02', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges now offer enough shorter, part-time, and flexible paths that working adults can earn a useful credential without giving up too much income or family time.' },
+      { value: 'B', label: 'Even with part-time and online choices, college still asks working adults to give up more income and family time than many can reasonably manage.' },
+    ],
+  },
+  {
+    id: 'Q04', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Most students who begin a college program can reasonably count on finishing if they do the work and use the help available.' },
+      { value: 'B', label: 'Whether a student finishes college depends on so many uncertain factors that starting a program is a bigger gamble than colleges admit.' },
+    ],
+  },
+  {
+    id: 'Q06', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Students in a college program can generally count on learning the knowledge and skills the program says it teaches.' },
+      { value: 'B', label: 'What students actually learn varies so much that completing the same program does not reliably mean they gained the promised knowledge and skills.' },
+    ],
+  },
+  {
+    id: 'Q08', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Before students enroll, colleges generally make it clear what the full program will cost, including expenses students are likely to pay beyond tuition.' },
+      { value: 'B', label: 'Colleges often highlight a lower first-year price while making it hard to tell what students will pay to finish the full program.' },
+    ],
+  },
+  {
+    id: 'Q09', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges often talk about careers and a better future with more certainty than the evidence supports.' },
+      { value: 'B', label: 'Colleges are generally honest about how much career results vary and about the limits of what a program can promise.' },
+    ],
+  },
+  {
+    id: 'Q10', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges that promise to open doors generally make their strongest opportunities available to qualified students from low-, middle-, and high-income families.' },
+      { value: 'B', label: 'Colleges talk about opening doors, but their strongest opportunities still go mostly to students who began with the greatest advantages.' },
+    ],
+  },
+  {
+    id: 'Q11', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Students with the least financial room for error are still the ones most likely to carry debt away without receiving the full benefit of a degree.' },
+      { value: 'B', label: 'Colleges generally direct enough aid and completion support toward students with the least financial room for error to keep the risk from falling mostly on them.' },
+    ],
+  },
+  {
+    id: 'Q13', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: "Colleges often change how they apply a rule depending on a student's status, politics, or connections." },
+      { value: 'B', label: 'Colleges generally apply the same stated rule to similar cases, even when one student or group has more influence.' },
+    ],
+  },
+  {
+    id: 'Q15', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'College leaders often change their standards when donors, politicians, activists, or other powerful groups apply enough pressure.' },
+      { value: 'B', label: 'College leaders generally keep the same standards even when a powerful group dislikes the result.' },
+    ],
+  },
+  {
+    id: 'Q16', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Students can usually express an unpopular view in class without fearing a lower grade, public shaming, or being treated as a bad person.' },
+      { value: 'B', label: 'Many students keep certain views to themselves because speaking honestly can bring academic or social trouble.' },
+    ],
+  },
+  {
+    id: 'Q17', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Faculty and researchers often avoid questions that could challenge campus opinion or powerful leaders because the professional cost may be too high.' },
+      { value: 'B', label: 'Faculty and researchers can generally follow sound evidence wherever it leads, even when the findings upset campus opinion or powerful leaders.' },
+    ],
+  },
+  {
+    id: 'Q18', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges generally judge controversial speakers and ideas by the same intellectual and safety standards, regardless of which side they represent.' },
+      { value: 'B', label: 'Colleges are more willing to restrict a speaker or idea when campus leaders dislike the viewpoint, even when the same rules would allow the other side.' },
+    ],
+  },
+  {
+    id: 'Q19', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges may allow religious or traditional groups on campus, but too often treat their beliefs as problems to manage rather than as a legitimate part of the community.' },
+      { value: 'B', label: 'Religious and traditional groups are generally treated as legitimate members of campus life, even when other people strongly disagree with them.' },
+    ],
+  },
+  {
+    id: 'Q20', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Students from racial, ethnic, and cultural minorities can generally see their histories and concerns treated as a real part of the institution, not just as symbols.' },
+      { value: 'B', label: 'Colleges often celebrate diversity in public while leaving some racial, ethnic, and cultural groups feeling that they remain outsiders.' },
+    ],
+  },
+  {
+    id: 'Q21', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'College success is still too often presented as leaving a working-class, rural, or non-college community and its way of life behind.' },
+      { value: 'B', label: 'Students can generally succeed in college without being taught that the family or community they came from matters less.' },
+    ],
+  },
+  {
+    id: 'Q23', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges often talk about serving their communities but protect prestige, budgets, and internal interests when community needs become costly.' },
+      { value: 'B', label: 'Colleges generally back up their public-service language with programs, research, and decisions that respond to real community needs.' },
+    ],
+  },
+  {
+    id: 'Q24', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Public funding, tax benefits, and freedom from political control generally produce benefits for society that go well beyond the benefits received by colleges and graduates themselves.' },
+      { value: 'B', label: "Higher education's public privileges now do more to protect institutions, professionals, and elite advantage than to benefit the wider public." },
+    ],
+  },
+  {
+    id: 'Q25', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: "A college degree still relies too much on the institution's name and too little on clear proof of what graduates know and can do." },
+      { value: 'B', label: 'A college degree generally rests on standards strong enough to be trusted as evidence of what graduates know and can do.' },
+    ],
+  },
+  {
+    id: 'Q27', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'University leaders too often speak for the whole institution on public disputes where the university has no special authority.' },
+      { value: 'B', label: 'University leaders generally speak for the institution only when they can explain why the university has a sound reason to take an official position.' },
+    ],
+  },
+  {
+    id: 'Q30', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Colleges can usually identify a failing program and make hard changes even when jobs, budgets, or prestige are at stake.' },
+      { value: 'B', label: 'Colleges usually protect a failing program until outside pressure makes keeping it more costly than changing it.' },
+    ],
+  },
+  {
+    id: 'Q32', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Even when reform begins under outside pressure, colleges can learn from it and keep the change working after the pressure ends.' },
+      { value: 'B', label: 'Colleges often comply while pressure is high and return to old habits once attention and threats fade.' },
+    ],
+  },
+  {
+    id: 'Q33', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'People harmed by a college may receive a meeting or explanation, but too often cannot obtain an independent review with power to change the result.' },
+      { value: 'B', label: 'People harmed by a college generally can obtain reasons and a review with enough independence and power to correct a wrong result.' },
+    ],
+  },
+  {
+    id: 'Q35', section: 'PART1', type: 'forced_choice', prompt: PAIRED_PROMPT,
+    options: [
+      { value: 'A', label: 'Students and members of the public can submit complaints, but those complaints too rarely trigger an investigation, remedy, or meaningful consequence.' },
+      { value: 'B', label: 'Complaint processes generally give students and the public a real way to trigger investigation and action when a college fails.' },
     ],
   },
 
-  // Item 3
+  // ── G01: authorized governance of reform (index 24) ────────────────────────
   {
-    id: 'D1-I',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
+    id: 'G01', section: 'G', type: 'single_select',
+    prompt: 'Think about a college that repeatedly breaks its promises to students and the public. If it needs major reform, which approach comes closest to your view?',
     options: [
-      { value: 'A', label: 'Underemployment after graduation is a launching pad, not a destination — most college graduates move into roles that match their credential level within a few years, as employers learn what they can do.' },
-      { value: 'B', label: 'Underemployment after graduation is where most graduates stay. It isn\'t a transition — it\'s the outcome, and the doors the degree was supposed to open don\'t open for most who start below their credential level.' },
+      { value: 'A', label: 'College-led reform, independently reviewed. The board, leaders, and faculty make the plan; independent reviewers check the results.' },
+      { value: 'B', label: 'Public rules, but academic control stays local. Government sets rules on cost, student safety, and results; the college keeps control of teaching and research.' },
+      { value: 'C', label: 'Government — federal and state — should take charge when a college fails. Federal and state governments can require changes, replace leaders, and cut public money or approval.' },
+      { value: 'D', label: 'Fund better paths and let this college shrink or close. Put resources into alternatives, such as community college or apprenticeships, instead of trying to save it.' },
+      { value: 'E', label: 'The people affected should share formal decision power. Students, faculty, staff, and community members should help decide major reforms — not just give advice — with more control held locally and less intervention from Washington.' },
     ],
   },
 
-  // Item 4
+  // ── Contextual covariates (indices 25–29; never used for classification) ───
   {
-    id: 'D1-J',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
+    id: 'C07', section: 'DM', type: 'single_select',
+    prompt: 'Thinking back to the questions about colleges: what did you draw on most when answering?',
     options: [
-      { value: 'A', label: 'The labor market still rewards college credentials — graduates who choose their field carefully, build networks, and stay flexible about where they start will find that the degree opens doors. The opportunity is real.' },
-      { value: 'B', label: 'There are now more college graduates seeking college-level work than there are college-level jobs — by a significant margin. That gap is a structural imbalance the system created, not an individual preparation problem.' },
+      { value: 'A', label: 'My own experience at a college' },
+      { value: 'B', label: 'The experiences of family and friends' },
+      { value: 'C', label: 'Colleges I know in my community' },
+      { value: 'D', label: 'What I have read, seen, or heard' },
+      { value: 'E', label: 'I have not had much contact with colleges' },
     ],
   },
-
-  // Item 5
   {
-    id: 'D1-H',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Federal student loans should be available for any accredited program — including ministry, social work, teaching, and the arts — even when graduates earn less than average. A democracy needs people who pursue these callings, and it shouldn\'t make that choice financially impossible.' },
-      { value: 'B', label: 'Federal student loans should be restricted to programs where graduates are likely to earn enough to repay what they borrowed. Taxpayers shouldn\'t subsidize programs with poor financial outcomes.' },
-    ],
-  },
-
-  // Dimension 2 — Learning Quality and Educational Purpose
-
-  // Item 6
-  {
-    id: 'D2-C',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'College gives students genuine intellectual tools — the ability to think carefully, evaluate evidence, and hold complex questions — that they carry for the rest of their lives.' },
-      { value: 'B', label: 'What most students actually get from college is a credential and some skills for a job. The deeper intellectual formation colleges claim to offer rarely happens in practice.' },
-    ],
-  },
-
-  // Item 7
-  {
-    id: 'D2-F',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'General education should require every student to seriously engage with foundational works — from Western philosophy, world religious traditions, or other intellectual canons. There is no substitute for wrestling with the ideas that have shaped how humans live together.' },
-      { value: 'B', label: 'General education should focus on transferable skills — writing clearly, reasoning quantitatively, thinking critically — rather than mandating any particular texts or traditions. Students should learn how to think; what they read to get there should not be prescribed.' },
-    ],
-  },
-
-  // Dimension 3 — AI and the Integrity of Learning
-
-  // Item 9
-  {
-    id: 'D1-D1',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'When AI transforms the jobs graduates were prepared for, that\'s a sign higher education needs to fundamentally change what it teaches and how — the current degree structure is falling behind reality.' },
-      { value: 'B', label: 'AI changes specific job descriptions, not the underlying value of a college education — graduates with strong problem-solving and analytical skills adapt as they always have.' },
-    ],
-  },
-
-  // Item 10
-  {
-    id: 'D2-G',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Whether students use AI or not matters less than the quality of their thinking. Employers need graduates who can work with AI tools intelligently — learning with AI develops exactly that skill for the world students are entering.' },
-      { value: 'B', label: 'Reasoning through hard problems without assistance — holding a complex question in mind, struggling with it, and arriving at your own understanding — is what college is supposed to build. AI doesn\'t develop that capacity; it substitutes for it.' },
-    ],
-  },
-
-  // Item 11
-  {
-    id: 'D2-H',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'AI tools, like any text or method, carry the assumptions of those who built them — but that is precisely what a liberal education teaches students to recognize and reason through. Critical engagement with AI\'s assumptions is not a reason to avoid it; it is what education looks like.' },
-      { value: 'B', label: 'AI systems adopted by colleges were built primarily within secular, Western, market-driven frameworks. For students whose intellectual formation is rooted in faith traditions, non-Western philosophies, or working-class community knowledge, these systems are not neutral — they represent a default that marginalizes their ways of knowing.' },
-    ],
-  },
-
-  // Dimension 4 — Cultural Belonging
-
-  // Item 12
-  {
-    id: 'D4-E',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Colleges genuinely support students from working-class, rural, and faith-community backgrounds — they don\'t have to hide where they come from or change how they talk, think, or carry themselves to be taken seriously.' },
-      { value: 'B', label: 'To be fully taken seriously at most colleges — as a person and an intellect, not just a passing student — those from working-class, rural, or faith-community backgrounds have to present themselves in ways foreign to their home communities.' },
-    ],
-  },
-
-  // Dimension 5 — Institutional Responsibility
-
-  // Item 13
-  {
-    id: 'D3-F',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Even for first-generation and low-income students, enrolling in college means accepting responsibility for seeing it through. Institutions create the opportunity — what students do with it depends on choices no institution can make for them.' },
-      { value: 'B', label: 'When a college recruits and enrolls a student — especially first-generation or low-income — and that student leaves with debt but no degree, the institution bears real responsibility. It took their enrollment and their money and did not deliver the outcome it promised.' },
-    ],
-  },
-
-  // Dimension 6 — Structural Fairness
-
-  // Item 14
-  {
-    id: 'D5-A',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Selective colleges give wealthy families so many advantages — legacy preferences, donor relationships, private school preparation, test coaching — that the admissions process is not genuinely merit-based.' },
-      { value: 'B', label: 'Selective colleges make genuine judgments about intellectual capability and academic potential — the core evaluation is merit-based, whatever advantages wealth provides in preparation beforehand.' },
-    ],
-  },
-
-  // Item 15
-  {
-    id: 'D5-F',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'HBCUs and other minority-serving institutions deserve targeted federal investment because they serve communities historically excluded from mainstream higher education — a community-specific role that other institutions cannot easily substitute.' },
-      { value: 'B', label: 'Federal higher education funding should be distributed based on student outcomes and institutional performance, not on the racial identity of the student population served.' },
-    ],
-  },
-
-  // Dimension 7 — Community Benefit and Public Mission
-
-  // Item 16
-  {
-    id: 'D6-A',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'The college or university that serves my area is a genuine part of the community — it cares about what happens here and contributes to local life.' },
-      { value: 'B', label: "The college or university that serves my area is focused on its own priorities and doesn't make much difference to the lives of ordinary people in the community." },
-    ],
-  },
-
-  // Item 17
-  {
-    id: 'D3-G',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Federal research funding to universities is well-spent — it produces medical breakthroughs, scientific advances, and basic knowledge that benefits the country in ways markets wouldn\'t generate on their own.' },
-      { value: 'B', label: 'Universities receive far more federal research funding than the results justify, with too little accountability for whether the work serves national interests or primarily academic careers.' },
-    ],
-  },
-
-  // Dimension 8 — Governance, Reform, and Accountability
-
-  // Item 18
-  {
-    id: 'R-A',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Higher education does reform itself — faculty governance, accreditation, and shared leadership have produced real changes in response to criticism, even if the pace is slower than critics want.' },
-      { value: 'B', label: 'The evidence from the past decade is that higher education cannot reform itself without significant outside pressure — from employers, students, and government demanding better outcomes and accountability for public investment.' },
-    ],
-  },
-
-  // Item 19
-  {
-    id: 'R-B',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Thinking about higher education in the United States today, which comes closest to your view?',
-    options: [
-      { value: 'A', label: 'The problems are real but fixable — higher education needs reform from within.' },
-      { value: 'B', label: 'Parts of the system should be replaced by fundamentally different alternatives — not just reformed.' },
-    ],
-  },
-
-  // Item 20
-  {
-    id: 'R-D',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'The most important priority is making higher education more affordable and holding institutions accountable — the four-year degree, reformed and fairly priced, remains the most reliable path to economic security for most Americans.' },
-      { value: 'B', label: 'The most important priority is building serious alternatives to the four-year degree — apprenticeships, two-year credentials, stackable community college pathways — and treating these routes as equals, not consolation options for those who couldn\'t make college work.' },
-    ],
-  },
-
-  // Item 21
-  {
-    id: 'R-G',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'When colleges receive federal funding, elected representatives have a legitimate role in shaping what gets studied and taught — that\'s what accountability to the public means.' },
-      { value: 'B', label: 'Using funding to control what researchers can study or instructors can teach isn\'t accountability — it\'s the government determining what counts as knowledge.' },
-    ],
-  },
-
-  // Dimension 9 — Epistemic Authority
-
-  // Item 23
-  {
-    id: 'D7-A',
-    section: 'PART1',
-    type: 'forced_choice',
-    prompt: 'Which comes closer to your view — even if neither is exactly right?',
-    options: [
-      { value: 'A', label: 'Journalists who cover higher education do real accountability journalism — they investigate failures, draw on diverse sources, and produce reporting you can fact-check and rely on, regardless of where they went to college.' },
-      { value: 'B', label: 'Journalists who cover higher education mostly come from the same selective universities and milieu as the people they cover — their reporting reflects that world, and readers whose experience doesn\'t match what those outlets say are right to be skeptical.' },
-    ],
-  },
-
-  // ─── Part B: Demographic Items (items 24–28, indices 23–27) ──────────────────
-
-  // Item 24
-  {
-    id: 'DM-A',
-    section: 'DM',
-    type: 'single_select',
+    id: 'C01', section: 'DM', type: 'single_select',
     prompt: 'Which of the following best describes how you think of yourself politically? Choose the one that fits best.',
     options: [
       { value: '1', label: 'Progressive / Democratic Socialist' },
@@ -308,164 +229,52 @@ export const ITEMS = [
       { value: '10', label: 'Apolitical / Disengaged from politics' },
     ],
   },
-
-  // Item 25
   {
-    id: 'DM-B',
-    section: 'DM',
-    type: 'single_select',
-    prompt: 'Do you currently have student loan debt from your own college education?',
+    id: 'C02', section: 'DM', type: 'single_select',
+    prompt: 'Which best describes your own student-loan situation?',
     options: [
-      { value: 'A', label: 'I never attended college' },
-      { value: 'B', label: 'I attended college but never had student loan debt' },
-      { value: 'C', label: 'I had student loan debt but have fully paid it off' },
-      { value: 'D', label: 'I currently have student loan debt and have less than $25,000 remaining' },
-      { value: 'E', label: 'I currently have student loan debt and have $25,000–$74,999 remaining' },
-      { value: 'F', label: 'I currently have student loan debt and have $75,000 or more remaining' },
+      { value: 'A', label: 'No debt — never attended college' },
+      { value: 'B', label: 'No debt — attended college but never borrowed' },
+      { value: 'C', label: 'No debt — borrowed in the past but have paid it off' },
+      { value: 'D', label: 'Less than $25K remaining' },
+      { value: 'E', label: '$25K–$74,999 remaining' },
+      { value: 'F', label: '$75K or more remaining' },
     ],
   },
-
-  // Item 26
   {
-    id: 'DM-C',
-    section: 'DM',
-    type: 'forced_choice',
+    id: 'C03', section: 'DM', type: 'single_select',
     prompt: 'Did either of your parents or guardians complete a four-year college degree?',
     options: [
       { value: 'A', label: 'Yes — at least one parent or guardian completed a four-year degree' },
-      { value: 'B', label: 'No — I was the first in my immediate family to attend or complete college' },
+      { value: 'B', label: 'No — neither parent nor guardian completed a four-year degree' },
+      { value: 'C', label: 'Not sure' },
+      { value: 'D', label: 'Prefer not to answer' },
     ],
   },
-
-  // Item 27
   {
-    id: 'DM-F',
-    section: 'DM',
-    type: 'single_select',
-    prompt: 'Which best describes the sources you trust most for reliable news and information?',
+    id: 'C05', section: 'DM', type: 'single_select',
+    prompt: 'Beyond your own experience, think about the people in your personal network who have pursued a college degree. How would you characterize the financial outcomes you have observed among them?',
     options: [
-      { value: '1', label: 'National Public Radio, The New York Times, The Washington Post, or similar national newspapers' },
-      { value: '2', label: 'CNN or national network TV news (for example, ABC, CBS, or NBC)' },
-      { value: '3', label: 'Fox News or other similar cable news channels (for example NewsMax, OAN, etc.)' },
-      { value: '4', label: 'News apps with a mix of different news sources (for example Apple News, Google News)' },
-      { value: '5', label: 'Alternative media and talk radio about politics or public affairs' },
-      { value: '6', label: 'Social media and people I know (for example, friends, family, or online communities)' },
+      { value: 'A', label: 'Mostly better — Nearly everyone I know who got a degree is financially better off for having done so' },
+      { value: 'B', label: 'Mixed, skewed positive — More people I know came out ahead financially, but I know a few who did not' },
+      { value: 'C', label: 'Mixed, skewed negative — More people I know seem financially worse off from pursuing a degree, though some did fine' },
+      { value: 'D', label: 'Mostly worse — Most people I know who pursued a degree ended up in a worse financial position than if they had not' },
     ],
   },
-
-  // Item 28
   {
-    id: 'DM-E',
-    section: 'DM',
-    type: 'single_select',
-    prompt: 'Beyond your own experience, think about the people in your personal network who have pursued a college degree. How would you characterize the financial outcomes you\'ve observed among them?',
-    options: [
-      { value: 'A', label: 'Mostly better — Nearly everyone I know who got a degree is financially better off for having done so.' },
-      { value: 'B', label: 'Mixed, skewed positive — More people I know came out ahead financially, but I know a few who didn\'t.' },
-      { value: 'C', label: 'Mixed, skewed negative — More people I know seem financially worse off from pursuing a degree, though some did fine.' },
-      { value: 'D', label: 'Mostly worse — Most people I know who pursued a degree ended up in a worse financial position than if they hadn\'t.' },
-    ],
-  },
-
-  // Item 29 — Economic security (Fed SHED benchmark wording; covariate, not used for classification)
-  {
-    id: 'DM-G',
-    section: 'DM',
-    type: 'single_select',
-    prompt: 'Which best describes how you and your family are managing financially these days?',
-    options: [
-      { value: 'A', label: 'Living comfortably' },
-      { value: 'B', label: 'Doing okay' },
-      { value: 'C', label: 'Just getting by' },
-      { value: 'D', label: 'Finding it difficult to get by' },
-    ],
-  },
-
-  // Item 30 — General AI displacement worry (Edelman benchmark; covariate, not used for classification)
-  {
-    id: 'DM-H',
-    section: 'DM',
-    type: 'single_select',
-    prompt: 'How worried are you, if at all, about being left behind by generative AI (tools like ChatGPT)?',
-    options: [
-      { value: 'A', label: 'Very worried' },
-      { value: 'B', label: 'Somewhat worried' },
-      { value: 'C', label: 'Not too worried' },
-      { value: 'D', label: 'Not at all worried' },
-    ],
-  },
-
-  // ─── Part C: Representativeness Items (items 31–35, indices 30–34) ───────────
-
-  // Item 31
-  {
-    id: 'REP-A',
-    section: 'REP',
-    type: 'single_select',
-    prompt: 'What is your age?',
-    options: [
-      { value: '18-29', label: '18–29 (Generation Z)' },
-      { value: '30-44', label: '30–44 (Millennial)' },
-      { value: '45-59', label: '45–59 (Generation X)' },
-      { value: '60-74', label: '60–74 (Baby Boomer)' },
-      { value: '75-plus', label: '75 or older (Silent Generation)' },
-    ],
-  },
-
-  // Item 32
-  {
-    id: 'REP-B',
-    section: 'REP',
-    type: 'single_select',
-    prompt: 'What is your gender?',
-    options: [
-      { value: 'man', label: 'Man' },
-      { value: 'woman', label: 'Woman' },
-      { value: 'nonbinary', label: 'Non-binary or another gender' },
-      { value: 'prefer_not', label: 'Prefer not to say' },
-    ],
-  },
-
-  // Item 33
-  {
-    id: 'REP-C',
-    section: 'REP',
-    type: 'text_input',
-    prompt: 'What is your current ZIP code? (5 digits — optional)',
-    placeholder: 'e.g. 02134',
-    inputPattern: '[0-9]{5}',
-    maxLength: 5,
-  },
-
-  // Item 34
-  {
-    id: 'REP-D',
-    section: 'REP',
-    type: 'single_select',
-    prompt: 'Which of the following best describes your race or ethnicity?',
-    options: [
-      { value: 'white', label: 'White or European American' },
-      { value: 'black', label: 'Black or African American' },
-      { value: 'hispanic', label: 'Hispanic or Latino (any race)' },
-      { value: 'asian', label: 'Asian or Asian American' },
-      { value: 'native', label: 'American Indian or Alaska Native' },
-      { value: 'multiracial', label: 'Multiracial / more than one of the above' },
-      { value: 'prefer_not', label: 'Prefer not to say' },
-    ],
-  },
-
-  // Item 35
-  {
-    id: 'REP-E',
-    section: 'REP',
-    type: 'single_select',
+    id: 'DEM05', section: 'DM', type: 'single_select',
     prompt: 'What is the highest level of education you have completed?',
     options: [
-      { value: 'less_hs', label: 'Less than high school diploma' },
-      { value: 'hs_ged', label: 'High school diploma or GED' },
-      { value: 'some_college', label: 'Some college or associate\'s degree' },
-      { value: 'bachelors', label: 'Bachelor\'s degree' },
-      { value: 'graduate', label: 'Graduate or professional degree (master\'s, doctoral, law, medical)' },
+      { value: '1', label: 'Less than high school diploma' },
+      { value: '2', label: 'High school diploma or GED' },
+      { value: '3', label: 'Some college, but no degree' },
+      { value: '4', label: 'Associate degree, technical certificate, or trade credential' },
+      { value: '5', label: 'Bachelor’s degree' },
+      { value: '6', label: 'Graduate or professional degree (master’s, doctoral, law, medical)' },
+      { value: '7', label: 'Prefer not to answer' },
     ],
   },
 ]
+
+// The 24 LCA indicator ids, in fielding order.
+export const LCA_ITEM_IDS = ITEMS.filter(i => i.section === 'PART1').map(i => i.id)

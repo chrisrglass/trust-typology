@@ -2,29 +2,44 @@ import { useState, useEffect, useRef } from 'react'
 import { ITEMS } from '../data/instrument.js'
 import Question from './Question.jsx'
 
-const TOTAL = 30
-const INTERSTITIAL_1_AFTER = 19  // show interstitial after item at index 19 (D7-A, last LCA item)
+const TOTAL = 31
 
+// Two interstitials: before G01 (index 24) and before the covariates (index 25).
 const INTERSTITIALS = {
+  'interstitial-0': {
+    afterIndex: -1,
+    part: 'Part I of III',
+    title: 'Before You Begin',
+    context: 'These questions ask about colleges and universities in general — not any one campus. Answer from whatever you know best: your own experience, the experiences of people you know, or what you have seen and read. There are no right answers — choose the statement closer to your view, even if neither is exactly right.',
+    nextIndex: 0,
+    prevIndex: null,
+  },
   'interstitial-1': {
+    afterIndex: 23,
     part: 'Part II of III',
+    title: 'One More Judgment',
+    context: 'You have described how colleges and universities conduct themselves today. The next question asks something different: when a college repeatedly fails, who should have the authority to put it right? There is no higher-trust answer — this question maps your theory of reform.',
+    nextIndex: 24,
+    prevIndex: 23,
+  },
+  'interstitial-2': {
+    afterIndex: 24,
+    part: 'Part III of III',
     title: 'About You',
-    context: 'These questions help us understand who holds each view. They are not used to determine your typology class.',
-    nextIndex: 20,
-    prevIndex: 19,
+    context: 'These final questions help researchers understand who holds each view. They are never used to determine your type — and in this prototype they are not collected or stored at all.',
+    nextIndex: 25,
+    prevIndex: 24,
   },
 }
 
+const INTERSTITIAL_BY_AFTER_INDEX = Object.fromEntries(
+  Object.entries(INTERSTITIALS).map(([key, cfg]) => [cfg.afterIndex, key])
+)
+
 function hasAnswer(item, value) {
-  if (item.type === 'text_input') return true  // optional field — always enabled
+  if (item.type === 'text_input') return true
   if (value === undefined || value === null) return false
   if (item.type === 'multiselect') return Array.isArray(value) && value.length > 0
-  if (item.type === 'matrix') {
-    return (
-      typeof value === 'object' &&
-      item.rows.every(row => value[row.id] !== undefined)
-    )
-  }
   return value !== ''
 }
 
@@ -37,7 +52,7 @@ const AUTO_ADVANCE_TYPES = new Set([
 export default function Quiz({ onComplete }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [responses, setResponses] = useState({})
-  const [uiState, setUiState] = useState('question') // 'question' | 'interstitial-1'
+  const [uiState, setUiState] = useState('interstitial-0') // 'question' | interstitial key
   const [leaving, setLeaving] = useState(false)
   const promptRef = useRef(null)
 
@@ -78,9 +93,10 @@ export default function Quiz({ onComplete }) {
   }
 
   function handleAutoAdvance() {
-    if (currentIndex === INTERSTITIAL_1_AFTER) {
+    const interstitialKey = INTERSTITIAL_BY_AFTER_INDEX[currentIndex]
+    if (interstitialKey) {
       setLeaving(true)
-      setTimeout(() => { setLeaving(false); setUiState('interstitial-1'); window.scrollTo(0, 0) }, 100)
+      setTimeout(() => { setLeaving(false); setUiState(interstitialKey); window.scrollTo(0, 0) }, 100)
     } else if (currentIndex === TOTAL - 1) {
       onComplete(responses)
     } else {
@@ -94,14 +110,18 @@ export default function Quiz({ onComplete }) {
   }
 
   function handleBack() {
-    if (uiState === 'interstitial-1') {
+    if (uiState !== 'question') {
+      const cfg = INTERSTITIALS[uiState]
+      if (cfg.prevIndex === null) return
       setUiState('question')
-      setCurrentIndex(INTERSTITIALS['interstitial-1'].prevIndex)
+      setCurrentIndex(cfg.prevIndex)
       window.scrollTo(0, 0)
       return
     }
-    if (currentIndex === INTERSTITIALS['interstitial-1'].nextIndex) {
-      setUiState('interstitial-1')
+    // stepping back into an interstitial boundary
+    const boundaryKey = Object.entries(INTERSTITIALS).find(([, cfg]) => cfg.nextIndex === currentIndex)?.[0]
+    if (boundaryKey) {
+      setUiState(boundaryKey)
       window.scrollTo(0, 0)
       return
     }
@@ -118,7 +138,7 @@ export default function Quiz({ onComplete }) {
   }
 
   // ── Interstitial screen ────────────────────────────────────────────────────
-  if (uiState === 'interstitial-1') {
+  if (uiState !== 'question') {
     const interstitial = INTERSTITIALS[uiState]
     return (
       <div className="section-interstitial">
@@ -126,7 +146,9 @@ export default function Quiz({ onComplete }) {
         <h2 className="interstitial-title">{interstitial.title}</h2>
         <p className="interstitial-context">{interstitial.context}</p>
         <div className="interstitial-nav">
-          <button className="btn-secondary" onClick={handleBack}>Back</button>
+          {interstitial.prevIndex !== null && (
+            <button className="btn-secondary" onClick={handleBack}>Back</button>
+          )}
           <button className="btn-primary" onClick={() => handleInterstitialContinue(uiState)}>Continue</button>
         </div>
       </div>
@@ -139,7 +161,6 @@ export default function Quiz({ onComplete }) {
 
   return (
     <div className="quiz">
-      {/* Progress bar */}
       <div className="progress-bar-container">
         <div
           className="progress-bar"

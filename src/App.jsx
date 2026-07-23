@@ -4,14 +4,15 @@ import Quiz from './components/Quiz.jsx'
 import Results from './components/Results.jsx'
 import ProfilePage from './components/ProfilePage.jsx'
 import ProfileIndex from './components/ProfileIndex.jsx'
-import DemographicsPage from './components/DemographicsPage.jsx'
 import TypologyLanding from './components/TypologyLanding.jsx'
 import DimensionsPage from './components/DimensionsPage.jsx'
 import NavBar from './components/NavBar.jsx'
 import { CLASSES } from './data/classes.js'
-import { submitResponse } from './lib/supabase.js'
 import { classifyResponses } from './lib/classify.js'
+import { submitResponse } from './lib/supabase.js'
 import './App.css'
+
+const DEFAULT_TITLE = 'The Trust Typology — Five Ways Americans Relate to Higher Education'
 
 function generateSessionId() {
   return crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2)
@@ -19,19 +20,9 @@ function generateSessionId() {
 
 const SESSION_ID = generateSessionId()
 
-const DEFAULT_TITLE = 'The Trust Typology — Seven Ways Americans Relate to Higher Education'
-const DEFAULT_DESC = 'Trust in higher education isn\'t just high or low — it takes seven distinct shapes. Find your type.'
-
-function setMeta(property, content) {
-  let el = document.querySelector(`meta[property="${property}"]`) ||
-           document.querySelector(`meta[name="${property}"]`)
-  if (el) el.setAttribute('content', content)
-}
-
 function parseHash(hash) {
   if (hash.startsWith('#/profiles/')) return { type: 'profile', classId: hash.replace('#/profiles/', '') }
   if (hash === '#/profiles') return { type: 'profile-index' }
-  if (hash === '#/demographics') return { type: 'demographics' }
   if (hash === '#/typology') return { type: 'typology-landing' }
   if (hash === '#/dimensions') return { type: 'dimensions', dimId: null }
   if (hash.startsWith('#/dimensions/')) return { type: 'dimensions', dimId: hash.replace('#/dimensions/', '') }
@@ -41,6 +32,8 @@ function parseHash(hash) {
 export default function App() {
   const [stage, setStage] = useState('landing') // 'landing' | 'quiz' | 'results'
   const [classResult, setClassResult] = useState(null)
+  const [g01Choice, setG01Choice] = useState(null)
+  const [answers, setAnswers] = useState(null)
   const [view, setView] = useState(() => parseHash(window.location.hash))
 
   useEffect(() => {
@@ -52,29 +45,15 @@ export default function App() {
     return () => window.removeEventListener('hashchange', check)
   }, [])
 
-  // Update page title + OG tags when view changes
   useEffect(() => {
     if (view.type === 'profile') {
       const cls = CLASSES.find(c => c.id === view.classId)
       if (cls) {
-        const title = `${cls.name} | The Trust Typology`
-        document.title = title
-        setMeta('og:title', title)
-        setMeta('twitter:title', title)
-        setMeta('og:description', cls.tagline)
-        setMeta('twitter:description', cls.tagline)
-        setMeta('og:image', `/social-cards/${cls.id}.svg`)
-        setMeta('twitter:image', `/social-cards/${cls.id}.svg`)
+        document.title = `${cls.name} | The Trust Typology`
         return
       }
     }
     document.title = DEFAULT_TITLE
-    setMeta('og:title', DEFAULT_TITLE)
-    setMeta('twitter:title', DEFAULT_TITLE)
-    setMeta('og:description', DEFAULT_DESC)
-    setMeta('twitter:description', DEFAULT_DESC)
-    setMeta('og:image', '/social-cards/hero.svg')
-    setMeta('twitter:image', '/social-cards/hero.svg')
   }, [view])
 
   const handleStart = useCallback(() => {
@@ -85,8 +64,11 @@ export default function App() {
   }, [])
 
   const handleComplete = useCallback((responses) => {
+    // Classification uses the 24 paired items only (v22 rule 2).
     const result = classifyResponses(responses)
     setClassResult(result)
+    setG01Choice(responses.G01 ?? null)
+    setAnswers(responses)
     setStage('results')
     window.scrollTo(0, 0)
     // background submit — fire and forget
@@ -107,15 +89,6 @@ export default function App() {
       <div className="app app--profile">
         <NavBar />
         <ProfileIndex highlightedId={classResult?.id} />
-      </div>
-    )
-  }
-
-  if (view.type === 'demographics') {
-    return (
-      <div className="app app--profile">
-        <NavBar />
-        <DemographicsPage />
       </div>
     )
   }
@@ -144,7 +117,7 @@ export default function App() {
       <div className="app-inner">
         {stage === 'landing' && <Landing onStart={handleStart} />}
         {stage === 'quiz' && <Quiz onComplete={handleComplete} />}
-        {stage === 'results' && <Results classResult={classResult} />}
+        {stage === 'results' && <Results classResult={classResult} g01Choice={g01Choice} answers={answers} />}
       </div>
     </div>
   )

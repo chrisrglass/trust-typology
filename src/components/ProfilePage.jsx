@@ -8,6 +8,14 @@ import TypeIcon from './TypeIcon.jsx'
 
 const PROOF_PREVIEW_COUNT = 2
 
+const TYPE_SWITCHER_ORDER = [
+  'institutional-reformers',
+  'results-oriented-pragmatists',
+  'populist-insurgents',
+  'fair-deal-skeptics',
+  'grassroots-communitarians',
+]
+
 export default function ProfilePage({ classId, highlightedId }) {
   const [showAllProof, setShowAllProof] = useState(false)
   const cls = CLASSES.find(c => c.id === classId)
@@ -21,17 +29,6 @@ export default function ProfilePage({ classId, highlightedId }) {
     )
   }
 
-  const neighbor = CLASSES.find(c => c.id === profile.nearestNeighborId)
-
-  const TYPE_SWITCHER_ORDER = [
-    'market-oriented-pragmatists',
-    'economically-betrayed',
-    'institutional-skeptics',
-    'faith-and-freedom-families',
-    'university-defenders',
-    'populist-insurgents',
-    'critical-reformers',
-  ]
 
   return (
     <div className="profile-page">
@@ -46,8 +43,6 @@ export default function ProfilePage({ classId, highlightedId }) {
             </div>
           )}
           <h1 className="profile-header-name">{cls.name}</h1>
-          <p className="profile-header-tagline">{cls.tagline}</p>
-          <span className="profile-header-prevalence">{cls.prevalence} of adults</span>
         </div>
       </div>
 
@@ -83,12 +78,13 @@ export default function ProfilePage({ classId, highlightedId }) {
           ))}
         </section>
 
-        {/* Key Positions */}
+        {/* What They Believe */}
         <section className="profile-section">
           <h2 className="profile-section-title">What They Believe</h2>
           <p className="profile-section-intro">
-            How this group responded to survey items, compared to the average across all seven types.
-            Each bar shows the majority position this type took, with the exact wording from the quiz.
+            How this type responds to survey items, compared to the average across all five types.
+            Each bar shows the majority position this type takes, with the exact wording from the quiz.
+            Values are provisional, from the synthetic design study.
           </p>
           <div className="profile-items">
             {profile.keyItems.map(item => (
@@ -103,10 +99,10 @@ export default function ProfilePage({ classId, highlightedId }) {
           </div>
         </section>
 
-        {/* Top Trust Issues */}
+        {/* What Worries Them Most */}
         <section className="profile-section">
           <p className="profile-para">{profile.topTrustIssues.issues}</p>
-          <h2 className="profile-section-title" style={{ marginTop: '1.5rem' }}>What Worries Them</h2>
+          <h2 className="profile-section-title" style={{ marginTop: '1.5rem' }}>What Worries Them Most</h2>
           <div className="concern-card-grid">
             {profile.topTrustIssues.mainConcerns.map((concern, i) => {
               const dim = DIMENSIONS.find(d => d.id === concern.dimId)
@@ -124,11 +120,11 @@ export default function ProfilePage({ classId, highlightedId }) {
             })}
           </div>
           <p className="profile-para" style={{ marginTop: '0.75rem' }}>
-            <a href="#/dimensions" className="profile-dimensions-link">See Nine Dimensions of Trust →</a>
+            <a href="#/dimensions" className="profile-dimensions-link">See Twelve Dimensions of Trust →</a>
           </p>
         </section>
 
-        {/* Proof Points */}
+        {/* What the Research Shows */}
         {profile.proofPoints && profile.proofPoints.length > 0 && (
           <section className="profile-section">
             <h2 className="profile-section-title">What the Research Shows</h2>
@@ -167,39 +163,29 @@ export default function ProfilePage({ classId, highlightedId }) {
           </section>
         )}
 
-        {/* Reform Stance */}
-        <section className="profile-section">
-          <h2 className="profile-section-title">What Would Build Trust?</h2>
-          <p className="profile-para">{profile.reformStance}</p>
-        </section>
-
-        {/* Nearest Neighbor */}
-        {neighbor && (
+        {/* How They Meet the Other Four */}
+        {profile.meetingNarrative && (
           <section className="profile-section">
-            <h2 className="profile-section-title">Most Similar Type</h2>
-            <a
-              href={`#/profiles/${neighbor.id}`}
-              className="profile-neighbor-card"
-              style={{ borderColor: neighbor.accentColor }}
-            >
-              <div className="profile-neighbor-header">
-                {neighbor.icon
-                  ? <TypeIcon iconName={neighbor.icon} color={neighbor.accentColor} size={18} />
-                  : <div className="profile-neighbor-dot" style={{ background: neighbor.accentColor }} />
-                }
-                <span className="profile-neighbor-name" style={{ color: neighbor.accentColor }}>
-                  {neighbor.name}
-                </span>
-                <span className="profile-neighbor-arrow">→</span>
-              </div>
-              <p className="profile-neighbor-note">{profile.nearestNeighborNote}</p>
-            </a>
+            <h2 className="profile-section-title">How They Meet the Other Four</h2>
+            <p className="profile-para">
+              {profile.meetingNarrative.split(/(\{\{[a-z-]+\}\})/g).map((part, i) => {
+                const m = part.match(/^\{\{([a-z-]+)\}\}$/)
+                if (!m) return part
+                const t = CLASSES.find(c => c.id === m[1])
+                if (!t) return null
+                return (
+                  <a key={i} href={`#/profiles/${t.id}`} style={{ color: t.accentColor, fontWeight: 600, textDecoration: 'none' }}>
+                    {t.name}
+                  </a>
+                )
+              })}
+            </p>
           </section>
         )}
 
         {/* Explore All Types */}
         <section className="profile-section profile-section--explore">
-          <h2 className="profile-section-title">All Seven Types</h2>
+          <h2 className="profile-section-title">All Five Types</h2>
           <div className="profile-explore-grid">
             {TYPE_SWITCHER_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean).map(c => (
               <a
@@ -210,8 +196,6 @@ export default function ProfilePage({ classId, highlightedId }) {
               >
                 <ClassCard
                   name={c.name}
-                  tagline={c.tagline}
-                  prevalence={c.prevalence}
                   accentColor={c.accentColor}
                   icon={c.icon}
                   isYours={c.id === highlightedId}
@@ -224,13 +208,15 @@ export default function ProfilePage({ classId, highlightedId }) {
 
         {/* Footer */}
         <footer className="profile-footer">
-          <p>Thank you for your interest in this research.</p>
+          <p>
+            Research prototype — provisional typology from a synthetic design study, pre-fielding.
+          </p>
           <p>
             Results and analysis will be published at{' '}
             <a href="https://chrisrglass.substack.com" target="_blank" rel="noopener noreferrer">
               chrisrglass.substack.com
             </a>{' '}
-            when the study is complete.
+            as the study develops.
           </p>
           <p>
             Questions? Contact{' '}

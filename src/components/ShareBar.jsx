@@ -1,6 +1,10 @@
 import { useState } from 'react'
 
-const SHARE_URL = 'https://trusttypology.com/'
+// Local prototype: share the current URL, wherever the site is being reviewed.
+// Replace with the production URL before any public deploy.
+function shareUrl() {
+  return window.location.origin + window.location.pathname
+}
 
 export default function ShareBar({ shareText, label = 'Share your result' }) {
   const [copied, setCopied] = useState(false)
@@ -9,21 +13,20 @@ export default function ShareBar({ shareText, label = 'Share your result' }) {
 
   const handleNativeShare = async () => {
     try {
-      await navigator.share({ title: 'The Trust Typology', text: shareText, url: SHARE_URL })
-    } catch (_) {
+      await navigator.share({ title: 'The Trust Typology', text: shareText, url: shareUrl() })
+    } catch {
       // user cancelled or error — silent
     }
   }
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(SHARE_URL)
+      await navigator.clipboard.writeText(shareUrl())
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-    } catch (_) {
-      // fallback: select a temp input
+    } catch {
       const el = document.createElement('input')
-      el.value = SHARE_URL
+      el.value = shareUrl()
       document.body.appendChild(el)
       el.select()
       document.execCommand('copy')
@@ -35,11 +38,11 @@ export default function ShareBar({ shareText, label = 'Share your result' }) {
 
   const twitterUrl =
     'https://x.com/intent/tweet?text=' +
-    encodeURIComponent(shareText + ' ' + SHARE_URL)
+    encodeURIComponent(shareText + ' ' + shareUrl())
 
   const linkedinUrl =
     'https://www.linkedin.com/sharing/share-offsite/?url=' +
-    encodeURIComponent(SHARE_URL)
+    encodeURIComponent(shareUrl())
 
   return (
     <div className="share-bar">
@@ -53,20 +56,10 @@ export default function ShareBar({ shareText, label = 'Share your result' }) {
         <button className="share-btn" onClick={handleCopy} type="button">
           {copied ? 'Copied!' : 'Copy link'}
         </button>
-        <a
-          href={twitterUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="share-btn"
-        >
+        <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className="share-btn">
           𝕏 / Twitter
         </a>
-        <a
-          href={linkedinUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="share-btn"
-        >
+        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="share-btn">
           LinkedIn
         </a>
       </div>

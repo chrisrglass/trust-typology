@@ -1,49 +1,58 @@
-import { CLASSES } from '../data/classes.js'
-
-// Classification uses 6 key items from the 23-item LCA battery.
-// All items are binary forced-choice; 'A' = Pole A (first option in catalog).
+// Five-class profile-matching classifier — Trust Typology v2 prototype.
 //
-// Decision tree:
-//   D5-D:  'A' = degree is a ladder (optimist), 'B' = degree mirrors class divisions
-//   D3-G:  'A' = research is a public good, 'B' = too much funding, too little accountability
-//   D1-I:  'A' = underemployment is temporary, 'B' = underemployment is the structural outcome
-//   D2-C:  'A' = college gives genuine intellectual formation, 'B' = credential only
-//   R-G:   'A' = government oversight is legitimate accountability, 'B' = political content control
-//   D2-H:  'A' = AI systems are ideologically neutral, 'B' = AI excludes non-secular traditions
+// PROVISIONAL, PRE-FIELDING. Naive-Bayes scoring against the five synthetic
+// signature profiles from the design study:
+//   score(c) = log(prior_c) + Σ_items log P(response_i | c)
+// Classification uses the 24 paired items ONLY. G01 and the covariates never
+// enter scoring — G01 is an external validator by design (v22 coding rule 2),
+// reflected back to the respondent as their "theory of reform."
+//
+// This replaces the old site's 6-item decision tree: no single-item hinges;
+// every one of the 24 judgments contributes evidence.
+
+import { CLASSES } from '../data/classes.js'
+import { CLASS_PRIORS, ITEM_PROB_A } from '../data/classifierParams.js'
+import { LCA_ITEM_IDS } from '../data/instrument.js'
+
+const FLOOR = 0.03
+const CEIL = 0.97
+
+function clip(p) {
+  return Math.min(CEIL, Math.max(FLOOR, p))
+}
+
+/**
+ * Classify a completed response set.
+ * @param {Object} responses — item id → 'A' | 'B' (plus G01/covariates, ignored here)
+ * @returns the winning class object, augmented with { scores } (normalized
+ *          posterior-style weights per class id, for transparency/debugging).
+ */
 export function classifyResponses(responses) {
-  const mobility    = responses['D5-D']
-  const publicGood  = responses['D3-G']
-  const underemploy = responses['D1-I']
-  const formation   = responses['D2-C']
-  const govOversight = responses['R-G']
-  const aiNeutral   = responses['D2-H']
-
-  let classId
-
-  if (mobility === 'A') {
-    // Optimists: believe the degree leads to real economic mobility
-    if (publicGood === 'B') {
-      classId = 'faith-and-freedom-families'        // C5: FFC — public research skeptics
-    } else if (underemploy === 'A') {
-      classId = 'market-oriented-pragmatists'         // C4: PPR — underemployment is temporary
-    } else {
-      classId = 'university-defenders'        // C6: LL — underemployment is structural
+  const logScores = {}
+  for (const cls of CLASSES) {
+    let s = Math.log(CLASS_PRIORS[cls.id])
+    for (const itemId of LCA_ITEM_IDS) {
+      const resp = responses[itemId]
+      if (resp !== 'A' && resp !== 'B') continue // unanswered: contributes nothing
+      const pA = clip(ITEM_PROB_A[cls.id][itemId])
+      s += Math.log(resp === 'A' ? pA : 1 - pA)
     }
-  } else {
-    // Pessimists: believe the degree reinforces class divisions more than it overcomes them
-    if (formation === 'A') {
-      classId = 'critical-reformers'            // C1: LP — mission believers despite economic pessimism
-    } else if (govOversight === 'A') {
-      // Want government accountability
-      if (aiNeutral === 'A') {
-        classId = 'institutional-skeptics'        // C3: TOM — AI is neutral, want accountability
-      } else {
-        classId = 'populist-insurgents'        // C2: UR+NAR — AI as values threat, want accountability
-      }
-    } else {
-      classId = 'economically-betrayed'  // C7: LOL+OOL — oppose government content control
-    }
+    logScores[cls.id] = s
   }
 
-  return CLASSES.find(c => c.id === classId) ?? CLASSES[0]
+  // Normalize to posterior-style weights (softmax over log scores).
+  const maxLog = Math.max(...Object.values(logScores))
+  let z = 0
+  const weights = {}
+  for (const [id, s] of Object.entries(logScores)) {
+    weights[id] = Math.exp(s - maxLog)
+    z += weights[id]
+  }
+  for (const id of Object.keys(weights)) {
+    weights[id] = weights[id] / z
+  }
+
+  const winnerId = Object.entries(weights).sort((a, b) => b[1] - a[1])[0][0]
+  const winner = CLASSES.find(c => c.id === winnerId) ?? CLASSES[0]
+  return { ...winner, scores: weights }
 }

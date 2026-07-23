@@ -1,34 +1,41 @@
 import { CLASSES } from '../data/classes.js'
 import ClassCard from './ClassCard.jsx'
+import TypeIcon from './TypeIcon.jsx'
 
 const PREVALENCE_ORDER = [
-  'market-oriented-pragmatists',
-  'economically-betrayed',
-  'institutional-skeptics',
-  'faith-and-freedom-families',
-  'university-defenders',
+  'institutional-reformers',
   'populist-insurgents',
-  'critical-reformers',
+  'results-oriented-pragmatists',
+  'grassroots-communitarians',
+  'fair-deal-skeptics',
 ]
 
 const SORTED_CLASSES = PREVALENCE_ORDER.map(id => CLASSES.find(c => c.id === id)).filter(Boolean)
 
+const byId = id => CLASSES.find(c => c.id === id)
+
 const SHARED_FINDINGS = [
   {
-    heading: 'The cost burden is indefensible',
-    body: 'Across every type, the financial reality of college has become hard to justify. They disagree on who bears the blame — but the shared premise is that the deal is harder than a generation ago.',
+    heading: 'Nobody defends the status quo',
+    body: 'All five types want higher education made more trustworthy. Not one type — including the most confident — believes institutions should simply be left alone. The demand for repair is universal; the argument is over who leads it.',
   },
   {
-    heading: 'Credentials are losing their meaning',
-    body: 'Grade inflation has made transcripts less legible. Median grades now cluster at A across departments. All seven types register this failure, though they assign different causes and different remedies.',
+    heading: 'Trust has layers, and they move independently',
+    body: 'A person can find the price indefensible while trusting the mission, or feel fully welcomed on campus while doubting anyone answers when things go wrong. Single trust numbers average these judgments away; the twelve dimensions keep them apart.',
   },
   {
-    heading: 'Reform is overdue',
-    body: 'Strong cross-partisan majorities want institutions held to account. What reform looks like divides the types as sharply as anything else — but the demand itself is universal.',
+    heading: 'The deepest divide is repair, not diagnosis',
+    body: 'Types that agree something has failed still separate — sharply — on whether institutions actually fix what they find, and on who has the standing to put things right when they do not. The same broken promise leads one type to compel the incumbents and another to build past them.',
   },
 ]
 
 export default function TypologyLanding() {
+  const stewards = byId('institutional-reformers')
+  const pragmatists = byId('results-oriented-pragmatists')
+  const reckoners = byId('populist-insurgents')
+  const rebuilders = byId('fair-deal-skeptics')
+  const communitarians = byId('grassroots-communitarians')
+
   return (
     <div className="profile-page">
 
@@ -37,7 +44,7 @@ export default function TypologyLanding() {
           <p className="profile-header-eyebrow">About This Research</p>
           <h1 className="profile-header-name">The Trust Typology</h1>
           <p className="profile-header-tagline">
-            Seven distinct relationships Americans have with higher education
+            Five Ways Americans Relate to Higher Education
           </p>
         </div>
       </div>
@@ -48,24 +55,66 @@ export default function TypologyLanding() {
         <section className="typo-section">
           <h2 className="typo-section-h2">What this research is</h2>
           <p className="profile-para">
-            Annual surveys show a declining number. But a number doesn't tell a college president — or a state legislator — what has been lost, by whom, or why. This typology finds out.
+            Annual surveys show a declining number. But a number doesn't tell a college president — or a
+            state legislator — what has been lost, by whom, or why. This typology maps the relationships
+            behind the number.
           </p>
           <p className="profile-para">
-            Drawing on the approach used by the Pew Research Center's Political Typology, it identifies seven distinct groups — each responding to a different failure. Some see moral and cultural drift. Some see a broken value proposition. Some see class exclusion. Some see institutional hypocrisy. Some believe the organizations that produced these failures cannot be trusted to repair them. What looks like a single declining number is, underneath, a layered argument about who higher education is for and who has earned the right to define its future.
+            The instrument treats trust in higher education not as an approval rating to be tracked
+            but as a moral relationship to be understood: a profile of judgments organized around
+            three plain questions.
+          </p>
+          <div className="typo-trust-para">
+            <span className="trust-group-icon">
+              <TypeIcon iconName="DollarSign" color="var(--accent)" size={19} strokeWidth={1.7} />
+            </span>
+          <p className="profile-para">
+            <strong>Economic trust</strong> asks: <em>does the deal work?</em>{' '}
+            Whether the burden of cost, debt, and years is fairly shared, whether the results can be
+            counted on, whether the institution describes itself honestly, and who actually gets
+            through the open door.
+          </p>
+          </div>
+          <div className="typo-trust-para">
+            <span className="trust-group-icon">
+              <TypeIcon iconName="HeartHandshake" color="var(--accent)" size={19} strokeWidth={1.7} />
+            </span>
+          <p className="profile-para">
+            <strong>Cultural trust</strong> asks: <em>does my community belong?</em>{' '}
+            Whether your community and its way of life count as full members, whether ideas can be
+            spoken and followed without penalty, whether the rules hold steady regardless of status
+            or politics, and whether the public-service language is backed by real service to
+            communities like yours.
+          </p>
+          </div>
+          <div className="typo-trust-para">
+            <span className="trust-group-icon">
+              <TypeIcon iconName="Landmark" color="var(--accent)" size={19} strokeWidth={1.7} />
+            </span>
+          <p className="profile-para">
+            <strong>Institutional trust</strong> asks: <em>does the institution answer?</em> Whether what it says about itself can be believed, whether it can notice
+            and fix its own failures, whether harmed people can get a real answer, and who has
+            standing to put it right when it cannot.
+          </p>
+          </div>
+          <p className="profile-para">
+            Twelve dimensions sit beneath the three questions. Five types emerge, and the surprise
+            is where they divide.
           </p>
           <div className="typo-quiz-callout">
             <p className="typo-quiz-callout-text">
               Answer a short survey to see which type fits your view of higher education.
             </p>
-            <a href="#/" className="btn-primary">Find Your Type →</a>
+            <a href="#/" className="btn-primary">See Where You Stand →</a>
           </div>
         </section>
 
-        {/* Section 2: What all 7 types share */}
+        {/* Section 2: What all five types share */}
         <section className="typo-section">
-          <h2 className="typo-section-h2">What all 7 types share</h2>
+          <h2 className="typo-section-h2">What all 5 types share</h2>
           <p className="profile-para">
-            The partisan divide over higher education is real, but it obscures something equally important: concerns that cut across every group, regardless of political orientation or relationship to the institution.
+            The partisan divide over higher education is real, but it obscures the structure underneath.
+            Three findings hold across every type.
           </p>
           <div className="typo-shared-grid">
             {SHARED_FINDINGS.map((f, i) => (
@@ -79,87 +128,171 @@ export default function TypologyLanding() {
 
         {/* Section 3: Where they divide */}
         <section className="typo-section">
-          <h2 className="typo-section-h2">Where they divide</h2>
+          <h2 className="typo-section-h2">Where they divide and unexpectedly meet</h2>
           <p className="profile-para">
-            This typology cuts across traditional political lines. The sharpest divisions run not between parties but between two distinct crises: a broken-promise crisis about cost, debt, and what the degree actually delivers — and a cultural-political conflict about institutional mission, legitimacy, and control. Every type feels both to some degree. But they feel them at different intensities, and that shapes their diagnosis, their evidence, and what repair would have to look like.
+            This typology cuts across partisan lines. The sharpest divisions run not between parties
+            but between the three questions: an economic-trust crisis about the exchange (cost,
+            debt, and what the degree delivers), a cultural-trust crisis about membership (whose
+            ways of life count as full members), and an institutional-trust crisis about the compact
+            (whether institutions can be believed and made to answer). Every type feels all three,
+            at different intensities. And the boundaries between types fall in unexpected places: types that share
+            a verdict split on the remedy, and types that share nothing else meet on a single question.
           </p>
 
           <div className="typo-divide-block">
-            <p className="typo-divide-side typo-divide-side--right">On the right</p>
+            <p className="typo-divide-side typo-divide-side--left">Where trust survives</p>
             <p className="profile-para">
-              <a href="#/profiles/faith-and-freedom-families" className="typo-inline-type" style={{ color: '#B78A2A' }}>Faith & Freedom Families</a> and{' '}
-              <a href="#/profiles/populist-insurgents" className="typo-inline-type" style={{ color: '#C46A2D' }}>Populist Insurgents</a>{' '}
-              share distrust of institutional performance — but they reach opposite conclusions on every question that follows.
+              <a href={`#/profiles/${stewards.id}`} className="typo-inline-type" style={{ color: stewards.accentColor }}>{stewards.name}</a> and{' '}
+              <a href={`#/profiles/${pragmatists.id}`} className="typo-inline-type" style={{ color: pragmatists.accentColor }}>{pragmatists.name}</a>{' '}
+              both share concerns about cost while recognizing the value; both carry reservations
+              about the intellectual climate; and neither wants outside intervention in the
+              classroom. What separates them is what the trust
+              rests on — and what each is willing to hand over to the market.
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On what went wrong</p>
+                <p className="typo-divide-q">On what the trust rests on</p>
                 <p className="profile-para">
-                  Faith & Freedom Families want a seat at the existing table — real viewpoint diversity, religious frameworks treated as legitimate, ideological monoculture reduced. Populist Insurgents don't want a better seat at the same table. They want different institutions, rooted in different places: community colleges, technical education, schools that stay tied to the workforce and communities that paid for them.
+                  Reformers trust the institution's character: its candor, its evenhanded rules, its
+                  capacity to correct itself. They see real problems — confusing pricing, opaque
+                  admissions, eroded rigor — and engage the internal debates, including the ones about
+                  the humanities, as their own. Pragmatists trust the delivery: the economic value of
+                  the degree is the case that matters, and they want more transparency — plain
+                  disclosure of price, odds, and results — than Reformers may be willing to consider.
                 </p>
               </div>
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On whether the degree delivers</p>
+                <p className="typo-divide-q">On what reform looks like</p>
                 <p className="profile-para">
-                  Faith & Freedom Families believe the degree works at the right institutions — faith-based colleges, HBCUs, and community-specific schools. Populist Insurgents see a positional arms race: working people were never the intended beneficiaries, and the system absorbed their enrollment and debt while delivering returns to those already advantaged.
+                  Renewal from within, verified from without — versus public conditions without
+                  political control. Beneath both sits the deeper divide: Pragmatists are
+                  individualists at ease with buyer-beware market logic, where informed choice is the
+                  protection. Reformers want institutions answerable but not beholden to the market —
+                  for them, a university run on market logic has already lost what made it worth
+                  trusting.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="typo-divide-block">
-            <p className="typo-divide-side typo-divide-side--middle">In the middle</p>
+            <p className="typo-divide-side typo-divide-side--right">Where the deal broke</p>
             <p className="profile-para">
-              <a href="#/profiles/market-oriented-pragmatists" className="typo-inline-type" style={{ color: '#1F6B4F' }}>Market-Oriented Pragmatists</a>,{' '}
-              the <a href="#/profiles/economically-betrayed" className="typo-inline-type" style={{ color: '#A3171C' }}>Economically Betrayed</a>, and{' '}
-              <a href="#/profiles/institutional-skeptics" className="typo-inline-type" style={{ color: '#7a7570' }}>Institutional Skeptics</a>{' '}
-              share the center — none reliably partisan, none instinctively anti-college. They agree the system has failed to deliver on its promises. They divide on whether that failure is correctable, who is responsible for correcting it, and whether the institutions that produced the failure can be trusted to repair it.
+              <a href={`#/profiles/${rebuilders.id}`} className="typo-inline-type" style={{ color: rebuilders.accentColor }}>{rebuilders.name}</a> and{' '}
+              <a href={`#/profiles/${reckoners.id}`} className="typo-inline-type" style={{ color: reckoners.accentColor }}>{reckoners.name}</a>{' '}
+              reach the same verdict on the exchange: college asks more money, debt, and family
+              sacrifice than results this uncertain can justify, and neither believes the sector's
+              account of itself. They divide on what failed — and on whether institutions can learn.
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On whether the credential delivers</p>
+                <p className="typo-divide-q">On what, exactly, failed</p>
                 <p className="profile-para">
-                  Market-Oriented Pragmatists say yes — the degree pays off for people who choose wisely, commit fully, and take responsibility for the outcome. The Economically Betrayed say the promise was broken before they arrived: the system recruited from working-class communities, accepted their enrollment and debt, and did not deliver the mobility it advertised. Institutional Skeptics don't dispute what the data shows — they dispute whether institutions will ever surface it honestly, and whether any reform will change that.
+                  Skeptics indict the deal: the promise was priced beyond the reach of the people it
+                  was made to, and the risk landed on the families with the least room for error. The
+                  education itself they still believe in. Insurgents indict the conduct: failure
+                  obscured, rules bent for the connected, and no real answer when people are harmed.
                 </p>
               </div>
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On who bears responsibility</p>
+                <p className="typo-divide-q">On whether institutions can learn</p>
                 <p className="profile-para">
-                  For Market-Oriented Pragmatists, outcomes are largely a function of individual choices — the institution's role is to deliver what it offers, and most do. For the Economically Betrayed, the institution bears structural responsibility: it designed the terms of enrollment, set the price, and made the pitch to communities with the least margin for error. Institutional Skeptics agree the institution is responsible — but conclude that the mechanisms for holding it accountable are controlled by the same people who benefit from the current arrangement.
+                  The unexpected boundary: Skeptics have not given up on repair — but what they
+                  demand is significant reform, not incremental adjustment. Bold ideas, not
+                  statements: fund the paths that keep the promise, and let institutions that cannot
+                  deliver shrink or close. Insurgents have concluded self-reform is not credible at
+                  all: federal and state government, and the public itself, need real power to compel
+                  what institutions will not volunteer.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="typo-divide-block">
-            <p className="typo-divide-side typo-divide-side--left">On the left</p>
+            <p className="typo-divide-side" style={{ color: communitarians.accentColor }}>Where trust lives close to home</p>
             <p className="profile-para">
-              <a href="#/profiles/university-defenders" className="typo-inline-type" style={{ color: '#2457A6' }}>University Defenders</a> and{' '}
-              <a href="#/profiles/critical-reformers" className="typo-inline-type" style={{ color: '#6E3B6E' }}>Critical Reformers</a>{' '}
-              share belief in higher education's mission — but are separated by their verdict on institutional performance and what repair requires.
+              <a href={`#/profiles/${communitarians.id}`} className="typo-inline-type" style={{ color: communitarians.accentColor }}>{communitarians.name}</a>{' '}
+              touch every boundary above without belonging to any of them. With the Skeptics they
+              share a distrust of elite institutions; with the Pragmatists, a practical eye on cost,
+              debt, and results. Some share the politics of the Insurgents — without the harshness of
+              the prescription. What defines them is a distinction the others rarely draw: "higher
+              education" in general is one thing; the locally rooted institutions serving people they
+              know are another.
             </p>
             <div className="typo-divide-qs">
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On whether institutions can self-correct</p>
+                <p className="typo-divide-q">On where trust lives</p>
                 <p className="profile-para">
-                  University Defenders believe reform from within is both possible and necessary — the institution is worth defending precisely because it works. Critical Reformers hold the mission steady while indicting the performance: the university's purpose is real, but too many students are bearing costs the institution was never designed to make visible.
+                  Their sharpest grievance is respect: campuses where the moral and faith traditions
+                  rooted in their communities are treated as something students must overcome rather
+                  than something that enriches the place. But that judgment does not travel to less
+                  politicized institutions under local control with demonstrated benefit to their
+                  communities. Their concerns are practical — cost, results, belonging — not the
+                  debates of the humanities at elite universities.
                 </p>
               </div>
               <div className="typo-divide-q-block">
-                <p className="typo-divide-q">On who bears the risk</p>
+                <p className="typo-divide-q">On who should decide</p>
                 <p className="profile-para">
-                  University Defenders trust the degree delivers real mobility for those who commit to it. Critical Reformers see the gap as structural: the credential reinforces class divisions for too many graduates, and reform requires naming that plainly.
+                  Where Insurgents would compel institutions from above, Communitarians would move
+                  power closer: the students, faculty, staff, and communities who constitute a college
+                  should share formal decision power over its reform — membership with authority, with
+                  more control held locally.
                 </p>
               </div>
             </div>
           </div>
+
+          <p className="profile-para" style={{ marginTop: '1.5rem' }}>
+            Each type's full theory of reform — who should be authorized to make a failing
+            institution trustworthy again — is developed on its profile page.
+          </p>
         </section>
 
-        {/* Section 4: Explore the seven types */}
+        {/* Section 4: The working premise */}
         <section className="typo-section">
-          <h2 className="typo-section-h2">Explore the seven types</h2>
+          <h2 className="typo-section-h2">The working premise</h2>
+          <p className="profile-para">
+            The sharpest split is not over whether higher education has problems. It is over each
+            type's <strong>theory of reform</strong>: who should be authorized to make a failing
+            institution trustworthy again. Beneath all twelve dimensions runs the project's working
+            premise: distrust grows when people experience themselves as objects of institutional
+            action rather than participants in it. One question is deliberately not measured as a
+            dimension: what education is <em>for</em>. The typology holds it at the level of the
+            three questions instead: education as a fair exchange, education as a community people
+            belong to, and education as a public compact are three rival answers, and each type's
+            moral economy weighs them differently.
+          </p>
+        </section>
+
+        {/* Section 5: Method & status */}
+        <section className="typo-section">
+          <h2 className="typo-section-h2">Method and status</h2>
+          <p className="profile-para">
+            The typology is built from a 24-item paired-statement instrument spanning the twelve
+            dimensions, developed through iterative design studies and robustness testing. The
+            reform question is deliberately kept outside the classification: your type is determined
+            only by your judgments of institutional conduct, so the alignment between types and theories
+            of reform can be tested rather than assumed.
+          </p>
+          <p className="profile-para">
+            <strong>This site is a research prototype.</strong> The five types, their prevalences, and
+            all numbers shown here come from a synthetic design study — a simulation used to validate
+            the instrument — not from fielded survey respondents. Type names are provisional working
+            labels, and each type likely contains internal currents — registered in the research
+            notes as hypotheses — that future rounds of data may distinguish. The instrument is
+            scheduled for cognitive interviews and fielding; the typology becomes findings only when
+            real respondents produce it.
+          </p>
+        </section>
+
+        {/* Section 6: Explore the five types */}
+        <section className="typo-section">
+          <h2 className="typo-section-h2">Explore the five types</h2>
           <p className="typo-section-lead">
-            Each group holds a coherent internal logic — not positions on a single scale, but distinct ways of relating to higher education, each with its own diagnosis and conditions for repair.
+            Each type holds a coherent internal logic — not positions on a single scale, but distinct
+            ways of relating to higher education, each with its own diagnosis, its own worries, and its
+            own theory of reform.
           </p>
           <div className="results-grid">
             {SORTED_CLASSES.map(cls => (
@@ -171,8 +304,7 @@ export default function TypologyLanding() {
               >
                 <ClassCard
                   name={cls.name}
-                  tagline={cls.tagline}
-                  prevalence={cls.prevalence}
+                  concerns={cls.salientConcerns}
                   accentColor={cls.accentColor}
                   icon={cls.icon}
                   isYours={false}
