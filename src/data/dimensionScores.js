@@ -35,8 +35,8 @@ export const PROFILE_DIMS = [
   { id: 'procedural-evenhandedness', group: 'Cultural', title: 'Equal Protection',         short: 'Same rules', items: ['Q13', 'Q15'] },
   { id: 'public-purpose-fidelity',   group: 'Cultural', title: 'Community Benefit',        short: 'Benefit',    items: ['Q23', 'Q24'] },
   { id: 'institutional-correctability', group: 'Institutional', title: 'Self-Correction',       short: 'Self-fix',   items: ['Q30', 'Q32'] },
-  { id: 'institutional-answerability',  group: 'Institutional', title: 'Public Accountability', short: 'Answering',  items: ['Q33', 'Q35'] },
-  { id: 'authority-warrant',         group: 'Institutional', title: 'Institutional Overreach',  short: 'Overreach',  items: ['Q25', 'Q27'] },
+  { id: 'institutional-answerability',  group: 'Institutional', title: 'Public Answerability',  short: 'Answering',  items: ['Q33', 'Q35'] },
+  { id: 'authority-warrant',         group: 'Institutional', title: 'Earned Authority',         short: 'Authority',  items: ['Q25', 'Q27'] },
 ]
 
 const pTrusting = (probsA, item) =>

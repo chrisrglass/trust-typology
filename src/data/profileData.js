@@ -160,7 +160,7 @@ export const PROFILE_DATA = {
       mainConcerns: [
         { text: 'Self-Correction — whether colleges ever truly learn, or merely comply until attention fades', dimId: 'institutional-correctability' },
         { text: 'Equal Protection — whether rules hold when status, politics, or money pushes back', dimId: 'procedural-evenhandedness' },
-        { text: 'Public Accountability — whether harmed people can trigger review with real power', dimId: 'institutional-answerability' },
+        { text: 'Public Answerability — whether harmed people can trigger review with real power', dimId: 'institutional-answerability' },
       ],
     },
     proofPoints: [
@@ -248,7 +248,7 @@ export const PROFILE_DATA = {
     topTrustIssues: {
       issues: 'The Communitarians’ concerns cluster around the official institution — “higher education” at a distance, not the campuses they know: whether its claims match the evidence, whether its public-service language matches its conduct, and above all whether the people it affects have any standing when it fails them.',
       mainConcerns: [
-        { text: 'Public Accountability — whether affected people have real standing, or only listening sessions', dimId: 'institutional-answerability' },
+        { text: 'Public Answerability — whether affected people have real standing, or only listening sessions', dimId: 'institutional-answerability' },
         { text: 'Information Transparency — whether official self-presentation matches the full evidence', dimId: 'institutional-candor' },
         { text: 'Community Benefit — whether service language survives contact with costly decisions', dimId: 'public-purpose-fidelity' },
       ],

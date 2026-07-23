@@ -38,6 +38,12 @@
 // and Intellectual Freedom → Intellectual Hospitality (formal names promoted
 // to display names at Chris's direction, reversing the 2026-07-18 emic-label
 // decisions for these two).
+// Display renames (2026-07-23, Chris's direction): Institutional Overreach →
+// Earned Authority (the old label named only the low-trust pole and only the
+// boundedness half of D9; Q25 is an under-warrant item, not an overreach item)
+// and Public Accountability → Public Answerability (aligns the display name
+// with the formal construct, Institutional Answerability). Older comments and
+// decision records below retain the pre-rename labels as history.
 export const GROUPS = [
   {
     id: 'economic-trust',
@@ -58,7 +64,7 @@ export const GROUPS = [
     icon: 'Landmark',
     title: 'Institutional Trust',
     question: 'Does the institution answer?',
-    intro: 'Institutional trust is the trust extended to the institution itself: whether what it says about itself can be believed, and whether it can be left to govern its own affairs. Almost none of this can be checked from a person’s own life; it is judged at a distance, from what institutions do when things go wrong. It holds the capacity to notice and fix failure (Self-Correction), the obligation to answer the people it affects (Public Accountability), the question of who has standing to put it right when it cannot (Reform Authority), and whether its authority stays within what earned it (Institutional Overreach).',
+    intro: 'Institutional trust is the trust extended to the institution itself: whether what it says about itself can be believed, and whether it can be left to govern its own affairs. Almost none of this can be checked from a person’s own life; it is judged at a distance, from what institutions do when things go wrong. It holds the capacity to notice and fix failure (Self-Correction), the obligation to answer the people it affects (Public Answerability), the question of who has standing to put it right when it cannot (Reform Authority), and whether its authority stays within what earned it (Earned Authority).',
   },
 ]
 
@@ -214,7 +220,7 @@ export const DIMENSIONS = [
     id: 'authority-warrant',
     layer: 'inst-overreach',
     icon: 'Landmark',
-    title: 'Institutional Overreach',
+    title: 'Earned Authority',
     formalName: 'Authority Warrant and Boundedness',
     whatItMeasures: 'Two linked questions about authority. Does a degree actually prove what a graduate knows and can do — or does it mostly trade on the institution’s name? And when university leaders speak for the whole institution on public disputes, have they earned that standing, or are they reaching past it? Expertise earns authority; this asks whether the authority is backed up, and whether it stays inside what earned it — including whether an institution that promises to be all things to all people has stayed inside any warrant at all.',
     sharpestSplits: 'No type is fully comfortable here; the divide runs between the Reformers’ qualified confidence and everyone else’s qualified doubt.',
@@ -248,7 +254,7 @@ export const DIMENSIONS = [
     id: 'institutional-answerability',
     layer: 'accountability',
     icon: 'Megaphone',
-    title: 'Public Accountability',
+    title: 'Public Answerability',
     formalName: 'Institutional Answerability',
     whatItMeasures: 'When a college harms someone — a student, a family, a community — do they get more than a meeting? Can they get real reasons, a review independent enough to overturn a bad decision, a complaint process that actually triggers investigation and consequences? This is about whether the institution must answer to the people it affects, not whether it is capable of improving on its own.',
     sharpestSplits: 'Reformers trust the channels of account; Insurgents and Communitarians — for different reasons — judge that harmed people cannot get a review with teeth.',
