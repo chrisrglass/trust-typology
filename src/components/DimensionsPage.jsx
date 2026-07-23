@@ -49,7 +49,7 @@ export default function DimensionsPage({ initialDimId = null }) {
 
       <div className="profile-header-band" style={{ background: '#3a3a3a' }}>
         <div className="profile-header-inner">
-          <h1 className="profile-header-name">Dimensions of Trust</h1>
+          <h1 className="profile-header-name">12 Dimensions of Trust</h1>
         </div>
       </div>
 
